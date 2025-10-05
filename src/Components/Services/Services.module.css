@@ -1,0 +1,575 @@
+/* ===== Shared surface tokens for this module (inherit global theme) ===== */
+:global(:root) {
+  --svc-text: var(--text);
+  --svc-muted: var(--muted);
+
+  --svc-card-bg: rgba(255, 255, 255, 0.74);
+  --svc-card-bg-strong: rgba(255, 255, 255, 0.86);
+  --svc-card-border: rgba(0, 0, 0, 0.1);
+  --svc-card-shadow: rgba(0, 0, 0, 0.1);
+
+  --svc-chip-bg: rgba(0, 0, 0, 0.05);
+  --svc-chip-border: rgba(0, 0, 0, 0.12);
+
+  --svc-nav-bg: rgba(0, 0, 0, 0.05);
+  --svc-nav-border: rgba(0, 0, 0, 0.12);
+  --svc-dot: rgba(0, 0, 0, 0.25);
+}
+
+:global([data-theme="dark"]) {
+  --svc-card-bg: rgba(28, 28, 32, 0.58);
+  --svc-card-bg-strong: rgba(28, 28, 32, 0.68);
+  --svc-card-border: rgba(255, 255, 255, 0.1);
+  --svc-card-shadow: rgba(0, 0, 0, 0.35);
+
+  --svc-chip-bg: rgba(44, 44, 48, 0.6);
+  --svc-chip-border: rgba(255, 255, 255, 0.1);
+
+  --svc-nav-bg: rgba(30, 30, 34, 0.55);
+  --svc-nav-border: rgba(255, 255, 255, 0.1);
+  --svc-dot: rgba(255, 255, 255, 0.22);
+}
+
+/* ===== Root / Layout ===== */
+.container {
+  font-family: "Syne", sans-serif;
+  --accent-color: #8a2be2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--svc-text);
+  overflow: hidden;
+  position: relative;
+}
+
+.pageHalo {
+  position: absolute;
+  inset: 0;
+  background: var(--halo);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary, Inter, ui-sans-serif, system-ui);
+  font-size: 3vw;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1vw;
+  text-align: center;
+  color: var(--text);
+}
+
+.sectionDek {
+  font-size: 1vw;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ===== Service Selector (Desktop Tabs) ===== */
+.serviceSelector {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  background: var(--svc-nav-bg);
+  border-radius: 9999px;
+  border: 1px solid var(--svc-nav-border);
+  backdrop-filter: blur(10px);
+}
+
+.serviceNavItem {
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  background: transparent;
+  border: none;
+  color: color-mix(in srgb, var(--svc-text), var(--svc-muted) 40%);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.2s ease;
+  font-size: 1vw;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  outline-offset: 3px;
+}
+
+.serviceNavItem:hover {
+  color: var(--svc-text);
+  transform: translateY(-1px);
+}
+
+.serviceNavItem.active {
+  color: var(--svc-text);
+}
+
+.navIndicator {
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.05)) padding-box,
+    linear-gradient(135deg, var(--accent-color), transparent) border-box;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent-color), black 65%);
+  transition: left 0.35s cubic-bezier(0.5, 0, 0.5, 1),
+    width 0.35s cubic-bezier(0.5, 0, 0.5, 1);
+  z-index: 1;
+}
+
+/* ===== Carousel ===== */
+.carouselWrapper {
+  width: 100%;
+  height: 359px;
+  min-height: 250px;
+  max-height: 19vw;
+  position: relative;
+  margin-bottom: 7vw;
+  z-index: 2;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+#main-panel {
+  height: 92vh !important;
+}
+
+.carouselTrack {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* ===== Service Cards ===== */
+.serviceCardWrapper {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 33vw;
+  height: 100%;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.cardHalo {
+  position: absolute;
+  inset: -6%;
+  background: var(--halo);
+  filter: blur(12px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.serviceCard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 24px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  isolation: isolate;
+  will-change: transform;
+}
+
+.cardFaceFront::after,
+.cardFaceBack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  pointer-events: none;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.02)) padding-box,
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--accent-color) 70%, white 20%),
+      transparent) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGlow 5.5s linear infinite;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes borderGlow {
+  0% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.65;
+  }
+}
+
+.serviceCard.isFlipped {
+  transform: rotateY(180deg);
+}
+
+.cardFaceFront,
+.cardFaceBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 2vw;
+  border-radius: 24px;
+  border: 1px solid var(--svc-card-border);
+  box-shadow: 0 25px 50px -12px var(--svc-card-shadow);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--svc-card-bg);
+}
+
+@supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
+
+  .cardFaceFront,
+  .cardFaceBack {
+    background-color: var(--svc-card-bg-strong);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+.cardFaceFront {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.cardFaceBack {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.serviceCard.isFlipped .cardFaceFront {
+  z-index: 1;
+}
+
+.serviceCard.isFlipped .cardFaceBack {
+  z-index: 2;
+}
+
+/* Content */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardIcon {
+  font-size: 2.5vw;
+  line-height: 0;
+  color: var(--accent-color);
+}
+
+.cardTitle {
+  font-size: 1.8vw;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--svc-text);
+}
+
+.cardDescription {
+  font-size: 1.05vw;
+  color: var(--svc-muted);
+  line-height: 1.6;
+}
+
+.servicecardCtas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardBtn {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--svc-chip-border);
+  background: var(--svc-chip-bg);
+  color: var(--svc-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease,
+    border-color 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05vw;
+}
+
+.cardBtn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--svc-chip-bg), var(--accent-color) 12%);
+  border-color: color-mix(in srgb,
+      var(--svc-chip-border),
+      var(--accent-color) 35%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.cardBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.backBtn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--svc-muted);
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.detailsTitle {
+  font-size: clamp(16px, 1.2vw, 20px);
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Staggered list */
+.detailsList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.detailsList li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+}
+
+.activeCard.isFlipped .detailsList li {
+  animation: popIn 0.45s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  animation-delay: calc(var(--i) * 70ms + 120ms);
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.checkIcon {
+  color: var(--accent-color);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ===== Desktop 3D Carousel ===== */
+@media (min-width: 768px) {
+  .dotIndicators {
+    display: none;
+  }
+
+  .serviceCardWrapper {
+    transform: rotateY(calc(var(--offset) * 35deg)) scale(calc(1 - 0.2 * abs(var(--offset)))) translateX(calc(var(--dir) * -15%)) translateZ(calc(abs(var(--offset)) * -300px));
+    filter: blur(calc(abs(var(--offset)) * 3px));
+    opacity: calc(1 - abs(var(--offset)) * 0.4);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .developerNav {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--svc-nav-bg);
+    border: 1px solid var(--svc-nav-border);
+    border-radius: 9999px;
+    padding: 0.75rem;
+    box-shadow: 0 10px 15px -3px var(--svc-card-shadow);
+    backdrop-filter: blur(10px);
+    color: var(--svc-text);
+  }
+
+  .devImage {
+    width: 3.2vw;
+    height: 3.2vw;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--svc-chip-border);
+  }
+
+  .devTextContainer {
+    text-align: left;
+  }
+
+  .devName {
+    font-weight: 800;
+    font-size: 1.1vw;
+    margin-bottom: 2px;
+    color: var(--svc-text);
+  }
+
+  .devTitle {
+    font-size: 0.95vw;
+    color: var(--svc-muted);
+  }
+
+  .navButton {
+    background: color-mix(in srgb, var(--svc-chip-bg), white 6%);
+    color: var(--svc-text);
+    border-radius: 50%;
+    padding: 1vw;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .navButton:hover {
+    background: color-mix(in srgb, var(--svc-chip-bg), var(--accent-color) 15%);
+    transform: translateY(-1px);
+  }
+
+  .developerNavWrapper {
+    position: fixed;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .developerNavWrapper .developerNav {
+    pointer-events: auto;
+  }
+}
+
+/* ===== Mobile 2D Swipeable Carousel ===== */
+@media (max-width: 767px) {
+  .container {
+    justify-content: flex-start;
+    padding-top: 1.25rem;
+  }
+
+  .serviceSelector {
+    display: none;
+  }
+
+  .carouselWrapper {
+    perspective: none;
+    height: auto;
+    min-height: 420px;
+  }
+
+  .carouselTrack {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .serviceCardWrapper {
+    position: relative;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .serviceCard.isFlipped .cardFaceFront {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .serviceCard.isFlipped .cardFaceBack {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cardFaceFront,
+  .cardFaceBack {
+    padding: 1.5rem;
+    transition: opacity 0.45s ease;
+  }
+
+  .cardFaceBack {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cardTitle {
+    font-size: 1.5rem;
+  }
+
+  .cardDescription {
+    font-size: 0.95rem;
+    color: var(--svc-muted);
+  }
+
+  .dotIndicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--svc-dot);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .activeDot {
+    background: var(--accent-color);
+    transform: scale(1.2);
+  }
+
+  .developerNavWrapper {
+    display: none;
+  }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  .serviceCardWrapper,
+  .serviceCard,
+  .navIndicator,
+  .detailsList li,
+  .navButton,
+  .serviceNavItem {
+    transition: none !important;
+    animation: none !important;
+  }
+}
