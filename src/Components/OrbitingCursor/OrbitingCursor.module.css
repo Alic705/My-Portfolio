@@ -1,0 +1,40 @@
+.cursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px; /* smaller dot */
+  height: 4px;
+  background: var(--brand-1);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+}
+
+.cursorCircle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 26px; /* smaller circle */
+  height: 26px;
+  border: 1px solid var(--brand-2);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.6;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease-out;
+}
+
+.cursorText {
+  font-size: 10px;
+  color: white;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+}

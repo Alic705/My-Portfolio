@@ -1,0 +1,308 @@
+/* =========================================
+   Testimonials.module.css — panel-wide, premium, theme-matched
+   • Uses same glass tokens as About/Uses
+   • One elevation, one radius
+   ========================================= */
+
+/* Pull from globals / About tokens */
+:root {
+  --t-text: var(--text);
+  --t-muted: var(--muted);
+
+  /* Glass card system (aliases match About.module.css) */
+  --card-bg: var(--card-bg, rgba(255, 255, 255, 0.72));
+  --card-bg-strong: var(--card-bg-strong, rgba(255, 255, 255, 0.82));
+  --card-border: var(--card-border, rgba(0, 0, 0, 0.1));
+  --card-shadow: var(--card-shadow, rgba(0, 0, 0, 0.1));
+
+  --accent-1: var(--brand-1, #6e2de9);
+  --accent-2: var(--brand-2, #9a66ff);
+}
+
+/* Accent themes */
+.accent-brand {
+  --a1: var(--accent-1);
+  --a2: var(--accent-2);
+}
+.accent-green {
+  --a1: #22c55e;
+  --a2: #84cc16;
+}
+.accent-blue {
+  --a1: #0ea5e9;
+  --a2: #60a5fa;
+}
+
+/* ===== Section fills the background panel ===== */
+.wrap {
+  width: 100%;
+  color: var(--t-text);
+}
+.fillPanel {
+  padding: clamp(18px, 4vw, 40px);
+  position: relative;
+}
+.fillPanel::after {
+  /* subtle panel overlay glow to tie into main background */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      120% 100% at 50% 0%,
+      color-mix(in srgb, var(--a2) 10%, transparent) 0,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.12),
+      rgba(0, 0, 0, 0.06) 40%,
+      transparent
+    );
+  opacity: 0.85;
+  z-index: 0;
+}
+
+/* ===== Header ===== */
+.pageHeader {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.pageTitle {
+  font: 800 clamp(28px, 4.5vw, 56px) / 1.06
+    var(--font-primary, Inter, ui-sans-serif);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+.kicker {
+  background: linear-gradient(90deg, var(--a2), var(--a1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.pageDek {
+  max-width: 90ch;
+  margin: 8px auto 18px;
+  color: var(--t-muted);
+  text-wrap: balance;
+}
+
+/* ===== Slider layout (edge-to-edge controls, centered card) ===== */
+.slider {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(42px, 1fr) minmax(0, 1040px) minmax(42px, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+/* Glass quote card (same recipe as About .aboutCard) */
+.quoteCard {
+  position: relative;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px var(--card-shadow);
+  padding: clamp(16px, 3.5vw, 36px);
+  text-align: center;
+  isolation: isolate;
+}
+.quoteCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--a2), transparent 65%),
+    transparent 40%,
+    color-mix(in srgb, var(--a2), transparent 78%)
+  );
+  opacity: 0.85;
+  mix-blend-mode: screen;
+}
+
+.quoteText {
+  margin: 0;
+  font-size: clamp(16px, 1.35vw, 20px);
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--t-text) 92%, transparent);
+}
+
+.authorRow {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: baseline;
+  margin-top: 0.8rem;
+  color: color-mix(in srgb, var(--t-text) 70%, transparent);
+}
+.author {
+  font-weight: 700;
+}
+.meta {
+  opacity: 0.9;
+}
+.rating {
+  margin-left: 0.3rem;
+  color: var(--a2);
+}
+
+/* big decorative quotes */
+.qmark {
+  position: absolute;
+  font-weight: 900;
+  font-size: clamp(90px, 14vw, 180px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background: radial-gradient(
+    circle at 40% 40%,
+    color-mix(in srgb, var(--a2) 55%, #fff 0%) 0,
+    color-mix(in srgb, var(--a1) 45%, transparent) 60%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0.18;
+  pointer-events: none;
+}
+.qstart {
+  left: clamp(8px, 3vw, 40px);
+  top: clamp(-6px, 1vw, 8px);
+}
+.qend {
+  right: clamp(8px, 3vw, 40px);
+  bottom: clamp(-6px, 1vw, 8px);
+}
+
+/* Nav buttons pinned to edges */
+.nav {
+  justify-self: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--a1) 45%, transparent);
+  background: rgba(0, 0, 0, 0.28);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease,
+    border-color 0.2s ease;
+}
+.nav:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.4);
+}
+.prev {
+  justify-self: end;
+}
+.next {
+  justify-self: start;
+}
+
+/* dots */
+.dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 14px 0 0;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  border: 0;
+  background: color-mix(in srgb, var(--t-text) 30%, transparent);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.dotActive {
+  background: var(--a1);
+  transform: scale(1.25);
+}
+
+/* Clients rail (full width) */
+.railWrap {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(14px, 2.4vw, 22px);
+  padding-top: clamp(12px, 1.8vw, 18px);
+  border-top: 1px dashed color-mix(in srgb, var(--t-text) 25%, transparent);
+  overflow: hidden;
+}
+.marquee {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: clamp(28px, 6vw, 72px);
+  align-items: center;
+  user-select: none;
+  will-change: transform;
+  animation: marquee 22s linear infinite;
+}
+.m2 {
+  animation-duration: 28s;
+  animation-direction: reverse;
+  opacity: 0.9;
+}
+.marquee img {
+  height: clamp(20px, 4.4vw, 90px);
+  width: auto;
+  filter: grayscale(100%) opacity(0.9) brightness(0.95);
+  transition: filter 0.2s ease, transform 0.2s ease;
+  -webkit-user-drag: none;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+.marquee img:hover {
+  filter: none;
+  transform: translateY(-2px);
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  .slider {
+    grid-template-columns: 42px 1fr 42px;
+  }
+  .nav {
+    width: 40px;
+    height: 40px;
+  }
+  .pageDek {
+    margin-bottom: 12px;
+  }
+}
+@media (max-width: 640px) {
+  .fillPanel {
+    padding: 16px;
+  }
+  .quoteCard {
+    padding: 16px;
+  }
+  .authorRow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}

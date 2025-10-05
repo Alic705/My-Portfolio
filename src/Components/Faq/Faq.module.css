@@ -1,0 +1,285 @@
+/* =========================================
+   FAQ.module.css — matches your glass system
+   One elevation, one radius; light/dark aware
+   ========================================= */
+
+/* Use the same tokens you already defined globally */
+:root {
+  --faq-text: var(--text);
+  --faq-muted: var(--muted);
+
+  /* Glass aliases (shared with About/Uses) */
+  --card-bg: var(--card-bg, rgba(255, 255, 255, 0.72));
+  --card-border: var(--card-border, rgba(0, 0, 0, 0.1));
+  --card-shadow: var(--card-shadow, rgba(0, 0, 0, 0.1));
+
+  --accent-1: var(--brand-1, #6e2de9);
+  --accent-2: var(--brand-2, #9a66ff);
+
+  --ring: color-mix(in srgb, var(--accent-1) 35%, transparent);
+}
+
+/* ===== Page wrap fills panel space ===== */
+.wrap {
+  width: 100%;
+  color: var(--faq-text);
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  margin: 0 auto clamp(12px, 2.4vw, 20px);
+  max-width: 900px;
+}
+
+.h1 {
+  font: 800 clamp(28px, 4.2vw, 56px) / 1.06 var(--font-primary, Inter, ui-sans-serif);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.dek {
+  color: var(--faq-muted);
+  margin-top: 8px;
+  text-wrap: balance;
+}
+
+.link {
+  color: var(--faq-text);
+  text-decoration: none;
+  border-bottom: 1px dashed color-mix(in srgb, var(--faq-text) 40%, transparent);
+}
+
+.link:hover {
+  color: #fff;
+  border-bottom-color: var(--accent-2);
+}
+
+/* Search */
+.searchWrap {
+  margin-top: 14px;
+}
+
+.search {
+  width: 25VW;
+  background: color-mix(in srgb, var(--card-bg) 85%, transparent);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--faq-text);
+  outline: none;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+/* ===== Grid of Q/A cards ===== */
+.grid {
+  margin: clamp(16px, 3vw, 24px) auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 18px);
+  max-width: 1100px;
+}
+
+/* Card (details) */
+.item {
+  position: relative;
+  border-radius: 16px;
+  overflow: clip;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px var(--card-shadow);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.18s ease;
+}
+
+.item:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--card-border), var(--accent-2) 45%);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--accent-2) 18%, #000);
+}
+
+/* Summary row */
+.q {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 16px 18px;
+  user-select: none;
+}
+
+.q::-webkit-details-marker {
+  display: none;
+}
+
+.qText {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-size: clamp(15px, 1.2vw, 18px);
+}
+
+.chev {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  position: relative;
+}
+
+.chev::before,
+.chev::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 8px;
+  height: 2px;
+  background: var(--faq-text);
+  transform-origin: left center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.chev::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.chev::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Open state rotates the caret to a minus */
+.item[open] .chev::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.item[open] .chev::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+}
+
+/* Answer body */
+.aWrap {
+  padding: 0 18px 16px;
+  border-top: 1px dashed color-mix(in srgb, var(--faq-text) 20%, transparent);
+  animation: fadeSlide 0.28s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.a {
+  color: var(--faq-muted);
+  line-height: 1.65;
+  margin-top: 10px;
+}
+
+/* Actions row */
+.itemActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.copyLink {
+  border: 1px solid var(--card-border);
+  background: color-mix(in srgb, var(--card-bg) 85%, transparent);
+  color: var(--faq-text);
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: transform 0.18s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.copyLink:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-2);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent-2) 18%, #000);
+}
+
+/* Empty state */
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--faq-muted);
+  padding: 26px 0;
+}
+
+/* CTA row (reuse button style from your system) */
+.ctaRow {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: clamp(18px, 3vw, 28px) 0 4px;
+}
+
+.btn {
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  transition: transform 0.18s, background 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.btnPrimary {
+  background: var(--accent-2);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-2), transparent 70%);
+}
+
+.btnPrimary:hover {
+  background: var(--accent-1);
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  background: var(--btn-ghost-bg, transparent);
+  color: var(--faq-text);
+  border: 1px solid var(--btn-ghost-border, rgba(255, 255, 255, 0.28));
+}
+
+.btnGhost:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb,
+      var(--btn-ghost-border, #888),
+      var(--accent-2) 40%);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent-2), transparent 82%);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aWrap {
+    animation: none !important;
+  }
+}

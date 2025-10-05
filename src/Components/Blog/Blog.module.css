@@ -1,0 +1,293 @@
+/* =========================================
+   Blog.module.css — List page (with new blog-card UI)
+   ========================================= */
+
+:root {
+  --blog-text: var(--text, #1e1e28);
+  --blog-muted: var(--muted, #657083);
+
+  --brand-1: var(--brand-1, #6e2de9);
+  --brand-2: var(--brand-2, #9a66ff);
+  --ring: color-mix(in srgb, var(--brand-2) 35%, transparent);
+
+  --card-bg: var(--card-bg, rgba(255, 255, 255, 0.72));
+  --card-bg-2: color-mix(in srgb, var(--card-bg) 85%, transparent);
+  --card-border: var(--card-border, rgba(0, 0, 0, 0.1));
+  --card-shadow: var(--card-shadow, rgba(0, 0, 0, 0.12));
+}
+
+/* ===== page ===== */
+.wrap {
+  color: var(--blog-text);
+  padding: clamp(18px, 4vw, 40px);
+}
+
+/* ===== header ===== */
+.header {
+  max-width: 980px;
+  margin: 0 auto clamp(16px, 2.8vw, 26px);
+  text-align: center;
+}
+.h1 {
+  font: 800 clamp(28px, 4vw, 56px) / 1.06
+    var(--font-primary, Inter, ui-sans-serif);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+.dek {
+  color: var(--blog-muted);
+  margin-top: 8px;
+  text-wrap: balance;
+}
+
+/* filters row */
+.filters {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.search,
+.select {
+  background: var(--card-bg-2);
+  border: 1px solid var(--card-border);
+  color: var(--blog-text);
+  border-radius: 12px;
+  padding: 12px 14px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search {
+  width: min(520px, 80vw);
+}
+.select {
+  min-width: 160px;
+}
+.search:focus,
+.select:focus {
+  border-color: var(--brand-2);
+  box-shadow: 0 0 0 3px var(--ring);
+  outline: none;
+}
+
+/* ===== grid ===== */
+.grid {
+  max-width: 1200px;
+  margin: clamp(16px, 3vw, 26px) auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 20px);
+}
+
+/* =========================================
+     NEW Blog Card UI (image + date badge + overlay)
+     ========================================= */
+
+.blogCard {
+  position: relative;
+  border-radius: 16px;
+  overflow: auto;
+
+  transition: transform 0.18s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  min-height: 400px;
+}
+.blogCard:hover {
+  transform: translateY(-3px);
+}
+
+.blogCardLink {
+  display: block;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* cover image */
+.blogCardImg img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+  background: #0b0b0f;
+}
+
+/* date badge */
+.dateBadge {
+  position: absolute;
+  top: 78%;
+  left: 15px;
+  background-color: #ffffff;
+  color: #000;
+  padding: 14px 14px;
+  border-radius: 6px;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.1;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+.dateBadgeMonth {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* dark overlay content box */
+.cardBody {
+  position: absolute;
+  right: 0%;
+  top: 78%;
+  background-color: #333333;
+  color: #fff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  max-width: 64%;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+.cardMeta {
+  font-size: 12px;
+  color: #ccc;
+}
+.cardTitle {
+  margin: 6px 0 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+}
+.continueLink {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.continueLink:hover {
+  transform: translateX(2px);
+  opacity: 0.9;
+}
+
+/* empty state */
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--blog-muted);
+  padding: 28px 0;
+}
+/* Blog Cards (Carousel Style) */
+.blogCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+
+  transition: transform 0.25s ease;
+}
+.blogCard:hover {
+  transform: translateY(-4px);
+}
+
+.blogCardImg img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Date Badge */
+.dateBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #fff;
+  color: #000;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+}
+.dateBadge span {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Card Overlay */
+.cardBody {
+  background: #333;
+  padding: 18px;
+  border-radius: 8px;
+  margin: -40px 16px 16px;
+  /* position: relative; */
+  z-index: 2;
+  color: #fff;
+}
+.cardBody small {
+  font-size: 12px;
+  color: #ccc;
+}
+.cardBody h2 {
+  font-size: 16px;
+  margin: 8px 0;
+  font-weight: 700;
+}
+.continueLink {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.continueLink:hover {
+  opacity: 0.85;
+  transform: translateX(3px);
+}
+
+/* Swiper tweaks */
+.blogSwiper {
+  padding-bottom: 30px;
+}
+
+/* ===== responsive tweaks for the overlay layout ===== */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 860px) {
+  /* let overlay sit below the image to avoid overflow overlaps on small screens */
+  .cardBody,
+  .dateBadge {
+    position: static;
+  }
+  .blogCard {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .cardBody {
+    margin: 10px 12px 12px;
+    max-width: 100%;
+  }
+  .dateBadge {
+    margin-left: 12px;
+    margin-top: -22px;
+    width: fit-content;
+  }
+}
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blogCard {
+    transition: none !important;
+  }
+  .continueLink {
+    transition: none !important;
+  }
+}

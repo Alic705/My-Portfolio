@@ -1,0 +1,322 @@
+/* ===== Shared wrapper pattern (site-wide) ===== */
+.homeContainer {
+  width: 100%;
+  /* height: 100%; */
+
+}
+
+.contentWrapper {
+  color: var(--text);
+  display: grid;
+  gap: 1vw;
+  position: relative;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+/* ===== Heading rhythm ===== */
+.mainHeading {
+  color: var(--text);
+  font-weight: 800;
+  font-size: 4.2vw;
+  line-height: 1.22;
+  /* premium rhythm */
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.25);
+
+}
+
+.impactHighlight {
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+/* ===== Divider + Spark ===== */
+.divider {
+  width: 86px;
+  height: 3px;
+  border-radius: var(--r-pill);
+  background: var(--divider-grad);
+  opacity: 0.95;
+  position: relative;
+}
+
+.sparkDot {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #ffffff 0 30%, var(--brand-2) 30% 100%);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--brand-2), transparent 20%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== Subheading ===== */
+.subHeading {
+  max-width: 75%;
+  display: block;
+  margin: auto;
+  color: var(--text-secondary);
+  font-size: 1.1vw;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ===== CTAs ===== */
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.7vw;
+}
+
+/* pointer glow */
+.ctaWrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 24px;
+  isolation: isolate;
+  z-index: 0;
+}
+
+.pointerGlow {
+  position: absolute;
+  inset: -6px -10px;
+  pointer-events: none;
+  border-radius: 24px;
+  background: radial-gradient(160px 90px at var(--x, 50%) var(--y, 50%),
+      color-mix(in srgb, var(--brand-2), transparent 82%),
+      transparent 60%);
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+  z-index: 0;
+}
+
+/* Buttons (ghost contrast + focus parity) */
+.btn {
+  position: relative;
+  z-index: 1;
+  padding: 0.9rem 1.4rem;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  font-size: .95vw;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
+    color 0.18s ease, border-color 0.18s ease;
+  letter-spacing: -0.01em;
+}
+
+.btnPrimary {
+  background: var(--btn-primary-bg);
+  color: #fff;
+  box-shadow: 0 12px 28px var(--btn-primary-shadow);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+}
+
+.btnPrimary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-1), transparent 45%);
+}
+
+.btnGhost {
+  background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-text);
+  border: 1px solid var(--btn-ghost-border);
+}
+
+.btnGhost:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--btn-ghost-border), var(--brand-2) 35%);
+}
+
+.btnGhost:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-2), transparent 55%);
+}
+
+/* ===== Trust block -> unified card shell ===== */
+.trustBlock {
+  margin-top: 1.3vw;
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+  color: var(--text-secondary);
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  background: color-mix(in hsl, var(--surface-panel) 80%, transparent);
+  border: 1px solid var(--panel-border);
+  padding: .5vw .9vw;
+  border-radius: var(--r-md);
+  border: 1px solid var(--btn-ghost-border);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--elev-1);
+  font-size: .9vw;
+}
+
+.starsAnimated {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.star {
+  color: var(--star);
+  font-size: .9vw;
+  opacity: 0;
+  transform: scale(0.6);
+  animation: starIn 0.4s ease forwards;
+  animation-delay: calc(var(--i) * 80ms);
+}
+
+@keyframes starIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dotPulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  /* micro-accent */
+  display: inline-block;
+  animation: pulse 1.6s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 254, 1, 0.45);
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.score {
+  font-weight: 800;
+  color: var(--brand-2);
+}
+
+.muted {
+  opacity: 0.85;
+}
+
+/* Proof badges = pill shells */
+.badges {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.15rem;
+}
+
+.badges span {
+  font-size: 0.9rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--panel-border);
+  background: color-mix(in hsl, var(--surface-panel) 70%, transparent);
+  color: var(--text);
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.badges span:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== Reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.marqueeWrap {
+  overflow: hidden;
+  position: relative;
+  /* margin-top: 1.3vw; */
+  mask-image: linear-gradient(90deg,
+      transparent 0%,
+      #000 10%,
+      #000 90%,
+      transparent 100%);
+}
+
+
+
+.marqueeTrack {
+  display: inline-flex;
+  gap: 2rem;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .9vw;
+  line-height: .9vw;
+  padding: .6vw .9vw;
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  border: 1px solid var(--btn-ghost-border);
+  background: color-mix(in srgb, var(--surface-panel) 70%, transparent);
+}
+
+.marqueeItem i {
+  color: var(--star);
+  font-weight: 500;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .contentWrapper {
+    gap: 1rem;
+    margin: 4.5rem auto 2.5rem;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .impactHighlight {
+    white-space: normal;
+  }
+}
