@@ -28,19 +28,23 @@
   color: var(--text-uses);
   padding: clamp(12px, 2vw, 18px) clamp(10px, 2vw, 18px) 28px;
 }
+
 .hero {
   max-width: 980px;
   margin: 0 auto 22px;
   text-align: center;
 }
+
 .title {
   font-weight: 800;
   letter-spacing: -0.02em;
   font-size: clamp(28px, 3.4vw, 44px);
 }
+
 .slug {
   color: var(--accent-2);
 }
+
 .sub {
   color: var(--muted-uses);
   margin-top: 8px;
@@ -68,6 +72,7 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px var(--card-shadow);
 }
+
 .railTitle {
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -75,9 +80,11 @@
   color: var(--muted-uses);
   margin-bottom: 10px;
 }
+
 .block {
   margin: 14px 0;
 }
+
 .label {
   font-size: 12px;
   color: var(--muted-uses);
@@ -96,6 +103,7 @@
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+
 .search:focus,
 .select:focus {
   border-color: color-mix(in srgb, var(--accent-2) 60%, transparent);
@@ -109,9 +117,14 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+
 .pillsCompact {
   gap: 6px;
 }
+
+.pill,
+.pillSmall {}
+
 .pill,
 .pillSmall {
   background: var(--card-bg-strong);
@@ -124,16 +137,19 @@
   transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s,
     background 0.2s;
 }
+
 .pillSmall {
   padding: 6px 10px;
   font-size: 12px;
 }
+
 .pill:hover,
 .pillSmall:hover {
   transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--accent-2) 60%, transparent);
   box-shadow: 0 8px 18px color-mix(in srgb, var(--accent-2) 18%, transparent);
 }
+
 .pillOn {
   background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
   color: #fff;
@@ -163,28 +179,29 @@
   will-change: transform;
   isolation: isolate;
 }
+
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--accent-2), transparent 65%),
-    transparent 40%,
-    color-mix(in srgb, var(--accent-2), transparent 78%)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--accent-2), transparent 65%),
+      transparent 40%,
+      color-mix(in srgb, var(--accent-2), transparent 78%));
   opacity: 0;
   transition: opacity 0.25s ease;
   mix-blend-mode: screen;
 }
+
 .card:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--card-border), var(--accent-2) 35%);
   box-shadow: 0 10px 30px var(--card-shadow),
     0 0 0 1px color-mix(in srgb, var(--card-border), var(--accent-2) 20%) inset;
 }
+
 .card:hover::before {
   opacity: 0.9;
 }
@@ -196,12 +213,14 @@
   justify-content: space-between;
   gap: 12px;
 }
+
 .cardTitle {
   margin: 0;
   font-weight: 800;
   letter-spacing: -0.01em;
   font-size: clamp(16px, 1.3vw, 20px);
 }
+
 .cardLink {
   font-size: 13px;
   text-decoration: none;
@@ -211,11 +230,13 @@
   border-radius: 8px;
   transition: color 0.2s, border-color 0.2s, transform 0.15s;
 }
+
 .cardLink:hover {
   color: #fff;
   border-color: color-mix(in srgb, var(--accent-2) 60%, transparent);
   transform: translateY(-1px);
 }
+
 .cardDesc {
   color: var(--muted-uses);
   margin: 0.25rem 0 0.6rem;
@@ -230,6 +251,7 @@
   justify-content: space-between;
   gap: 12px;
 }
+
 .tags {
   display: flex;
   gap: 6px;
@@ -237,6 +259,7 @@
   margin: 0;
   list-style: none;
 }
+
 .tag {
   font-size: 12px;
   padding: 4px 10px;
@@ -251,6 +274,7 @@
   display: flex;
   gap: 6px;
 }
+
 .os {
   font-size: 12px;
   border: 1px solid var(--chip-border);
@@ -259,6 +283,7 @@
   line-height: 1.2;
   background: var(--chip-bg);
 }
+
 .osOff {
   opacity: 0.55;
 }
@@ -270,6 +295,7 @@
   justify-content: flex-end;
   gap: 0.5rem;
 }
+
 .copyBtn,
 .copyBtnDisabled {
   font-size: 12.5px;
@@ -281,11 +307,13 @@
   transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s,
     background 0.2s;
 }
+
 .copyBtn:hover {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--accent-2) 60%, transparent);
   box-shadow: 0 10px 24px color-mix(in srgb, var(--accent-2) 22%, transparent);
 }
+
 .copyBtnDisabled {
   color: color-mix(in srgb, var(--muted-uses) 80%, #777);
   cursor: not-allowed;
@@ -321,13 +349,16 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 @media (max-width: 780px) {
   .layout {
     grid-template-columns: 1fr;
   }
+
   .rail {
     position: static;
   }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -335,6 +366,7 @@
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .card,
   .pill,
   .pillSmall,
