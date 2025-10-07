@@ -16,6 +16,7 @@ import {
   TbCamera,
   TbDeviceGamepad2,
   TbBook2,
+  TbCode,
   TbCube,
   TbBrandJavascript,
   TbBrandReact,
@@ -52,35 +53,35 @@ const categorizedToolkit = {
    =========================================== */
 const journeyMilestones = [
   {
-    year: "2021",
+    year: "2023",
     event: "React & Angular foundations — first production SPAs.",
     level: 40,
     Icon: TbBrandReact,
   },
+  // {
+  //   year: "2022",
+  //   event: "Led large e-commerce build (Angular) + Next.js (React SSR).",
+  //   level: 65,
+  //   Icon: TbShoppingBag,
+  // },
   {
-    year: "2022",
-    event: "Led large e-commerce build (Angular) + Next.js (React SSR).",
-    level: 65,
-    Icon: TbShoppingBag,
-  },
-  {
-    year: "2023",
+    year: "2024",
     event: "Enterprise dashboards with TypeScript, state mgmt, CI/CD.",
     level: 80,
     Icon: TbBrandJavascript,
   },
   {
-    year: "2024",
+    year: "2025",
     event: "Perf & SEO audits — Core Web Vitals, structured data, WCAG 2.2.",
     level: 90,
     Icon: TbServerBolt,
   },
-  {
-    year: "2025",
-    event: "Full-stack exploration — Node.js, Angular Universal & Next.js.",
-    level: 95,
-    Icon: TbCube,
-  },
+  // {
+  //   year: "2025",
+  //   event: "Full-stack exploration — Node.js, Angular Universal & Next.js.",
+  //   level: 95,
+  //   Icon: TbCube,
+  // },
 ];
 
 /* ========= Sub-Components ========= */
@@ -104,21 +105,23 @@ const Toolkit = () => (
                 : category}
             </div>
 
-            <div className={styles.toolkitIconGrid}>
-              {techs.map((tech) => (
-                <div
-                  key={tech.name}
-                  className={styles.toolkitItem}
-                  role="img"
-                  aria-label={tech.name}
-                  tabIndex={0}
-                >
-                  <div className={`${styles.iconWrapper} ${tech.className}`}>
-                    <tech.Icon aria-hidden="true" />
+            <div className={styles.toolkitMarquee} aria-hidden="true">
+              <div className={styles.toolkitTrack}>
+                {[...techs, ...techs].map((tech, idx) => (
+                  <div
+                    key={`${tech.name}-${idx}`}
+                    className={styles.toolkitItem}
+                    role="img"
+                    aria-label={tech.name}
+                    tabIndex={0}
+                  >
+                    <div className={`${styles.iconWrapper} ${tech.className}`}>
+                      <tech.Icon aria-hidden="true" />
+                    </div>
+                    <span className={styles.toolkitTooltip}>{tech.name}</span>
                   </div>
-                  <span className={styles.toolkitTooltip}>{tech.name}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         ))}
@@ -139,6 +142,14 @@ const HobbiesCard = () => (
       </div>
 
       <div className={styles.hobbiesGrid} role="list">
+        <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
+          <div className={styles.hobbyPolaroid}>
+            <div className={styles.hobbyIconWrapper} aria-hidden="true">
+              {/* <TbCodeSquare /> */}
+            </div>
+            <div className={styles.hobbyLabel}>Coding</div>
+          </div>
+        </div>
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
@@ -163,6 +174,14 @@ const HobbiesCard = () => (
             <div className={styles.hobbyLabel}>Reading</div>
           </div>
         </div>
+        <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
+          <div className={styles.hobbyPolaroid}>
+            <div className={styles.hobbyIconWrapper} aria-hidden="true">
+              {/* <TbMapPin /> */}
+            </div>
+            <div className={styles.hobbyLabel}>Traveling</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -176,7 +195,7 @@ const About = () => {
 
   useEffect(() => {
     // Years of experience (from 2021, to 1dp)
-    const startDate = new Date("2021-01-01");
+    const startDate = new Date("2023-03-01");
     const years = ((Date.now() - startDate.getTime()) / 31557600000).toFixed(1);
     setExperience(`${years}+`);
   }, []);
