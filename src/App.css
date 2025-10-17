@@ -377,3 +377,11 @@ body {
 .textUnderline {
   text-decoration: underline;
 }
+
+
+/* global css  */
+
+
+.mt-1vw {
+  margin-top: 1vw;
+}

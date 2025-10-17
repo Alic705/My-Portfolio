@@ -769,7 +769,7 @@ function ProjectPortfolio() {
             View details, results, and stack choices.
           </p>
         </header>
-        <div className="d-flex align-content-between gap-5">
+        <div className="d-flex align-content-between gap-5 mt-1vw ">
           <div className={styles.leftPanel}>
             <h2 className={`${styles.mainHeading} ${styles.gradientText}`}>
               Latest Projects

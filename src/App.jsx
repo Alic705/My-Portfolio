@@ -208,14 +208,23 @@ const Layout = ({ children, theme }) => {
 
   const dynamicStyles = `
   #main-panel {
-    position: relative; overflow: hidden; background-color: var(--panel-bg);
-    animation: gridDrift 50s linear infinite; border-radius: var(--r-lg);
+    position: relative;
+     overflow: hidden;
+      background-color: 
+      var(--panel-bg);
+    animation: gridDrift 50s linear infinite;
+     border-radius: var(--r-lg);
   }
   @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
-    #main-panel { background-color: var(--panel-bg-translucent); -webkit-backdrop-filter: blur(28px); backdrop-filter: blur(28px); }
+    #main-panel { background-color: var(--panel-bg-translucent);
+     -webkit-backdrop-filter: blur(28px);
+      backdrop-filter: blur(28px); }
   }
   #main-panel::before {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
+    content: ""; 
+    position: absolute; 
+    inset: 0; 
+    pointer-events: none;
     background-image:
       radial-gradient(120% 80% at 50% 60%, var(--shine-2), transparent 70%),
       repeating-conic-gradient(from 0deg at 50% 60%, var(--panel-grid-line) 0deg 0.2deg, transparent 0.2deg 8deg),
@@ -300,7 +309,7 @@ function ThemeSwitchButton({ theme, setTheme }) {
       className="theme-toggle"
       style={{
         position: "fixed",
-        right: "clamp(1rem,4vw,2rem)",
+        left: "clamp(1rem,4vw,2rem)",
         top: "1rem",
         zIndex: 1100,
         display: "inline-flex",

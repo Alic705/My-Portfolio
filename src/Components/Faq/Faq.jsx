@@ -35,10 +35,10 @@ const faqs = [
     q: "Do you handle accessibility?",
     a: "Yes. I target WCAG 2.2 AA: landmarks, keyboard support, focus management, and screen-reader checks.",
   },
-  {
-    q: "How do we measure results?",
-    a: "We set KPIs (conversion, time-to-interactive, SEO impressions) and track via analytics, Search Console, and synthetic monitoring.",
-  },
+  // {
+  //   q: "How do we measure results?",
+  //   a: "We set KPIs (conversion, time-to-interactive, SEO impressions) and track via analytics, Search Console, and synthetic monitoring.",
+  // },
 ];
 
 /* ---- Utilities ---- */

@@ -16,7 +16,6 @@ import {
   TbCamera,
   TbDeviceGamepad2,
   TbBook2,
-  TbCode,
   TbCube,
   TbBrandJavascript,
   TbBrandReact,
@@ -86,6 +85,7 @@ const journeyMilestones = [
 
 /* ========= Sub-Components ========= */
 
+// ...existing code...
 const Toolkit = () => (
   <div className={`${styles.aboutCard} ${styles.toolkitCard}`} data-tilt>
     <div className={styles.cardContent}>
@@ -105,23 +105,21 @@ const Toolkit = () => (
                 : category}
             </div>
 
-            <div className={styles.toolkitMarquee} aria-hidden="true">
-              <div className={styles.toolkitTrack}>
-                {[...techs, ...techs].map((tech, idx) => (
-                  <div
-                    key={`${tech.name}-${idx}`}
-                    className={styles.toolkitItem}
-                    role="img"
-                    aria-label={tech.name}
-                    tabIndex={0}
-                  >
-                    <div className={`${styles.iconWrapper} ${tech.className}`}>
-                      <tech.Icon aria-hidden="true" />
-                    </div>
-                    <span className={styles.toolkitTooltip}>{tech.name}</span>
+            <div className={styles.toolkitIconGrid}>
+              {techs.map((tech) => (
+                <div
+                  key={tech.name}
+                  className={styles.toolkitItem}
+                  role="img"
+                  aria-label={tech.name}
+                  tabIndex={0}
+                >
+                  <div className={`${styles.iconWrapper} ${tech.className}`}>
+                    <tech.Icon aria-hidden="true" />
                   </div>
-                ))}
-              </div>
+                  <span className={styles.toolkitTooltip}>{tech.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         ))}
@@ -130,6 +128,7 @@ const Toolkit = () => (
   </div>
 );
 
+// ...existing code...
 const HobbiesCard = () => (
   <div className={`${styles.aboutCard} ${styles.hobbiesCard}`} data-tilt>
     <div className={styles.cardContent}>
@@ -145,7 +144,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              {/* <TbCodeSquare /> */}
+              <TbCube />
             </div>
             <div className={styles.hobbyLabel}>Coding</div>
           </div>
@@ -177,7 +176,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              {/* <TbMapPin /> */}
+              {/* </TbShoppingBag> */}
             </div>
             <div className={styles.hobbyLabel}>Traveling</div>
           </div>

@@ -3,9 +3,9 @@ import styles from "./Blog.module.css";
 import { POSTS } from "./blogData";
 
 // Import Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 function formatDay(dateStr) {
