@@ -51,22 +51,23 @@ const categorizedToolkit = {
    Journey now starts at 2021 (React & Angular)
    =========================================== */
 const journeyMilestones = [
+  // {
+  //   year: "2022",
+  //   event: "Led large e-commerce build (Angular) + Next.js (React SSR).",
+  //   level: 20,
+  //   Icon: TbShoppingBag,
+  // },
   {
     year: "2023",
     event: "React & Angular foundations — first production SPAs.",
     level: 40,
     Icon: TbBrandReact,
   },
-  // {
-  //   year: "2022",
-  //   event: "Led large e-commerce build (Angular) + Next.js (React SSR).",
-  //   level: 65,
-  //   Icon: TbShoppingBag,
-  // },
+
   {
     year: "2024",
     event: "Enterprise dashboards with TypeScript, state mgmt, CI/CD.",
-    level: 80,
+    level: 65,
     Icon: TbBrandJavascript,
   },
   {
@@ -75,10 +76,11 @@ const journeyMilestones = [
     level: 90,
     Icon: TbServerBolt,
   },
+
   // {
   //   year: "2025",
   //   event: "Full-stack exploration — Node.js, Angular Universal & Next.js.",
-  //   level: 95,
+  //   level: 120,
   //   Icon: TbCube,
   // },
 ];
@@ -194,7 +196,7 @@ const About = () => {
 
   useEffect(() => {
     // Years of experience (from 2021, to 1dp)
-    const startDate = new Date("2023-03-01");
+    const startDate = new Date("2022-09-01");
     const years = ((Date.now() - startDate.getTime()) / 31557600000).toFixed(1);
     setExperience(`${years}+`);
   }, []);

@@ -303,15 +303,20 @@ const Contact = () => {
       />
 
       {/* PAGE */}
-      <div className={styles.ctaContainer} aria-labelledby="contact-title">
+      <div
+        className={styles.ctaContainer}
+        aria-labelledby={view === "portal" ? "contact-title" : undefined}
+      >
         {/* Visible H1 for SEO/A11y (keeps UI minimal if styled small) */}
-        <h1
-          id="contact-title"
-          className="gradientText
+        {view === "portal" && (
+          <h1
+            id="contact-title"
+            className="gradientText
         sectionTitle"
-        >
-          Contact
-        </h1>
+          >
+            Contact
+          </h1>
+        )}
 
         {/* --- STATE 1: Portal --- */}
         <div

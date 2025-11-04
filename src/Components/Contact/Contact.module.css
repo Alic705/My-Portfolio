@@ -272,7 +272,7 @@ form {
   flex-wrap: wrap;
   font-size: 0.95rem;
   color: var(--text-secondary);
-  margin-top: 0.35rem;
+  margin-top: 1vw;
 }
 
 .availability,
@@ -505,13 +505,18 @@ form {
 
 /* ====== Socials ====== */
 .socialsFooter {
-  margin-top: 1.4rem;
+  margin-top: 2.2vw;
   color: var(--text-secondary);
 }
 
 .socialsFooter p {
   font-size: clamp(13px, 1.1vw, 16px);
   margin-bottom: 0.8rem;
+}
+
+.privacyNote {
+  margin-top: 2.2vw;
+  margin-bottom: 2.2vw;
 }
 
 .socialLinksContainer {

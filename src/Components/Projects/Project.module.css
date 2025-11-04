@@ -137,7 +137,6 @@
 .carouselNav {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .carouselNav button {
@@ -182,7 +181,6 @@
   transition: transform 0.35s ease, box-shadow 0.35s ease,
     border-color 0.35s ease;
   background: var(--proj-card-bg);
-  box-shadow: 0 20px 40px var(--proj-card-shadow);
   isolation: isolate;
 }
 
@@ -528,6 +526,14 @@
 .projectCard:hover .cardOverlay {
   opacity: 1;
   pointer-events: auto;
+}
+
+.projectCard .cardInfo {
+  opacity: 0;
+}
+
+.projectCard:hover .cardInfo {
+  /* opacity: 1; */
 }
 
 /* Circle CTA */
