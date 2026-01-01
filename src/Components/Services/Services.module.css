@@ -44,6 +44,7 @@
   position: relative;
 }
 
+
 .pageHalo {
   position: absolute;
   inset: 0;
@@ -104,6 +105,8 @@
   position: relative;
   z-index: 2;
   outline-offset: 3px;
+  overflow: hidden;
+  width: max-content;
 }
 
 .serviceNavItem:hover {
@@ -129,6 +132,7 @@
   transition: left 0.35s cubic-bezier(0.5, 0, 0.5, 1),
     width 0.35s cubic-bezier(0.5, 0, 0.5, 1);
   z-index: 1;
+
 }
 
 /* ===== Carousel ===== */
@@ -285,6 +289,7 @@
 
 .cardTitle {
   font-size: 1.8vw;
+  line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: var(--svc-text);
@@ -573,4 +578,9 @@
     transition: none !important;
     animation: none !important;
   }
+}
+
+/*  */
+:host ::ng-deep .hide-scrollbar {
+  padding-bottom: 1.3vw !important;
 }

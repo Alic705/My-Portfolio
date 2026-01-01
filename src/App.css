@@ -302,6 +302,8 @@ body {
   padding: 1.8vw 3.1vw 2.7vw 3.1vw !important;
 }
 
+
+
 @media (max-width: 768px) {
   .portfolio-container {
     flex-direction: column;

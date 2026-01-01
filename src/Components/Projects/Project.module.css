@@ -336,7 +336,7 @@
 }
 
 .modalHeader {
-  height: 300px;
+  height: 500px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -373,6 +373,7 @@
   font-size: 1.4rem;
   cursor: pointer;
   z-index: 2;
+  align-self: flex-start;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -401,8 +402,7 @@
   font-weight: 700;
   color: var(--proj-accent);
   margin: 0 0 1rem 0;
-  border-left: 3px solid var(--proj-accent);
-  padding-left: 0.75rem;
+
 }
 
 .modalSection p {

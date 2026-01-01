@@ -3,9 +3,9 @@ import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Services from "./Components/Services/Services";
 import Project from "./Components/Projects/Project";
-// import Testimonials from "./Components/Testimonials/Testimonials";
+import Testimonials from "./Components/Testimonials/Testimonials";
 import Contact from "./Components/Contact/Contact";
-// import UsesPage from "./Components/Uses/Uses";
+import UsesPage from "./Components/Uses/Uses";
 import FAQ from "./Components/Faq/Faq";
 // import Blog from "./Components/Blog/Blog";
 // import BlogDetail from "./Components/Blog/BlogDetail";
@@ -312,11 +312,12 @@ function ThemeSwitchButton({ theme, setTheme }) {
         left: "clamp(1rem,4vw,2rem)",
         top: "1rem",
         zIndex: 1100,
-        display: "inline-flex",
+        display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         gap: ".6rem",
-        padding: ".6vw .9vw",
-        borderRadius: "999px",
+        // padding: ".6vw .9vw",
+        borderRadius: "50%",
         cursor: "pointer",
         background: "var(--btn-ghost-bg)",
         color: "var(--text)",
@@ -324,11 +325,15 @@ function ThemeSwitchButton({ theme, setTheme }) {
         boxShadow: "0 6px 16px var(--btn-primary-shadow)",
         backdropFilter: "blur(6px)",
         WebkitBackdropFilter: "blur(6px)",
-        fontSize: ".85vw",
+        fontSize: "1.2vw",
+        width: "45px",
+        height: "45px",
+        transition:
+          "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
       }}
     >
       <i className={`ph-bold ${isDarkMode ? "ph-moon" : "ph-sun"}`} />
-      <span style={{ fontWeight: 700 }}>{isDarkMode ? "Dark" : "Light"}</span>
+      {/* <span style={{ fontWeight: 700 }}>{isDarkMode ? "Dark" : "Light"}</span> */}
     </button>
   );
 }

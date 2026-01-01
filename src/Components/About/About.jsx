@@ -19,8 +19,8 @@ import {
   TbCube,
   TbBrandJavascript,
   TbBrandReact,
-  TbShoppingBag,
   TbServerBolt,
+  TbPlane,
 } from "react-icons/tb";
 
 /* ===========================
@@ -178,7 +178,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              {/* </TbShoppingBag> */}
+              <TbPlane />
             </div>
             <div className={styles.hobbyLabel}>Traveling</div>
           </div>
