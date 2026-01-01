@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import styles from "./FAQ.module.css";
-
+import styles from "./Faq.module.css";
 /* ---- Content (kept editable) ---- */
 const faqs = [
   {
