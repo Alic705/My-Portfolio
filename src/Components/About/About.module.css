@@ -567,6 +567,65 @@
   visibility: visible;
 }
 
+/* Tabs Container */
+.tabsHeader {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--chip-border);
+  padding-bottom: 8px;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+}
+
+.tabBtn.active {
+  color: var(--brand-2);
+  /* Purple color */
+  background: var(--chip-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Grid - Fixed Height to prevent jumping */
+.toolkitIconGrid {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  min-height: 140px;
+  /* Isse card ki height hilegi nahi */
+  align-content: flex-start;
+}
+
+/* Icons size thoda optimize kiya height ke liye */
+.iconWrapper {
+  width: clamp(40px, 3.5vw, 55px);
+  height: clamp(40px, 3.5vw, 55px);
+  /* ... rest of your code ... */
+}
+
+/* New Icon Colors */
+.wpIcon:hover {
+  color: #21759b;
+}
+
+.phpIcon:hover {
+  color: #777bb4;
+
+}
+
 /* Brand color hovers */
 .htmlIcon:hover {
   color: #e34f26;

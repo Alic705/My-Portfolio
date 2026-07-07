@@ -80,7 +80,7 @@ const DynamicHeadline = ({ headlines }) => {
   useEffect(() => {
     const t = setInterval(
       () => setIndex((p) => (p + 1) % headlines.length),
-      4000
+      4000,
     );
     return () => clearInterval(t);
   }, [headlines.length]);
@@ -162,7 +162,7 @@ const Contact = () => {
 
     // final validate
     ["name", "email", "projectType"].forEach((k) =>
-      validateField(k, formData[k])
+      validateField(k, formData[k]),
     );
     if (["name", "email", "projectType"].some((k) => !formData[k] || errors[k]))
       return;
@@ -387,107 +387,103 @@ const Contact = () => {
                   onChange={handleChange}
                 />
               </div>
-
-              <div
-                className={`${styles.formGroup} ${
-                  errors.name ? styles.error : ""
-                }`}
-              >
-                <label htmlFor="name" className={styles.label}>
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  onChange={handleChange}
-                  required
-                  autoComplete="name"
-                  placeholder="What should I call you?"
-                />
-                {errors.name && (
-                  <span className={styles.errorMessage}>{errors.name}</span>
-                )}
-              </div>
-
-              <div
-                className={`${styles.formGroup} ${
-                  errors.email ? styles.error : ""
-                }`}
-              >
-                <label htmlFor="email" className={styles.label}>
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  onChange={handleChange}
-                  required
-                  autoComplete="email"
-                  placeholder="e.g., name@example.com"
-                />
-                {errors.email && (
-                  <span className={styles.errorMessage}>{errors.email}</span>
-                )}
-              </div>
-
-              <div
-                className={`${styles.formGroup} ${
-                  errors.projectType ? styles.error : ""
-                }`}
-              >
-                <label htmlFor="projectType" className={styles.label}>
-                  Project Type
-                </label>
-                <select
-                  id="projectType"
-                  name="projectType"
-                  value={formData.projectType}
-                  onBlur={(e) => validateField(e.target.name, e.target.value)}
-                  onChange={handleChange}
-                  required
+              <div className={styles.row}>
+                <div
+                  className={`${styles.formGroup} ${styles.halfWidth} ${errors.name ? styles.error : ""}`}
                 >
-                  <option value="" disabled>
-                    What are we discussing?
-                  </option>
-                  <option value="New Project">
-                    New Project (React/Angular)
-                  </option>
-                  <option value="UI/UX Development">
-                    UI/UX Implementation
-                  </option>
-                  <option value="Performance & SEO Audit">
-                    Performance & SEO Audit
-                  </option>
-                  <option value="Opportunity">Freelance Collaboration</option>
-                  <option value="Hello">Just saying hello</option>
-                </select>
-                {errors.projectType && (
-                  <span className={styles.errorMessage}>
-                    {errors.projectType}
-                  </span>
-                )}
+                  <label htmlFor="name" className={styles.label}>
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                    onChange={handleChange}
+                    required
+                    placeholder="What should I call you?"
+                  />
+                  {errors.name && (
+                    <span className={styles.errorMessage}>{errors.name}</span>
+                  )}
+                </div>
+
+                <div
+                  className={`${styles.formGroup} ${styles.halfWidth} ${errors.email ? styles.error : ""}`}
+                >
+                  <label htmlFor="email" className={styles.label}>
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                    onChange={handleChange}
+                    required
+                    placeholder="e.g., name@example.com"
+                  />
+                  {errors.email && (
+                    <span className={styles.errorMessage}>{errors.email}</span>
+                  )}
+                </div>
               </div>
 
-              <div className={styles.formGroup}>
-                <label htmlFor="message" className={styles.label}>
-                  Message (optional)
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Goals, timeline, budget, links—whatever helps."
-                />
-              </div>
+              <div className="">
+                <div
+                  className={`${styles.formGroup} ${
+                    errors.projectType ? styles.error : ""
+                  }`}
+                >
+                  <label htmlFor="projectType" className={styles.label}>
+                    Project Type
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onBlur={(e) => validateField(e.target.name, e.target.value)}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="" disabled>
+                      What are we discussing?
+                    </option>
+                    <option value="New Project">
+                      New Project (React/Angular)
+                    </option>
+                    <option value="UI/UX Development">
+                      UI/UX Implementation
+                    </option>
+                    <option value="Performance & SEO Audit">
+                      Performance & SEO Audit
+                    </option>
+                    <option value="Opportunity">Freelance Collaboration</option>
+                    <option value="Hello">Just saying hello</option>
+                  </select>
+                  {errors.projectType && (
+                    <span className={styles.errorMessage}>
+                      {errors.projectType}
+                    </span>
+                  )}
+                </div>
 
+                <div className={styles.formGroup}>
+                  <label htmlFor="message" className={styles.label}>
+                    Message (optional)
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Goals, timeline, budget, links—whatever helps."
+                  />
+                </div>
+              </div>
               <p id="privacy-note" className={styles.privacyNote}>
                 I’ll use your info only to reply. No mailing lists. By
                 submitting, you agree to be contacted about your inquiry.

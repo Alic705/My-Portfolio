@@ -311,12 +311,13 @@ form {
 .formGroup {
   position: relative;
   display: flex;
-  margin-bottom: 1.6rem;
+  margin-bottom: 2vw;
   flex-direction: column;
   margin-inline: auto;
   align-items: flex-start;
   gap: 10px;
   width: 100% !important;
+
 }
 
 .formGroup input,
@@ -334,7 +335,6 @@ form {
   appearance: none;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
-  width: 100% !important;
 }
 
 .formGroup input::placeholder,
@@ -414,6 +414,23 @@ form {
 
 .submitBtn.showError {
   background: var(--error-color);
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.halfWidth {
+  flex: 1;
+  min-width: 280px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 /* ====== Success View ====== */

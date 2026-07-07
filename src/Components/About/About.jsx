@@ -205,10 +205,10 @@ const About = () => {
     if (!gridRef.current) return;
 
     const prefersReduced = window.matchMedia?.(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     const cards = Array.from(
-      gridRef.current.querySelectorAll(`.${styles.aboutCard}`)
+      gridRef.current.querySelectorAll(`.${styles.aboutCard}`),
     );
 
     const io = new IntersectionObserver(
@@ -221,7 +221,7 @@ const About = () => {
           io.disconnect();
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     io.observe(gridRef.current);
 

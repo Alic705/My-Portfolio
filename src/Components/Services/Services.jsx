@@ -11,6 +11,7 @@ import {
   FaList,
   FaCheck,
   FaNodeJs,
+  FaWordpress,
 } from "react-icons/fa";
 
 /* ===========================
@@ -69,25 +70,26 @@ const services = [
     accent: "#dd0031",
     halo: "radial-gradient(60% 70% at 50% 55%, rgba(221,0,49,0.18), rgba(0,0,0,0) 70%)",
   },
+
   {
     id: 3,
-    slug: "/services/node-backend",
-    title: "Node.js Backend Development",
+    slug: "/services/wordpress-development",
+    title: "Custom WordPress Development",
     description:
-      "Fast, secure APIs for React & Angular fronts. Node.js with Express or NestJS, production-grade auth, caching, and observability.",
-    Icon: FaNodeJs,
+      "Tailor-made WordPress solutions from custom themes to complex e-commerce. Focused on speed, SEO, and seamless content management.",
+    Icon: FaWordpress, // Make sure to import { FaWordpress } from 'react-icons/fa'
     details: [
-      "REST/GraphQL APIs (Express or NestJS)",
-      "Auth, RBAC, JWT/Session; rate limiting & input validation",
-      "PostgreSQL/Prisma (primary), Mongo optional",
-      "Caching & performance (Redis, CDN headers, compression)",
-      "Observability: structured logs, health checks, uptime",
-      "CI/CD pipelines and environment configuration",
+      "Custom Theme Development (PHP, Tailwind, or Bootstrap)",
+      "WooCommerce Setup & Advanced Customization",
+      "Headless WordPress with React/Next.js (WP Engine/Vercel)",
+      "Performance Optimization (Core Web Vitals & Caching)",
+      "Secure Plugin Integration & Custom API Endpoints",
+      "Advanced Custom Fields (ACF) & Gutenberg Blocks",
     ],
     outcomes: [
-      "Lower latency and fewer timeouts under spikes",
-      "Clean API contracts that speed up front-end delivery",
-      "Easier scaling and monitoring in production",
+      "Blazing fast load times and optimized SEO rankings",
+      "Easy-to-use admin dashboard for non-technical users",
+      "Scalable architecture that grows with your business",
     ],
     learnMoreUrl: "/contact",
     projectUrl: "/contact",
@@ -148,7 +150,7 @@ const services = [
 const developerInfo = {
   name: "Ali Ch",
   title: "Senior Front-End Engineer — React & Angular",
-  imageUrl: "https://placehold.co/100x100/4A5568/E2E8F0?text=HB",
+  imageUrl: "https://placehold.co/100x100/4A5568/E2E8F0?text=AC",
 };
 
 /* ===========================

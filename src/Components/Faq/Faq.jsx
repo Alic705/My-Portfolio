@@ -71,7 +71,7 @@ export default function FAQ() {
     if (!query) return faqs;
     const q = query.toLowerCase();
     return faqs.filter(
-      (f) => f.q.toLowerCase().includes(q) || f.a.toLowerCase().includes(q)
+      (f) => f.q.toLowerCase().includes(q) || f.a.toLowerCase().includes(q),
     );
   }, [query]);
 
@@ -157,46 +157,47 @@ export default function FAQ() {
 
       {/* FAQ Grid */}
       <section ref={listRef} className={styles.grid} role="list">
-        {filtered.map((f) => {
-          const id = slugify(f.q);
+        {filtered.map((f, index) => {
+          const id = `${slugify(f.q)}-${index}`;
           const isOpen = openId === id;
+
           return (
             <details
               key={id}
-              id={id}
+              open={isOpen} // Important for accessibility
               className={`${styles.item} ${isOpen ? styles.isOpen : ""}`}
-              role="listitem"
-              onToggle={(e) => e.target.open && setOpenId(id)}
             >
-              <summary className={styles.q}>
+              <summary
+                className={styles.q}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpenId(isOpen ? null : id);
+                }}
+              >
                 <span className={styles.qText}>{f.q}</span>
-                <span className={styles.chev} aria-hidden />
+                <span className={styles.chev} />
               </summary>
 
+              {/* Transition ke liye ye wrapper zaroori hai */}
               <div className={styles.aWrap}>
-                <p className={styles.a}>{f.a}</p>
-                <div className={styles.itemActions}>
-                  <button
-                    className={styles.copyLink}
-                    onClick={() => copyLink(id)}
-                    aria-label="Copy link to this question"
-                    title="Copy link"
-                  >
-                    #
-                  </button>
+                <div className={styles.aContent}>
+                  <p className={styles.a}>{f.a}</p>
+                  <div className={styles.itemActions}>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        copyLink(id);
+                      }}
+                    >
+                      #
+                    </button>
+                  </div>
                 </div>
               </div>
             </details>
           );
         })}
-
-        {filtered.length === 0 && (
-          <div className={styles.empty}>
-            No results. Try a different keyword (e.g. “SEO”, “Core Web Vitals”).
-          </div>
-        )}
       </section>
-
       {/* CTA row */}
       <aside className={styles.ctaRow}>
         <a href="/projects" className={`${styles.btn} ${styles.btnPrimary}`}>

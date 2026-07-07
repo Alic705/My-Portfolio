@@ -73,36 +73,65 @@
   box-shadow: 0 0 0 3px var(--ring);
 }
 
-/* ===== Grid of Q/A cards ===== */
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(12px, 1.6vw, 18px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: start;
+
   max-width: 1100px;
   margin-top: 2.6vw;
 }
 
-/* Card (details) */
 .item {
+  display: block;
   position: relative;
   border-radius: 16px;
-  overflow: clip;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px var(--card-shadow);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease,
-    transform 0.18s ease;
+  background: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.1));
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.item:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--card-border), var(--accent-2) 45%);
-  box-shadow: 0 16px 34px color-mix(in srgb, var(--accent-2) 18%, #000);
+.aWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Summary row */
+.isOpen .aWrap {
+  grid-template-rows: 1fr;
+}
+
+.aContent {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  visibility: hidden;
+}
+
+.isOpen .aContent {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.q {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.q::-webkit-details-marker {
+  display: none;
+}
+
 .q {
   list-style: none;
   display: grid;
@@ -145,11 +174,11 @@
 }
 
 .chev::before {
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(145deg);
 }
 
 .chev::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-145deg);
 }
 
 /* Open state rotates the caret to a minus */

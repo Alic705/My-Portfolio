@@ -471,7 +471,7 @@ const CaseStudyModal = ({ project, onClose, triggerRef }) => {
                   className={styles.sliderNav}
                   onClick={() =>
                     setGalleryIndex((i) =>
-                      Math.min(i + 1, media.images.length - 1)
+                      Math.min(i + 1, media.images.length - 1),
                     )
                   }
                   aria-label="Next image"
@@ -672,7 +672,7 @@ function ProjectPortfolio() {
         image: p.coverImage,
       })),
     }),
-    []
+    [],
   );
 
   const breadcrumbSchema = {
