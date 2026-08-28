@@ -125,7 +125,6 @@ export default function BlogDetail({ slugFromRouter }) {
           {post.title}
         </h1>
         <p className={styles.meta}>
-          <img src="/avatar-hamza.jpg" alt="" className={styles.avatar} />
           <span>{post.author}</span>
           <span className={styles.dot}>•</span>
           <time dateTime={post.publishedAt}>

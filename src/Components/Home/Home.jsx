@@ -1,6 +1,23 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./Home.module.css";
-import { gsap } from "gsap";
+
+const marqueeItems = [
+  {
+    icon: "lightning",
+    label: "Performance-first",
+    text: "Core Web Vitals, code-splitting, optimized images, CDN strategy.",
+  },
+  {
+    icon: "wheelchair",
+    label: "Accessible",
+    text: "WCAG 2.2 AA, semantic HTML, keyboard & screen-reader testing.",
+  },
+  {
+    icon: "magnifying-glass",
+    label: "SEO-ready",
+    text: "SSR/SSG, structured data, clean routing, sitemap & canonical tags.",
+  },
+];
 
 const Home = ({ onNavigate }) => {
   const refs = {
@@ -11,13 +28,12 @@ const Home = ({ onNavigate }) => {
     divider: useRef(null),
     spark: useRef(null),
     marqueeWrap: useRef(null),
-    marqueeTrack: useRef(null),
     primaryWrap: useRef(null),
   };
 
   useEffect(() => {
     const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     const revealEls = [
       refs.h1.current,
@@ -32,51 +48,11 @@ const Home = ({ onNavigate }) => {
       return;
     }
 
-    gsap.set(revealEls, { opacity: 0, y: 18 });
-    gsap.to(revealEls, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: "power3.out",
-      stagger: 0.14,
-    });
+    const timeoutIds = revealEls.map((el, idx) =>
+      window.setTimeout(() => el.classList.add(styles.isVisible), idx * 140),
+    );
 
-    if (refs.spark.current) {
-      gsap.fromTo(
-        refs.spark.current,
-        { xPercent: -15, opacity: 0 },
-        { xPercent: 115, opacity: 1, duration: 2.2, repeat: -1, ease: "none" }
-      );
-    }
-
-    // ---- Smooth marquee animation ----
-    if (refs.marqueeWrap?.current && refs.marqueeTrack?.current) {
-      const wrap = refs.marqueeWrap.current;
-      const track = refs.marqueeTrack.current;
-
-      // duplicate content for seamless loop
-      let wrapW = wrap.offsetWidth || 0;
-      let trackW = track.scrollWidth || 0;
-      while (trackW < wrapW * 2) {
-        Array.from(track.children).forEach((child) =>
-          track.appendChild(child.cloneNode(true))
-        );
-        trackW = track.scrollWidth;
-      }
-
-      const distance = track.scrollWidth / 2;
-      const speed = 60; // px/sec
-      const dur = distance / speed;
-
-      gsap.to(track, {
-        x: -distance,
-        duration: dur,
-        ease: "none",
-        repeat: -1,
-      });
-    }
-
-    return () => gsap.globalTimeline.clear();
+    return () => timeoutIds.forEach((id) => window.clearTimeout(id));
   }, []);
 
   const handleGlowMove = (e) => {
@@ -104,7 +80,7 @@ const Home = ({ onNavigate }) => {
             ref={refs.h1}
             className={`${styles.mainHeading} ${styles.reveal}`}
           >
-            Senior React &amp; Angular Engineer |{" "}
+            Senior React &amp; Angular Engineer {" "}
             <span className="impactHighlight"> High-Performance </span>{" "}
             Front-End Development
           </h1>
@@ -191,21 +167,16 @@ const Home = ({ onNavigate }) => {
             className={`${styles.marqueeWrap} ${styles.reveal}`}
             aria-label="Capabilities"
           >
-            <div ref={refs.marqueeTrack} className={styles.marqueeTrack}>
-              <span className={styles.marqueeItem}>
-                <i class="ph ph-lightning"></i>{" "}
-                <strong>Performance-first</strong> — Core Web Vitals,
-                code-splitting, optimized images, CDN strategy.
-              </span>
-              <span className={styles.marqueeItem}>
-                <i class="ph ph-wheelchair"></i> <strong>Accessible</strong> —
-                WCAG 2.2 AA, semantic HTML, keyboard & screen-reader testing.
-              </span>
-              <span className={styles.marqueeItem}>
-                <i class="ph ph-magnifying-glass"></i>{" "}
-                <strong>SEO-ready</strong> — SSR/SSG, structured data, clean
-                routing, sitemap & canonical tags.
-              </span>
+            <div className={styles.marqueeTrack}>
+              {[...marqueeItems, ...marqueeItems].map((item, idx) => (
+                <span
+                  key={`${item.label}-${idx}`}
+                  className={styles.marqueeItem}
+                >
+                  <i className={`ph ph-${item.icon}`}></i>{" "}
+                  <strong>{item.label}</strong> — {item.text}
+                </span>
+              ))}
             </div>
           </div>
         </div>

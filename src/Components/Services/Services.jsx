@@ -2,17 +2,24 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./Services.module.css";
 
 import {
-  FaChevronLeft,
-  FaChevronRight,
-  FaReact,
-  FaAngular,
-  FaFigma,
-  FaVial,
-  FaList,
-  FaCheck,
-  FaNodeJs,
-  FaWordpress,
-} from "react-icons/fa";
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiTestTubeLine,
+  RiListCheck2,
+  RiCheckLine,
+  RiCheckboxCircleLine,
+  RiCloseLine,
+  RiRocketLine,
+  RiCodeBoxLine,
+  RiSmartphoneLine,
+} from "react-icons/ri";
+import {
+  SiReact,
+  SiAngular,
+  SiFigma,
+  SiNodedotjs,
+  SiWordpress,
+} from "react-icons/si";
 
 /* ===========================
    SEO-OPTIMIZED SERVICES DATA
@@ -20,27 +27,27 @@ import {
 const services = [
   {
     id: 1,
-    slug: "/services/react-development",
-    title: "React Development",
+    slug: "/services/web-development",
+    title: "Web Development",
     description:
-      "Build lightning-fast React apps with TypeScript, SSR/SSG for SEO, and a component-driven design system. I tune Core Web Vitals so interfaces feel instant and conversion-ready.",
-    Icon: FaReact,
+      "Building high-performance, responsive web applications using modern stacks. Focused on Core Web Vitals, accessibility, and AI-driven SEO strategies for 2026.",
+    Icon: RiCodeBoxLine,
     details: [
-      "Architecture & state management (Redux Toolkit, Zustand, Context + hooks)",
-      "Routing & data fetching (React Router / Next.js App Router)",
-      "SSR/SSG or safe prerendering, image/CDN strategy",
-      "Design systems (Storybook, Radix, Tailwind) with a11y patterns",
-      "Performance budgets: code-split, bundle analysis, INP/LCP tuning",
-      "Testing: Jest + RTL, Playwright/Cypress for critical flows",
-      "Analytics & monitoring (GA4, Sentry) wired for insights",
+      "Modern Full-Stack Architecture (React, Next.js, Node.js)",
+      "Advanced SEO & Core Web Vitals optimization",
+      "AI Integration & Dynamic Content Rendering",
+      "Server-Side Rendering (SSR) & Static Site Generation (SSG)",
+      "Responsive, Mobile-First Design Systems",
+      "Secure Authentication & API Development",
+      "Scalable Cloud Deployment (AWS, Vercel, Netlify)",
     ],
     outcomes: [
-      "LCP < 1.5s, INP < 200ms, CLS < 0.05 on key pages",
-      "Accessible UI (WCAG 2.2 AA) and improved crawlability",
-      "SEO-ready deploy with structured data & clean routing",
+      "Top-tier Lighthouse scores and flawless Core Web Vitals",
+      "Increased organic traffic through 2026 AI-search optimizations",
+      "Seamless user experience across all devices and browsers",
     ],
-    learnMoreUrl: "/case-studies?tag=react",
-    projectUrl: "/case-studies?tag=react",
+    learnMoreUrl: "/projects?tag=web",
+    projectUrl: "/projects?tag=web",
     accent: "#8a2be2",
     halo: "radial-gradient(60% 70% at 50% 55%, rgba(138,43,226,0.20), rgba(0,0,0,0) 70%)",
   },
@@ -50,7 +57,7 @@ const services = [
     title: "Angular Development",
     description:
       "Robust, scalable Angular apps with RxJS and Angular Universal for SEO. Best for enterprise dashboards, complex forms, and data-heavy interfaces.",
-    Icon: FaAngular,
+    Icon: SiAngular,
     details: [
       "Standalone components, feature modules, Nx monorepos",
       "Signals/RxJS patterns, smart/presentational components",
@@ -65,8 +72,8 @@ const services = [
       "Faster TTI & smaller initial bundle under load",
       "Stable, maintainable architecture for long-term teams",
     ],
-    learnMoreUrl: "/case-studies?tag=angular",
-    projectUrl: "/case-studies?tag=angular",
+    learnMoreUrl: "/projects?tag=angular",
+    projectUrl: "/projects?tag=angular",
     accent: "#dd0031",
     halo: "radial-gradient(60% 70% at 50% 55%, rgba(221,0,49,0.18), rgba(0,0,0,0) 70%)",
   },
@@ -77,7 +84,7 @@ const services = [
     title: "Custom WordPress Development",
     description:
       "Tailor-made WordPress solutions from custom themes to complex e-commerce. Focused on speed, SEO, and seamless content management.",
-    Icon: FaWordpress, // Make sure to import { FaWordpress } from 'react-icons/fa'
+    Icon: SiWordpress,
     details: [
       "Custom Theme Development (PHP, Tailwind, or Bootstrap)",
       "WooCommerce Setup & Advanced Customization",
@@ -102,7 +109,7 @@ const services = [
     title: "UI/UX Implementation",
     description:
       "Pixel-accurate builds from Figma to production. Design tokens, component libraries, and accessible interactions.",
-    Icon: FaFigma,
+    Icon: SiFigma,
     details: [
       "Figma → React/Angular componentization",
       "Design tokens & theming; responsive grid systems",
@@ -123,25 +130,27 @@ const services = [
   },
   {
     id: 5,
-    slug: "/services/testing",
-    title: "Unit & Integration Testing",
+    slug: "/services/app-development",
+    title: "App Development",
     description:
-      "Automated tests for React & Angular with E2E coverage on critical paths—so shipping fast stays safe.",
-    Icon: FaVial,
+      "Crafting cross-platform mobile applications with native-like performance. Utilizing modern frameworks to deliver seamless iOS and Android experiences tailored for 2026 market standards.",
+    Icon: RiSmartphoneLine,
     details: [
-      "Test strategy & coverage goals aligned to risk",
-      "Unit tests (Jest/Karma), component tests (RTL/Cypress)",
-      "E2E (Playwright/Cypress) with CI parallelization",
-      "Mocking, fixtures, and data-seeding utilities",
-      "A11y & performance checks in pipeline",
+      "Cross-platform mobile apps (React Native, Flutter)",
+      "Native device features integration (Camera, GPS, Biometrics)",
+      "Offline-first architecture & robust local databases",
+      "App Store Optimization (ASO) for maximum visibility",
+      "Smooth animations (60fps) and fluid UI/UX",
+      "Secure payment gateways and push notifications",
+      "Automated testing and CI/CD pipelines for App Stores",
     ],
     outcomes: [
-      "Fewer production bugs and safer refactors",
-      "Predictable releases with green pipelines",
-      "Documented acceptance criteria as living tests",
+      "A single codebase deployed seamlessly to iOS and Android",
+      "High user retention with intuitive, modern mobile experiences",
+      "Faster time-to-market with streamlined deployment pipelines",
     ],
-    learnMoreUrl: "/case-studies?tag=testing",
-    projectUrl: "/case-studies?tag=testing",
+    learnMoreUrl: "/projects?tag=app",
+    projectUrl: "/projects?tag=app",
     accent: "#22c55e",
     halo: "radial-gradient(60% 70% at 50% 55%, rgba(34,197,94,0.20), rgba(0,0,0,0) 70%)",
   },
@@ -205,7 +214,7 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
               disabled={!isActive}
               aria-expanded={isActive && isFlipped ? "true" : "false"}
             >
-              <FaList />
+              <RiListCheck2 />
               <span>What's Included?</span>
             </button>
           </div>
@@ -213,37 +222,51 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
 
         {/* Back */}
         <div className={styles.cardFaceBack} aria-live="polite">
-          <button className={styles.backBtn} onClick={onFlip} aria-label="Back">
-            &larr;
-          </button>
+          <div className={styles.backHeader}>
+             <div className={styles.backTitleGroup}>
+               <service.Icon className={styles.backHeaderIcon} />
+               <h3 className={styles.backHeaderTitle}>{service.title}</h3>
+             </div>
+             <button className={styles.closeBtn} onClick={onFlip} aria-label="Close details">
+               <RiCloseLine />
+             </button>
+          </div>
 
-          <h4 className={styles.detailsTitle}>What's Included</h4>
-          <ul className={styles.detailsList}>
-            {service.details.map((detail, i) => (
-              <li key={detail} style={{ "--i": i }}>
-                <FaCheck className={styles.checkIcon} aria-hidden="true" />
-                <span>{detail}</span>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.backContentScroll}>
+            <div className={styles.specSection}>
+              <h4 className={styles.detailsTitle}>Core Deliverables</h4>
+              <ul className={styles.detailsList}>
+                {service.details.map((detail, i) => (
+                  <li key={detail} style={{ "--i": i }}>
+                    <RiCheckboxCircleLine className={styles.checkIcon} aria-hidden="true" />
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <h4 className={styles.outcomesTitle}>Expected Results</h4>
-          <ul className={styles.outcomesList}>
-            {service.outcomes.map((o, i) => (
-              <li key={o} style={{ "--i": i }}>
-                <FaCheck className={styles.checkIcon} aria-hidden="true" />
-                <span>{o}</span>
-              </li>
-            ))}
-          </ul>
+            <div className={styles.specSection}>
+              <h4 className={styles.outcomesTitle}><RiRocketLine className={styles.rocketIcon} /> Business Impact</h4>
+              <ul className={styles.outcomesList}>
+                {service.outcomes.map((o, i) => (
+                  <li key={o} style={{ "--i": i + service.details.length }}>
+                    <div className={styles.impactBullet} style={{ backgroundColor: 'var(--accent-color)' }} />
+                    <span>{o}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-          <a
-            href={service.projectUrl}
-            className={`${styles.cardBtn} ${styles.linkBtn}`}
-            aria-label={`View ${service.title} work`}
-          >
-            View Related Work
-          </a>
+          <div className={styles.backFooter}>
+            <a
+              href={service.projectUrl}
+              className={`${styles.cardBtn} ${styles.linkBtn} ${styles.fullWidthBtn}`}
+              aria-label={`View ${service.title} work`}
+            >
+              View Related Work
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -255,14 +278,33 @@ const ServiceSelector = ({ services, currentIndex, onSelect }) => {
   const [indicatorStyle, setIndicatorStyle] = useState({});
 
   useEffect(() => {
+    const updateIndicator = () => {
+      const el = navRef.current?.querySelectorAll("[role='tab']")[currentIndex];
+      if (el) {
+        setIndicatorStyle({
+          left: `${el.offsetLeft}px`,
+          width: `${el.offsetWidth}px`,
+        });
+      }
+    };
+
+    updateIndicator();
+    
+    // To handle initial focus when index changes
     const el = navRef.current?.querySelectorAll("[role='tab']")[currentIndex];
-    if (el) {
-      setIndicatorStyle({
-        left: `${el.offsetLeft}px`,
-        width: `${el.offsetWidth}px`,
-      });
-      el.focus({ preventScroll: true });
-    }
+    if (el) el.focus({ preventScroll: true });
+
+    // Ensure it updates on window resize
+    window.addEventListener("resize", updateIndicator);
+
+    // Ensure it updates if the container scales or fonts load
+    const observer = new ResizeObserver(updateIndicator);
+    if (navRef.current) observer.observe(navRef.current);
+
+    return () => {
+      window.removeEventListener("resize", updateIndicator);
+      observer.disconnect();
+    };
   }, [currentIndex]);
 
   const onKeyDown = (e) => {
@@ -288,9 +330,8 @@ const ServiceSelector = ({ services, currentIndex, onSelect }) => {
           aria-selected={index === currentIndex}
           aria-controls={`panel-${service.id}`}
           id={`tab-${service.id}`}
-          className={`${styles.serviceNavItem} ${
-            index === currentIndex ? styles.active : ""
-          }`}
+          className={`${styles.serviceNavItem} ${index === currentIndex ? styles.active : ""
+            }`}
           onClick={() => onSelect(index)}
           tabIndex={index === currentIndex ? 0 : -1}
           data-accent={service.accent}
@@ -306,7 +347,7 @@ const ServiceSelector = ({ services, currentIndex, onSelect }) => {
 const DeveloperNav = ({ info, onPrev, onNext }) => (
   <nav className={styles.developerNav} aria-label="Service navigation">
     <button onClick={onPrev} className={styles.navButton} aria-label="Previous">
-      <FaChevronLeft />
+      <RiArrowLeftSLine />
     </button>
     <img src={info.imageUrl} alt={info.name} className={styles.devImage} />
     <div className={styles.devTextContainer}>
@@ -314,7 +355,7 @@ const DeveloperNav = ({ info, onPrev, onNext }) => (
       <div className={styles.devTitle}>{info.title}</div>
     </div>
     <button onClick={onNext} className={styles.navButton} aria-label="Next">
-      <FaChevronRight />
+      <RiArrowRightSLine />
     </button>
   </nav>
 );
@@ -445,84 +486,85 @@ function ServicesPage() {
         />
       ))}
 
-      <div
-        className={styles.container}
-        style={{
-          "--accent-color": activeService.accent,
-          "--halo": activeService.halo,
-        }}
-      >
-        <div className={styles.pageHalo} aria-hidden="true" />
-        <div className="sectionHeader">
-          <h1
-            className="gradientText
-        sectionTitle"
-          >
-            Our Services
-          </h1>
-
-          <p className={styles.sectionDek}>
-            I help teams ship fast, accessible, SEO-ready products. Choose a
-            focused service or combine them into a sprint plan. Every engagement
-            includes measurable outcomes and clear deliverables.
-          </p>
-        </div>
-
-        <ServiceSelector
-          services={services}
-          currentIndex={currentIndex}
-          onSelect={handleSelect}
-        />
-
-        <main
-          className={styles.carouselWrapper}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          id={`panel-${activeService.id}`}
-          role="tabpanel"
-          aria-labelledby={`tab-${activeService.id}`}
+      <div className="custom-scale-wrapper">
+        <div
+          className={styles.container}
+          style={{
+            "--accent-color": activeService.accent,
+            "--halo": activeService.halo,
+          }}
         >
-          <div className={styles.carouselTrack} ref={trackRef}>
-            {services.map((service, index) => {
-              let offset = index - currentIndex;
-              if (offset > services.length / 2) offset -= services.length;
-              if (offset < -services.length / 2) offset += services.length;
-              const isActive = index === currentIndex;
-              return (
-                <ServiceCard
-                  key={service.id}
-                  service={service}
-                  offset={offset}
-                  isFlipped={isActive && isFlipped}
-                  onFlip={handleFlip}
-                  isActive={isActive}
-                />
-              );
-            })}
+          <div className={styles.pageHalo} aria-hidden="true" />
+          <div className="sectionHeader">
+            <h1
+              className="gradientText
+        sectionTitle"
+            >
+              Our Services
+            </h1>
+
+            <p className={styles.sectionDek}>
+              I help teams ship fast, accessible, SEO-ready products. Choose a
+              focused service or combine them into a sprint plan. Every engagement
+              includes measurable outcomes and clear deliverables.
+            </p>
           </div>
-        </main>
 
-        <div className={styles.dotIndicators}>
-          {services.map((s, i) => (
-            <button
-              key={s.id}
-              className={`${styles.dot} ${
-                i === currentIndex ? styles.activeDot : ""
-              }`}
-              onClick={() => handleSelect(i)}
-              aria-label={`Go to ${s.title}`}
-              title={s.title}
-            />
-          ))}
-        </div>
-
-        <div className={styles.developerNavWrapper}>
-          <DeveloperNav
-            info={developerInfo}
-            onPrev={handlePrev}
-            onNext={handleNext}
+          <ServiceSelector
+            services={services}
+            currentIndex={currentIndex}
+            onSelect={handleSelect}
           />
+
+          <main
+            className={styles.carouselWrapper}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            id={`panel-${activeService.id}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${activeService.id}`}
+          >
+            <div className={styles.carouselTrack} ref={trackRef}>
+              {services.map((service, index) => {
+                let offset = index - currentIndex;
+                if (offset > services.length / 2) offset -= services.length;
+                if (offset < -services.length / 2) offset += services.length;
+                const isActive = index === currentIndex;
+                return (
+                  <ServiceCard
+                    key={service.id}
+                    service={service}
+                    offset={offset}
+                    isFlipped={isActive && isFlipped}
+                    onFlip={handleFlip}
+                    isActive={isActive}
+                  />
+                );
+              })}
+            </div>
+          </main>
+
+          <div className={styles.dotIndicators}>
+            {services.map((s, i) => (
+              <button
+                key={s.id}
+                className={`${styles.dot} ${i === currentIndex ? styles.activeDot : ""
+                  }`}
+                onClick={() => handleSelect(i)}
+                aria-label={`Go to ${s.title}`}
+                title={s.title}
+              />
+            ))}
+          </div>
+
+          <div className={styles.developerNavWrapper}>
+            <DeveloperNav
+              info={developerInfo}
+              onPrev={handlePrev}
+              onNext={handleNext}
+            />
+          </div>
         </div>
       </div>
     </>

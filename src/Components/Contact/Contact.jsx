@@ -89,9 +89,8 @@ const DynamicHeadline = ({ headlines }) => {
       {headlines.map((text, i) => (
         <h2
           key={i}
-          className={`${styles.headline} ${
-            i === index ? styles.headlineVisible : ""
-          }`}
+          className={`${styles.headline} ${i === index ? styles.headlineVisible : ""
+            }`}
         >
           {text}
         </h2>
@@ -170,32 +169,29 @@ const Contact = () => {
     setStatus("submitting");
 
     try {
-      // Replace with your Apps Script endpoint (already present)
-      const scriptURL =
-        "https://script.google.com/macros/s/AKfycbzs50oxAmfN28uw191i_h1WBTTGjVPyFgzNpiZXbnFQCw0HNePSuUt1cpOQYgS_9Xf-zg/exec";
-
-      const payload = new URLSearchParams({
-        name: formData.name,
-        email: formData.email,
-        projectType: formData.projectType,
-        message: formData.message,
-        page: "/contact",
-        tz: "Asia/Karachi",
-        ts: new Date().toISOString(),
-      });
-
-      const response = await fetch(scriptURL, {
+      // WEB3FORMS (Method 1)
+      // Get your free access key from https://web3forms.com/ and replace YOUR_ACCESS_KEY_HERE
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: payload.toString(),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "f48486d2-5ac2-480c-8de4-b75f71177646",
+          name: formData.name,
+          email: formData.email,
+          projectType: formData.projectType,
+          message: formData.message,
+        }),
       });
 
       const result = await response.json();
-      if (result.result === "success") {
+      if (result.success) {
         setStatus("success");
         setView("success");
       } else {
-        throw new Error(result.error || "Unknown error");
+        throw new Error(result.message || "Unknown error");
       }
     } catch (err) {
       console.error("Submission error:", err);
@@ -238,7 +234,7 @@ const Contact = () => {
       "@type": "Person",
       name: "Ali Ch",
       jobTitle: "Senior Front-End Engineer (React & Angular)",
-      homeLocation: { "@type": "Place", name: "Chiniot, Pakistan" },
+      homeLocation: { "@type": "Place", name: "Lahore, Pakistan" },
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",
@@ -266,7 +262,7 @@ const Contact = () => {
       </title>
       <meta
         name="description"
-        content="Get in touch to discuss React or Angular development, UI/UX implementation, performance & SEO audits. Based in Chiniot, Pakistan — working with teams worldwide."
+        content="Get in touch to discuss React or Angular development, UI/UX implementation, performance & SEO audits. Based in Lahore, Pakistan — working with teams worldwide."
       />
       <meta name="robots" content="index,follow" />
       <link rel="canonical" href={canonical} />
@@ -320,9 +316,8 @@ const Contact = () => {
 
         {/* --- STATE 1: Portal --- */}
         <div
-          className={`${styles.portalView} ${
-            view !== "portal" ? styles.hidden : ""
-          }`}
+          className={`${styles.portalView} ${view !== "portal" ? styles.hidden : ""
+            }`}
         >
           <DynamicHeadline headlines={dynamicHeadlines} />
           <div
@@ -337,23 +332,21 @@ const Contact = () => {
           </div>
           <p className={styles.ctaSubtitle}>
             Click the icon to start the conversation. It’s currently{" "}
-            <strong>{localTime}</strong> in Chiniot, Pakistan.
+            <strong>{localTime}</strong> in Lahore, Pakistan.
           </p>
         </div>
 
         {/* --- STATE 2: Form --- */}
         <div
-          className={`${styles.formWrapper} ${
-            view === "form" ? styles.visible : ""
-          }`}
+          className={`${styles.formWrapper} ${view === "form" ? styles.visible : ""
+            }`}
         >
           <div
-            className={`${styles.formContainer} ${
-              status === "error" ? styles.shake : ""
-            }`}
+            className={`${styles.formContainer} ${status === "error" ? styles.shake : ""
+              }`}
           >
             <div className={styles.formHeader}>
-              <h2>Start the Conversation</h2>
+              <h2 className="gradientText sectionTitle">Start the Conversation</h2>
               <div className={styles.statusWrapper}>
                 <div className={styles.availability}>
                   <span className={styles.statusDot}></span>Available for new
@@ -433,9 +426,8 @@ const Contact = () => {
 
               <div className="">
                 <div
-                  className={`${styles.formGroup} ${
-                    errors.projectType ? styles.error : ""
-                  }`}
+                  className={`${styles.formGroup} ${errors.projectType ? styles.error : ""
+                    }`}
                 >
                   <label htmlFor="projectType" className={styles.label}>
                     Project Type
@@ -491,9 +483,8 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className={`${styles.submitBtn} ${
-                  status === "error" ? styles.showError : ""
-                }`}
+                className={`${styles.submitBtn} ${status === "error" ? styles.showError : ""
+                  }`}
                 disabled={status === "submitting"}
                 data-analytics="contact-submit"
               >
@@ -526,9 +517,8 @@ const Contact = () => {
 
         {/* --- STATE 3: Success --- */}
         <div
-          className={`${styles.successView} ${
-            view === "success" ? styles.visible : ""
-          }`}
+          className={`${styles.successView} ${view === "success" ? styles.visible : ""
+            }`}
         >
           <SuccessIcon />
           <h3>Thank you, {formData.name.split(" ")[0] || "friend"}!</h3>

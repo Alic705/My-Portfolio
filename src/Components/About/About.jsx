@@ -13,15 +13,13 @@ import {
   SiLinkedin,
 } from "react-icons/si";
 import {
-  TbCamera,
-  TbDeviceGamepad2,
-  TbBook2,
-  TbCube,
-  TbBrandJavascript,
-  TbBrandReact,
-  TbServerBolt,
-  TbPlane,
-} from "react-icons/tb";
+  RiCameraLensLine,
+  RiGamepadLine,
+  RiBookReadLine,
+  RiBox3Line,
+  RiServerLine,
+  RiFlightTakeoffLine,
+} from "react-icons/ri";
 
 /* ===========================
    SEO-friendly toolkit labels
@@ -58,36 +56,28 @@ const journeyMilestones = [
   //   Icon: TbShoppingBag,
   // },
   {
-    year: "2023",
+    year: "2024",
     event: "React & Angular foundations — first production SPAs.",
     level: 40,
-    Icon: TbBrandReact,
+    Icon: SiReact,
   },
 
   {
     year: "2024",
     event: "Enterprise dashboards with TypeScript, state mgmt, CI/CD.",
     level: 65,
-    Icon: TbBrandJavascript,
+    Icon: SiJavascript,
   },
   {
     year: "2025",
-    event: "Perf & SEO audits — Core Web Vitals, structured data, WCAG 2.2.",
+    event: "Micro-frontends, WebGL, AI API integrations at scale.",
     level: 90,
-    Icon: TbServerBolt,
+    Icon: RiServerLine,
   },
-
-  // {
-  //   year: "2025",
-  //   event: "Full-stack exploration — Node.js, Angular Universal & Next.js.",
-  //   level: 120,
-  //   Icon: TbCube,
-  // },
 ];
 
 /* ========= Sub-Components ========= */
 
-// ...existing code...
 const Toolkit = () => (
   <div className={`${styles.aboutCard} ${styles.toolkitCard}`} data-tilt>
     <div className={styles.cardContent}>
@@ -130,7 +120,6 @@ const Toolkit = () => (
   </div>
 );
 
-// ...existing code...
 const HobbiesCard = () => (
   <div className={`${styles.aboutCard} ${styles.hobbiesCard}`} data-tilt>
     <div className={styles.cardContent}>
@@ -146,7 +135,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              <TbCube />
+              <RiBox3Line />
             </div>
             <div className={styles.hobbyLabel}>Coding</div>
           </div>
@@ -154,7 +143,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              <TbCamera />
+              <RiCameraLensLine />
             </div>
             <div className={styles.hobbyLabel}>Photography</div>
           </div>
@@ -162,7 +151,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              <TbDeviceGamepad2 />
+              <RiGamepadLine />
             </div>
             <div className={styles.hobbyLabel}>Gaming</div>
           </div>
@@ -170,7 +159,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              <TbBook2 />
+              <RiBookReadLine />
             </div>
             <div className={styles.hobbyLabel}>Reading</div>
           </div>
@@ -178,7 +167,7 @@ const HobbiesCard = () => (
         <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
           <div className={styles.hobbyPolaroid}>
             <div className={styles.hobbyIconWrapper} aria-hidden="true">
-              <TbPlane />
+              <RiFlightTakeoffLine />
             </div>
             <div className={styles.hobbyLabel}>Traveling</div>
           </div>

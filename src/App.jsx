@@ -7,11 +7,9 @@ import Testimonials from "./Components/Testimonials/Testimonials";
 import Contact from "./Components/Contact/Contact";
 import UsesPage from "./Components/Uses/Uses";
 import FAQ from "./Components/Faq/Faq";
-// import Blog from "./Components/Blog/Blog";
-// import BlogDetail from "./Components/Blog/BlogDetail";
 import BackgroundFX from "./Components/FX/BackgroundFX";
 import Preloader from "./Components/Preloader/Preloader";
-import OrbitingCursor from "./Components/OrbitingCursor/OrbitingCursor";
+// import OrbitingCursor from "./Components/OrbitingCursor/OrbitingCursor";
 import "./App.css";
 
 /* === react-theme-switch-animation === */
@@ -119,9 +117,8 @@ const OfflineNotifier = ({ children }) => {
       {children}
       {showOverlay && (
         <div
-          className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white transition-opacity duration-500 ease-in-out ${
-            isOnline ? "opacity-0" : "opacity-100"
-          }`}
+          className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white transition-opacity duration-500 ease-in-out ${isOnline ? "opacity-0" : "opacity-100"
+            }`}
           role="alert"
         >
           <OfflineCloudIcon />
@@ -151,7 +148,7 @@ const Layout = ({ children, theme }) => {
     if (!panel || !glare) return;
 
     const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     if (prefersReduced || isTouch) return;
@@ -309,14 +306,11 @@ function ThemeSwitchButton({ theme, setTheme }) {
       className="theme-toggle"
       style={{
         position: "fixed",
-        left: "clamp(1rem,4vw,2rem)",
-        top: "1rem",
         zIndex: 1100,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         gap: ".6rem",
-        // padding: ".6vw .9vw",
         borderRadius: "50%",
         cursor: "pointer",
         background: "var(--btn-ghost-bg)",
@@ -325,9 +319,6 @@ function ThemeSwitchButton({ theme, setTheme }) {
         boxShadow: "0 6px 16px var(--btn-primary-shadow)",
         backdropFilter: "blur(6px)",
         WebkitBackdropFilter: "blur(6px)",
-        fontSize: "1.2vw",
-        width: "45px",
-        height: "45px",
         transition:
           "background 0.3s ease, color 0.3s ease, border-color 0.3s ease",
       }}
@@ -374,13 +365,13 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
       backgroundImage:
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
     },
-    {
-      page: "projects",
-      label: "Projects",
-      icon: "ph-bold ph-briefcase",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=800&q=80",
-    },
+    // {
+    //   page: "projects",
+    //   label: "Projects",
+    //   icon: "ph-bold ph-briefcase",
+    //   backgroundImage:
+    //     "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=800&q=80",
+    // },
     // {
     //   page: "testimonials",
     //   label: "Reviews",
@@ -421,7 +412,7 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
   useEffect(() => {
     if (isMobileMenuOpen && navLinksRef.current) {
       const activeLinkEl = navLinksRef.current.querySelector(
-        ".mobile-nav-link.active"
+        ".mobile-nav-link.active",
       );
       if (activeLinkEl) {
         setIndicatorStyle({
@@ -468,7 +459,7 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
         .nav-link:not(.active):hover{ background: color-mix(in hsl, var(--brand-2) 12%, transparent); border-color: color-mix(in hsl, var(--brand-2) 18%, transparent); }
         .nav-link.active{ background: color-mix(in hsl, var(--brand-2) 22%, white 10%); color: var(--text-primary); border-color: color-mix(in hsl, var(--brand-2) 35%, white); box-shadow: 0 6px 20px color-mix(in hsl, var(--brand-2) 40%, transparent); }
         .nav-link.active::before{ content:""; position:absolute; right:6px; top:50%; transform:translateY(-50%); width:6px; height:6px; border-radius:50%; background: var(--accent-gold); box-shadow: 0 0 10px rgba(255,254,1,.6); }
-        .nav-link::after{ content:attr(data-label); position:absolute; left:120%; top:50%; transform:translateY(-50%); background:#222; color:#fff; padding:.4rem .8rem; border-radius:6px; border:1px solid rgba(255,255,255,0.2); font-size:.9rem; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition: opacity .2s ease, visibility .2s ease; transition-delay: .1s; }
+        .nav-link::after{ content:attr(data-label); position:absolute; left:120%; top:50%; transform:translateY(-50%); background:#222; color:#fff; padding:.4vw .8vw; border-radius:0.4vw; border:1px solid rgba(255,255,255,0.2); font-size:.9vw; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition: opacity .2s ease, visibility .2s ease; transition-delay: .1s; }
         .nav-link:hover::after{ opacity:1; visibility:visible; }
         .mobile-nav-header{display:none}
         .mobile-menu-overlay{display:none}
@@ -540,9 +531,8 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
           {navItems.map((item) => (
             <div
               key={item.page}
-              className={`menu-background-image ${
-                hoveredItem === item.page ? "visible" : ""
-              }`}
+              className={`menu-background-image ${hoveredItem === item.page ? "visible" : ""
+                }`}
               style={{ backgroundImage: `url(${item.backgroundImage})` }}
             />
           ))}
@@ -556,9 +546,8 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
           {navItems.map((item) => (
             <div
               key={item.page}
-              className={`mobile-nav-link ${
-                activePage === item.page ? "active" : ""
-              }`}
+              className={`mobile-nav-link ${activePage === item.page ? "active" : ""
+                }`}
               onClick={() => handleNavClick(item.page)}
               onMouseEnter={() => setHoveredItem(item.page)}
               role="button"
@@ -614,7 +603,7 @@ function App() {
 
   // init from localStorage OR system; default "dark" for parity with old code
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "dark"
+    () => localStorage.getItem("theme") || "dark",
   );
 
   useEffect(() => {
@@ -665,7 +654,6 @@ function App() {
           "/uses",
           "/faq",
           "/contact",
-          "/blog",
         ].includes(path)
       ) {
         e.preventDefault();
@@ -676,10 +664,6 @@ function App() {
     const parseLocationFrom = (pathname) => {
       const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
       if (parts.length === 0) return { page: "home" };
-      if (parts[0] === "blog") {
-        if (parts.length > 1) return { page: "blog-detail", slug: parts[1] };
-        return { page: "blog" };
-      }
       return { page: parts[0] };
     };
     document.addEventListener("click", onClick);
@@ -711,10 +695,6 @@ function App() {
         return <UsesPage />;
       case "faq":
         return <FAQ />;
-      case "blog":
-        return <Blog />;
-      case "blog-detail":
-        return <BlogDetail slugFromRouter={blogSlug} />;
       case "contact":
         return <Contact />;
       default:
@@ -727,7 +707,7 @@ function App() {
   return (
     <OfflineNotifier>
       <style>{THEME_CSS}</style>
-      <OrbitingCursor />
+      {/* <OrbitingCursor /> */}
       <div className="portfolio-container" data-theme={theme}>
         <Navbar
           activePage={activePage}

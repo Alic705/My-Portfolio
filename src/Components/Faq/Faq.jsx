@@ -26,14 +26,14 @@ const faqs = [
     q: "How soon can we start?",
     a: "I’m currently available. Most projects kick off within 1–2 weeks after scope sign-off.",
   },
-  {
-    q: "Which stacks do you use most?",
-    a: "React/Next.js (TypeScript) and Angular (NgRx). Node.js/Express for APIs. Testing with Jest/Vitest/Karma.",
-  },
-  {
-    q: "Do you handle accessibility?",
-    a: "Yes. I target WCAG 2.2 AA: landmarks, keyboard support, focus management, and screen-reader checks.",
-  },
+  // {
+  //   q: "Which stacks do you use most?",
+  //   a: "React/Next.js (TypeScript) and Angular (NgRx). Node.js/Express for APIs. Testing with Jest/Vitest/Karma.",
+  // },
+  // {
+  //   q: "Do you handle accessibility?",
+  //   a: "Yes. I target WCAG 2.2 AA: landmarks, keyboard support, focus management, and screen-reader checks.",
+  // },
   // {
   //   q: "How do we measure results?",
   //   a: "We set KPIs (conversion, time-to-interactive, SEO impressions) and track via analytics, Search Console, and synthetic monitoring.",
@@ -184,6 +184,7 @@ export default function FAQ() {
                   <p className={styles.a}>{f.a}</p>
                   <div className={styles.itemActions}>
                     <button
+                      className={styles.copyLink}
                       onClick={(e) => {
                         e.stopPropagation();
                         copyLink(id);

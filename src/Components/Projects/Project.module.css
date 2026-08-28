@@ -58,10 +58,18 @@
   font-family: "Syne", sans-serif;
 }
 
+.projectRow {
+  display: flex;
+  align-content: space-between;
+  gap: 2.5rem;
+}
+
 .leftPanel {
   width: 35%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
   flex-shrink: 0;
 }
 
@@ -93,6 +101,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+
 
 /* Headline w/ subtle gradient */
 .mainHeading {
@@ -193,9 +203,8 @@
 
 .projectCard:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 60px color-mix(in srgb, black 70%, var(--proj-accent) 30%),
-    0 0 36px color-mix(in srgb, var(--proj-accent) 25%, transparent);
 }
+
 
 .activeCard {
   transform: translateY(-4px);
@@ -294,10 +303,10 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 1rem;
   animation: fadeIn 0.25s ease both;
   background-color: var(--proj-overlay);
   backdrop-filter: blur(10px);
+  overflow: hidden;
 }
 
 @keyframes fadeIn {
@@ -311,7 +320,9 @@
 }
 
 .modalContent {
-  width: 60vw;
+  padding-top: 1vw;
+
+  width: 100%;
   max-height: 90vh;
   background: var(--proj-modal-bg);
   border-radius: 24px;
@@ -336,31 +347,56 @@
 }
 
 .modalHeader {
-  height: 500px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  display: none;
+  /* Safely disabled old header */
+}
+
+/* ===== NEW CLEAN MODAL HEADER ===== */
+.cleanHeader {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 2rem;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--proj-chip-border);
+  margin-bottom: 2rem;
 }
 
-.modalHeader::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top,
-      var(--proj-modal-tint) 12%,
-      transparent 70%);
-}
-
-.modalHeader h2 {
-  font-size: 2.2vw;
-  margin: 0;
-  z-index: 1;
-  text-shadow: 0 6px 16px var(--proj-card-shadow);
+.cleanTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
   color: var(--proj-text);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cleanTagline {
+  font-size: 1rem;
+  color: var(--proj-muted);
+  margin: 0;
+  font-weight: 400;
+}
+
+.metaBadgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cleanHeroImage {
+  width: 100%;
+  margin-bottom: 2.5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--proj-card-shadow);
+}
+
+.cleanHeroImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 50vh;
 }
 
 .modalClose {
@@ -372,12 +408,16 @@
   border-radius: 50%;
   font-size: 1.4rem;
   cursor: pointer;
-  z-index: 2;
-  align-self: flex-start;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.18s, background 0.18s, border-color 0.18s;
+
+  /* Absolute Positioning to top right */
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
 }
 
 .modalClose:hover {
@@ -390,6 +430,7 @@
 
 .modalBody {
   padding: 1.6rem 2.4rem 2.4rem;
+  width: 100%;
   overflow-y: auto;
 }
 
@@ -398,7 +439,7 @@
 }
 
 .modalSection h3 {
-  font-size: 1.25vw;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--proj-accent);
   margin: 0 0 1rem 0;
@@ -407,7 +448,7 @@
 
 .modalSection p {
   line-height: 1.7;
-  font-size: 1.05vw;
+  font-size: 1rem;
   color: var(--proj-muted);
   max-width: 68ch;
 }
@@ -425,7 +466,7 @@
 }
 
 .stepNumber {
-  font-size: 1.4vw;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--proj-accent);
   line-height: 1;
@@ -433,7 +474,7 @@
 }
 
 .stepContent h4 {
-  font-size: 1.05vw;
+  font-size: 1rem;
   font-weight: 700;
   margin: 0 0 0.25rem 0;
   color: var(--proj-text);
@@ -455,14 +496,14 @@
 }
 
 .resultValue {
-  font-size: 2.2vw;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--proj-accent);
   line-height: 1.1;
 }
 
 .resultLabel {
-  font-size: 0.95vw;
+  font-size: 0.9rem;
   color: var(--proj-muted);
   margin-top: 0.35rem;
 }
@@ -489,7 +530,7 @@
   transition: background 0.18s ease, border-color 0.18s ease,
     transform 0.18s ease;
   font-weight: 600;
-  font-size: 1.05vw;
+  font-size: 1rem;
 }
 
 .modalButton:hover {
@@ -892,6 +933,430 @@
   transform: scale(1.2);
 }
 
+/* ===== Desktop Overrides for Perfect Proportional Scaling ===== */
+@media (min-width: 769px) {
+  .sectionHeader {
+    margin-bottom: 1vw !important;
+  }
+
+  :global(.sectionTitle) {
+    font-size: 3vw !important;
+  }
+
+  .projectRow {
+    gap: 2.5vw !important;
+  }
+
+  .mainHeading {
+    font-size: 3.5vw !important;
+    margin: 0 0 1.25vw 0 !important;
+  }
+
+  .projectDescription {
+    font-size: 1.1vw !important;
+    margin-bottom: 2vw !important;
+    min-height: 8vw !important;
+  }
+
+  .carouselTrack {
+    gap: 2vw !important;
+    padding-right: 8vw !important;
+  }
+
+  .carouselNav {
+    gap: 1vw !important;
+  }
+
+  .carouselNav button {
+    width: 4vw !important;
+    height: 4vw !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .carouselNav button svg {
+    width: 1.5vw !important;
+    height: 1.5vw !important;
+    flex-shrink: 0 !important;
+  }
+
+  .projectCard {
+    flex: 0 0 calc(46% - 1vw) !important;
+    border-radius: 1.5vw !important;
+  }
+
+  .cardInfo {
+    padding: 1.25vw 1.5vw 1.6vw !important;
+    gap: 0.5vw !important;
+  }
+
+  .cardTitle {
+    font-size: 1.45vw !important;
+    text-shadow: 0 0.3vw 1vw var(--proj-card-shadow) !important;
+  }
+
+  .techTags {
+    gap: 0.5vw !important;
+  }
+
+  .techTag {
+    padding: 0.35vw 0.9vw !important;
+    font-size: 0.95vw !important;
+    border-radius: 9999px !important;
+  }
+
+  .dotIndicators {
+    gap: 0.6vw !important;
+    margin-top: 1.25vw !important;
+  }
+
+  .dot {
+    width: 0.7vw !important;
+    height: 0.7vw !important;
+  }
+
+  .viewCaseCircleBtn {
+    width: 5vw !important;
+    height: 5vw !important;
+    font-size: 1.5vw !important;
+  }
+
+  /* Modal Overrides */
+
+
+  .modalContent {
+    border-radius: 1.5vw !important;
+  }
+
+  .modalHeader {
+    height: 35vw !important;
+    padding: 2vw !important;
+  }
+
+  .modalHeader h2 {
+    text-shadow: 0 0.4vw 1vw var(--proj-card-shadow) !important;
+  }
+
+  .modalClose {
+    width: 3vw !important;
+    height: 3vw !important;
+    font-size: 1.4vw !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    top: 1.5vw !important;
+    right: 1.5vw !important;
+  }
+
+  .cleanHeader {
+    gap: 1vw !important;
+    padding-bottom: 2vw !important;
+    margin-bottom: 2vw !important;
+  }
+
+  .cleanTitle {
+    font-size: 2.2vw !important;
+  }
+
+  .cleanTagline {
+    font-size: 1.1vw !important;
+  }
+
+  .metaBadgeRow {
+    gap: 0.6vw !important;
+  }
+
+  .metaBadge {
+    font-size: 0.8vw !important;
+    padding: 0.35vw 0.75vw !important;
+  }
+
+  .cleanHeroImage {
+    margin-bottom: 2.5vw !important;
+    border-radius: 1vw !important;
+  }
+
+  .cleanHeroImage img {
+    max-height: 25vw !important;
+  }
+
+  .modalBody {
+    padding: 1.6vw 2.4vw 2.4vw !important;
+  }
+
+  .modalGrid {
+    display: grid !important;
+    grid-template-columns: 1.3fr 1fr !important;
+    gap: 3vw !important;
+    margin-bottom: 2vw !important;
+  }
+
+  .modalLeft,
+  .modalRight {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2vw !important;
+  }
+
+  .modalSection {
+    margin-bottom: 0 !important;
+  }
+
+  .modalSection h3 {
+    margin: 0 0 1vw 0 !important;
+  }
+
+  .modalSection p {
+    font-size: 1.05vw !important;
+  }
+
+  .processSteps {
+    gap: 1.25vw !important;
+  }
+
+  .stepNumber {
+    font-size: 1.4vw !important;
+  }
+
+  .step {
+    gap: 1.25vw !important;
+  }
+
+  .stepContent h4 {
+    margin: 0 0 0.25vw 0 !important;
+  }
+
+  .resultsSection {
+    padding: 1.6vw !important;
+    margin-top: 1.4vw !important;
+    border-radius: 1vw !important;
+  }
+
+  .resultValue {
+    font-size: 2.2vw !important;
+  }
+
+  .resultsGrid {
+    gap: 1.25vw !important;
+  }
+
+  .resultLabel {
+    margin-top: 0.35vw !important;
+  }
+
+  .modalLinks {
+    gap: 1vw !important;
+    margin-top: 2vw !important;
+    padding-top: 1.4vw !important;
+  }
+
+  .modalButton {
+    gap: 0.65vw !important;
+    padding: 0.7vw 1.4vw !important;
+    border-radius: 9999px !important;
+    font-size: 1.05vw !important;
+  }
+
+  .heroTagline {
+    margin: 0.35vw 0 0 0 !important;
+  }
+
+  .heroBadgeRow {
+    top: 1vw !important;
+    left: 1vw !important;
+    right: 1vw !important;
+    gap: 0.5vw !important;
+  }
+
+  .featuresGrid {
+    gap: 1vw !important;
+  }
+
+  .featureCard {
+    padding: 1vw 1.1vw !important;
+    border-radius: 1vw !important;
+    gap: 0.35vw !important;
+  }
+
+  .featureCard h4 {
+    font-size: 1.05vw !important;
+  }
+
+  .featureCard p {
+    font-size: 0.9vw !important;
+  }
+
+  .featureIcon {
+    font-size: 1.25vw !important;
+  }
+
+  .resultDonut {
+    width: 6vw !important;
+    height: 6vw !important;
+  }
+
+  .resultDonutHole {
+    width: 4.5vw !important;
+    height: 4.5vw !important;
+    font-size: 1.2vw !important;
+  }
+
+  .testimonialCard {
+    gap: 1vw !important;
+    padding: 1vw 1.2vw !important;
+    border-radius: 1vw !important;
+  }
+
+  .testimonialCard blockquote {
+    font-size: 1.05vw !important;
+  }
+
+  .testimonialAvatar {
+    width: 3.5vw !important;
+    height: 3.5vw !important;
+  }
+
+  .testimonialCard footer {
+    margin-top: 0.25vw !important;
+    font-size: 0.95vw !important;
+  }
+
+  .videoFrame {
+    border-radius: 1vw !important;
+    margin-bottom: 1vw !important;
+  }
+
+  .galleryScroller {
+    gap: 0.75vw !important;
+    padding-bottom: 0.25vw !important;
+  }
+
+  .galleryScroller img {
+    height: 12vw !important;
+    border-radius: 0.8vw !important;
+  }
+
+  .futureList {
+    padding-left: 1.2vw !important;
+    gap: 0.4vw !important;
+  }
+
+  .futureList li {
+    font-size: 0.95vw !important;
+  }
+
+  .highlightCard {
+    gap: 1vw !important;
+    padding: 1.25vw 1.5vw !important;
+    border-radius: 0.85vw !important;
+  }
+
+  .sectionIcon {
+    font-size: 1.8vw !important;
+  }
+
+  .highlightCard h3 {
+    margin: 0 0 0.5vw !important;
+    font-size: 1.3vw !important;
+  }
+
+  .timeline {
+    margin-left: 1.5vw !important;
+    padding-left: 1.5vw !important;
+    gap: 1.5vw !important;
+  }
+
+  .timelineItem {
+    gap: 1vw !important;
+  }
+
+  .timelineNode {
+    left: -1.8vw !important;
+    top: 0.2vw !important;
+    width: 2vw !important;
+    height: 2vw !important;
+    font-size: 0.9vw !important;
+  }
+
+  .timelineContent {
+    padding: 0.75vw 1vw !important;
+    border-radius: 0.7vw !important;
+  }
+
+  .timelineContent h4 {
+    margin: 0 0 0.3vw !important;
+    font-size: 1.1vw !important;
+  }
+
+  .timelineContent p {
+    font-size: 0.95vw !important;
+  }
+
+  .sliderWrapper {
+    border-radius: 1vw !important;
+  }
+
+  .slide img {
+    height: 22vw !important;
+    border-radius: 1vw !important;
+  }
+
+  .sliderNav {
+    width: 3vw !important;
+    height: 3vw !important;
+    font-size: 2vw !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .sliderNav:first-of-type {
+    left: 0.7vw !important;
+  }
+
+  .sliderNav:last-of-type {
+    right: 0.7vw !important;
+  }
+
+  .sliderDots {
+    gap: 0.5vw !important;
+    margin-top: 0.75vw !important;
+  }
+}
+
+/* ===== Tablet & Mobile ===== */
+@media (max-width: 1024px) {
+  .projectCard {
+    height: 35vw;
+  }
+
+  .sectionTitle {
+    font-size: 4.5vw;
+  }
+
+  .sectionDek {
+    font-size: 1.6vw;
+    max-width: 90%;
+  }
+
+  .cardTitle {
+    font-size: 2vw;
+  }
+
+  .projectDescription {
+    font-size: 1.6vw;
+  }
+
+  .techTag {
+    font-size: 1.4vw;
+  }
+}
+
 /* ===== Mobile ===== */
 @media (max-width: 768px) {
   .projectsWrapper {
@@ -1010,6 +1475,42 @@
     width: 100%;
     justify-content: center;
     font-size: 0.98rem;
+  }
+
+  /* Typography fixes for vw */
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+
+  .sectionDek {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .stepNumber {
+    font-size: 2rem;
+  }
+
+  .stepContent h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .projectCard {
+    height: 380px;
+  }
+
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+
+  .resultValue {
+    font-size: 1.3rem;
   }
 }
 

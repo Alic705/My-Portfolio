@@ -170,9 +170,9 @@ table {
   --space-8: 64px;
 
   /* Radii */
-  --r-sm: 10px;
-  --r-md: 20px;
-  --r-lg: 28px;
+  --r-sm: 0.7vw;
+  --r-md: 1.4vw;
+  --r-lg: 2vw;
   --r-pill: 9999px;
 
   /* Elevation */
@@ -302,9 +302,17 @@ body {
   padding: 1.8vw 3.1vw 2.7vw 3.1vw !important;
 }
 
-
+.custom-scale-wrapper {
+  font-size: var(--ui-scaling);
+  width: 100%;
+}
 
 @media (max-width: 768px) {
+  :root {
+    --r-sm: 10px;
+    --r-md: 20px;
+    --r-lg: 28px;
+  }
   .portfolio-container {
     flex-direction: column;
     gap: 0;
@@ -386,4 +394,39 @@ body {
 
 .mt-1vw {
   margin-top: 1vw;
+}
+
+@media (max-width: 1000px) {
+  .custom-scale-wrapper {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 7680px) {
+  .custom-scale-wrapper {
+    font-size: 64px;
+  }
+}
+
+/* Theme Toggle Responsive */
+.theme-toggle {
+  left: clamp(1rem, 4vw, 2rem);
+  top: 1rem;
+  font-size: 1.2vw;
+  width: 3.3vw;
+  height: 3.3vw;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    left: 1rem;
+    top: 1.5rem;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+  }
+  
+  #main-panel {
+    max-height: 100vh !important;
+  }
 }

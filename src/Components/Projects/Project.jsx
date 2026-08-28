@@ -1,6 +1,36 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { FaArrowLeft, FaArrowRight, FaGithub } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+import {
+  RiArrowLeftLine,
+  RiArrowRightLine,
+  RiGithubLine,
+  RiExternalLinkLine,
+  RiCalendarEventLine,
+  RiUserLine,
+  RiToolsLine,
+  RiLightbulbFlashLine,
+  RiRobot2Line,
+  RiRocketLine,
+  RiLeafLine,
+  RiShakeHandsLine,
+  RiShipLine,
+  RiLineChartLine,
+  RiShieldCheckLine,
+  RiBarChartBoxLine,
+  RiShoppingCartLine,
+  RiFilter3Line,
+  RiLockPasswordLine,
+  RiCloseLine
+} from "react-icons/ri";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiOpenai,
+  SiAngular,
+  SiRedux,
+  SiNodedotjs,
+  SiStripe,
+  SiFigma,
+} from "react-icons/si";
 import styles from "./Project.module.css";
 
 /* ===================================================================
@@ -10,155 +40,188 @@ import styles from "./Project.module.css";
    =================================================================== */
 export const projectsData = [
   {
-    id: "proj-01",
-    title: "Project Velocity — Next.js Marketing Site",
+    id: "proj-04",
+    title: "Rdeens Solutions",
     shortDescription:
-      "High-performance marketing website with Next.js, SSG/ISR, and a headless CMS—built to rank and convert.",
-    coverImage:
-      "https://i.pinimg.com/1200x/8d/aa/13/8daa13976583e745739b57d005295e49.jpg",
-    techStack: ["Next.js", "React", "TypeScript", "Vercel"],
-    liveUrl: "#",
+      "Rdeens Solutions combines AI technology with expert developers to turn your idea into a market-ready product — in record time.",
+    coverImage: "assets/rdeens-1.png",
+    techStack: ["React", "AI Integration", "Web & Mobile Dev"],
+    liveUrl: "https://rdeens.com/",
     codeUrl: "#",
 
-    heroTagline: "Sub-second loads, CMS freedom, and SEO that converts.",
-    timeline: "2 months",
-    role: "Front-End Lead",
-    tools: ["Next.js", "TypeScript", "Contentful", "Vercel"],
+    heroTagline: "WE BUILD AI-POWERED DIGITAL PRODUCTS",
+    timeline: "3 months",
+    role: "Full Stack Developer",
+    tools: ["React", "Next.js", "AI APIs", "Mobile Dev"],
 
     challenge:
-      "The existing site was slow, difficult to update, and suffered a >70% bounce rate on mobile.",
+      "To create a digital presence for an agency that combines AI technology with expert developers to turn ideas into market-ready products in record time.",
+    processSteps: [
+      { title: "Identify and Simplify", description: "Accelerate development cycle and maintain cost-effectiveness." },
+      { title: "Build and Develop", description: "Complex, dynamic, and real-time solutions for various industries." },
+      { title: "Quality Control", description: "Functional, integration, system, sanity, usability, and performance testing." },
+      { title: "Scale and Deploy", description: "On-time deployment by assessing and scaling development needs." },
+    ],
+
+    features: [
+      { icon: <RiLightbulbFlashLine />, title: "Strategic Thinking", description: "User-focused design combined with innovation." },
+      { icon: <RiRobot2Line />, title: "AI-Driven", description: "Next-Gen AI-accelerated product development." },
+      { icon: <RiRocketLine />, title: "Rapid Delivery", description: "Turn ideas into market-ready products in record time." },
+    ],
+
+    solution:
+      "A comprehensive digital experience combining strategic thinking, user-focused design, powerful web and mobile development, and reliable engineering.",
+    results: [
+      { value: "80+", label: "Projects Delivered", percent: 80 },
+      { value: "8+", label: "Years of Experience", percent: 90 },
+      { value: "95%", label: "Client Satisfaction", percent: 95 },
+    ],
+
+    testimonial: {
+      quote:
+        "Their custom AI chatbot completely transformed our digital customer engagement.",
+      author: "Spectifyxi, Entrepreneur",
+      avatar: "https://i.pravatar.cc/150?img=11",
+    },
+
+    media: {
+      images: [
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+      ],
+    },
+    futureWork: ["More AI features", "Client portal", "Automated scaling"],
+  },
+  {
+    id: "proj-01",
+    title: "Animal Feed",
+    shortDescription:
+      "A global export platform for high-quality Animal Feed, Fodder, and Forages, specializing in the Gulf Countries market.",
+    coverImage: "https://images.unsplash.com/photo-1599507963248-f6213797960d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    techStack: ["React", "Web Development", "Export Platform"],
+    liveUrl: "https://animal-feed.netlify.app/",
+    codeUrl: "#",
+
+    heroTagline: "High-Quality Animal Feed And Forages",
+    timeline: "2.5 months",
+    role: "Front-End Engineer",
+    tools: ["React", "CSS Modules", "Netlify"],
+
+    challenge:
+      "To create a seamless online platform for exporting high-quality animal fodder and forages globally, ensuring trust and international compliance.",
     processSteps: [
       {
-        title: "Discovery & Strategy",
-        description:
-          "Benchmarked Core Web Vitals, mapped journeys, aligned KPIs with marketing.",
+        title: "Cultivation",
+        description: "Growing and producing high-quality animal fodder and forages for livestock.",
       },
       {
-        title: "Development & CMS",
-        description: "Reusable components + Contentful content model.",
+        title: "Quality Control",
+        description: "Ensuring products comply with international standards with necessary documentation.",
       },
       {
-        title: "Performance",
-        description:
-          "Image optimization (next/image), SSG, code-splitting, prefetching.",
-      },
-      {
-        title: "Deploy & Train",
-        description: "Vercel deploy, preview workflows, team onboarding.",
+        title: "Export & Shipping",
+        description: "Providing a one-window solution for products and shipping right at the doorstep.",
       },
     ],
     features: [
       {
-        icon: "⚡",
-        title: "SSG + ISR",
-        description: "Instant loads with smart revalidation.",
+        icon: <RiLeafLine />,
+        title: "Quality Products",
+        description: "Complying with international standards and documentation.",
       },
       {
-        icon: "🧩",
-        title: "Component Library",
-        description: "Consistent UI and rapid iteration.",
+        icon: <RiShakeHandsLine />,
+        title: "Trust & Expertise",
+        description: "Over 12 years of expertise in the export industry.",
       },
       {
-        icon: "🧠",
-        title: "Headless CMS",
-        description: "Marketing edits content without dev time.",
+        icon: <RiShipLine />,
+        title: "Quality Services",
+        description: "One-window solution for products, export, and shipping.",
       },
     ],
     solution:
-      "Statically generated Next.js site with a scalable component system and Contentful-backed content.",
+      "A modern web platform that showcases diverse animal feeds, highlights agricultural expertise, and streamlines the export inquiry process.",
     results: [
-      { value: "98/100", label: "Lighthouse (Perf)", percent: 98 },
-      { value: "-80%", label: "Bounce Rate", percent: 80 },
-      { value: "+300%", label: "Lead Conversions" },
+      { value: "12+", label: "Years Expertise", percent: 100 },
+      { value: "100%", label: "Quality Assurance", percent: 100 },
     ],
     testimonial: {
       quote:
-        "The new website is incredibly fast and transformed how we manage content. Leads skyrocketed.",
-      author: "Jane Doe, CEO",
-      avatar: "https://i.pravatar.cc/150?img=5",
+        "Top-notch forage products and reliable export services. A trusted name in the industry.",
+      author: "Satisfied Client",
+      avatar: "https://i.pravatar.cc/150?img=12",
     },
     media: {
       images: [
-        "https://images.unsplash.com/photo-1520371508851-2c951a174215?w=1200&q=80&auto=format",
-        "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80&auto=format",
-        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200&q=80&auto=format",
+        "https://images.unsplash.com/photo-1599507963248-f6213797960d?w=1200&q=80",
+        "https://images.unsplash.com/photo-1595166415256-5b4d754be0eb?w=1200&q=80",
       ],
     },
     futureWork: [
-      "A/B tests on hero messaging to improve CTR.",
-      "Segment-based personalization blocks.",
-      "Internationalization with i18n routing.",
+      "Online order tracking for shipments.",
+      "Expanded multi-language support for Gulf regions.",
     ],
   },
 
   {
     id: "proj-02",
-    title: "Quantum Dashboard — Angular Analytics",
+    title: "Ethix Marketing",
     shortDescription:
-      "Enterprise analytics dashboard in Angular with NgRx and custom D3 charts for real-time insights.",
+      "Data-driven SEO strategies, high-authority link building, and conversion-focused content that puts your brand on page one — and keeps it there.",
     coverImage:
-      "https://i.pinimg.com/736x/fc/54/fb/fc54fb998c3ea5f4fac298c63d58ee58.jpg",
-    techStack: ["Angular", "TypeScript", "D3.js", "NgRx"],
-    liveUrl: "#",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    techStack: ["SEO", "Link Building", "Web Design", "Content"],
+    liveUrl: "https://ethixmarketing.com/",
     codeUrl: "#",
-    heroTagline: "From noisy streams to insight in milliseconds.",
-    timeline: "3.5 months",
-    role: "Front-End Engineer",
-    tools: ["Angular", "NgRx", "D3.js", "Jasmine"],
-
+    heroTagline: "100% SATISFACTION - Ethical Growth Built Around Your Brand",
+    timeline: "Ongoing",
+    role: "SEO & Growth Agency",
+    tools: ["Ahrefs", "Semrush", "Google Analytics", "Figma"],
     challenge:
-      "Thousands of incoming data points needed fast, reliable visualization with advanced filtering and zero regressions.",
+      "To build a performance-focused digital agency platform combining SEO, authority links, content, and conversion-led design into one clear growth system.",
     processSteps: [
       {
-        title: "Requirements",
-        description: "Mapped analysts’ workflows & KPIs.",
+        title: "SEO Audit & Research",
+        description: "Deep-dive into website, competitors, and niche to identify gaps and opportunities others miss."
       },
       {
-        title: "Architecture",
-        description: "NgRx for predictable async flows.",
+        title: "Strategy Blueprint",
+        description: "Custom SEO roadmap tailored to goals, industry, and target audience — no copy-paste plans."
       },
-      { title: "Charts", description: "Custom D3 components for power users." },
       {
-        title: "Quality",
-        description: "Extensive unit/integration tests with Karma/Jasmine.",
+        title: "Execute & Build",
+        description: "On-page fixes, authority link building, and content deployment — all executed with precision."
       },
+      {
+        title: "Track & Scale",
+        description: "Monthly reporting, continuous optimization, and scaling what works to compound growth."
+      }
     ],
     features: [
-      {
-        icon: "📊",
-        title: "Custom Charts",
-        description: "Financial & operational KPIs with drill-down.",
-      },
-      {
-        icon: "🔁",
-        title: "Real-time Streams",
-        description: "WebSocket updates.",
-      },
-      {
-        icon: "🧭",
-        title: "Advanced Filters",
-        description: "Compose multi-dimension filters easily.",
-      },
+      { icon: <RiLineChartLine />, title: "Data-Driven Strategy", description: "Every decision backed by analytics. We measure, optimize, and scale what works." },
+      { icon: <RiShieldCheckLine />, title: "White-Hat Only", description: "No shortcuts, no penalties. We build sustainable growth with ethical, Google-compliant practices." },
+      { icon: <RiBarChartBoxLine />, title: "Transparent Reporting", description: "Monthly reports with clear KPIs, ROI tracking, and actionable insights." }
     ],
     solution:
-      "Modular Angular SPA with NgRx and D3 for performant, real-time visualizations.",
+      "A complete digital marketing platform offering transparent link building packages, SEO services, and conversion-focused web design to dominate search results.",
     results: [
-      { value: "50ms", label: "UI Latency" },
-      { value: "10k+", label: "Live Points" },
-      { value: "-95%", label: "Reported Bugs", percent: 95 },
+      { value: "500+", label: "Keywords Ranked", percent: 100 },
+      { value: "10k+", label: "Backlinks Built", percent: 100 },
+      { value: "80%", label: "Avg DR Increase", percent: 80 }
     ],
     testimonial: {
-      quote: "Indispensable—fast, predictable, and reliable.",
-      author: "Head of Analytics",
-      avatar: "https://i.pravatar.cc/150?img=12",
+      quote: "Ethix Marketing transformed our search presence completely. We went from page 5 to page 1 in under 3 months. The results speak for themselves.",
+      author: "Sarah Thompson, CEO, Sortlist",
+      avatar: "https://i.pravatar.cc/150?img=5"
     },
     media: {
       images: [
-        "https://images.unsplash.com/photo-1551281044-8b59f26db41f?w=1200&q=80&auto=format",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format",
-      ],
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+      ]
     },
-    futureWork: ["Drill-down reports", "CSV/PDF exports", "Threshold alerts"],
+    futureWork: ["Expanded Digital PR Services", "Advanced AI SEO Tools"]
   },
 
   {
@@ -195,17 +258,17 @@ export const projectsData = [
     ],
     features: [
       {
-        icon: "🛒",
+        icon: <RiShoppingCartLine />,
         title: "Smart Cart",
         description: "Persistent cart + coupons + stock checks.",
       },
       {
-        icon: "🔎",
+        icon: <RiFilter3Line />,
         title: "Filters",
         description: "Fast multi-facet filtering.",
       },
       {
-        icon: "🔒",
+        icon: <RiLockPasswordLine />,
         title: "Secure Pay",
         description: "PCI-aware flows with Stripe.",
       },
@@ -235,6 +298,26 @@ export const projectsData = [
     ],
   },
 ];
+
+/* ===================================================================
+   Tech Icon Mapping
+   =================================================================== */
+const TechIcon = ({ name }) => {
+  const iconMap = {
+    "React": <SiReact className={styles.techIcon} />,
+    "Next.js": <SiNextdotjs className={styles.techIcon} />,
+    "Angular": <SiAngular className={styles.techIcon} />,
+    "Node.js": <SiNodedotjs className={styles.techIcon} />,
+    "Redux": <SiRedux className={styles.techIcon} />,
+    "Redux Toolkit": <SiRedux className={styles.techIcon} />,
+    "Stripe": <SiStripe className={styles.techIcon} />,
+    "AI APIs": <SiOpenai className={styles.techIcon} />,
+    "AI Integration": <SiOpenai className={styles.techIcon} />,
+    "Figma": <SiFigma className={styles.techIcon} />,
+    "SEO": <RiLineChartLine className={styles.techIcon} />,
+  };
+  return iconMap[name] || <RiToolsLine className={styles.techIcon} />;
+};
 
 /* ===================================================================
    Case Study Modal
@@ -295,152 +378,165 @@ const CaseStudyModal = ({ project, onClose, triggerRef }) => {
         aria-labelledby="modal-title"
         tabIndex={-1}
       >
-        {/* HERO */}
-        <header
-          className={`${styles.modalHeader} ${styles.heroHeader}`}
-          style={{ backgroundImage: `url(${coverImage})` }}
+        <button
+          className={styles.modalClose}
+          onClick={onClose}
+          aria-label="Close case study"
         >
-          <div className={styles.heroBadgeRow}>
-            {timeline && (
-              <span className={styles.metaBadge}>📅 {timeline}</span>
-            )}
-            {role && <span className={styles.metaBadge}>👤 {role}</span>}
-            {tools?.length > 0 && (
-              <span className={styles.metaBadge}>
-                🧰 {tools.slice(0, 3).join(" • ")}
-                {tools.length > 3 ? " +" : ""}
-              </span>
-            )}
-          </div>
-          <div className={styles.heroText}>
-            <h2 id="modal-title">{title}</h2>
-            {heroTagline && <p className={styles.heroTagline}>{heroTagline}</p>}
-          </div>
-          <button
-            className={styles.modalClose}
-            onClick={onClose}
-            aria-label="Close case study"
-          >
-            &times;
-          </button>
-        </header>
+          &times;
+        </button>
 
         {/* BODY */}
         <div className={styles.modalBody} ref={modalBodyRef}>
-          {challenge && (
-            <section
-              className={`${styles.modalSection} ${styles.highlightCard}`}
-            >
-              <div className={styles.sectionIcon}>⚠️</div>
-              <div>
-                <h3>The Challenge</h3>
-                <p>{challenge}</p>
-              </div>
-            </section>
-          )}
 
-          {processSteps?.length > 0 && (
-            <section className={styles.modalSection}>
-              <h3>Our Approach</h3>
-              <div className={styles.timeline}>
-                {processSteps.map((step, i) => (
-                  <div key={i} className={styles.timelineItem}>
-                    <div className={styles.timelineNode}>{i + 1}</div>
-                    <div className={styles.timelineContent}>
-                      <h4>{step.title}</h4>
-                      <p>{step.description}</p>
-                    </div>
+          {/* CLEAN HEADER */}
+          <header className={styles.cleanHeader}>
+            <div className={styles.metaBadgeRow}>
+              {timeline && (
+                <span className={styles.metaBadge}>
+                  <RiCalendarEventLine /> {timeline}
+                </span>
+              )}
+              {role && (
+                <span className={styles.metaBadge}>
+                  <RiUserLine /> {role}
+                </span>
+              )}
+              {tools?.length > 0 && (
+                <span className={styles.metaBadge}>
+                  <RiToolsLine /> {tools.slice(0, 3).join(" • ")}
+                  {tools.length > 3 ? " +" : ""}
+                </span>
+              )}
+            </div>
+
+            <h2 id="modal-title" className={styles.cleanTitle}>{title}</h2>
+            {heroTagline && <p className={styles.cleanTagline}>{heroTagline}</p>}
+          </header>
+
+          {/* STANDALONE HERO IMAGE */}
+          <div className={styles.cleanHeroImage}>
+            <img src={coverImage} alt={`${title} Cover`} loading="lazy" decoding="async" />
+          </div>
+
+          <div className={styles.modalGrid}>
+
+            {/* LEFT COLUMN: The Story */}
+            <div className={styles.modalLeft}>
+              {challenge && (
+                <section
+                  className={`${styles.modalSection} ${styles.highlightCard}`}
+                >
+                  <div className={styles.sectionIcon}>⚠️</div>
+                  <div>
+                    <h3>The Challenge</h3>
+                    <p>{challenge}</p>
                   </div>
-                ))}
-              </div>
-            </section>
-          )}
+                </section>
+              )}
 
-          {features?.length > 0 && (
-            <section className={styles.modalSection}>
-              <h3>Key Features</h3>
-              <div className={styles.featuresGrid}>
-                {features.map((f, i) => (
-                  <article key={i} className={styles.featureCard}>
-                    <div className={styles.featureIcon} aria-hidden="true">
-                      {f.icon ?? "✨"}
-                    </div>
-                    <h4>{f.title}</h4>
-                    <p>{f.description}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-          )}
+              {solution && (
+                <section
+                  className={`${styles.modalSection} ${styles.highlightCard}`}
+                >
+                  <div className={styles.sectionIcon}>💡</div>
+                  <div>
+                    <h3>The Solution</h3>
+                    <p>{solution}</p>
+                  </div>
+                </section>
+              )}
 
-          {solution && (
-            <section
-              className={`${styles.modalSection} ${styles.highlightCard}`}
-            >
-              <div className={styles.sectionIcon}>💡</div>
-              <div>
-                <h3>The Solution</h3>
-                <p>{solution}</p>
-              </div>
-            </section>
-          )}
-
-          {results?.length > 0 && (
-            <section
-              className={`${styles.modalSection} ${styles.resultsSection}`}
-            >
-              <h3>Results & Impact</h3>
-              <div className={styles.resultsGrid}>
-                {results.map((r, i) => (
-                  <div key={i} className={styles.resultStat}>
-                    {"percent" in r ? (
-                      <div
-                        className={styles.resultDonut}
-                        style={{
-                          background: `conic-gradient(#8a2be2 ${r.percent}%, rgba(255,255,255,.15) ${r.percent}%)`,
-                        }}
-                        aria-label={`${r.label} ${r.value}`}
-                      >
-                        <div className={styles.resultDonutHole}>{r.value}</div>
+              {processSteps?.length > 0 && (
+                <section className={styles.modalSection}>
+                  <h3>Our Approach</h3>
+                  <div className={styles.timeline}>
+                    {processSteps.map((step, i) => (
+                      <div key={i} className={styles.timelineItem}>
+                        <div className={styles.timelineNode}>{i + 1}</div>
+                        <div className={styles.timelineContent}>
+                          <h4>{step.title}</h4>
+                          <p>{step.description}</p>
+                        </div>
                       </div>
-                    ) : (
-                      <div className={styles.resultValue}>{r.value}</div>
-                    )}
-                    <div className={styles.resultLabel}>{r.label}</div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </section>
-          )}
+                </section>
+              )}
+            </div>
 
-          {testimonial?.quote && (
-            <section
-              className={`${styles.modalSection} ${styles.testimonialSection}`}
-            >
-              <div className={styles.testimonialCard}>
-                {testimonial.avatar && (
-                  <img
-                    src={testimonial.avatar}
-                    alt={
-                      testimonial.author
-                        ? `${testimonial.author} avatar`
-                        : "Client avatar"
-                    }
-                    className={styles.testimonialAvatar}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                )}
-                <blockquote>
-                  <p>“{testimonial.quote}”</p>
-                  {testimonial.author && (
-                    <footer>— {testimonial.author}</footer>
-                  )}
-                </blockquote>
-              </div>
-            </section>
-          )}
+            {/* RIGHT COLUMN: The Data & Proof */}
+            <div className={styles.modalRight}>
+              {results?.length > 0 && (
+                <section
+                  className={`${styles.modalSection} ${styles.resultsSection}`}
+                >
+                  <h3>Results & Impact</h3>
+                  <div className={styles.resultsGrid}>
+                    {results.map((r, i) => (
+                      <div key={i} className={styles.resultStat}>
+                        {"percent" in r ? (
+                          <div
+                            className={styles.resultDonut}
+                            style={{
+                              background: `conic-gradient(var(--proj-accent) ${r.percent}%, rgba(255,255,255,.15) ${r.percent}%)`,
+                            }}
+                            aria-label={`${r.label} ${r.value}`}
+                          >
+                            <div className={styles.resultDonutHole}>{r.value}</div>
+                          </div>
+                        ) : (
+                          <div className={styles.resultValue}>{r.value}</div>
+                        )}
+                        <div className={styles.resultLabel}>{r.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
 
+              {features?.length > 0 && (
+                <section className={styles.modalSection}>
+                  <h3>Key Features</h3>
+                  <div className={styles.featuresGrid}>
+                    {features.map((f, i) => (
+                      <article key={i} className={styles.featureCard}>
+                        <div className={styles.featureIcon} aria-hidden="true">
+                          {f.icon ?? "✨"}
+                        </div>
+                        <h4>{f.title}</h4>
+                        <p>{f.description}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {testimonial?.quote && (
+                <section
+                  className={`${styles.modalSection} ${styles.testimonialSection}`}
+                >
+                  <h3>Client Feedback</h3>
+                  <div className={styles.testimonialCard}>
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.author}
+                      className={styles.testimonialAvatar}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div>
+                      <blockquote>"{testimonial.quote}"</blockquote>
+                      <footer>— {testimonial.author}</footer>
+                    </div>
+                  </div>
+                </section>
+              )}
+            </div>
+
+          </div>
+
+          {/* FULL WIDTH BOTTOM: Media & Links */}
           {media?.images?.length > 0 && (
             <section className={styles.modalSection}>
               <h3>Gallery</h3>
@@ -483,9 +579,8 @@ const CaseStudyModal = ({ project, onClose, triggerRef }) => {
                 {media.images.map((_, idx) => (
                   <button
                     key={idx}
-                    className={`${styles.dot} ${
-                      idx === galleryIndex ? styles.activeDot : ""
-                    }`}
+                    className={`${styles.dot} ${idx === galleryIndex ? styles.activeDot : ""
+                      }`}
                     onClick={() => setGalleryIndex(idx)}
                     aria-label={`Go to image ${idx + 1}`}
                   />
@@ -514,7 +609,7 @@ const CaseStudyModal = ({ project, onClose, triggerRef }) => {
                   rel="noopener noreferrer"
                   className={`${styles.modalButton} ${styles.modalButtonPrimary}`}
                 >
-                  Live Demo <FiExternalLink />
+                  Live Demo <RiExternalLinkLine />
                 </a>
               )}
               {codeUrl && (
@@ -524,7 +619,7 @@ const CaseStudyModal = ({ project, onClose, triggerRef }) => {
                   rel="noopener noreferrer"
                   className={styles.modalButton}
                 >
-                  View Code <FaGithub />
+                  View Code <RiGithubLine />
                 </a>
               )}
             </footer>
@@ -559,16 +654,12 @@ const ProjectCard = ({ project, onClick, isActive }) => {
         loading="lazy"
         decoding="async"
       />
-      <div className={styles.cardOverlay}>
-        <button className={styles.viewCaseCircleBtn} aria-hidden="true">
-          <FiExternalLink />
-        </button>
-      </div>
       <div className={styles.cardInfo}>
         <h3 className={styles.cardTitle}>{project.title}</h3>
         <div className={styles.techTags}>
           {project.techStack.slice(0, 3).map((tech) => (
             <span key={tech} className={styles.techTag}>
+              <TechIcon name={tech} />
               {tech}
             </span>
           ))}
@@ -760,26 +851,17 @@ function ProjectPortfolio() {
             React &amp; Angular Projects —{" "}
             <span className="impactHighlight">Case Studies</span>
           </h1>
-          <p className={styles.sectionDek}>
-            Real-world work across <strong>Next.js</strong>,{" "}
-            <strong>Angular</strong>, <strong>React</strong> and{" "}
-            <strong>TypeScript</strong>. Built for{" "}
-            <strong>Core Web Vitals</strong>,{" "}
-            <strong>accessibility (WCAG 2.2)</strong>, and <strong>SEO</strong>.
-            View details, results, and stack choices.
-          </p>
+
         </header>
-        <div className="d-flex align-content-between gap-5 mt-1vw ">
+        <div className={`${styles.projectRow} mt-1vw`}>
           <div className={styles.leftPanel}>
-            <h2 className={`${styles.mainHeading} ${styles.gradientText}`}>
-              Latest Projects
-              <br />
-              I&apos;ve Shipped
+            <h2 className={`${styles.mainHeading} ${styles.gradientText} `}>
+              {activeProject ? activeProject.title : "Featured Projects"}
             </h2>
 
             <div
               ref={descriptionRef}
-              className={`${styles.projectDescription} ${styles.isVisible}`}
+              className={`${styles.projectDescription} ${styles.isVisible} `}
             >
               {activeProject && (
                 <p key={activeProject.id}>{activeProject.shortDescription}</p>
@@ -795,17 +877,19 @@ function ProjectPortfolio() {
             <div className={styles.carouselNav}>
               <button
                 onClick={handlePrev}
-                aria-label="Previous projects"
-                disabled={currentIndex === 0}
+                className={`${styles.arrowBtn} ${currentIndex === 0 ? styles.disabled : ""
+                  }`}
+                aria-label="Previous Project"
               >
-                <FaArrowLeft />
+                <RiArrowLeftLine />
               </button>
               <button
                 onClick={handleNext}
-                aria-label="Next projects"
-                disabled={currentIndex >= maxIndex}
+                className={`${styles.arrowBtn} ${currentIndex >= maxIndex ? styles.disabled : ""
+                  }`}
+                aria-label="Next Project"
               >
-                <FaArrowRight />
+                <RiArrowRightLine />
               </button>
             </div>
           </div>
@@ -842,9 +926,8 @@ function ProjectPortfolio() {
                   key={i}
                   role="tab"
                   aria-selected={i === currentIndex}
-                  className={`${styles.dot} ${
-                    i === currentIndex ? styles.activeDot : ""
-                  }`}
+                  className={`${styles.dot} ${i === currentIndex ? styles.activeDot : ""
+                    }`}
                   onClick={() => handleDotClick(i)}
                   aria-label={`Go to project ${i + 1}`}
                 />

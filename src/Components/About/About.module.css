@@ -846,3 +846,47 @@
     transform: none !important;
   }
 }
+
+/* Desktop Overrides for Perfect Proportional Scaling */
+@media (min-width: 769px) {
+  .aboutGrid { gap: 2vw !important; }
+  .aboutCard { border-radius: 1.1vw !important; }
+  .cardContent { padding: 1.8vw !important; }
+  
+  .journeyContainer { gap: 0.6vw !important; }
+  .journeyGraph { min-height: 14vw !important; padding: 0.75vw 0 0.5vw !important; padding-left: 0.75vw !important; gap: 1.5vw !important; }
+  .graphBarWrapper { gap: 0.5vw !important; }
+  .graphBar { width: 2.1vw !important; border-radius: 0.6vw 0.6vw 0 0 !important; }
+  .graphTooltip { bottom: calc(100% + 2vw) !important; padding: 0.45vw 0.7vw !important; border-radius: 0.4vw !important; font-size: 0.8vw !important; }
+  
+  .glanceGrid { gap: 1vw !important; margin-bottom: 1.3vw !important; }
+  .glanceItem { padding: 0.85vw !important; gap: 0.4vw !important; border-radius: 0.8vw !important; }
+  .glanceIcon { font-size: 1.8vw !important; }
+  .glanceValue { font-size: 1.1vw !important; }
+  .experencenum { font-size: 1.5vw !important; }
+  .glanceLabel { font-size: 0.9vw !important; }
+  
+  .btn { padding: 0.75vw 1vw 0.6vw 1vw !important; gap: 0.6vw !important; border-radius: 9999px !important; font-size: 0.95vw !important; }
+  
+  .availabilityStatus { gap: 0.6vw !important; padding: 0.5vw 0.75vw !important; margin: 0 0 1.4vw 0 !important; border-radius: 9999px !important; }
+  .statusDot { width: 0.7vw !important; height: 0.7vw !important; }
+  .statusText { font-size: 1.03vw !important; }
+  
+  .hobbyPolaroid { gap: 0.4vw !important; padding: 0.6vw 0.8vw !important; border-radius: 0.7vw !important; }
+  .hobbyIconWrapper { font-size: 2.3vw !important; }
+  .hobbyLabel { font-size: 0.9vw !important; }
+  
+  .toolkitGrid { gap: 1vw !important; }
+  .toolkitIconGrid { gap: 0.75vw !important; min-height: 10vw !important; }
+  .iconWrapper { width: 3.8vw !important; height: 3.8vw !important; border-radius: 0.7vw !important; font-size: 2vw !important; }
+  .toolkitTooltip { top: -2.5vw !important; padding: 0.3vw 0.6vw !important; border-radius: 0.4vw !important; font-size: 0.8vw !important; }
+  
+  .tabsHeader { gap: 0.5vw !important; margin-bottom: 1.5vw !important; padding-bottom: 0.6vw !important; }
+  .tabBtn { font-size: 0.85vw !important; padding: 0.4vw 0.8vw !important; border-radius: 0.4vw !important; }
+  
+  .hobbiesGrid { gap: 1vw !important; }
+  
+  .glanceSocials { gap: 0.9vw !important; margin: 1.1vw 0 0 0 !important; }
+  .socialBtn { width: 3vw !important; height: 3vw !important; border-radius: 0.8vw !important; }
+  .glanceSocials a { font-size: 1.6vw !important; }
+}

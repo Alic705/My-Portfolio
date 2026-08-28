@@ -1,67 +1,126 @@
 export const projectsData = [
   {
-    id: "proj-01",
-    title: "Project Velocity",
+    id: "proj-04",
+    title: "Rdeens Solutions",
     shortDescription:
-      "A high-performance marketing website for a SaaS company, built with Next.js for optimal speed and SEO.",
-    coverImage: "https://i.pinimg.com/1200x/8d/aa/13/8daa13976583e745739b57d005295e49.jpg",
-    techStack: ["Next.js", "React", "TypeScript", "Vercel"],
-    liveUrl: "#",
+      "Rdeens Solutions combines AI technology with expert developers to turn your idea into a market-ready product — in record time.",
+    coverImage: "assets/rdeens-1.png",
+    techStack: ["Angular", "AI Integration", "Web Development"],
+    liveUrl: "https://rdeens.com/",
     codeUrl: "#",
 
-    /* NEW */
-    heroTagline: "Sub-second loads, CMS freedom, and SEO that converts.",
-    timeline: "2 months",
-    role: "Frontend Lead",
-    tools: ["Next.js", "TypeScript", "Contentful", "Vercel"],
+    heroTagline: "WE BUILD AI-POWERED DIGITAL PRODUCTS",
+    timeline: "3 months",
+    role: "Full Stack Developer",
+    tools: ["Angular", "Gsap", "AI APIs", "Web Dev"],
 
     challenge:
-      "The client's existing marketing site was slow, had a high bounce rate (>70%), and was difficult to update.",
+      "To create a digital presence for an agency that combines AI technology with expert developers to turn ideas into market-ready products in record time.",
     processSteps: [
-      { title: "Discovery & Strategy", description: "Analyzed bottlenecks, mapped user journeys and KPIs." },
-      { title: "Development & CMS", description: "Reusable components + Contentful integration." },
-      { title: "Performance", description: "Image optimization, SSG, code-splitting." },
-      { title: "Deploy & Train", description: "Vercel deploy + marketing team onboarding." },
+      { title: "Identify and Simplify", description: "Accelerate development cycle and maintain cost-effectiveness." },
+      { title: "Build and Develop", description: "Complex, dynamic, and real-time solutions for various industries." },
+      { title: "Quality Control", description: "Functional, integration, system, sanity, usability, and performance testing." },
+      { title: "Scale and Deploy", description: "On-time deployment by assessing and scaling development needs." },
     ],
 
-    /* NEW */
     features: [
-      { icon: "⚡", title: "SSG + ISR", description: "Near-instant page loads with smart revalidation." },
-      { icon: "🧩", title: "Component Library", description: "Consistent UI with scalable building blocks." },
-      { icon: "🧠", title: "Headless CMS", description: "Marketing edits content without dev time." },
+      { icon: "💡", title: "Strategic Thinking", description: "User-focused design combined with innovation." },
+      { icon: "🤖", title: "AI-Driven", description: "Next-Gen AI-accelerated product development." },
+      { icon: "🚀", title: "Rapid Delivery", description: "Turn ideas into market-ready products in record time." },
     ],
 
     solution:
-      "Statically generated Next.js site with a clean component system and Contentful-backed content model.",
+      "A comprehensive digital experience combining strategic thinking, user-focused design, powerful web and mobile development, and reliable engineering.",
     results: [
-      { value: "98/100", label: "Lighthouse Score", percent: 98 },
-      { value: "-80%", label: "Bounce Rate", percent: 80 },
-      { value: "+300%", label: "Lead Conversions", /* no percent to show raw */ },
+      { value: "80+", label: "Projects Delivered", percent: 80 },
+      { value: "8+", label: "Years of Experience", percent: 90 },
+      { value: "95%", label: "Client Satisfaction", percent: 95 },
     ],
 
-    /* NEW */
     testimonial: {
       quote:
-        "The new website is incredibly fast and transformed how we manage content. Leads skyrocketed.",
-      author: "Jane Doe, CEO of Velocity",
-      avatar: "https://i.pravatar.cc/150?img=5",
+        "Their custom AI chatbot completely transformed our digital customer engagement.",
+      author: "Spectifyxi, Entrepreneur",
+      avatar: "https://i.pravatar.cc/150?img=11",
     },
 
-    /* NEW */
     media: {
-      videoUrl: "", // optional mp4 if you have it
       images: [
-        "https://images.unsplash.com/photo-1520371508851-2c951a174215?w=1200&q=80&auto=format",
-        "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80&auto=format",
-        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200&q=80&auto=format",
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
       ],
     },
+    futureWork: ["More AI features", "Client portal", "Automated scaling"],
+  },
+  {
+    id: "proj-01",
+    title: "Animal Feed",
+    shortDescription:
+      "A global export platform for high-quality Animal Feed, Fodder, and Forages, specializing in the Gulf Countries market.",
+    coverImage: "https://images.unsplash.com/photo-1599507963248-f6213797960d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    techStack: ["React", "Web Development", "Export Platform"],
+    liveUrl: "https://animal-feed.netlify.app/",
+    codeUrl: "#",
 
-    /* NEW */
+    heroTagline: "High-Quality Animal Feed And Forages",
+    timeline: "2.5 months",
+    role: "Front-End Engineer",
+    tools: ["React", "CSS Modules", "Netlify"],
+
+    challenge:
+      "To create a seamless online platform for exporting high-quality animal fodder and forages globally, ensuring trust and international compliance.",
+    processSteps: [
+      {
+        title: "Cultivation",
+        description: "Growing and producing high-quality animal fodder and forages for livestock.",
+      },
+      {
+        title: "Quality Control",
+        description: "Ensuring products comply with international standards with necessary documentation.",
+      },
+      {
+        title: "Export & Shipping",
+        description: "Providing a one-window solution for products and shipping right at the doorstep.",
+      },
+    ],
+    features: [
+      {
+        icon: "🌾",
+        title: "Quality Products",
+        description: "Complying with international standards and documentation.",
+      },
+      {
+        icon: "🤝",
+        title: "Trust & Expertise",
+        description: "Over 12 years of expertise in the export industry.",
+      },
+      {
+        icon: "🚢",
+        title: "Quality Services",
+        description: "One-window solution for products, export, and shipping.",
+      },
+    ],
+    solution:
+      "A modern web platform that showcases diverse animal feeds, highlights agricultural expertise, and streamlines the export inquiry process.",
+    results: [
+      { value: "12+", label: "Years Expertise", percent: 100 },
+      { value: "100%", label: "Quality Assurance", percent: 100 },
+    ],
+    testimonial: {
+      quote:
+        "Top-notch forage products and reliable export services. A trusted name in the industry.",
+      author: "Satisfied Client",
+      avatar: "https://i.pravatar.cc/150?img=12",
+    },
+    media: {
+      images: [
+        "https://images.unsplash.com/photo-1599507963248-f6213797960d?w=1200&q=80",
+        "https://images.unsplash.com/photo-1595166415256-5b4d754be0eb?w=1200&q=80",
+      ],
+    },
     futureWork: [
-      "A/B tests on hero messaging to improve CTR.",
-      "Personalized content blocks via user segments.",
-      "Add multilingual support with i18n routing.",
+      "Online order tracking for shipments.",
+      "Expanded multi-language support for Gulf regions.",
     ],
   },
 

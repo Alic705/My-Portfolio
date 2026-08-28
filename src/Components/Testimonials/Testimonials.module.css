@@ -24,10 +24,12 @@
   --a1: var(--accent-1);
   --a2: var(--accent-2);
 }
+
 .accent-green {
   --a1: #22c55e;
   --a2: #84cc16;
 }
+
 .accent-blue {
   --a1: #0ea5e9;
   --a2: #60a5fa;
@@ -38,27 +40,25 @@
   width: 100%;
   color: var(--t-text);
 }
+
 .fillPanel {
   padding: clamp(18px, 4vw, 40px);
   position: relative;
 }
+
 .fillPanel::after {
   /* subtle panel overlay glow to tie into main background */
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-      120% 100% at 50% 0%,
+  background: radial-gradient(120% 100% at 50% 0%,
       color-mix(in srgb, var(--a2) 10%, transparent) 0,
-      transparent 55%
-    ),
-    linear-gradient(
-      180deg,
+      transparent 55%),
+    linear-gradient(180deg,
       rgba(0, 0, 0, 0.12),
       rgba(0, 0, 0, 0.06) 40%,
-      transparent
-    );
+      transparent);
   opacity: 0.85;
   z-index: 0;
 }
@@ -69,18 +69,20 @@
   z-index: 1;
   text-align: center;
 }
+
 .pageTitle {
-  font: 800 clamp(28px, 4.5vw, 56px) / 1.06
-    var(--font-primary, Inter, ui-sans-serif);
+  font: 800 clamp(28px, 4.5vw, 56px) / 1.06 var(--font-primary, Inter, ui-sans-serif);
   letter-spacing: -0.02em;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
+
 .kicker {
   background: linear-gradient(90deg, var(--a2), var(--a1));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .pageDek {
   max-width: 90ch;
   margin: 8px auto 18px;
@@ -113,18 +115,39 @@
   text-align: center;
   isolation: isolate;
 }
+
+.fadeIn {
+  animation: quoteFade 0.45s ease-out both;
+}
+
+@keyframes quoteFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fadeIn {
+    animation: none;
+  }
+}
+
 .quoteCard::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--a2), transparent 65%),
-    transparent 40%,
-    color-mix(in srgb, var(--a2), transparent 78%)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--a2), transparent 65%),
+      transparent 40%,
+      color-mix(in srgb, var(--a2), transparent 78%));
   opacity: 0.85;
   mix-blend-mode: screen;
 }
@@ -143,12 +166,15 @@
   margin-top: 0.8rem;
   color: color-mix(in srgb, var(--t-text) 70%, transparent);
 }
+
 .author {
   font-weight: 700;
 }
+
 .meta {
   opacity: 0.9;
 }
+
 .rating {
   margin-left: 0.3rem;
   color: var(--a2);
@@ -162,20 +188,20 @@
   line-height: 1;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  background: radial-gradient(
-    circle at 40% 40%,
-    color-mix(in srgb, var(--a2) 55%, #fff 0%) 0,
-    color-mix(in srgb, var(--a1) 45%, transparent) 60%
-  );
+  background: radial-gradient(circle at 40% 40%,
+      color-mix(in srgb, var(--a2) 55%, #fff 0%) 0,
+      color-mix(in srgb, var(--a1) 45%, transparent) 60%);
   -webkit-background-clip: text;
   background-clip: text;
   opacity: 0.18;
   pointer-events: none;
 }
+
 .qstart {
   left: clamp(8px, 3vw, 40px);
   top: clamp(-6px, 1vw, 8px);
 }
+
 .qend {
   right: clamp(8px, 3vw, 40px);
   bottom: clamp(-6px, 1vw, 8px);
@@ -196,13 +222,16 @@
   transition: transform 0.18s ease, background 0.18s ease,
     border-color 0.2s ease;
 }
+
 .nav:hover {
   transform: translateY(-2px);
   background: rgba(0, 0, 0, 0.4);
 }
+
 .prev {
   justify-self: end;
 }
+
 .next {
   justify-self: start;
 }
@@ -214,6 +243,7 @@
   justify-content: center;
   margin: 14px 0 0;
 }
+
 .dot {
   width: 8px;
   height: 8px;
@@ -223,6 +253,7 @@
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
 }
+
 .dotActive {
   background: var(--a1);
   transform: scale(1.25);
@@ -237,6 +268,7 @@
   border-top: 1px dashed color-mix(in srgb, var(--t-text) 25%, transparent);
   overflow: hidden;
 }
+
 .marquee {
   display: inline-grid;
   grid-auto-flow: column;
@@ -247,11 +279,13 @@
   will-change: transform;
   animation: marquee 22s linear infinite;
 }
+
 .m2 {
   animation-duration: 28s;
   animation-direction: reverse;
   opacity: 0.9;
 }
+
 .marquee img {
   height: clamp(20px, 4.4vw, 90px);
   width: auto;
@@ -261,14 +295,17 @@
   margin-bottom: 40px;
   cursor: pointer;
 }
+
 .marquee img:hover {
   filter: none;
   transform: translateY(-2px);
 }
+
 @keyframes marquee {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -279,21 +316,26 @@
   .slider {
     grid-template-columns: 42px 1fr 42px;
   }
+
   .nav {
     width: 40px;
     height: 40px;
   }
+
   .pageDek {
     margin-bottom: 12px;
   }
 }
+
 @media (max-width: 640px) {
   .fillPanel {
     padding: 16px;
   }
+
   .quoteCard {
     padding: 16px;
   }
+
   .authorRow {
     flex-wrap: wrap;
     justify-content: center;

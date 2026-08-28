@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Testimonials.module.css";
 
 const DEFAULT_ITEMS = [
@@ -69,7 +68,7 @@ export default function Testimonials({
     if (prefersReduced || paused) return;
     const id = setInterval(
       () => setIndex((p) => (p + 1) % items.length),
-      interval
+      interval,
     );
     return () => clearInterval(id);
   }, [interval, items.length, prefersReduced, paused]);
@@ -179,45 +178,36 @@ export default function Testimonials({
           ‹
         </button>
 
-        <AnimatePresence mode="wait">
-          <motion.figure
-            key={index}
-            className={styles.quoteCard}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{
-              duration: prefersReduced ? 0 : 0.45,
-              ease: "easeOut",
-            }}
-          >
-            <blockquote className={styles.quoteText}>
-              {items[index].quote}
-            </blockquote>
+        <figure
+          key={index}
+          className={`${styles.quoteCard} ${prefersReduced ? "" : styles.fadeIn}`}
+        >
+          <blockquote className={styles.quoteText}>
+            {items[index].quote}
+          </blockquote>
 
-            <figcaption className={styles.authorRow}>
-              <span className={styles.author}>{items[index].author}</span>
-              {items[index].meta && (
-                <span className={styles.meta}>— {items[index].meta}</span>
-              )}
-              {!!items[index].rating && (
-                <span
-                  className={styles.rating}
-                  aria-label={`${items[index].rating} out of 5`}
-                >
-                  {"★".repeat(items[index].rating)}
-                </span>
-              )}
-            </figcaption>
+          <figcaption className={styles.authorRow}>
+            <span className={styles.author}>{items[index].author}</span>
+            {items[index].meta && (
+              <span className={styles.meta}>— {items[index].meta}</span>
+            )}
+            {!!items[index].rating && (
+              <span
+                className={styles.rating}
+                aria-label={`${items[index].rating} out of 5`}
+              >
+                {"★".repeat(items[index].rating)}
+              </span>
+            )}
+          </figcaption>
 
-            <span className={`${styles.qmark} ${styles.qstart}`} aria-hidden>
-              “
-            </span>
-            <span className={`${styles.qmark} ${styles.qend}`} aria-hidden>
-              ”
-            </span>
-          </motion.figure>
-        </AnimatePresence>
+          <span className={`${styles.qmark} ${styles.qstart}`} aria-hidden>
+            “
+          </span>
+          <span className={`${styles.qmark} ${styles.qend}`} aria-hidden>
+            ”
+          </span>
+        </figure>
 
         <button
           className={`${styles.nav} ${styles.next}`}
