@@ -3,6 +3,7 @@ import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Services from "./Components/Services/Services";
 import Project from "./Components/Projects/Project";
+import ProjectDetail from "./Components/Projects/ProjectDetail";
 import Testimonials from "./Components/Testimonials/Testimonials";
 import Contact from "./Components/Contact/Contact";
 import UsesPage from "./Components/Uses/Uses";
@@ -11,6 +12,8 @@ import BackgroundFX from "./Components/FX/BackgroundFX";
 import Preloader from "./Components/Preloader/Preloader";
 // import OrbitingCursor from "./Components/OrbitingCursor/OrbitingCursor";
 import "./App.css";
+import darkLogo from "./assets/images/logo/dark-logo.png";
+import lightLogo from "./assets/images/logo/light-logo.png";
 
 /* === react-theme-switch-animation === */
 import {
@@ -316,7 +319,6 @@ function ThemeSwitchButton({ theme, setTheme }) {
         background: "var(--btn-ghost-bg)",
         color: "var(--text)",
         border: "1px solid var(--btn-ghost-border)",
-        boxShadow: "0 6px 16px var(--btn-primary-shadow)",
         backdropFilter: "blur(6px)",
         WebkitBackdropFilter: "blur(6px)",
         transition:
@@ -365,13 +367,13 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
       backgroundImage:
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
     },
-    // {
-    //   page: "projects",
-    //   label: "Projects",
-    //   icon: "ph-bold ph-briefcase",
-    //   backgroundImage:
-    //     "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=800&q=80",
-    // },
+    {
+      page: "projects",
+      label: "Projects",
+      icon: "ph-bold ph-briefcase",
+      backgroundImage:
+        "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=800&q=80",
+    },
     // {
     //   page: "testimonials",
     //   label: "Reviews",
@@ -442,7 +444,62 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
 }
             
         }
-     .nav-link {
+      .nav-logo-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.3vw;
+        height: 3.3vw;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid transparent;
+        margin-bottom: 0.2vw;
+      }
+      .nav-logo-btn img {
+        width: 3.5vw;
+        height: 3.5vw;
+        object-fit: contain;
+        transition: transform .25s ease;
+      }
+      .nav-logo-btn:hover {
+        background: color-mix(in hsl, var(--brand-2) 15%, transparent);
+        border-color: color-mix(in hsl, var(--brand-2) 25%, transparent);
+      }
+      .nav-logo-btn:hover img {
+        transform: scale(1.12);
+      }
+      .nav-logo-btn::after {
+        content: attr(data-label);
+        position: absolute;
+        left: 120%;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #222;
+        color: #fff;
+        padding: .4vw .8vw;
+        border-radius: 0.4vw;
+        border: 1px solid rgba(255,255,255,0.2);
+        font-size: .9vw;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .2s ease, visibility .2s ease;
+        transition-delay: .1s;
+      }
+      .nav-logo-btn:hover::after {
+        opacity: 1;
+        visibility: visible;
+      }
+      .nav-logo-divider {
+    width: 100%;
+    height: 1px;
+    background: color-mix(in hsl, var(--panel-border) 60%, transparent);
+    margin: -.9vw 0 0.4vw 0;
+}
+      .nav-link {
     position: relative;
     display: flex;
     align-items: center;
@@ -465,7 +522,10 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
         .mobile-menu-overlay{display:none}
         @keyframes menuLinkAnimation { from { opacity: 0; transform: translateX(-20px) scale(0.95); } to { opacity: 1; transform: translateX(0) scale(1); } }
         @media (max-width: 767px) {
-          .mobile-nav-header{display:flex;justify-content:flex-end;align-items:center;position:fixed;top:0;left:0;right:0;height:60px;padding:0 1rem;z-index:1002}
+          .mobile-nav-header{display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;right:0;height:60px;padding:0 1.25rem;z-index:1002;pointer-events:none;}
+          .mobile-nav-header > * {pointer-events:auto;}
+          .mobile-nav-logo {display:flex;align-items:center;justify-content:center;width:40px;height:40px;cursor:pointer;}
+          .mobile-nav-logo img {width:32px;height:32px;object-fit:contain;}
           .hamburger-button{background:none;border:none;color:var(--text);font-size:2rem;cursor:pointer;z-index:1003;position:relative;width:32px;height:32px}
           .hamburger-button i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .3s ease-in-out,opacity .3s ease-in-out;font-size:20px}
           .hamburger-button .icon-close{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
@@ -496,19 +556,40 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
 
       {/* Desktop Navigation */}
       <nav className="desktop-nav">
-        {navItems.map((item) => (
-          <div
-            key={item.page}
-            className={`nav-link ${activePage === item.page ? "active" : ""}`}
-            data-label={item.label}
-            onClick={() => handleNavClick(item.page)}
-            aria-label={item.label}
-            aria-current={activePage === item.page ? "page" : undefined}
-            role="button"
-          >
-            <i className={item.icon}></i>
-          </div>
-        ))}
+        {/* Top Logo above Home */}
+        <div
+          className="nav-logo-btn"
+          data-label="Ali Altaf"
+          onClick={() => handleNavClick("home")}
+          role="button"
+          aria-label="Home - Ali Altaf"
+        >
+          <img
+            src={theme === "dark" ? darkLogo : lightLogo}
+            alt="Ali Altaf Logo"
+          />
+        </div>
+        <div className="nav-logo-divider" />
+
+        {navItems.map((item) => {
+          const isActive =
+            activePage === item.page ||
+            (item.page === "projects" && activePage === "project-detail") ||
+            (item.page === "blog" && activePage === "blog-detail");
+          return (
+            <div
+              key={item.page}
+              className={`nav-link ${isActive ? "active" : ""}`}
+              data-label={item.label}
+              onClick={() => handleNavClick(item.page)}
+              aria-label={item.label}
+              aria-current={isActive ? "page" : undefined}
+              role="button"
+            >
+              <i className={item.icon}></i>
+            </div>
+          );
+        })}
       </nav>
 
       {/* Animated Theme toggle via library */}
@@ -516,6 +597,17 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
 
       {/* Mobile Navigation */}
       <header className="mobile-nav-header">
+        <div
+          className="mobile-nav-logo"
+          onClick={() => handleNavClick("home")}
+          role="button"
+          aria-label="Home - Ali Altaf"
+        >
+          <img
+            src={theme === "dark" ? darkLogo : lightLogo}
+            alt="Ali Altaf Logo"
+          />
+        </div>
         <button
           className={`hamburger-button ${isMobileMenuOpen ? "open" : ""}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -543,19 +635,24 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
           onMouseLeave={() => setHoveredItem(null)}
         >
           <div className="active-indicator" style={indicatorStyle}></div>
-          {navItems.map((item) => (
-            <div
-              key={item.page}
-              className={`mobile-nav-link ${activePage === item.page ? "active" : ""
-                }`}
-              onClick={() => handleNavClick(item.page)}
-              onMouseEnter={() => setHoveredItem(item.page)}
-              role="button"
-            >
-              <i className={item.icon}></i>
-              <span>{item.label}</span>
-            </div>
-          ))}
+          {navItems.map((item) => {
+            const isActive =
+              activePage === item.page ||
+              (item.page === "projects" && activePage === "project-detail") ||
+              (item.page === "blog" && activePage === "blog-detail");
+            return (
+              <div
+                key={item.page}
+                className={`mobile-nav-link ${isActive ? "active" : ""}`}
+                onClick={() => handleNavClick(item.page)}
+                onMouseEnter={() => setHoveredItem(item.page)}
+                role="button"
+              >
+                <i className={item.icon}></i>
+                <span>{item.label}</span>
+              </div>
+            );
+          })}
         </nav>
       </div>
     </>
@@ -565,16 +662,30 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
 /* =======================
    Helpers: parse location & goTo
    ======================= */
-function parseLocation() {
-  const parts = window.location.pathname
+function parseLocation(pathname = window.location.pathname) {
+  // Support hash navigation e.g. #proj-04 or #project/proj-04
+  const hash = window.location.hash.replace(/^#\/?/, "");
+  if (hash.startsWith("proj-") || hash.startsWith("project/")) {
+    const slug = hash.replace(/^project\//, "");
+    return { page: "project-detail", slug };
+  }
+
+  const parts = pathname
     .replace(/\/+$/, "")
     .split("/")
     .filter(Boolean);
   if (parts.length === 0) return { page: "home" };
+
   if (parts[0] === "blog") {
     if (parts.length > 1) return { page: "blog-detail", slug: parts[1] };
     return { page: "blog" };
   }
+
+  if (parts[0] === "project" || parts[0] === "projects") {
+    if (parts.length > 1) return { page: "project-detail", slug: parts[1] };
+    return { page: "projects" };
+  }
+
   const valid = [
     "home",
     "about",
@@ -592,6 +703,7 @@ function parseLocation() {
 function buildPath(page, slug) {
   if (page === "home") return "/";
   if (page === "blog-detail" && slug) return `/blog/${slug}`;
+  if (page === "project-detail" && slug) return `/project/${slug}`;
   return `/${page}`;
 }
 
@@ -622,17 +734,32 @@ function App() {
   // routing state
   const initial = parseLocation();
   const [activePage, setActivePage] = useState(initial.page);
-  const [blogSlug, setBlogSlug] = useState(initial.slug || "");
+  const [blogSlug, setBlogSlug] = useState(
+    initial.page === "blog-detail" ? initial.slug || "" : "",
+  );
+  const [projectSlug, setProjectSlug] = useState(
+    initial.page === "project-detail" ? initial.slug || "" : "",
+  );
 
   useEffect(() => {
     const onPop = () => {
       const loc = parseLocation();
       setActivePage(loc.page);
-      setBlogSlug(loc.slug || "");
+      if (loc.page === "blog-detail") setBlogSlug(loc.slug || "");
+      if (loc.page === "project-detail") setProjectSlug(loc.slug || "");
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    const mainPanel = document.getElementById("main-panel");
+    const contentWrapper = mainPanel?.querySelector(".hide-scrollbar");
+    if (contentWrapper) {
+      contentWrapper.scrollTop = 0;
+    }
+  }, [activePage, projectSlug, blogSlug]);
 
   // SPA link interception (internal anchors)
   useEffect(() => {
@@ -645,6 +772,8 @@ function App() {
       const path = url.pathname;
       if (
         path.startsWith("/blog/") ||
+        path.startsWith("/project/") ||
+        path.startsWith("/projects/") ||
         [
           "/",
           "/about",
@@ -654,17 +783,13 @@ function App() {
           "/uses",
           "/faq",
           "/contact",
+          "/blog",
         ].includes(path)
       ) {
         e.preventDefault();
-        const loc = parseLocationFrom(path);
+        const loc = parseLocation(path);
         goTo(loc.page, loc.slug);
       }
-    };
-    const parseLocationFrom = (pathname) => {
-      const parts = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
-      if (parts.length === 0) return { page: "home" };
-      return { page: parts[0] };
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
@@ -672,12 +797,13 @@ function App() {
 
   const goTo = (page, slug) => {
     setActivePage(page);
-    setBlogSlug(slug || "");
+    if (page === "blog-detail") setBlogSlug(slug || "");
+    if (page === "project-detail") setProjectSlug(slug || "");
     const path = buildPath(page, slug);
     window.history.pushState({ page, slug }, "", path);
   };
 
-  const handleNavigate = (page) => goTo(page);
+  const handleNavigate = (page, slug) => goTo(page, slug);
 
   const renderPage = () => {
     switch (activePage) {
@@ -688,7 +814,9 @@ function App() {
       case "services":
         return <Services />;
       case "projects":
-        return <Project />;
+        return <Project onNavigate={handleNavigate} />;
+      case "project-detail":
+        return <ProjectDetail projectId={projectSlug} onNavigate={handleNavigate} />;
       case "testimonials":
         return <Testimonials />;
       case "uses":

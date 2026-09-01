@@ -185,6 +185,15 @@
   will-change: transform;
 }
 
+.devImage {
+  width: 4.2vw;
+  height: 4.2vw;
+  border-radius: 50%;
+  object-fit: contain;
+  background: color-mix(in srgb, var(--svc-chip-bg), white 5%);
+  border: 2px solid var(--svc-chip-border);
+}
+
 .cardFaceFront::after,
 .cardFaceBack::after {
   content: "";
@@ -546,7 +555,9 @@
     width: 3.2vw;
     height: 3.2vw;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 0.3vw;
+    background: color-mix(in srgb, var(--svc-chip-bg), white 5%);
     border: 2px solid var(--svc-chip-border);
   }
 
@@ -857,10 +868,10 @@
     box-shadow: 0 0.6vw 1vw -0.2vw var(--svc-card-shadow) !important;
   }
 
-  .navButton { 
+  .navButton {
     width: 3.5vw !important;
     height: 3.5vw !important;
-    font-size: 1.2vw !important; 
+    font-size: 1.2vw !important;
     padding: 0 !important;
     display: flex !important;
     align-items: center !important;
@@ -868,6 +879,7 @@
     flex-shrink: 0 !important;
     border-radius: 50% !important;
   }
+
   .navButton svg {
     flex-shrink: 0 !important;
   }

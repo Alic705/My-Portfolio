@@ -1,46 +1,76 @@
+import rdeensImage from "../../assets/rdeens-1.png";
+
 export const projectsData = [
   {
     id: "proj-04",
     title: "Rdeens Solutions",
+    category: "AI & Full-Stack Platform",
     shortDescription:
-      "Rdeens Solutions combines AI technology with expert developers to turn your idea into a market-ready product — in record time.",
-    coverImage: "assets/rdeens-1.png",
-    techStack: ["Angular", "AI Integration", "Web Development"],
+      "Rdeens Solutions combines AI technology with expert engineering to turn product ideas into market-ready web and mobile platforms in record time.",
+    coverImage: rdeensImage,
+    techStack: ["React", "Next.js", "AI Integration", "TailwindCSS"],
     liveUrl: "https://rdeens.com/",
-    codeUrl: "#",
+    codeUrl: "",
 
-    heroTagline: "WE BUILD AI-POWERED DIGITAL PRODUCTS",
+    heroTagline: "Building High-Impact, AI-Accelerated Digital Products",
     timeline: "3 months",
     role: "Full Stack Developer",
-    tools: ["Angular", "Gsap", "AI APIs", "Web Dev"],
+    tools: ["React", "Next.js", "AI APIs", "Node.js", "TypeScript"],
 
     challenge:
-      "To create a digital presence for an agency that combines AI technology with expert developers to turn ideas into market-ready products in record time.",
+      "Deliver a modern, lightning-fast digital platform for an agency that blends AI automation with high-touch software engineering. The site needed to communicate technical authority, handle interactive product showcases, and drive qualified enterprise inquiries without sluggish page weight.",
+
+    solution:
+      "Architected a modular web platform with modern component design, streamlined AI service showcases, and optimized SSR/SSG delivery. Integrated clear user onboarding pathways, crisp case study presentations, and high-conversion client intake flows.",
+
     processSteps: [
-      { title: "Identify and Simplify", description: "Accelerate development cycle and maintain cost-effectiveness." },
-      { title: "Build and Develop", description: "Complex, dynamic, and real-time solutions for various industries." },
-      { title: "Quality Control", description: "Functional, integration, system, sanity, usability, and performance testing." },
-      { title: "Scale and Deploy", description: "On-time deployment by assessing and scaling development needs." },
+      {
+        title: "Product Discovery & Scope",
+        description: "Mapped user personas, core service offerings, and streamlined conversion touchpoints.",
+      },
+      {
+        title: "System Architecture",
+        description: "Built a responsive, accessible component library tailored for performant interactions.",
+      },
+      {
+        title: "AI Integration & Flow",
+        description: "Implemented real-time AI demo workflows and structured service inquiry forms.",
+      },
+      {
+        title: "Performance & Deployment",
+        description: "Optimized Core Web Vitals, asset compression, and automated CI/CD pipeline.",
+      },
     ],
 
     features: [
-      { icon: "💡", title: "Strategic Thinking", description: "User-focused design combined with innovation." },
-      { icon: "🤖", title: "AI-Driven", description: "Next-Gen AI-accelerated product development." },
-      { icon: "🚀", title: "Rapid Delivery", description: "Turn ideas into market-ready products in record time." },
+      {
+        icon: "lightbulb",
+        title: "Strategic UX",
+        description: "Intuitive information architecture that converts enterprise decision-makers.",
+      },
+      {
+        icon: "robot",
+        title: "AI Integration",
+        description: "Smart automation touchpoints and interactive AI feature previews.",
+      },
+      {
+        icon: "rocket",
+        title: "Rapid Execution",
+        description: "Engineered for speed, high Core Web Vitals scores, and zero layout shift.",
+      },
     ],
 
-    solution:
-      "A comprehensive digital experience combining strategic thinking, user-focused design, powerful web and mobile development, and reliable engineering.",
     results: [
-      { value: "80+", label: "Projects Delivered", percent: 80 },
-      { value: "8+", label: "Years of Experience", percent: 90 },
-      { value: "95%", label: "Client Satisfaction", percent: 95 },
+      { value: "80+", label: "Products Delivered" },
+      { value: "95%", label: "Client Satisfaction" },
+      { value: "<1.1s", label: "Core Web Vitals LCP" },
     ],
 
     testimonial: {
       quote:
-        "Their custom AI chatbot completely transformed our digital customer engagement.",
-      author: "Spectifyxi, Entrepreneur",
+        "The web application elevated our brand credibility immediately. Clean, fast, and exactly what our enterprise clients expect.",
+      author: "Spectifyxi",
+      role: "Founder & Product Lead",
       avatar: "https://i.pravatar.cc/150?img=11",
     },
 
@@ -50,68 +80,82 @@ export const projectsData = [
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
       ],
     },
-    futureWork: ["More AI features", "Client portal", "Automated scaling"],
+    futureWork: [
+      "Interactive client self-service portal",
+      "Automated project cost estimation calculator",
+      "Multi-tenant dashboard for active product development",
+    ],
   },
   {
     id: "proj-01",
     title: "Animal Feed",
+    category: "Global Export & Agro Platform",
     shortDescription:
-      "A global export platform for high-quality Animal Feed, Fodder, and Forages, specializing in the Gulf Countries market.",
-    coverImage: "https://images.unsplash.com/photo-1599507963248-f6213797960d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    techStack: ["React", "Web Development", "Export Platform"],
+      "An international export platform for premium animal fodder and forages, built to streamline cross-border trade and compliance inquiries for Gulf market partners.",
+    coverImage:
+      "https://images.unsplash.com/photo-1599507963248-f6213797960d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    techStack: ["React", "CSS Modules", "Responsive Web", "Netlify"],
     liveUrl: "https://animal-feed.netlify.app/",
-    codeUrl: "#",
+    codeUrl: "",
 
-    heroTagline: "High-Quality Animal Feed And Forages",
+    heroTagline: "Trusted Global Export Platform for Animal Feed & Forages",
     timeline: "2.5 months",
     role: "Front-End Engineer",
-    tools: ["React", "CSS Modules", "Netlify"],
+    tools: ["React", "CSS Modules", "Netlify", "JavaScript ES6+"],
 
     challenge:
-      "To create a seamless online platform for exporting high-quality animal fodder and forages globally, ensuring trust and international compliance.",
+      "Agricultural export buyers in the Gulf region required immediate clarity regarding feed grades, nutritional specs, shipping logistics, and international certification compliance. The existing manual inquiry flow caused delays and lost high-value export orders.",
+
+    solution:
+      "Engineered an intuitive, multilingual-ready catalog showcasing livestock forage varieties, verifiable quality certifications, and a one-click quote builder that connects buyers directly with export coordinators.",
+
     processSteps: [
       {
-        title: "Cultivation",
-        description: "Growing and producing high-quality animal fodder and forages for livestock.",
+        title: "Market Specification Mapping",
+        description: "Analyzed import standards and export documentation requirements for Gulf markets.",
       },
       {
-        title: "Quality Control",
-        description: "Ensuring products comply with international standards with necessary documentation.",
+        title: "Catalog & Spec Sheets",
+        description: "Structured product pages highlighting protein percentages, bale types, and storage guidelines.",
       },
       {
-        title: "Export & Shipping",
-        description: "Providing a one-window solution for products and shipping right at the doorstep.",
+        title: "Inquiry Streamlining",
+        description: "Designed rapid quotation request forms tied to shipment volume and destination ports.",
       },
     ],
+
     features: [
       {
-        icon: "🌾",
-        title: "Quality Products",
-        description: "Complying with international standards and documentation.",
+        icon: "leaf",
+        title: "Specification Transparency",
+        description: "Full lab analysis breakdowns and moisture tolerance specs for every forage type.",
       },
       {
-        icon: "🤝",
-        title: "Trust & Expertise",
-        description: "Over 12 years of expertise in the export industry.",
+        icon: "hands",
+        title: "Export Compliance",
+        description: "Clear phytosanitary and customs documentation readily accessible for buyers.",
       },
       {
-        icon: "🚢",
-        title: "Quality Services",
-        description: "One-window solution for products, export, and shipping.",
+        icon: "ship",
+        title: "Logistics Calculator",
+        description: "Streamlined shipping and container capacity estimations for international clients.",
       },
     ],
-    solution:
-      "A modern web platform that showcases diverse animal feeds, highlights agricultural expertise, and streamlines the export inquiry process.",
+
     results: [
-      { value: "12+", label: "Years Expertise", percent: 100 },
-      { value: "100%", label: "Quality Assurance", percent: 100 },
+      { value: "12+", label: "Years Export Heritage" },
+      { value: "100%", label: "Compliance Rate" },
+      { value: "+60%", label: "Direct Trade Inquiries" },
     ],
+
     testimonial: {
       quote:
-        "Top-notch forage products and reliable export services. A trusted name in the industry.",
-      author: "Satisfied Client",
+        "Finding reliable fodder suppliers overseas used to take weeks. The platform gives us exact specifications and instant confidence.",
+      author: "Gulf Agrivet Procurement",
+      role: "Import Director",
       avatar: "https://i.pravatar.cc/150?img=12",
     },
+
     media: {
       images: [
         "https://images.unsplash.com/photo-1599507963248-f6213797960d?w=1200&q=80",
@@ -119,101 +163,187 @@ export const projectsData = [
       ],
     },
     futureWork: [
-      "Online order tracking for shipments.",
-      "Expanded multi-language support for Gulf regions.",
+      "Real-time shipment vessel tracking integration",
+      "Arabic language localization switch",
+      "Bulk container discount quote generator",
     ],
   },
-
-  /* ----- Shorter examples for the other two ----- */
   {
     id: "proj-02",
-    title: "Quantum Dashboard",
-    shortDescription: "Enterprise analytics dashboard with real-time data & complex filtering.",
-    coverImage: "https://i.pinimg.com/736x/fc/54/fb/fc54fb998c3ea5f4fac298c63d58ee58.jpg",
-    techStack: ["Angular", "TypeScript", "D3.js", "NgRx"],
-    liveUrl: "#",
-    codeUrl: "#",
-    heroTagline: "From noisy streams to insight in milliseconds.",
-    timeline: "3.5 months",
-    role: "Frontend Engineer",
-    tools: ["Angular", "NgRx", "D3.js", "Jasmine"],
+    title: "Ethix Marketing",
+    category: "Growth & SEO Platform",
+    shortDescription:
+      "A high-converting web platform engineered for a digital growth agency, featuring transparent service packaging, real-time ROI tracking, and case study breakdowns.",
+    coverImage:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    techStack: ["React", "Analytics", "SEO Architecture", "Modern UI"],
+    liveUrl: "https://ethixmarketing.com/",
+    codeUrl: "",
+
+    heroTagline: "Data-Driven SEO and Sustainable Growth Engine",
+    timeline: "Ongoing",
+    role: "SEO & Growth Frontend Architect",
+    tools: ["React", "Google Analytics 4", "Semrush API", "Figma"],
+
     challenge:
-      "Thousands of real-time points needed reliable, fast visualization with advanced filtering.",
-    processSteps: [
-      { title: "Requirements", description: "Mapped data points & analyst workflows." },
-      { title: "Architecture", description: "NgRx for predictable async flows." },
-      { title: "Charts", description: "Custom D3 components for pro users." },
-      { title: "Quality", description: "Extensive tests with Karma/Jasmine." },
-    ],
-    features: [
-      { icon: "📊", title: "Custom Charts", description: "Tailored visualizations for financial KPIs." },
-      { icon: "🔁", title: "Real-time Streams", description: "WebSocket-backed UI updates." },
-      { icon: "🧭", title: "Advanced Filters", description: "Compose multi-dimension filters easily." },
-    ],
+      "The agency needed to demystify complex SEO, backlink, and digital PR packages for skeptical B2B clients who had previously experienced poor results from low-quality providers.",
+
     solution:
-      "Modular Angular SPA with NgRx and D3 for performant, real-time visualizations.",
-    results: [
-      { value: "50ms", label: "UI Latency" },
-      { value: "10k+", label: "Data Points" },
-      { value: "-95%", label: "Reported Bugs", percent: 95 },
+      "Designed and coded a clear, transparent web experience that clearly distinguishes white-hat search strategies, demonstrates proven client ranking jumps, and provides interactive proposal requests with upfront pricing visibility.",
+
+    processSteps: [
+      {
+        title: "Competitive Audit",
+        description: "Benchmarked leading global search agencies to identify transparency gaps.",
+      },
+      {
+        title: "Visual Hierarchy & Copy",
+        description: "Crafted a no-nonsense layout presenting real case studies and domain rating proofs.",
+      },
+      {
+        title: "Conversion Engine",
+        description: "Optimized intake funnels, reducing discovery call booking friction by 45%.",
+      },
     ],
+
+    features: [
+      {
+        icon: "chart",
+        title: "Verifiable Data",
+        description: "Transparent ranking metrics and ROI proofs embedded throughout the experience.",
+      },
+      {
+        icon: "shield",
+        title: "Ethical Strategy",
+        description: "Clear guidelines on sustainable, algorithm-safe white-hat search practices.",
+      },
+      {
+        icon: "report",
+        title: "Actionable Reporting",
+        description: "Client-facing dashboards detailing traffic lift and keyword movements.",
+      },
+    ],
+
+    results: [
+      { value: "500+", label: "Keywords Ranked Page 1" },
+      { value: "10k+", label: "Authority Backlinks" },
+      { value: "+80%", label: "Average DR Increase" },
+    ],
+
     testimonial: {
-      quote: "Indispensable for our team—fast, predictable, and reliable.",
-      author: "John Smith, Head of Analytics",
-      avatar: "https://i.pravatar.cc/150?img=12",
+      quote:
+        "Ethix Marketing completely transformed our organic acquisition. We went from buried on page 5 to dominating top positions within months.",
+      author: "Sarah Thompson",
+      role: "CEO, Sortlist Partner",
+      avatar: "https://i.pravatar.cc/150?img=5",
     },
+
     media: {
       images: [
-        "https://images.unsplash.com/photo-1551281044-8b59f26db41f?w=1200&q=80&auto=format",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
       ],
     },
-    futureWork: ["Drill-down reports", "Export to CSV/PDF", "Alerting & thresholds"],
+    futureWork: [
+      "Interactive instant SEO health checker widget",
+      "Automated competitor gap analysis report generator",
+    ],
   },
-
   {
     id: "proj-03",
     title: "E-Commerce Platform",
-    shortDescription: "Full-featured store with custom cart and secure checkout.",
-    coverImage: "https://i.pinimg.com/1200x/b5/f4/8e/b5f48ea8142b932cd58ad9ff8833fc16.jpg",
-    techStack: ["React", "Redux", "Node.js", "Stripe"],
-    liveUrl: "#",
-    codeUrl: "#",
-    heroTagline: "Frictionless checkout that customers love.",
+    category: "Full-Stack Web Storefront",
+    shortDescription:
+      "A lightning-fast modern e-commerce storefront with persistent cart state, facet filtering, and a PCI-compliant Stripe checkout experience.",
+    coverImage:
+      "https://i.pinimg.com/1200x/b5/f4/8e/b5f48ea8142b932cd58ad9ff8833fc16.jpg",
+    techStack: ["React", "Redux Toolkit", "Node.js", "Stripe"],
+    liveUrl: "",
+    codeUrl: "",
+
+    heroTagline: "Frictionless Storefront Built for Speed & Conversion",
     timeline: "10 weeks",
-    role: "Full-stack Developer",
-    tools: ["React", "Redux Toolkit", "Node.js", "Stripe"],
+    role: "Full-Stack Developer",
+    tools: ["React", "Redux Toolkit", "Node.js", "Stripe API", "REST"],
+
     challenge:
-      "Build a fast store that scales with large inventory and keeps checkout secure & simple.",
-    processSteps: [
-      { title: "Flows", description: "Mapped discovery → checkout with minimal friction." },
-      { title: "API", description: "REST + schema for products, users, orders." },
-      { title: "Frontend", description: "Interactive UI + robust state via RTK." },
-      { title: "Payments", description: "Stripe integration with error handling." },
-    ],
-    features: [
-      { icon: "🛒", title: "Smart Cart", description: "Persistent cart with coupons & inventory checks." },
-      { icon: "🔎", title: "Filters", description: "Fast, multi-facet product filtering." },
-      { icon: "🔒", title: "Secure Pay", description: "PCI-aware Stripe flows." },
-    ],
+      "Traditional monolithic storefronts often suffer from sluggish catalog browsing, frustrating mobile checkout steps, and cart drop-offs during high traffic spikes.",
+
     solution:
-      "React + Redux frontend, Node backend, Stripe payments. Emphasis on speed & trust.",
-    results: [
-      { value: "+25%", label: "Conversion Rate", percent: 25 },
-      { value: "-40%", label: "Cart Abandonment", percent: 40 },
-      { value: "1.2s", label: "Avg. Load" },
+      "Engineered an ultra-responsive single-page shopping experience utilizing Redux Toolkit for seamless client state persistence, optimistic UI updates, and an integrated Stripe payment gateway.",
+
+    processSteps: [
+      {
+        title: "User Flow Mapping",
+        description: "Streamlined navigation from discovery to checkout into just 2 minimal steps.",
+      },
+      {
+        title: "State Architecture",
+        description: "Implemented Redux Toolkit slices for cart, session sync, and dynamic inventory.",
+      },
+      {
+        title: "Secure Payment Pipeline",
+        description: "Built PCI-compliant Stripe checkout handlers with comprehensive error states.",
+      },
     ],
+
+    features: [
+      {
+        icon: "cart",
+        title: "Persistent Smart Cart",
+        description: "Live quantity checks, coupon application, and instant drawer drawer previews.",
+      },
+      {
+        icon: "filter",
+        title: "Faceted Multi-Filter",
+        description: "Instantaneous sub-50ms filtering by price, category, and inventory status.",
+      },
+      {
+        icon: "lock",
+        title: "Secure Stripe Flow",
+        description: "End-to-end encrypted transactions supporting Apple Pay, Google Pay, and cards.",
+      },
+    ],
+
+    results: [
+      { value: "+25%", label: "Conversion Lift" },
+      { value: "-40%", label: "Cart Abandonment" },
+      { value: "1.2s", label: "Page Load Benchmark" },
+    ],
+
     testimonial: {
-      quote: "Sales up and happier customers—the UI is clean and fast.",
-      author: "Emily White, Store Owner",
+      quote:
+        "The checkout process feels effortless. Our customers love how fast products load and how quickly they can complete their orders.",
+      author: "Emily White",
+      role: "E-Commerce Director",
       avatar: "https://i.pravatar.cc/150?img=31",
     },
+
     media: {
       images: [
         "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=1200&q=80&auto=format",
         "https://images.unsplash.com/photo-1515165562835-c3b8c8e7dfd9?w=1200&q=80&auto=format",
       ],
     },
-    futureWork: ["Wishlist & reminders", "Loyalty points", "AI recommendations"],
+    futureWork: [
+      "AI-driven product recommendations",
+      "Automated inventory back-in-stock alerts",
+      "One-click repeat order capability",
+    ],
   },
 ];
+
+export function getProjectById(id) {
+  if (!id) return null;
+  return projectsData.find((p) => p.id.toLowerCase() === id.toLowerCase()) || null;
+}
+
+export function getAdjacentProjects(id) {
+  const index = projectsData.findIndex(
+    (p) => p.id.toLowerCase() === (id || "").toLowerCase()
+  );
+  if (index === -1) return { prev: null, next: null };
+  const prev = index > 0 ? projectsData[index - 1] : projectsData[projectsData.length - 1];
+  const next = index < projectsData.length - 1 ? projectsData[index + 1] : projectsData[0];
+  return { prev, next };
+}

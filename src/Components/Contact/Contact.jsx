@@ -226,13 +226,13 @@ const Contact = () => {
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact Ali Ch",
+    name: "Contact Ali Altaf",
     url: canonical,
     description:
       "Contact a Senior React & Angular Front-End Engineer for performance-first development, UI/UX implementation, and audits.",
     about: {
       "@type": "Person",
-      name: "Ali Ch",
+      name: "Ali Altaf",
       jobTitle: "Senior Front-End Engineer (React & Angular)",
       homeLocation: { "@type": "Place", name: "Lahore, Pakistan" },
       contactPoint: {
@@ -258,7 +258,7 @@ const Contact = () => {
     <>
       {/* HEAD */}
       <title>
-        Contact Ali Ch – Hire React &amp; Angular Front-End Engineer
+        Contact Ali Altaf – Hire React &amp; Angular Front-End Engineer
       </title>
       <meta
         name="description"
@@ -269,7 +269,7 @@ const Contact = () => {
       {/* OG/Twitter */}
       <meta
         property="og:title"
-        content="Contact Ali Ch – React & Angular Engineer"
+        content="Contact Ali Altaf – React & Angular Engineer"
       />
       <meta
         property="og:description"
@@ -281,7 +281,7 @@ const Contact = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content="Contact Ali Ch – React & Angular Engineer"
+        content="Contact Ali Altaf – React & Angular Engineer"
       />
       <meta
         name="twitter:description"

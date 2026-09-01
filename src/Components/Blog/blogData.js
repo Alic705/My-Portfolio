@@ -6,7 +6,7 @@ export const POSTS = [
       "React vs Angular for SEO in 2025: SSR, SSG, and Core Web Vitals That Actually Move the Needle",
     description:
       "A practical comparison of React and Angular for SEO—covering SSR/SSG, routing, structured data, and Core Web Vitals.",
-    author: "Ali Ch",
+    author: "Ali Altaf",
     publishedAt: "2025-08-15",
     updatedAt: "2025-08-20",
     tags: ["React", "Angular", "SEO", "SSR", "SSG", "Core Web Vitals"],
@@ -55,7 +55,7 @@ export const POSTS = [
       "Core Web Vitals Audit Checklist (2025): React & Angular Teams, Read This First",
     description:
       "My field-tested checklist to push LCP/INP/CLS into the green for modern React & Angular apps.",
-    author: "Ali Ch",
+    author: "Ali Altaf",
     publishedAt: "2025-08-28",
     updatedAt: "2025-08-30",
     tags: ["Performance", "Core Web Vitals", "React", "Angular", "Audit"],
@@ -102,7 +102,7 @@ export const POSTS = [
       "Accessible Design Systems in React & Angular (WCAG 2.2 AA): Practical Patterns",
     description:
       "Practical patterns for WCAG 2.2 AA components: focus, keyboard, semantics, and screen readers.",
-    author: "Ali Ch",
+    author: "Ali Altaf",
     publishedAt: "2025-09-02",
     updatedAt: "2025-09-02",
     tags: ["Accessibility", "WCAG 2.2", "Design Systems", "React", "Angular"],

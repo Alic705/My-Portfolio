@@ -109,7 +109,7 @@ export default function FAQ() {
   return (
     <main className={styles.wrap} aria-labelledby="faq-title">
       {/* SEO head */}
-      <title>FAQ | React &amp; Angular Front-End | Ali Ch</title>
+      <title>FAQ | React &amp; Angular Front-End | Ali Altaf</title>
       <meta
         name="description"
         content="Answers about React & Angular SEO, Core Web Vitals, accessibility, process, and timelines. Get audit and project details."

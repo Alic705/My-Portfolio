@@ -249,7 +249,7 @@ const About = () => {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Ali Ch",
+    name: "Ali Altaf",
     jobTitle: "Senior Front-End Engineer (React & Angular)",
     url: canonicalUrl,
     sameAs: [
@@ -273,9 +273,9 @@ const About = () => {
   const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About Ali Ch – Senior React & Angular Front-End Engineer",
+    name: "About Ali Altaf – Senior React & Angular Front-End Engineer",
     url: canonicalUrl,
-    mainEntity: { "@type": "Person", name: "Ali Ch", url: canonicalUrl },
+    mainEntity: { "@type": "Person", name: "Ali Altaf", url: canonicalUrl },
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -299,7 +299,7 @@ const About = () => {
     >
       {/* SEO head for About page */}
       <title>
-        About Ali Ch – Senior React &amp; Angular Front-End Engineer
+        About Ali Altaf – Senior React &amp; Angular Front-End Engineer
       </title>
       <meta
         name="description"
@@ -310,7 +310,7 @@ const About = () => {
       {/* OpenGraph */}
       <meta
         property="og:title"
-        content="About Ali Ch– Senior React & Angular Front-End Engineer"
+        content="About Ali Altaf – Senior React & Angular Front-End Engineer"
       />
       <meta
         property="og:description"
@@ -326,7 +326,7 @@ const About = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content="About Ali Ch– Senior React & Angular Engineer"
+        content="About Ali Altaf – Senior React & Angular Engineer"
       />
       <meta
         name="twitter:description"
@@ -483,9 +483,9 @@ const About = () => {
               href="/resume.pdf"
               className={`${styles.btn} ${styles.btnGhost} ${styles.resumeCta} `}
               download
-              aria-label="Download Ali Ch– React & Angular résumé (PDF)"
+              aria-label="Download Ali Altaf – React & Angular résumé (PDF)"
             >
-              <span>Download Ali Ch– React &amp; Angular Résumé (PDF)</span>
+              <span>Download Ali Altaf – React &amp; Angular Résumé (PDF)</span>
             </a>
           </div>
         </div>

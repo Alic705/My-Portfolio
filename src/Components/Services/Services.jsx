@@ -21,6 +21,8 @@ import {
   SiWordpress,
 } from "react-icons/si";
 
+import darkLogo from "../../assets/images/logo/dark-logo.png";
+
 /* ===========================
    SEO-OPTIMIZED SERVICES DATA
    =========================== */
@@ -157,9 +159,9 @@ const services = [
 ];
 
 const developerInfo = {
-  name: "Ali Ch",
+  name: "Ali Altaf",
   title: "Senior Front-End Engineer — React & Angular",
-  imageUrl: "https://placehold.co/100x100/4A5568/E2E8F0?text=AC",
+  imageUrl: darkLogo,
 };
 
 /* ===========================
@@ -432,7 +434,7 @@ function ServicesPage() {
     name: s.title,
     serviceType: "Software development",
     description: s.description,
-    provider: { "@type": "Person", name: "Ali Ch" },
+    provider: { "@type": "Person", name: "Ali Altaf" },
     areaServed: "Worldwide",
     offers: { "@type": "Offer", availability: "https://schema.org/InStock" },
     url: `${baseUrl}${s.slug}`,
