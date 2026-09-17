@@ -220,27 +220,30 @@ const Contact = () => {
   };
 
   /* ---------- SEO head & structured data ---------- */
-  const baseUrl = "https://your-domain.com";
+  const baseUrl = "https://alich.dev";
   const canonical = `${baseUrl}/contact`;
 
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact Ali Altaf",
+    name: "Contact Ali Ch | Frontend Engineer",
     url: canonical,
     description:
-      "Contact a Senior React & Angular Front-End Engineer for performance-first development, UI/UX implementation, and audits.",
+      "Contact Ali Ch, Frontend Engineer specializing in React.js, Angular, Redux & REST APIs. Available for contracts, consulting, and engineering roles.",
     about: {
       "@type": "Person",
-      name: "Ali Altaf",
-      jobTitle: "Senior Front-End Engineer (React & Angular)",
-      homeLocation: { "@type": "Place", name: "Lahore, Pakistan" },
+      name: "Ali Ch",
+      jobTitle: "Frontend Engineer",
+      sameAs: [
+        "https://www.linkedin.com/in/alichdev",
+      ],
+      homeLocation: { "@type": "Place", name: "Lahore, Punjab, Pakistan" },
       contactPoint: {
         "@type": "ContactPoint",
-        contactType: "sales",
+        contactType: "professional",
         areaServed: "Worldwide",
-        availableLanguage: ["en"],
-        email: "mailto:alich70566.babar@example.com",
+        availableLanguage: ["en", "ur"],
+        email: "mailto:alich70566@gmail.com",
       },
     },
   };
@@ -258,22 +261,22 @@ const Contact = () => {
     <>
       {/* HEAD */}
       <title>
-        Contact Ali Altaf – Hire React &amp; Angular Front-End Engineer
+        Contact Ali Ch | Hire Frontend Engineer | React.js &amp; Angular Specialist
       </title>
       <meta
         name="description"
-        content="Get in touch to discuss React or Angular development, UI/UX implementation, performance & SEO audits. Based in Lahore, Pakistan — working with teams worldwide."
+        content="Get in touch with Ali Ch, Frontend Engineer. Discuss React.js or Angular development, REST APIs, and UI/UX architecture. Based in Lahore, Pakistan — available worldwide."
       />
       <meta name="robots" content="index,follow" />
       <link rel="canonical" href={canonical} />
       {/* OG/Twitter */}
       <meta
         property="og:title"
-        content="Contact Ali Altaf – React & Angular Engineer"
+        content="Contact Ali Ch | Frontend Engineer &amp; Web Developer"
       />
       <meta
         property="og:description"
-        content="Hire a performance-first front-end developer for React/Angular projects, audits and testing."
+        content="Hire Ali Ch for high-performance React.js, Angular, Redux & REST API web applications. Based in Lahore, Pakistan — available worldwide."
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonical} />
@@ -281,7 +284,7 @@ const Contact = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content="Contact Ali Altaf – React & Angular Engineer"
+        content="Contact Ali Ch | Frontend Engineer &amp; Web Developer"
       />
       <meta
         name="twitter:description"
@@ -496,19 +499,14 @@ const Contact = () => {
               <p>or connect with me on</p>
               <div className={styles.socialLinksContainer}>
                 <SocialLink
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/in/alichdev"
                   iconClass="ph-bold ph-linkedin-logo"
                   label="LinkedIn"
                 />
                 <SocialLink
-                  href=""
+                  href="https://github.com/alichdev"
                   iconClass="ph-bold ph-github-logo"
                   label="GitHub"
-                />
-                <SocialLink
-                  href="https://twitter.com/"
-                  iconClass="ph-bold ph-twitter-logo"
-                  label="Twitter"
                 />
               </div>
             </div>

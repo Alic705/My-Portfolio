@@ -4,18 +4,18 @@ import styles from "./Home.module.css";
 const marqueeItems = [
   {
     icon: "lightning",
-    label: "Performance-first",
-    text: "Core Web Vitals, code-splitting, optimized images, CDN strategy.",
+    label: "Performance-First",
+    text: "Sub-second LCP, zero layout shift (CLS), and Core Web Vitals optimization.",
   },
   {
-    icon: "wheelchair",
-    label: "Accessible",
-    text: "WCAG 2.2 AA, semantic HTML, keyboard & screen-reader testing.",
+    icon: "code",
+    label: "React.js & Angular SPAs",
+    text: "Reusable component architecture, Redux Toolkit, reactive Signals & clean state.",
   },
   {
-    icon: "magnifying-glass",
-    label: "SEO-ready",
-    text: "SSR/SSG, structured data, clean routing, sitemap & canonical tags.",
+    icon: "plugs-connected",
+    label: "REST APIs & Full-Stack",
+    text: "Node.js, Express, MongoDB, secure API orchestration & Shopify storefronts.",
   },
 ];
 
@@ -66,11 +66,11 @@ const Home = ({ onNavigate }) => {
   return (
     <>
       <title>
-        Hire Senior React &amp; Angular Engineer | Performance-First Front-End
+        Ali Ch | Frontend Engineer &amp; Web Developer | React.js &amp; Angular Specialist
       </title>
       <meta
         name="description"
-        content="Hire a senior React & Angular engineer who ships fast, accessible, SEO-ready web apps. Core Web Vitals wins, clean UX, and measurable business results—backed by case studies and 5★ reviews."
+        content="Frontend Engineer specializing in React.js, Angular, Redux, TypeScript &amp; REST APIs. Crafting high-performance web applications with sub-second speeds."
       />
 
       <main className={styles.homeContainer} aria-labelledby="hero-title">
@@ -80,9 +80,9 @@ const Home = ({ onNavigate }) => {
             ref={refs.h1}
             className={`${styles.mainHeading} ${styles.reveal}`}
           >
-            Senior React &amp; Angular Engineer {" "}
-            <span className="impactHighlight"> High-Performance </span>{" "}
-            Front-End Development
+            Frontend Engineer &amp; Web Developer{" "}
+            <span className="impactHighlight">React.js &amp; Angular</span>{" "}
+            Specialist
           </h1>
 
           <div
@@ -94,11 +94,7 @@ const Home = ({ onNavigate }) => {
           </div>
 
           <p ref={refs.sub} className={`${styles.subHeading} ${styles.reveal}`}>
-            I specialize in building <strong>high-performance</strong>,{" "}
-            <strong>accessible</strong>, and <strong>SEO-ready</strong> web
-            applications with <strong>React</strong> &amp;{" "}
-            <strong>Angular</strong>. From Core Web Vitals tuning to semantic
-            markup and structured data, I ship clean UX that drives measurable{" "}
+            I am a <strong>Frontend Engineer</strong> specializing in <strong>React.js</strong>, <strong>Angular</strong>, <strong>Redux</strong>, and <strong>REST APIs</strong>. I engineer scalable single-page applications, sub-second page performance, and clean, accessible UI architectures that rank on Google and drive measurable{" "}
             <span className={styles.impactHighlight}>business results</span>.
           </p>
 

@@ -8,6 +8,8 @@ import Testimonials from "./Components/Testimonials/Testimonials";
 import Contact from "./Components/Contact/Contact";
 import UsesPage from "./Components/Uses/Uses";
 import FAQ from "./Components/Faq/Faq";
+import Blog from "./Components/Blog/Blog";
+import BlogDetail from "./Components/Blog/BlogDetail";
 import BackgroundFX from "./Components/FX/BackgroundFX";
 import Preloader from "./Components/Preloader/Preloader";
 // import OrbitingCursor from "./Components/OrbitingCursor/OrbitingCursor";
@@ -395,13 +397,13 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
       backgroundImage:
         "https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?w=800&q=80",
     },
-    // {
-    //   page: "blog",
-    //   label: "Blog",
-    //   icon: "ph-bold ph-newspaper",
-    //   backgroundImage:
-    //     "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?w=800&q=80",
-    // },
+    {
+      page: "blog",
+      label: "Blog",
+      icon: "ph-bold ph-newspaper",
+      backgroundImage:
+        "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?w=800&q=80",
+    },
     {
       page: "contact",
       label: "Contact",
@@ -432,34 +434,47 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
         .desktop-nav{display:none;}
         @media (min-width: 768px){
           .desktop-nav {
-    background: color-mix(in hsl, var(--surface-panel) 70%, transparent);
-    backdrop-filter: blur(12px);
-    border-radius: var(--r-lg);
-    border: 1px solid var(--panel-border);
-    padding: .9vw 1.15vw;
-    display: flex;
-    flex-direction: column;
-    gap: .9vw;
-    z-index: 100;
-}
-            
+            font-size: var(--ui-scaling, clamp(10px, 0.95vw, 16px));
+            background: color-mix(in hsl, var(--surface-panel) 70%, transparent);
+            backdrop-filter: blur(12px);
+            border-radius: var(--r-lg);
+            border: 1px solid var(--panel-border);
+            padding: 0.85em 0.95em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75em;
+            z-index: 100;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1000px) {
+          .desktop-nav {
+            font-size: 10px;
+          }
+        }
+        @media (min-width: 7680px) {
+          .desktop-nav {
+            font-size: 64px;
+          }
         }
       .nav-logo-btn {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 3.3vw;
-        height: 3.3vw;
+        width: 3.2em;
+        height: 3.2em;
+        font-size: 1.1em;
         border-radius: 50%;
         cursor: pointer;
         transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
         border: 1px solid transparent;
-        margin-bottom: 0.2vw;
+        margin-bottom: 0.15em;
       }
       .nav-logo-btn img {
-        width: 3.5vw;
-        height: 3.5vw;
+        width: 2.2em;
+        height: 2.2em;
+        max-width: 90%;
+        max-height: 90%;
         object-fit: contain;
         transition: transform .25s ease;
       }
@@ -473,15 +488,15 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
       .nav-logo-btn::after {
         content: attr(data-label);
         position: absolute;
-        left: 120%;
+        left: 125%;
         top: 50%;
         transform: translateY(-50%);
         background: #222;
         color: #fff;
-        padding: .4vw .8vw;
-        border-radius: 0.4vw;
+        padding: 0.4em 0.8em;
+        border-radius: 0.4em;
         border: 1px solid rgba(255,255,255,0.2);
-        font-size: .9vw;
+        font-size: 0.85em;
         white-space: nowrap;
         opacity: 0;
         visibility: hidden;
@@ -494,29 +509,29 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
         visibility: visible;
       }
       .nav-logo-divider {
-    width: 100%;
-    height: 1px;
-    background: color-mix(in hsl, var(--panel-border) 60%, transparent);
-    margin: -.9vw 0 0.4vw 0;
-}
+        width: 100%;
+        height: 1px;
+        background: color-mix(in hsl, var(--panel-border) 60%, transparent);
+        margin: -0.35em 0 0.25em 0;
+      }
       .nav-link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.3vw;
-    height: 3.3vw;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all .2s ease;
-    color: #e0e0e0;
-    border: 1px solid transparent;
-}
-        .nav-link i { font-size: 1.5vw; }
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2em;
+        height: 3.2em;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all .2s ease;
+        color: #e0e0e0;
+        border: 1px solid transparent;
+      }
+        .nav-link i { font-size: 1.45em; }
         .nav-link:not(.active):hover{ background: color-mix(in hsl, var(--brand-2) 12%, transparent); border-color: color-mix(in hsl, var(--brand-2) 18%, transparent); }
         .nav-link.active{ background: color-mix(in hsl, var(--brand-2) 22%, white 10%); color: var(--text-primary); border-color: color-mix(in hsl, var(--brand-2) 35%, white); box-shadow: 0 6px 20px color-mix(in hsl, var(--brand-2) 40%, transparent); }
-        .nav-link.active::before{ content:""; position:absolute; right:6px; top:50%; transform:translateY(-50%); width:6px; height:6px; border-radius:50%; background: var(--accent-gold); box-shadow: 0 0 10px rgba(255,254,1,.6); }
-        .nav-link::after{ content:attr(data-label); position:absolute; left:120%; top:50%; transform:translateY(-50%); background:#222; color:#fff; padding:.4vw .8vw; border-radius:0.4vw; border:1px solid rgba(255,255,255,0.2); font-size:.9vw; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition: opacity .2s ease, visibility .2s ease; transition-delay: .1s; }
+        .nav-link.active::before{ content:""; position:absolute; right:0.35em; top:50%; transform:translateY(-50%); width:0.45em; height:0.45em; border-radius:50%; background: var(--accent-gold); box-shadow: 0 0 0.6em rgba(255,254,1,.6); }
+        .nav-link::after{ content:attr(data-label); position:absolute; left:125%; top:50%; transform:translateY(-50%); background:#222; color:#fff; padding:0.4em 0.8em; border-radius:0.4em; border:1px solid rgba(255,255,255,0.2); font-size:0.85em; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition: opacity .2s ease, visibility .2s ease; transition-delay: .1s; }
         .nav-link:hover::after{ opacity:1; visibility:visible; }
         .mobile-nav-header{display:none}
         .mobile-menu-overlay{display:none}
@@ -524,8 +539,8 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
         @media (max-width: 767px) {
           .mobile-nav-header{display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;right:0;height:60px;padding:0 1.25rem;z-index:1002;pointer-events:none;}
           .mobile-nav-header > * {pointer-events:auto;}
-          .mobile-nav-logo {display:flex;align-items:center;justify-content:center;width:40px;height:40px;cursor:pointer;}
-          .mobile-nav-logo img {width:32px;height:32px;object-fit:contain;}
+          .mobile-nav-logo {display:flex;align-items:center;justify-content:center;width:2.5em;height:2.5em;cursor:pointer;}
+          .mobile-nav-logo img {width:2.1em;height:2.1em;object-fit:contain;}
           .hamburger-button{background:none;border:none;color:var(--text);font-size:2rem;cursor:pointer;z-index:1003;position:relative;width:32px;height:32px}
           .hamburger-button i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .3s ease-in-out,opacity .3s ease-in-out;font-size:20px}
           .hamburger-button .icon-close{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
@@ -559,14 +574,14 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
         {/* Top Logo above Home */}
         <div
           className="nav-logo-btn"
-          data-label="Ali Altaf"
+          data-label="Ali Ch"
           onClick={() => handleNavClick("home")}
           role="button"
-          aria-label="Home - Ali Altaf"
+          aria-label="Home - Ali Ch"
         >
           <img
             src={theme === "dark" ? darkLogo : lightLogo}
-            alt="Ali Altaf Logo"
+            alt="Ali Ch Logo"
           />
         </div>
         <div className="nav-logo-divider" />
@@ -601,11 +616,11 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
           className="mobile-nav-logo"
           onClick={() => handleNavClick("home")}
           role="button"
-          aria-label="Home - Ali Altaf"
+          aria-label="Home - Ali Ch"
         >
           <img
             src={theme === "dark" ? darkLogo : lightLogo}
-            alt="Ali Altaf Logo"
+            alt="Ali Ch Logo"
           />
         </div>
         <button
@@ -729,6 +744,14 @@ function App() {
     localStorage.setItem("theme", theme);
     // also mirror <html> class for Tailwind's `dark:` utilities
     document.documentElement.classList.toggle("dark", theme === "dark");
+
+    // Dynamic favicon update based on theme
+    const favicons = document.querySelectorAll(
+      'link[rel="icon"], link[rel="apple-touch-icon"]'
+    );
+    favicons.forEach((fav) => {
+      fav.href = theme === "dark" ? "/favicon-dark.png" : "/favicon-light.png";
+    });
   }, [theme]);
 
   // routing state
@@ -812,7 +835,7 @@ function App() {
       case "about":
         return <About />;
       case "services":
-        return <Services />;
+        return <Services theme={theme} />;
       case "projects":
         return <Project onNavigate={handleNavigate} />;
       case "project-detail":
@@ -823,6 +846,10 @@ function App() {
         return <UsesPage />;
       case "faq":
         return <FAQ />;
+      case "blog":
+        return <Blog onNavigate={handleNavigate} />;
+      case "blog-detail":
+        return <BlogDetail slugFromRouter={blogSlug} onNavigate={handleNavigate} />;
       case "contact":
         return <Contact />;
       default:

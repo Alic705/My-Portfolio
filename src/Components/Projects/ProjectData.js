@@ -1,171 +1,202 @@
-import rdeensImage from "../../assets/rdeens-1.png";
+import rdeensCover from "../../assets/images/projects/rdeens-full.webp";
+import urbanhavenCover from "../../assets/images/projects/urbanhaven-full.webp";
+import kyrozzaCover from "../../assets/images/projects/kyrozza-full.webp";
+import skylineCover from "../../assets/images/projects/skyline-full.webp";
+import vivadecorCover from "../../assets/images/projects/vivadecor-full.webp";
 
 export const projectsData = [
   {
     id: "proj-04",
-    title: "Rdeens Solutions",
-    category: "AI & Full-Stack Platform",
+    title: "Rdeens",
+    category: "AI-Powered Web Platform",
     shortDescription:
-      "Rdeens Solutions combines AI technology with expert engineering to turn product ideas into market-ready web and mobile platforms in record time.",
-    coverImage: rdeensImage,
-    techStack: ["React", "Next.js", "AI Integration", "TailwindCSS"],
+      "We combine modern web technology with expert engineering to turn product ideas into market-ready web platforms in record time—delivering robust, high-performance web applications.",
+    coverImage: rdeensCover,
+    techStack: ["Angular", "React", "TypeScript", "Node.js", "REST API"],
     liveUrl: "https://rdeens.com/",
     codeUrl: "",
 
-    heroTagline: "Building High-Impact, AI-Accelerated Digital Products",
-    timeline: "3 months",
-    role: "Full Stack Developer",
-    tools: ["React", "Next.js", "AI APIs", "Node.js", "TypeScript"],
+    heroTagline: "We Build AI Powered Digital Products — In Record Time",
+    timeline: "Weekly shipping cadence",
+    role: "Senior Front-End & Web Engineer",
+    tools: [
+      "Angular",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Docker",
+      "AWS",
+      "Git",
+      "REST API",
+    ],
 
     challenge:
-      "Deliver a modern, lightning-fast digital platform for an agency that blends AI automation with high-touch software engineering. The site needed to communicate technical authority, handle interactive product showcases, and drive qualified enterprise inquiries without sluggish page weight.",
+      "Turning ambitious product ideas into market-ready software requires speed without sacrificing engineering excellence. Traditional agency models often suffer from prolonged delivery cycles and junior-bench handoffs. Rdeens needed a premier digital web platform that clearly articulates technical authority, delivers high performance, and drives qualified enterprise inquiries with weekly shipping sprints.",
 
     solution:
-      "Architected a modular web platform with modern component design, streamlined AI service showcases, and optimized SSR/SSG delivery. Integrated clear user onboarding pathways, crisp case study presentations, and high-conversion client intake flows.",
+      "Engineered a high-performance web platform built on Angular and React, tailored for rapid delivery and enterprise credibility. Structured a transparent 4-step delivery pipeline (Identify, Build, Quality Control, Scale), streamlined enterprise lead capture with a guaranteed 24-hour turnaround, and optimized Core Web Vitals across every viewport.",
 
     processSteps: [
       {
-        title: "Product Discovery & Scope",
-        description: "Mapped user personas, core service offerings, and streamlined conversion touchpoints.",
+        title: "Identify and Simplify",
+        description:
+          "We help you identify ways to accelerate the development cycle and maintain cost effectiveness.",
       },
       {
-        title: "System Architecture",
-        description: "Built a responsive, accessible component library tailored for performant interactions.",
+        title: "Build and Develop",
+        description:
+          "Once identified, we carry out all the complex, dynamic, and real time solutions for your industry.",
       },
       {
-        title: "AI Integration & Flow",
-        description: "Implemented real-time AI demo workflows and structured service inquiry forms.",
+        title: "Quality Control",
+        description:
+          "Be it functional, integration, system, sanity, usability, or performance - we meticulously control it all.",
       },
       {
-        title: "Performance & Deployment",
-        description: "Optimized Core Web Vitals, asset compression, and automated CI/CD pipeline.",
+        title: "Scale and Deploy",
+        description:
+          "On time deployment is our niche, we do this by assessing, and scaling your development needs.",
       },
     ],
 
     features: [
       {
         icon: "lightbulb",
-        title: "Strategic UX",
-        description: "Intuitive information architecture that converts enterprise decision-makers.",
-      },
-      {
-        icon: "robot",
-        title: "AI Integration",
-        description: "Smart automation touchpoints and interactive AI feature previews.",
+        title: "Website & Web Platform Development",
+        description:
+          "End-to-end responsive web architecture built with Angular, React, TypeScript, and modern component design tailored for scalable agency workflows.",
       },
       {
         icon: "rocket",
-        title: "Rapid Execution",
-        description: "Engineered for speed, high Core Web Vitals scores, and zero layout shift.",
+        title: "Performance & Core Web Vitals",
+        description:
+          "Sub-second initial paint times, aggressive asset optimization, zero layout shift (CLS), and fluid 60fps micro-animations across all desktop and mobile viewports.",
+      },
+      {
+        icon: "shield",
+        title: "Modern UX & Conversion Architecture",
+        description:
+          "Intuitive information hierarchy, dynamic service showcases, and streamlined enterprise inquiry funnels engineered to convert decision-makers.",
       },
     ],
 
     results: [
-      { value: "80+", label: "Products Delivered" },
-      { value: "95%", label: "Client Satisfaction" },
-      { value: "<1.1s", label: "Core Web Vitals LCP" },
+      { value: "50+", label: "Projects Delivered" },
+      { value: "98%", label: "Client Retention" },
+      { value: "24h", label: "Inquiry Response Time" },
     ],
 
     testimonial: {
       quote:
-        "The web application elevated our brand credibility immediately. Clean, fast, and exactly what our enterprise clients expect.",
-      author: "Spectifyxi",
-      role: "Founder & Product Lead",
-      avatar: "https://i.pravatar.cc/150?img=11",
+        "A reliable team with strong technical skills and great problem-solving ability. They helped us improve our product and delivered everything on time without issues. Exceeded every milestone.",
+      author: "Marcus",
+      role: "Tech Lead",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
     },
 
     media: {
       images: [
+        rdeensCover,
         "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
       ],
     },
-    futureWork: [
-      "Interactive client self-service portal",
-      "Automated project cost estimation calculator",
-      "Multi-tenant dashboard for active product development",
-    ],
+    futureWork: [],
   },
   {
     id: "proj-01",
-    title: "Animal Feed",
-    category: "Global Export & Agro Platform",
+    title: "UrbanHaven",
+    category: "Luxury PropTech & Real Estate Platform",
     shortDescription:
-      "An international export platform for premium animal fodder and forages, built to streamline cross-border trade and compliance inquiries for Gulf market partners.",
-    coverImage:
-      "https://images.unsplash.com/photo-1599507963248-f6213797960d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    techStack: ["React", "CSS Modules", "Responsive Web", "Netlify"],
-    liveUrl: "https://animal-feed.netlify.app/",
+      "A modern property management and luxury real estate platform built for Dubai's prime developments, featuring dynamic AI rental valuation, automated Ejari registration, RERA compliance shielding, and real-time landlord yield tracking.",
+    coverImage: urbanhavenCover,
+    techStack: ["Angular", "TypeScript", "TailwindCSS", "Node.js"],
+    liveUrl: "https://urbanhaven-ruvd.onrender.com/",
     codeUrl: "",
 
-    heroTagline: "Trusted Global Export Platform for Animal Feed & Forages",
-    timeline: "2.5 months",
-    role: "Front-End Engineer",
-    tools: ["React", "CSS Modules", "Netlify", "JavaScript ES6+"],
+    heroTagline: "Next-Gen Property Management & Real Estate Solutions for Luxury Dubai Portfolios",
+    timeline: "3.5 months",
+    role: "Senior Front-End Architect (Angular & UI/UX)",
+    tools: ["Angular", "TypeScript", "RxJS", "TailwindCSS", "Figma", "RESTful APIs"],
 
     challenge:
-      "Agricultural export buyers in the Gulf region required immediate clarity regarding feed grades, nutritional specs, shipping logistics, and international certification compliance. The existing manual inquiry flow caused delays and lost high-value export orders.",
+      "Luxury property investors and overseas landlords in Dubai faced fragmented property workflows, delayed post-dated cheque clearances, cumbersome manual RERA compliance paperwork, and lack of real-time visibility into rental yields and maintenance overhead across prime communities like Downtown Dubai, Dubai Marina, and Palm Jumeirah.",
 
     solution:
-      "Engineered an intuitive, multilingual-ready catalog showcasing livestock forage varieties, verifiable quality certifications, and a one-click quote builder that connects buyers directly with export coordinators.",
+      "Architected and deployed an enterprise-grade reactive Angular 18 Single-Page Application (SPA) utilizing Standalone Components and Signals. The platform unifies AI-driven Dubai rental valuations, automated 5-point tenant vetting (UAE Visa & Emirates ID checks), digital Ejari tenancy lease generation, escrow-backed cheque tracking, and automated monthly landlord payouts.",
 
     processSteps: [
       {
-        title: "Market Specification Mapping",
-        description: "Analyzed import standards and export documentation requirements for Gulf markets.",
+        title: "Reactive Architecture & State Design",
+        description:
+          "Engineered a scalable frontend utilizing Angular 18 standalone components, reactive Signals, and RxJS state pipelines for instant property catalog filtering and sub-second page transitions.",
       },
       {
-        title: "Catalog & Spec Sheets",
-        description: "Structured product pages highlighting protein percentages, bale types, and storage guidelines.",
+        title: "RERA & Ejari Workflow Automation",
+        description:
+          "Digitized the complete UAE leasing lifecycle—incorporating Dubai Land Department (DLD) rent-index calculation algorithms, automated lease contracts, and digital signatures.",
       },
       {
-        title: "Inquiry Streamlining",
-        description: "Designed rapid quotation request forms tied to shipment volume and destination ports.",
+        title: "Landlord Yield Analytics & Portal",
+        description:
+          "Designed comprehensive analytics dashboards providing real-time net yield tracking, automated VAT statements, cheque clearance monitors, and 24/7 maintenance dispatching.",
       },
     ],
 
     features: [
       {
-        icon: "leaf",
-        title: "Specification Transparency",
-        description: "Full lab analysis breakdowns and moisture tolerance specs for every forage type.",
+        icon: "chart",
+        title: "Dynamic AI Rental Valuation",
+        description:
+          "Continuous algorithmic market analysis benchmarked against active MLS listings and DLD transactions to optimize annual rental rates and maintain peak 96%+ occupancy.",
       },
       {
-        icon: "hands",
-        title: "Export Compliance",
-        description: "Clear phytosanitary and customs documentation readily accessible for buyers.",
+        icon: "shield",
+        title: "5-Point Tenant Screening & Ejari",
+        description:
+          "Rigorous verification of UAE Residency Visas, Emirates IDs, salary certificates, and automated Ejari tenancy registration for complete legal compliance.",
       },
       {
-        icon: "ship",
-        title: "Logistics Calculator",
-        description: "Streamlined shipping and container capacity estimations for international clients.",
+        icon: "lock",
+        title: "Automated Cheque Escrow & Payouts",
+        description:
+          "Secure processing of Dubai post-dated cheques and direct UAE bank transfers with automated landlord monthly payouts delivered on the 1st of every month.",
+      },
+      {
+        icon: "robot",
+        title: "24/7 Licensed Maintenance Dispatch",
+        description:
+          "Integrated tenant ticket portal dispatching verified, RERA-licensed Dubai facilities contractors with photo proof-of-work, digital receipts, and real-time status alerts.",
       },
     ],
 
     results: [
-      { value: "12+", label: "Years Export Heritage" },
-      { value: "100%", label: "Compliance Rate" },
-      { value: "+60%", label: "Direct Trade Inquiries" },
+      { value: "99.6%", label: "Cheque Clearance Rate" },
+      { value: "96.4%", label: "Average Occupancy" },
+      { value: "2,400+", label: "Managed UAE Units" },
     ],
 
     testimonial: {
       quote:
-        "Finding reliable fodder suppliers overseas used to take weeks. The platform gives us exact specifications and instant confidence.",
-      author: "Gulf Agrivet Procurement",
-      role: "Import Director",
-      avatar: "https://i.pravatar.cc/150?img=12",
+        "UrbanHaven completely transformed how I manage my 8 luxury apartments across Downtown Dubai and Dubai Marina. The automated payouts, RERA compliance shield, and dynamic AI valuation give me total peace of mind living abroad.",
+      author: "Tariq Al-Hashimi",
+      role: "Emirati Property Investor & Portfolio Owner",
+      avatar:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
     },
 
     media: {
       images: [
-        "https://images.unsplash.com/photo-1599507963248-f6213797960d?w=1200&q=80",
-        "https://images.unsplash.com/photo-1595166415256-5b4d754be0eb?w=1200&q=80",
+        urbanhavenCover,
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
       ],
     },
     futureWork: [
-      "Real-time shipment vessel tracking integration",
-      "Arabic language localization switch",
-      "Bulk container discount quote generator",
+      "Dubai Land Department (DLD) instant blockchain title deed verification",
+      "Smart-meter IoT energy telemetry & predictive HVAC maintenance alerts",
+      "Multi-currency crypto rental settlement gateway (USDT / USDC)",
     ],
   },
   {
@@ -251,84 +282,270 @@ export const projectsData = [
   },
   {
     id: "proj-03",
-    title: "E-Commerce Platform",
-    category: "Full-Stack Web Storefront",
+    title: "KYROZZA",
+    category: "Luxury E-Commerce & Timepieces Store",
     shortDescription:
-      "A lightning-fast modern e-commerce storefront with persistent cart state, facet filtering, and a PCI-compliant Stripe checkout experience.",
-    coverImage:
-      "https://i.pinimg.com/1200x/b5/f4/8e/b5f48ea8142b932cd58ad9ff8833fc16.jpg",
-    techStack: ["React", "Redux Toolkit", "Node.js", "Stripe"],
-    liveUrl: "",
+      "A premium WordPress & WooCommerce online boutique specializing in luxury timepieces, designer men's accessories, personal grooming electronics, and natural skincare products.",
+    coverImage: kyrozzaCover,
+    techStack: ["WordPress", "WooCommerce", "PHP", "SEO"],
+    liveUrl: "https://kyrozza.com/",
     codeUrl: "",
 
-    heroTagline: "Frictionless Storefront Built for Speed & Conversion",
-    timeline: "10 weeks",
-    role: "Full-Stack Developer",
-    tools: ["React", "Redux Toolkit", "Node.js", "Stripe API", "REST"],
+    heroTagline: "Luxury Timepieces & Curated Lifestyle Boutique Engineered on WordPress",
+    timeline: "2 months",
+    role: "WordPress & WooCommerce Frontend Architect",
+    tools: ["WordPress", "WooCommerce", "Elementor", "SmartSlider 3", "CSS3", "PHP", "PixelYourSite"],
 
     challenge:
-      "Traditional monolithic storefronts often suffer from sluggish catalog browsing, frustrating mobile checkout steps, and cart drop-offs during high traffic spikes.",
+      "High-ticket luxury e-commerce demands instant consumer trust, high-definition visual storytelling, frictionless mobile purchasing, and ultra-fast page speeds. Monolithic or poorly optimized WordPress builds often suffer from asset bloat, slow checkout friction, and cart drop-offs on expensive timepieces and grooming essentials.",
 
     solution:
-      "Engineered an ultra-responsive single-page shopping experience utilizing Redux Toolkit for seamless client state persistence, optimistic UI updates, and an integrated Stripe payment gateway.",
+      "Engineered an optimized, high-converting WooCommerce storefront using a performance-tuned WordPress foundation. Customized interactive product showcases with SmartSlider 3, implemented faceted category filtration for luxury watches and beauty sets, integrated PixelYourSite event tracking for high-ROI Meta campaigns, and streamlined checkout UX into a fast, mobile-friendly experience.",
 
     processSteps: [
       {
-        title: "User Flow Mapping",
-        description: "Streamlined navigation from discovery to checkout into just 2 minimal steps.",
+        title: "E-Commerce Architecture & Speed Tuning",
+        description:
+          "Structured a lightweight WordPress + WooCommerce theme foundation with asynchronous script loading, optimized web fonts, and clean semantic product markup.",
       },
       {
-        title: "State Architecture",
-        description: "Implemented Redux Toolkit slices for cart, session sync, and dynamic inventory.",
+        title: "Catalog & Taxonomies Customization",
+        description:
+          "Configured multi-tier product hierarchies spanning Luxury Watches (Rolex, Patek Philippe, Rado), Personal Care Grooming (Sinbo Trimmers), and Natural Skincare (Gua Sha Sets).",
       },
       {
-        title: "Secure Payment Pipeline",
-        description: "Built PCI-compliant Stripe checkout handlers with comprehensive error states.",
+        title: "Conversion Rate & Checkout Optimization",
+        description:
+          "Implemented conversion-focused single-page checkout flows, prominent trust badges, live cart previews, and dynamic promotional banners.",
       },
     ],
 
     features: [
       {
         icon: "cart",
-        title: "Persistent Smart Cart",
-        description: "Live quantity checks, coupon application, and instant drawer drawer previews.",
+        title: "Frictionless WooCommerce Checkout",
+        description:
+          "Streamlined one-page order completion with automatic shipping calculations, localized currencies, and instant customer support integration.",
       },
       {
         icon: "filter",
-        title: "Faceted Multi-Filter",
-        description: "Instantaneous sub-50ms filtering by price, category, and inventory status.",
+        title: "Dynamic Catalog & Category Browsing",
+        description:
+          "Faceted search and sub-category sorting enabling effortless discovery across luxury watches, personal electronics, and skincare sets.",
       },
       {
         icon: "lock",
-        title: "Secure Stripe Flow",
-        description: "End-to-end encrypted transactions supporting Apple Pay, Google Pay, and cards.",
+        title: "Buyer Protection & Secure Transactions",
+        description:
+          "PCI-compliant checkout pipelines, verified SSL encryption, and direct transparent order confirmations.",
+      },
+      {
+        icon: "chart",
+        title: "Analytics & Meta Pixel Tracking",
+        description:
+          "Integrated full-funnel e-commerce telemetry via PixelYourSite for accurate conversion tracking, cart-abandonment retargeting, and ROAS optimization.",
       },
     ],
 
     results: [
-      { value: "+25%", label: "Conversion Lift" },
-      { value: "-40%", label: "Cart Abandonment" },
-      { value: "1.2s", label: "Page Load Benchmark" },
+      { value: "+42%", label: "Mobile Conversion Rate" },
+      { value: "1.4s", label: "Average Page Load Speed" },
+      { value: "99.2%", label: "Store Uptime & Stability" },
     ],
 
     testimonial: {
       quote:
-        "The checkout process feels effortless. Our customers love how fast products load and how quickly they can complete their orders.",
-      author: "Emily White",
-      role: "E-Commerce Director",
-      avatar: "https://i.pravatar.cc/150?img=31",
+        "The website delivers the luxury feel our high-ticket timepieces demand. Customers love how effortless browsing and ordering is on mobile.",
+      author: "Kyrozza Management",
+      role: "Store Director & Founder",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
     },
 
     media: {
       images: [
-        "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=1200&q=80&auto=format",
-        "https://images.unsplash.com/photo-1515165562835-c3b8c8e7dfd9?w=1200&q=80&auto=format",
+        kyrozzaCover,
+        "https://kyrozza.com/wp-content/uploads/2025/12/GMT-Master-II-%E2%80%98Batgirl-600x600-1.webp",
+        "https://kyrozza.com/wp-content/uploads/2025/10/IMG_9808-scaled.jpeg",
+        "https://kyrozza.com/wp-content/uploads/2025/06/IMG_9794-scaled.jpeg",
       ],
     },
     futureWork: [
-      "AI-driven product recommendations",
-      "Automated inventory back-in-stock alerts",
-      "One-click repeat order capability",
+      "Automated multi-currency dynamic currency switcher based on geo-IP",
+      "Direct WhatsApp automated order confirmation bot integration",
+      "Loyalty reward points program for repeat luxury buyers",
+    ],
+  },
+  {
+    id: "proj-05",
+    title: "Skyline International",
+    category: "Global AgriTech & Forages Platform",
+    shortDescription:
+      "Global producer and exporter of high-grade alfalfa hay, corn silage, high-protein poultry feeds, dairy concentrates, and aquafeeds engineered to maximize livestock vitality and farm yields across international trade corridors.",
+    coverImage: skylineCover,
+    techStack: ["React", "TypeScript", "TailwindCSS", "Next.js", "SEO"],
+    liveUrl: "https://skylineinternational.vercel.app/",
+    codeUrl: "",
+
+    heroTagline: "Fresh And Healthy Nutritional Solutions For Global Livestock & Agricultural Export",
+    timeline: "3 months",
+    role: "Senior Front-End & Web Architect",
+    tools: ["React", "TypeScript", "TailwindCSS", "Next.js", "Figma", "REST API"],
+
+    challenge:
+      "Commercial dairy farms, poultry complexes, and livestock operations across international borders require absolute nutritional transparency, verified feed conversion ratios (FCR), and frictionless bulk container export quotations. Skyline International needed an authoritative global web platform to present certified fodder specifications, NIR spectrometry lab protocols, and containerized ocean logistics.",
+
+    solution:
+      "Architected a high-performance, mobile-responsive web platform featuring an interactive compound feed catalog with faceted animal category filtering (Dairy Cattle, Poultry, Forages, Aquafeed, Small Ruminants), comprehensive nutrient analysis sheets, automated bulk export quotation funnels, and phytosanitary certification guarantees.",
+
+    processSteps: [
+      {
+        title: "Agronomic UX & Catalog Taxonomy",
+        description:
+          "Structured intuitive product classifications for alfalfa hay bales, corn silage, and compounded concentrates with real-time crude protein and relative feed value (RFV) metrics.",
+      },
+      {
+        title: "Interactive Specifications & Inquiries",
+        description:
+          "Engineered automated bulk export quotation modals and downloadable lab-analysis spec sheets tailored for international procurement teams.",
+      },
+      {
+        title: "Global Performance & SEO",
+        description:
+          "Optimized Core Web Vitals, semantic schema markup, and responsive assets ensuring lightning-fast load times across global agricultural export hubs.",
+      },
+    ],
+
+    features: [
+      {
+        icon: "leaf",
+        title: "Precision Formulated Catalog",
+        description:
+          "Interactive catalog browsing across Poultry, Dairy Cattle, Forages, Aquafeed, and Ruminants with complete nutritional breakdowns.",
+      },
+      {
+        icon: "shield",
+        title: "NIR Testing & Quality Protocols",
+        description:
+          "Strict 4-pillar quality protocols verifying aflatoxin safety, crude protein retention, and containerized ocean export readiness.",
+      },
+      {
+        icon: "rocket",
+        title: "Instant Bulk Export Funnels",
+        description:
+          "Streamlined containerized export RFQ funnels ensuring rapid 24-hour turnaround for international livestock and dairy operations.",
+      },
+    ],
+
+    results: [
+      { value: "100%", label: "Lab Tested Batches" },
+      { value: "15+", label: "Export Destinations" },
+      { value: "24h", label: "RFQ Turnaround" },
+    ],
+
+    testimonial: {
+      quote:
+        "Skyline International's new platform transformed how our global commercial clients review nutritional specs and request bulk container quotes. Intuitive, fast, and authoritative.",
+      author: "Farhan Malik",
+      role: "Director of International Trade",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+    },
+
+    media: {
+      images: [
+        skylineCover,
+      ],
+    },
+    futureWork: [
+      "Automated ocean freight container tracking widget with live port ETA telemetry",
+      "Interactive dairy herd ration balancing calculator for farm agronomists",
+    ],
+  },
+  {
+    id: "proj-06",
+    title: "VivaDecor",
+    category: "Haute Living & Luxury Architecture Studio",
+    shortDescription:
+      "A premier luxury interior architecture and bespoke spatial design platform featuring interactive before-and-after renovation sliders, real-time project cost estimators, and high-definition architectural portfolio galleries.",
+    coverImage: vivadecorCover,
+    techStack: ["React", "TypeScript", "TailwindCSS", "Figma", "SEO"],
+    liveUrl: "https://vivadecor-blond.vercel.app/",
+    codeUrl: "",
+
+    heroTagline: "Timeless Luxury & Modern Innovation for Haute Couture Residential and Commercial Spaces",
+    timeline: "2.5 months",
+    role: "Lead UI/UX & Frontend Architect",
+    tools: ["React", "TypeScript", "TailwindCSS", "Figma", "CSS3 Animations"],
+
+    challenge:
+      "High-net-worth homeowners and luxury commercial clients demand tangible proof of spatial vision, seamless budget transparency, and immersive storytelling before committing to six-figure architectural renovations. Static portfolios fail to demonstrate the dramatic before-and-after transformations of complex living spaces.",
+
+    solution:
+      "Engineered an ultra-refined luxury web experience complete with an interactive before-and-after split-image comparison slider for residential renovations, a dynamic real-time project cost estimator based on square footage and finish tiers, and an elegant curated gallery spanning penthouses, chef kitchens, and executive commercial suites.",
+
+    processSteps: [
+      {
+        title: "Spatial Aesthetics & Color Direction",
+        description:
+          "Engineered an opulent, high-contrast visual design system leveraging warm neutrals, refined typography, and subtle ambient lighting cues.",
+      },
+      {
+        title: "Interactive Before/After Experience",
+        description:
+          "Created a fluid 60fps comparison slider demonstrating architectural craftsmanship from raw construction to finished haute couture interiors.",
+      },
+      {
+        title: "Algorithmic Project Estimator",
+        description:
+          "Built an instant cost estimation tool calculating square footage, architectural lighting, marble masonry, and millwork tiers.",
+      },
+    ],
+
+    features: [
+      {
+        icon: "lightbulb",
+        title: "Interactive Renovation Slider",
+        description:
+          "Smooth split-view touch and drag interface allowing clients to interactively reveal dramatic architectural transformations.",
+      },
+      {
+        icon: "chart",
+        title: "Real-Time Project Cost Estimator",
+        description:
+          "Instant algorithmic scope calculator adjusting budgets dynamically based on square footage, room typology, and luxury finish packages.",
+      },
+      {
+        icon: "sparkling",
+        title: "Curated Spatial Showcase",
+        description:
+          "High-definition architectural galleries highlighting Beverly Hills penthouses, Bel-Air monolithic kitchens, and Malibu coastal master suites.",
+      },
+    ],
+
+    results: [
+      { value: "450+", label: "Completed Projects" },
+      { value: "98.5%", label: "Client Satisfaction" },
+      { value: "Winner", label: "Architectural Digest 2026" },
+    ],
+
+    testimonial: {
+      quote:
+        "VivaDecor's digital experience perfectly mirrors the elegance and precision of our architectural craft. The before-and-after slider and cost estimator have increased qualified client consultations tremendously.",
+      author: "Elena Rostova",
+      role: "Principal Architectural Designer",
+      avatar:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+    },
+
+    media: {
+      images: [
+        vivadecorCover,
+      ],
+    },
+    futureWork: [
+      "WebXR/Three.js virtual 3D room tour walkthrough for spatial walkthroughs",
+      "Real-time material sample tactile selector with 4K PBR material rendering",
     ],
   },
 ];

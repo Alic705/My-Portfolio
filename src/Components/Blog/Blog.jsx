@@ -3,9 +3,9 @@ import styles from "./Blog.module.css";
 import { POSTS } from "./blogData";
 
 // Import Swiper
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-// import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 function formatDay(dateStr) {
@@ -44,61 +44,132 @@ export default function Blog() {
     );
   }, [q, tag]);
 
+  const canonical = "https://alich.dev/blog";
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Ali Ch Engineering Blog",
+    description:
+      "Technical articles and deep-dives by Ali Ch on React.js, Angular, Core Web Vitals, SSR/SSG, and front-end architecture.",
+    url: canonical,
+    author: {
+      "@type": "Person",
+      name: "Ali Ch",
+      url: "https://alich.dev/",
+    },
+    blogPost: POSTS.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      description: p.description,
+      url: `https://alich.dev/blog/${p.slug}`,
+      datePublished: p.publishedAt,
+      dateModified: p.updatedAt || p.publishedAt,
+      image: p.cover,
+      author: {
+        "@type": "Person",
+        name: p.author,
+      },
+    })),
+  };
+
   return (
-    <main className={styles.wrap} aria-labelledby="blog-title">
-      <header className={styles.header}>
-        <h1 id="blog-title" className={styles.h1}>
-          Blog
-        </h1>
-        <p className={styles.dek}>
-          Latest blog posts and updates on <strong>React</strong>,{" "}
-          <strong>Angular</strong>, <strong>Accessibility</strong>, and{" "}
-          <strong>SEO</strong>.
-        </p>
-      </header>
+    <div className="custom-scale-wrapper">
+      <main className={styles.wrap} aria-labelledby="blog-title">
+        <title>Engineering Blog | React, Angular &amp; Web Performance | Ali Ch</title>
+        <meta
+          name="description"
+          content="Technical articles and deep-dives by Ali Ch on React.js, Angular, Core Web Vitals, SSR/SSG, and front-end architecture."
+        />
+        <link rel="canonical" href={canonical} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+        />
 
-      {/* Carousel */}
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        loop
-        spaceBetween={24}
-        slidesPerView={2}
-        breakpoints={{
-          320: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1200: { slidesPerView: 3 },
-        }}
-        className={styles.blogSwiper}
-      >
-        {list.map((p) => {
-          const day = formatDay(p.publishedAt);
-          const mon = formatMonthShort(p.publishedAt);
-          return (
-            <SwiperSlide key={p.slug}>
-              <article className={styles.blogCard}>
-                <a href={`/blog/${p.slug}`} className={styles.blogCardLink}>
-                  <div className={styles.blogCardImg}>
-                    <img src={p.cover} alt={p.title} loading="lazy" />
-                  </div>
+        <header className={styles.header}>
+          <h1 id="blog-title" className={styles.h1}>
+            Blog
+          </h1>
+          <p className={styles.dek}>
+            Latest articles and case breakdowns on <strong>React</strong>,{" "}
+            <strong>Angular</strong>, <strong>Core Web Vitals</strong>, and{" "}
+            <strong>Technical SEO</strong>.
+          </p>
 
-                  <div className={styles.dateBadge}>
-                    {day} <span>{mon}</span>
-                  </div>
+          <div className={styles.filters}>
+            <input
+              className={styles.search}
+              placeholder="Search articles…"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              aria-label="Search articles"
+            />
+            <select
+              className={styles.select}
+              value={tag}
+              onChange={(e) => setTag(e.target.value)}
+              aria-label="Filter by tag"
+            >
+              {tags.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </div>
+        </header>
 
-                  <div className={styles.cardBody}>
-                    <small>{p.author} • 0 Comments</small>
-                    <h2>{p.title}</h2>
-                    <span className={styles.continueLink}>
-                      Continue Reading →
-                    </span>
-                  </div>
-                </a>
-              </article>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-    </main>
+        {list.length === 0 ? (
+          <div className={styles.empty}>
+            <p>No articles found matching "{q}". Try a different keyword or category.</p>
+          </div>
+        ) : (
+          /* Carousel */
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            grabCursor={true}
+            spaceBetween={24}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1.5 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 2.5 },
+              1200: { slidesPerView: 3 },
+            }}
+            className={styles.blogSwiper}
+          >
+            {list.map((p) => {
+              const day = formatDay(p.publishedAt);
+              const mon = formatMonthShort(p.publishedAt);
+              return (
+                <SwiperSlide key={p.slug}>
+                  <article className={styles.blogCard}>
+                    <a href={`/blog/${p.slug}`} className={styles.blogCardLink}>
+                      <div className={styles.blogCardImg}>
+                        <img src={p.cover} alt={p.title} loading="lazy" />
+                      </div>
+
+                      <div className={styles.dateBadge}>
+                        {day} <span>{mon}</span>
+                      </div>
+
+                      <div className={styles.cardBody}>
+                        <small>{p.author} • {p.tags.slice(0, 2).join(", ")}</small>
+                        <h2>{p.title}</h2>
+                        <span className={styles.continueLink}>
+                          Continue Reading →
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        )}
+      </main>
+    </div>
   );
 }

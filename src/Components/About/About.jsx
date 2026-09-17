@@ -11,6 +11,10 @@ import {
   SiGit,
   SiGithub,
   SiLinkedin,
+  SiRedux,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiShopify,
 } from "react-icons/si";
 import {
   RiCameraLensLine,
@@ -19,6 +23,7 @@ import {
   RiBox3Line,
   RiServerLine,
   RiFlightTakeoffLine,
+  RiRocketLine,
 } from "react-icons/ri";
 
 /* ===========================
@@ -26,53 +31,46 @@ import {
    =========================== */
 const categorizedToolkit = {
   frontend: [
-    { name: "HTML5", Icon: SiHtml5, className: styles.htmlIcon },
-    { name: "CSS3", Icon: SiCss3, className: styles.cssIcon },
-    {
-      name: "JavaScript (ESNext)",
-      Icon: SiJavascript,
-      className: styles.jsIcon,
-    },
-    {
-      name: "TypeScript (strict)",
-      Icon: SiTypescript,
-      className: styles.tsIcon,
-    },
-    { name: "React", Icon: SiReact, className: styles.reactIcon },
+    { name: "React.js", Icon: SiReact, className: styles.reactIcon },
     { name: "Angular", Icon: SiAngular, className: styles.angularIcon },
-    { name: "Git", Icon: SiGit, className: styles.gitIcon },
-    { name: "GitHub", Icon: SiGithub, className: styles.githubIcon },
+    { name: "Redux.js", Icon: SiRedux, className: styles.reactIcon },
+    { name: "TypeScript", Icon: SiTypescript, className: styles.tsIcon },
+    { name: "JavaScript", Icon: SiJavascript, className: styles.jsIcon },
+    { name: "Tailwind CSS", Icon: SiTailwindcss, className: styles.cssIcon },
+    { name: "HTML5 & CSS3", Icon: SiHtml5, className: styles.htmlIcon },
+    { name: "Node.js Basics", Icon: SiNodedotjs, className: styles.jsIcon },
+    { name: "Shopify Frontend", Icon: SiShopify, className: styles.gitIcon },
+    { name: "Git & GitHub", Icon: SiGithub, className: styles.githubIcon },
   ],
 };
 
 /* ===========================================
-   Journey now starts at 2021 (React & Angular)
+   Journey starts at 2023 (React & Angular)
    =========================================== */
 const journeyMilestones = [
-  // {
-  //   year: "2022",
-  //   event: "Led large e-commerce build (Angular) + Next.js (React SSR).",
-  //   level: 20,
-  //   Icon: TbShoppingBag,
-  // },
   {
-    year: "2024",
-    event: "React & Angular foundations — first production SPAs.",
-    level: 40,
+    year: "2023",
+    event: "React & Angular foundations — first production SPAs & responsive UI.",
+    level: 35,
     Icon: SiReact,
   },
-
   {
     year: "2024",
-    event: "Enterprise dashboards with TypeScript, state mgmt, CI/CD.",
-    level: 65,
-    Icon: SiJavascript,
+    event: "TypeScript architecture, Next.js, state management & CI/CD workflows.",
+    level: 60,
+    Icon: SiTypescript,
   },
   {
     year: "2025",
-    event: "Micro-frontends, WebGL, AI API integrations at scale.",
-    level: 90,
-    Icon: RiServerLine,
+    event: "High-performance web platforms, PropTech & custom e-commerce solutions.",
+    level: 82,
+    Icon: SiAngular,
+  },
+  {
+    year: "2026",
+    event: "Senior Front-End Architect — design systems, technical SEO & sub-second speed.",
+    level: 98,
+    Icon: RiRocketLine,
   },
 ];
 
@@ -185,7 +183,7 @@ const About = () => {
 
   useEffect(() => {
     // Years of experience (from 2021, to 1dp)
-    const startDate = new Date("2022-09-01");
+    const startDate = new Date("2023-03-01");
     const years = ((Date.now() - startDate.getTime()) / 31557600000).toFixed(1);
     setExperience(`${years}+`);
   }, []);
@@ -245,37 +243,40 @@ const About = () => {
   }, []);
 
   // --------- JSON-LD (Person + AboutPage + Breadcrumbs) ---------
-  const canonicalUrl = "https://your-domain.com/about";
+  const canonicalUrl = "https://alich.dev/about";
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Ali Altaf",
-    jobTitle: "Senior Front-End Engineer (React & Angular)",
+    name: "Ali Ch",
+    jobTitle: "Frontend Engineer",
     url: canonicalUrl,
     sameAs: [
-      "https://github.com/your-handle",
-      "https://www.linkedin.com/in/your-handle",
+      "https://www.linkedin.com/in/alichdev",
     ],
-    homeLocation: { "@type": "Place", name: "Chiniot, Pakistan" },
+    homeLocation: { "@type": "Place", name: "Lahore, Punjab, Pakistan" },
     knowsAbout: [
-      "React",
+      "React.js",
       "Angular",
+      "Redux.js",
+      "REST APIs",
+      "JavaScript (ES6+)",
       "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Shopify Frontend",
       "Web Performance",
       "Core Web Vitals",
-      "Accessibility (WCAG 2.2)",
       "Technical SEO",
-      "SSR",
-      "SSG",
-      "Design Systems",
     ],
   };
   const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About Ali Altaf – Senior React & Angular Front-End Engineer",
+    name: "About Ali Ch – Frontend Engineer | React & Angular Specialist",
     url: canonicalUrl,
-    mainEntity: { "@type": "Person", name: "Ali Altaf", url: canonicalUrl },
+    mainEntity: { "@type": "Person", name: "Ali Ch", url: canonicalUrl },
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -285,7 +286,7 @@ const About = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://your-domain.com/",
+        item: "https://alich.dev/",
       },
       { "@type": "ListItem", position: 2, name: "About", item: canonicalUrl },
     ],
@@ -299,42 +300,42 @@ const About = () => {
     >
       {/* SEO head for About page */}
       <title>
-        About Ali Altaf – Senior React &amp; Angular Front-End Engineer
+        About Ali Ch | Frontend Engineer | React &amp; Angular Specialist
       </title>
       <meta
         name="description"
-        content="Senior front-end engineer specializing in React & Angular since 2021. I build fast, accessible, SEO-ready apps—Core Web Vitals wins, WCAG 2.2, SSR/SSG, and maintainable architecture. Based in Chiniot, Pakistan—working worldwide."
+        content="Frontend Engineer specializing in React.js, Angular, Redux &amp; REST APIs. 3.5+ years building production SPAs, design systems, and high-performance web applications."
       />
       <meta name="robots" content="index,follow" />
       <link rel="canonical" href={canonicalUrl} />
       {/* OpenGraph */}
       <meta
         property="og:title"
-        content="About Ali Altaf – Senior React & Angular Front-End Engineer"
+        content="About Ali Ch | Frontend Engineer (React &amp; Angular)"
       />
       <meta
         property="og:description"
-        content="React & Angular specialist focused on performance, accessibility, and technical SEO. See journey, toolkit, and availability."
+        content="Frontend Engineer specializing in React.js, Angular, Redux, and REST APIs. Building responsive, scalable, and high-performance web applications."
       />
       <meta property="og:type" content="profile" />
       <meta property="og:url" content={canonicalUrl} />
       <meta
         property="og:image"
-        content="https://your-domain.com/og-about.jpg"
+        content="https://alich.dev/og-about.jpg"
       />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content="About Ali Altaf – Senior React & Angular Engineer"
+        content="About Ali Ch – Frontend Engineer"
       />
       <meta
         name="twitter:description"
-        content="React & Angular specialist with Core Web Vitals wins, WCAG 2.2, SSR/SSG."
+        content="React &amp; Angular specialist with Core Web Vitals wins, clean UI architecture, and REST API integration."
       />
       <meta
         name="twitter:image"
-        content="https://your-domain.com/og-about.jpg"
+        content="https://alich.dev/og-about.jpg"
       />
       {/* Structured data */}
       <script
@@ -356,16 +357,10 @@ const About = () => {
         sectionTitle"
           id="about-title"
         >
-          About Me
+          About Ali Ch
         </h1>
         <p className="sectionDek ">
-          I’m a front-end engineer focused on <strong>React</strong> and{" "}
-          <strong>Angular</strong>. I build scalable,{" "}
-          <strong>high-performance</strong> web applications that meet{" "}
-          <strong>Core Web Vitals</strong>, pass <strong>WCAG&nbsp;2.2</strong>{" "}
-          audits, and ship with <strong>technical SEO</strong> best practices
-          (SSR/SSG, structured data). My goal: clean UX that <em>ranks</em>,{" "}
-          <em>converts</em>, and <em>scales</em>.
+          I am a <strong>Frontend Engineer</strong> specializing in <strong>React.js</strong>, <strong>Angular</strong>, <strong>Redux</strong>, and <strong>REST APIs</strong>, backed by a strong foundation in <strong>Computer Science</strong>. With 3.5+ years of production experience, I engineer high-performance, responsive web applications with clean, reusable component architectures, <strong>Core Web Vitals</strong> optimization, and measurable search visibility.
         </p>
 
         {/* Internal links to concentrate topical authority */}
@@ -474,19 +469,19 @@ const About = () => {
                 <div className={styles.glanceIcon} aria-hidden="true">
                   <i className="ph-bold ph-map-pin" />
                 </div>
-                <div className={styles.glanceValue}>Chiniot, Pakistan</div>
+                <div className={styles.glanceValue}>Lahore, Pakistan</div>
                 <div className={styles.glanceLabel}>(Remote globally)</div>
               </div>
             </div>
 
-            <a
+            {/* <a
               href="/resume.pdf"
               className={`${styles.btn} ${styles.btnGhost} ${styles.resumeCta} `}
               download
-              aria-label="Download Ali Altaf – React & Angular résumé (PDF)"
+              aria-label="Download Ali Ch – React & Angular résumé (PDF)"
             >
-              <span>Download Ali Altaf – React &amp; Angular Résumé (PDF)</span>
-            </a>
+              <span>Download Ali Ch – React &amp; Angular Résumé (PDF)</span>
+            </a> */}
           </div>
         </div>
 

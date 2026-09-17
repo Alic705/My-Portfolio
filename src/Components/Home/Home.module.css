@@ -19,10 +19,9 @@
 /* ===== Heading rhythm ===== */
 .mainHeading {
   color: var(--text);
-  font-weight: 800;
-  font-size: 4.2vw;
-  line-height: 1.22;
-  /* premium rhythm */
+  font-weight: 600;
+  font-size: 4.6vw;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 22px rgba(0, 0, 0, 0.25);
 

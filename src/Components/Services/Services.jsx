@@ -11,7 +11,8 @@ import {
   RiCloseLine,
   RiRocketLine,
   RiCodeBoxLine,
-  RiSmartphoneLine,
+  RiServerLine,
+  RiShoppingBag3Line,
 } from "react-icons/ri";
 import {
   SiReact,
@@ -19,9 +20,12 @@ import {
   SiFigma,
   SiNodedotjs,
   SiWordpress,
+  SiShopify,
+  SiRedux,
 } from "react-icons/si";
 
 import darkLogo from "../../assets/images/logo/dark-logo.png";
+import lightLogo from "../../assets/images/logo/light-logo.png";
 
 /* ===========================
    SEO-OPTIMIZED SERVICES DATA
@@ -29,138 +33,136 @@ import darkLogo from "../../assets/images/logo/dark-logo.png";
 const services = [
   {
     id: 1,
-    slug: "/services/web-development",
-    title: "Web Development",
+    slug: "/services/react-development",
+    title: "React & Redux Development",
     description:
-      "Building high-performance, responsive web applications using modern stacks. Focused on Core Web Vitals, accessibility, and AI-driven SEO strategies for 2026.",
-    Icon: RiCodeBoxLine,
+      "Engineering modern, high-performance Single-Page Applications (SPAs) with React.js, Redux Toolkit, and Next.js. Focused on Core Web Vitals, modular architecture, and lightning-fast rendering.",
+    Icon: SiReact,
     details: [
-      "Modern Full-Stack Architecture (React, Next.js, Node.js)",
-      "Advanced SEO & Core Web Vitals optimization",
-      "AI Integration & Dynamic Content Rendering",
-      "Server-Side Rendering (SSR) & Static Site Generation (SSG)",
-      "Responsive, Mobile-First Design Systems",
-      "Secure Authentication & API Development",
-      "Scalable Cloud Deployment (AWS, Vercel, Netlify)",
+      "Modern React Architecture (Custom Hooks, Context API, Suspense)",
+      "Global State Management with Redux Toolkit & RTK Query",
+      "Next.js SSR, SSG & Incremental Static Regeneration (ISR)",
+      "Lighthouse 95+ Core Web Vitals (LCP < 1.2s, 0 CLS)",
+      "Clean TypeScript Typing & Reusable UI Component Systems",
+      "Seamless RESTful API integration & Error Boundaries",
+      "Automated Vitest/Jest Testing & GitHub Actions CI/CD",
     ],
     outcomes: [
-      "Top-tier Lighthouse scores and flawless Core Web Vitals",
-      "Increased organic traffic through 2026 AI-search optimizations",
-      "Seamless user experience across all devices and browsers",
+      "Sub-second initial paint times and optimal Core Web Vitals",
+      "Scalable frontend codebase ready for enterprise feature velocity",
+      "High-converting user experiences across desktop and mobile",
     ],
-    learnMoreUrl: "/projects?tag=web",
-    projectUrl: "/projects?tag=web",
-    accent: "#8a2be2",
-    halo: "radial-gradient(60% 70% at 50% 55%, rgba(138,43,226,0.20), rgba(0,0,0,0) 70%)",
+    learnMoreUrl: "/projects",
+    projectUrl: "/projects",
+    accent: "#61dafb",
+    halo: "radial-gradient(60% 70% at 50% 55%, rgba(97,218,251,0.20), rgba(0,0,0,0) 70%)",
   },
   {
     id: 2,
     slug: "/services/angular-development",
-    title: "Angular Development",
+    title: "Enterprise Angular Engineering",
     description:
-      "Robust, scalable Angular apps with RxJS and Angular Universal for SEO. Best for enterprise dashboards, complex forms, and data-heavy interfaces.",
+      "Robust, enterprise-grade Angular web platforms leveraging Standalone Components, reactive Signals, and RxJS pipelines for high-traffic and data-heavy applications.",
     Icon: SiAngular,
     details: [
-      "Standalone components, feature modules, Nx monorepos",
-      "Signals/RxJS patterns, smart/presentational components",
-      "Angular Universal (SSR) or prerendering for indexability",
-      "Angular Material/theming; semantic HTML for a11y",
-      "Zone-less/hydration strategies, defer, image optimization",
-      "Unit tests (Jest/Karma) & E2E (Cypress/Playwright)",
-      "CI/CD with GitHub Actions and quality gates",
+      "Angular 17/18 Standalone Components & Signal-based reactivity",
+      "RxJS state orchestration, subject pipelines & event streams",
+      "Enterprise modular dashboards, data grids & complex forms",
+      "Angular Universal (SSR) for search engine indexability",
+      "Zone-less execution, deferrable views & image optimization",
+      "Strict TypeScript typings & clean dependency injection",
+      "Automated unit & E2E quality assurance (Jest, Playwright)",
     ],
     outcomes: [
-      "Crawlable routes with correct meta/canonicals",
-      "Faster TTI & smaller initial bundle under load",
-      "Stable, maintainable architecture for long-term teams",
+      "Fully crawlable, SEO-ready Angular routes with dynamic metadata",
+      "Smaller bundle footprints and rapid Time to Interactive (TTI)",
+      "Long-term maintainable architecture trusted by enterprise teams",
     ],
-    learnMoreUrl: "/projects?tag=angular",
-    projectUrl: "/projects?tag=angular",
+    learnMoreUrl: "/projects",
+    projectUrl: "/projects",
     accent: "#dd0031",
     halo: "radial-gradient(60% 70% at 50% 55%, rgba(221,0,49,0.18), rgba(0,0,0,0) 70%)",
   },
-
   {
     id: 3,
-    slug: "/services/wordpress-development",
-    title: "Custom WordPress Development",
+    slug: "/services/rest-api-integration",
+    title: "REST APIs & Full-Stack Integration",
     description:
-      "Tailor-made WordPress solutions from custom themes to complex e-commerce. Focused on speed, SEO, and seamless content management.",
-    Icon: SiWordpress,
+      "Connecting clean frontend user interfaces to powerful back-end services, third-party APIs, and full-stack Node.js/Express architectures.",
+    Icon: RiServerLine,
     details: [
-      "Custom Theme Development (PHP, Tailwind, or Bootstrap)",
-      "WooCommerce Setup & Advanced Customization",
-      "Headless WordPress with React/Next.js (WP Engine/Vercel)",
-      "Performance Optimization (Core Web Vitals & Caching)",
-      "Secure Plugin Integration & Custom API Endpoints",
-      "Advanced Custom Fields (ACF) & Gutenberg Blocks",
+      "RESTful API design, data contract serialization & caching",
+      "Full-stack basics: Node.js, Express.js & MongoDB integrations",
+      "Secure JWT authentication, OAuth & role-based route guards",
+      "Real-time WebSocket data feeds & automated webhook listeners",
+      "API request throttling, debounce, optimistic UI updates",
+      "Third-party SDK integrations (Stripe, Twilio, Analytics)",
     ],
     outcomes: [
-      "Blazing fast load times and optimized SEO rankings",
-      "Easy-to-use admin dashboard for non-technical users",
-      "Scalable architecture that grows with your business",
+      "Flawless data synchronization with zero UI blocking or lag",
+      "End-to-end type safety across API request and response boundaries",
+      "Secure, PCI-compliant client communication pipelines",
     ],
     learnMoreUrl: "/contact",
     projectUrl: "/contact",
+    accent: "#8a2be2",
+    halo: "radial-gradient(60% 70% at 50% 55%, rgba(138,43,226,0.20), rgba(0,0,0,0) 70%)",
+  },
+  {
+    id: 4,
+    slug: "/services/ecommerce-development",
+    title: "Shopify & WooCommerce",
+    description:
+      "Custom, high-converting online stores tailored for luxury retail, digital products, and high-ticket brands. Fast checkouts, custom themes, and catalog speed.",
+    Icon: RiShoppingBag3Line,
+    details: [
+      "Shopify Frontend customization (Liquid, Storefront API, modern CSS)",
+      "Custom WordPress & WooCommerce theme engineering (PHP & Tailwind)",
+      "Single-page checkout optimization with friction-free UX",
+      "Faceted product filtering, live cart previews & mega-menus",
+      "Meta Pixel, Google Analytics 4 & conversion funnel telemetry",
+      "Speed optimization: WebP compression, lazy loading & caching",
+    ],
+    outcomes: [
+      "Substantial drops in cart abandonment and faster checkouts",
+      "Instant, app-like mobile shopping experience for high-ticket buyers",
+      "Autonomous client store management via intuitive admin dashboards",
+    ],
+    learnMoreUrl: "/projects",
+    projectUrl: "/projects",
     accent: "#3c873a",
     halo: "radial-gradient(60% 70% at 50% 55%, rgba(60,135,58,0.20), rgba(0,0,0,0) 70%)",
   },
   {
-    id: 4,
+    id: 5,
     slug: "/services/ui-ux-implementation",
-    title: "UI/UX Implementation",
+    title: "UI/UX Implementation ",
     description:
-      "Pixel-accurate builds from Figma to production. Design tokens, component libraries, and accessible interactions.",
+      "Pixel-perfect translation of Figma designs into clean, responsive production code using Tailwind CSS, CSS Modules, and WCAG 2.2 accessibility standards.",
     Icon: SiFigma,
     details: [
-      "Figma → React/Angular componentization",
-      "Design tokens & theming; responsive grid systems",
-      "Micro-interactions/animations with accessibility in mind",
-      "Forms, validation, error states, i18n",
-      "Storybook docs & visual regression setup",
-      "Cross-browser/device compatibility testing",
+      "Figma → Pixel-perfect React & Angular componentization",
+      "Reusable design token systems with light & dark theme syncing",
+      "Fluid 60fps micro-animations, hover effects & interactive charts",
+      "Strict semantic HTML5 structure with ARIA landmark attributes",
+      "Cross-browser testing (Chrome, Safari, Firefox, Edge) across viewports",
+      "Responsive mobile-first layouts engineered for touch devices",
     ],
     outcomes: [
-      "Consistent, documented UI at scale",
-      "Faster feature delivery, fewer regressions",
-      "Accessibility baked into every component",
+      "Harmonious visual design system that commands client credibility",
+      "100% responsive fluid UI across every mobile and desktop screen",
+      "Built-in web accessibility guaranteeing inclusive user access",
     ],
-    learnMoreUrl: "/projects?tag=design-system",
-    projectUrl: "/projects?tag=design-system",
+    learnMoreUrl: "/projects",
+    projectUrl: "/projects",
     accent: "#0ea5e9",
     halo: "radial-gradient(60% 70% at 50% 55%, rgba(14,165,233,0.18), rgba(0,0,0,0) 70%)",
-  },
-  {
-    id: 5,
-    slug: "/services/app-development",
-    title: "App Development",
-    description:
-      "Crafting cross-platform mobile applications with native-like performance. Utilizing modern frameworks to deliver seamless iOS and Android experiences tailored for 2026 market standards.",
-    Icon: RiSmartphoneLine,
-    details: [
-      "Cross-platform mobile apps (React Native, Flutter)",
-      "Native device features integration (Camera, GPS, Biometrics)",
-      "Offline-first architecture & robust local databases",
-      "App Store Optimization (ASO) for maximum visibility",
-      "Smooth animations (60fps) and fluid UI/UX",
-      "Secure payment gateways and push notifications",
-      "Automated testing and CI/CD pipelines for App Stores",
-    ],
-    outcomes: [
-      "A single codebase deployed seamlessly to iOS and Android",
-      "High user retention with intuitive, modern mobile experiences",
-      "Faster time-to-market with streamlined deployment pipelines",
-    ],
-    learnMoreUrl: "/projects?tag=app",
-    projectUrl: "/projects?tag=app",
-    accent: "#22c55e",
-    halo: "radial-gradient(60% 70% at 50% 55%, rgba(34,197,94,0.20), rgba(0,0,0,0) 70%)",
   },
 ];
 
 const developerInfo = {
-  name: "Ali Altaf",
-  title: "Senior Front-End Engineer — React & Angular",
+  name: "Ali Ch",
+  title: "Frontend Engineer — React, Angular & Redux Specialist",
   imageUrl: darkLogo,
 };
 
@@ -225,13 +227,13 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
         {/* Back */}
         <div className={styles.cardFaceBack} aria-live="polite">
           <div className={styles.backHeader}>
-             <div className={styles.backTitleGroup}>
-               <service.Icon className={styles.backHeaderIcon} />
-               <h3 className={styles.backHeaderTitle}>{service.title}</h3>
-             </div>
-             <button className={styles.closeBtn} onClick={onFlip} aria-label="Close details">
-               <RiCloseLine />
-             </button>
+            <div className={styles.backTitleGroup}>
+              <service.Icon className={styles.backHeaderIcon} />
+              <h3 className={styles.backHeaderTitle}>{service.title}</h3>
+            </div>
+            <button className={styles.closeBtn} onClick={onFlip} aria-label="Close details">
+              <RiCloseLine />
+            </button>
           </div>
 
           <div className={styles.backContentScroll}>
@@ -291,7 +293,7 @@ const ServiceSelector = ({ services, currentIndex, onSelect }) => {
     };
 
     updateIndicator();
-    
+
     // To handle initial focus when index changes
     const el = navRef.current?.querySelectorAll("[role='tab']")[currentIndex];
     if (el) el.focus({ preventScroll: true });
@@ -366,7 +368,18 @@ const DeveloperNav = ({ info, onPrev, onNext }) => (
    PAGE
    =========================== */
 
-function ServicesPage() {
+function ServicesPage({ theme }) {
+  const isDark =
+    theme === "dark" ||
+    (!theme &&
+      typeof document !== "undefined" &&
+      document.documentElement.getAttribute("data-theme") !== "light");
+
+  const currentDevInfo = {
+    ...developerInfo,
+    imageUrl: isDark ? darkLogo : lightLogo,
+  };
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const touchStartX = useRef(0);
@@ -434,7 +447,7 @@ function ServicesPage() {
     name: s.title,
     serviceType: "Software development",
     description: s.description,
-    provider: { "@type": "Person", name: "Ali Altaf" },
+    provider: { "@type": "Person", name: "Ali Ch" },
     areaServed: "Worldwide",
     offers: { "@type": "Offer", availability: "https://schema.org/InStock" },
     url: `${baseUrl}${s.slug}`,
@@ -562,7 +575,7 @@ function ServicesPage() {
 
           <div className={styles.developerNavWrapper}>
             <DeveloperNav
-              info={developerInfo}
+              info={currentDevInfo}
               onPrev={handlePrev}
               onNext={handleNext}
             />

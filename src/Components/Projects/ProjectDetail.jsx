@@ -32,6 +32,12 @@ import {
   SiStripe,
   SiFigma,
   SiTailwindcss,
+  SiTypescript,
+  SiPython,
+  SiDocker,
+  SiFlutter,
+  SiWordpress,
+  SiWoocommerce,
 } from "react-icons/si";
 import { projectsData, getProjectById, getAdjacentProjects } from "./ProjectData";
 import styles from "./ProjectDetail.module.css";
@@ -42,6 +48,10 @@ const TechIcon = ({ name }) => {
     "Next.js": <SiNextdotjs className={styles.techIcon} />,
     Angular: <SiAngular className={styles.techIcon} />,
     "Node.js": <SiNodedotjs className={styles.techIcon} />,
+    TypeScript: <SiTypescript className={styles.techIcon} />,
+    Python: <SiPython className={styles.techIcon} />,
+    Docker: <SiDocker className={styles.techIcon} />,
+    Flutter: <SiFlutter className={styles.techIcon} />,
     Redux: <SiRedux className={styles.techIcon} />,
     "Redux Toolkit": <SiRedux className={styles.techIcon} />,
     Stripe: <SiStripe className={styles.techIcon} />,
@@ -51,6 +61,8 @@ const TechIcon = ({ name }) => {
     Figma: <SiFigma className={styles.techIcon} />,
     SEO: <RiLineChartLine className={styles.techIcon} />,
     TailwindCSS: <SiTailwindcss className={styles.techIcon} />,
+    WordPress: <SiWordpress className={styles.techIcon} />,
+    WooCommerce: <SiWoocommerce className={styles.techIcon} />,
   };
   return iconMap[name] || <RiToolsLine className={styles.techIcon} />;
 };
@@ -103,15 +115,17 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
   if (!project) {
     return (
-      <div className={styles.emptyState}>
-        <h2>Project Not Found</h2>
-        <p>The project you're looking for doesn't exist or has moved.</p>
-        <button
-          className={styles.backButton}
-          onClick={() => onNavigate?.("projects")}
-        >
-          <RiArrowLeftLine /> Back to Projects
-        </button>
+      <div className="custom-scale-wrapper">
+        <div className={styles.emptyState}>
+          <h2>Project Not Found</h2>
+          <p>The project you're looking for doesn't exist or has moved.</p>
+          <button
+            className={styles.backButton}
+            onClick={() => onNavigate?.("projects")}
+          >
+            <RiArrowLeftLine /> Back to Projects
+          </button>
+        </div>
       </div>
     );
   }
@@ -140,7 +154,8 @@ export default function ProjectDetail({ projectId, onNavigate }) {
   } = project;
 
   return (
-    <article className={styles.detailWrapper} aria-labelledby="case-study-title">
+    <div className="custom-scale-wrapper">
+      <article className={styles.detailWrapper} aria-labelledby="case-study-title">
       {/* TOP NAVIGATION / ACTION BAR */}
       <nav className={styles.topBar} aria-label="Project Navigation">
         <button
@@ -193,7 +208,7 @@ export default function ProjectDetail({ projectId, onNavigate }) {
           {role && (
             <div className={styles.metaItem}>
               <span className={styles.metaLabel}>
-                <RiUserLine /> Role
+                <RiUserLine className={styles.metaIcon} /> Role
               </span>
               <span className={styles.metaVal}>{role}</span>
             </div>
@@ -201,20 +216,20 @@ export default function ProjectDetail({ projectId, onNavigate }) {
           {timeline && (
             <div className={styles.metaItem}>
               <span className={styles.metaLabel}>
-                <RiCalendarEventLine /> Timeline
+                <RiCalendarEventLine className={styles.metaIcon} /> Timeline
               </span>
               <span className={styles.metaVal}>{timeline}</span>
             </div>
           )}
-          <div className={styles.metaItem}>
+          <div className={`${styles.metaItem} ${styles.metaTechItem}`}>
             <span className={styles.metaLabel}>
-              <RiToolsLine /> Core Technologies
+              <RiToolsLine className={styles.metaIcon} /> Core Technologies
             </span>
             <div className={styles.techPills}>
               {techStack.map((tech) => (
                 <span key={tech} className={styles.techPill}>
                   <TechIcon name={tech} />
-                  {tech}
+                  <span>{tech}</span>
                 </span>
               ))}
             </div>
@@ -387,26 +402,6 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
       {/* BOTTOM PAGER & CTA */}
       <footer className={styles.detailFooter}>
-        <div className={styles.projectPager}>
-          {prev && (
-            <button
-              className={styles.pagerBtn}
-              onClick={() => onNavigate?.("project-detail", prev.id)}
-            >
-              <span className={styles.pagerSub}>← Previous Project</span>
-              <span className={styles.pagerTitle}>{prev.title}</span>
-            </button>
-          )}
-          {next && (
-            <button
-              className={`${styles.pagerBtn} ${styles.pagerNext}`}
-              onClick={() => onNavigate?.("project-detail", next.id)}
-            >
-              <span className={styles.pagerSub}>Next Project →</span>
-              <span className={styles.pagerTitle}>{next.title}</span>
-            </button>
-          )}
-        </div>
 
         <div className={styles.contactCtaBanner}>
           <div className={styles.ctaText}>
@@ -422,5 +417,6 @@ export default function ProjectDetail({ projectId, onNavigate }) {
         </div>
       </footer>
     </article>
+  </div>
   );
 }

@@ -299,9 +299,9 @@
 }
 
 .cardTitle {
-  font-size: 1.8vw;
+  font-size: 1.5vw;
   line-height: 1.2;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--svc-text);
 }
@@ -552,11 +552,11 @@
   }
 
   .devImage {
-    width: 3.2vw;
-    height: 3.2vw;
+    width: 2.8em;
+    height: 2.8em;
     border-radius: 50%;
     object-fit: contain;
-    padding: 0.3vw;
+    padding: 0.25em;
     background: color-mix(in srgb, var(--svc-chip-bg), white 5%);
     border: 2px solid var(--svc-chip-border);
   }
@@ -567,13 +567,13 @@
 
   .devName {
     font-weight: 800;
-    font-size: 1.1vw;
+    font-size: 1.1em;
     margin-bottom: 2px;
     color: var(--svc-text);
   }
 
   .devTitle {
-    font-size: 0.95vw;
+    font-size: 0.9em;
     color: var(--svc-muted);
   }
 
@@ -581,8 +581,8 @@
     background: color-mix(in srgb, var(--svc-chip-bg), white 6%);
     color: var(--svc-text);
     border-radius: 50%;
-    padding: 1vw;
-    font-size: 18px;
+    padding: 0.7em;
+    font-size: 1.2em;
     display: flex;
     align-items: center;
     justify-content: center;

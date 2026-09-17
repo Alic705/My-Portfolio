@@ -57,7 +57,7 @@ export default function BlogDetail({ slugFromRouter }) {
     );
   }
 
-  const baseUrl = "https://your-domain.com";
+  const baseUrl = "https://alich.dev";
   const canonical = `${baseUrl}/blog/${post.slug}`;
   const { minutes } = getReadingTime(post.html);
   const { headings, html } = buildToc(post.html);
@@ -97,117 +97,119 @@ export default function BlogDetail({ slugFromRouter }) {
   }, [post]);
 
   return (
-    <main className={styles.wrap} aria-labelledby="post-title">
-      <title>{post.title}</title>
-      <meta name="description" content={post.description} />
-      <link rel="canonical" href={canonical} />
-      <meta property="og:title" content={post.title} />
-      <meta property="og:description" content={post.description} />
-      <meta property="og:type" content="article" />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={post.cover} />
-      <meta name="twitter:card" content="summary_large_image" />
+    <div className="custom-scale-wrapper">
+      <main className={styles.wrap} aria-labelledby="post-title">
+        <title>{post.title}</title>
+        <meta name="description" content={post.description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.description} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={post.cover} />
+        <meta name="twitter:card" content="summary_large_image" />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-
-      <header className={styles.header}>
-        <p className={styles.kicker}>
-          Front-End · {post.tags.slice(0, 2).join(" · ")}
-        </p>
-        <h1 id="post-title" className={styles.h1}>
-          {post.title}
-        </h1>
-        <p className={styles.meta}>
-          <span>{post.author}</span>
-          <span className={styles.dot}>•</span>
-          <time dateTime={post.publishedAt}>
-            {new Date(post.publishedAt).toLocaleDateString()}
-          </time>
-          <span className={styles.dot}>•</span>
-          <span>{minutes} min read</span>
-        </p>
-        <img
-          src={post.cover}
-          alt={post.title}
-          className={styles.hero}
-          loading="lazy"
-          decoding="async"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
-      </header>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
 
-      {/* Table of contents */}
-      {headings.length > 0 && (
-        <nav className={styles.toc} aria-label="Table of contents">
-          <strong>On this page</strong>
-          <ul>
-            {headings.map((h) => (
-              <li key={h.id}>
-                <a href={`#${h.id}`}>{h.text}</a>
-              </li>
-            ))}
-          </ul>
+        <header className={styles.header}>
+          <p className={styles.kicker}>
+            Front-End · {post.tags.slice(0, 2).join(" · ")}
+          </p>
+          <h1 id="post-title" className={styles.h1}>
+            {post.title}
+          </h1>
+          <p className={styles.meta}>
+            <span>{post.author}</span>
+            <span className={styles.dot}>•</span>
+            <time dateTime={post.publishedAt}>
+              {new Date(post.publishedAt).toLocaleDateString()}
+            </time>
+            <span className={styles.dot}>•</span>
+            <span>{minutes} min read</span>
+          </p>
+          <img
+            src={post.cover}
+            alt={post.title}
+            className={styles.hero}
+            loading="lazy"
+            decoding="async"
+          />
+        </header>
+
+        {/* Table of contents */}
+        {headings.length > 0 && (
+          <nav className={styles.toc} aria-label="Table of contents">
+            <strong>On this page</strong>
+            <ul>
+              {headings.map((h) => (
+                <li key={h.id}>
+                  <a href={`#${h.id}`}>{h.text}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
+        <article
+          className={styles.article}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+
+        <aside className={styles.postCtas}>
+          <a href="/services" className={styles.btnPrimary}>
+            Need a performance/SEO audit?
+          </a>
+          <a href="/projects" className={styles.btnGhost}>
+            View case studies
+          </a>
+        </aside>
+
+        <nav className={styles.pager} aria-label="More articles">
+          {prev && (
+            <a href={`/blog/${prev.slug}`} className={styles.prev}>
+              ← {prev.title}
+            </a>
+          )}
+          {next && (
+            <a href={`/blog/${next.slug}`} className={styles.next}>
+              {next.title} →
+            </a>
+          )}
         </nav>
-      )}
 
-      <article
-        className={styles.article}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-
-      <aside className={styles.postCtas}>
-        <a href="/services" className={styles.btnPrimary}>
-          Need a performance/SEO audit?
-        </a>
-        <a href="/projects" className={styles.btnGhost}>
-          View case studies
-        </a>
-      </aside>
-
-      <nav className={styles.pager} aria-label="More articles">
-        {prev && (
-          <a href={`/blog/${prev.slug}`} className={styles.prev}>
-            ← {prev.title}
-          </a>
+        {related.length > 0 && (
+          <section className={styles.related} aria-label="Related posts">
+            <h2>Related</h2>
+            <div className={styles.relatedGrid}>
+              {related.map((p) => (
+                <a
+                  key={p.slug}
+                  href={`/blog/${p.slug}`}
+                  className={styles.relatedCard}
+                >
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className={styles.relatedMeta}>
+                    <span className={styles.tag}>{p.tags[0]}</span>
+                    <h3>{p.title}</h3>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
         )}
-        {next && (
-          <a href={`/blog/${next.slug}`} className={styles.next}>
-            {next.title} →
-          </a>
-        )}
-      </nav>
-
-      {related.length > 0 && (
-        <section className={styles.related} aria-label="Related posts">
-          <h2>Related</h2>
-          <div className={styles.relatedGrid}>
-            {related.map((p) => (
-              <a
-                key={p.slug}
-                href={`/blog/${p.slug}`}
-                className={styles.relatedCard}
-              >
-                <img
-                  src={p.cover}
-                  alt={p.title}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className={styles.relatedMeta}>
-                  <span className={styles.tag}>{p.tags[0]}</span>
-                  <h3>{p.title}</h3>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
-    </main>
+      </main>
+    </div>
   );
 }

@@ -408,13 +408,15 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .custom-scale-wrapper {
+  .custom-scale-wrapper,
+  .desktop-nav {
     font-size: 10px;
   }
 }
 
 @media (min-width: 7680px) {
-  .custom-scale-wrapper {
+  .custom-scale-wrapper,
+  .desktop-nav {
     font-size: 64px;
   }
 }

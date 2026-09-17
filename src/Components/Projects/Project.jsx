@@ -16,6 +16,12 @@ import {
   SiStripe,
   SiFigma,
   SiTailwindcss,
+  SiTypescript,
+  SiPython,
+  SiDocker,
+  SiFlutter,
+  SiWordpress,
+  SiWoocommerce,
 } from "react-icons/si";
 import { projectsData } from "./ProjectData";
 import styles from "./Project.module.css";
@@ -29,6 +35,10 @@ const TechIcon = ({ name }) => {
     "Next.js": <SiNextdotjs className={styles.techIcon} />,
     Angular: <SiAngular className={styles.techIcon} />,
     "Node.js": <SiNodedotjs className={styles.techIcon} />,
+    TypeScript: <SiTypescript className={styles.techIcon} />,
+    Python: <SiPython className={styles.techIcon} />,
+    Docker: <SiDocker className={styles.techIcon} />,
+    Flutter: <SiFlutter className={styles.techIcon} />,
     Redux: <SiRedux className={styles.techIcon} />,
     "Redux Toolkit": <SiRedux className={styles.techIcon} />,
     Stripe: <SiStripe className={styles.techIcon} />,
@@ -38,6 +48,8 @@ const TechIcon = ({ name }) => {
     Figma: <SiFigma className={styles.techIcon} />,
     SEO: <RiLineChartLine className={styles.techIcon} />,
     TailwindCSS: <SiTailwindcss className={styles.techIcon} />,
+    WordPress: <SiWordpress className={styles.techIcon} />,
+    WooCommerce: <SiWoocommerce className={styles.techIcon} />,
   };
   return iconMap[name] || <RiToolsLine className={styles.techIcon} />;
 };
@@ -198,7 +210,7 @@ function ProjectPortfolio({ onNavigate }) {
   const hasPartSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "React & Modern Web Projects | Portfolio by Ali Altaf",
+    name: "React & Modern Web Projects | Portfolio by Ali Ch",
     url: canonical,
     description:
       "Case studies showcasing modern React, Next.js, and TypeScript web development with performance and business outcomes.",
@@ -215,14 +227,14 @@ function ProjectPortfolio({ onNavigate }) {
   return (
     <>
       {/* HEAD */}
-      <title>Projects &amp; Case Studies | Ali Altaf</title>
+      <title>Projects &amp; Case Studies | Ali Ch</title>
       <meta
         name="description"
         content="Explore full-stack and front-end case studies built with React, Next.js, and modern web architectures."
       />
       <meta name="robots" content="index,follow" />
       <link rel="canonical" href={canonical} />
-      <meta property="og:title" content="Projects & Case Studies | Ali Altaf" />
+      <meta property="og:title" content="Projects & Case Studies | Ali Ch" />
       <meta
         property="og:description"
         content="High-performance front-end and full-stack projects with real business impact."

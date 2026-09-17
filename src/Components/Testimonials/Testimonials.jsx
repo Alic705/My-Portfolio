@@ -53,7 +53,7 @@ export default function Testimonials({
   items = DEFAULT_ITEMS,
   logos = DEFAULT_LOGOS,
   interval = 6500,
-  nameForSchema = "Ali Altaf",
+  nameForSchema = "Ali Ch",
 }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);

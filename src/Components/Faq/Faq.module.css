@@ -148,7 +148,8 @@
 }
 
 .qText {
-  font-weight: 800;
+  font-weight: 300;
+  line-height: 1.4;
   letter-spacing: -0.01em;
   font-size: clamp(15px, 1.2vw, 18px);
 }
@@ -300,6 +301,7 @@
   .grid {
     grid-template-columns: 1fr;
   }
+
   .search {
     width: 100%;
     max-width: 400px;
@@ -314,35 +316,119 @@
 
 /* ===== Desktop Overrides for Perfect Proportional Scaling ===== */
 @media (min-width: 769px) {
-  .h1 { font: 800 4.2vw / 1.06 var(--font-primary, Inter, ui-sans-serif) !important; text-shadow: 0 0.15vw 0.8vw rgba(0, 0, 0, 0.35) !important; }
-  .dek { margin-top: 0.5vw !important; font-size: 1.1vw !important; }
-  
-  .searchWrap { margin-top: 0.4vw !important; display: flex !important; justify-content: center !important; }
-  .search { width: 35vw !important; border-radius: 0.75vw !important; padding: 0.75vw 0.9vw !important; font-size: 1vw !important; }
-  .search:focus { box-shadow: 0 0 0 0.2vw var(--ring) !important; }
-  
-  .grid { gap: 1.25vw !important; max-width: 76vw !important; margin-top: 2.6vw !important; margin-left: auto !important; margin-right: auto !important; }
-  .item { border-radius: 1vw !important; box-shadow: 0 0.5vw 1.25vw rgba(0, 0, 0, 0.2) !important; }
-  
-  .aContent { transform: translateY(-0.6vw) !important; }
-  
-  .q { gap: 0.6vw !important; padding: 1vw 1.1vw !important; }
-  .qText { font-size: 1.2vw !important; }
-  
-  .chev { width: 1.25vw !important; height: 1.25vw !important; min-width: 1.25vw !important; min-height: 1.25vw !important; border-width: 0.1vw !important; flex-shrink: 0 !important; }
-  .chev::before, .chev::after { width: 0.6vw !important; height: 0.15vw !important; }
-  
-  .aWrap { padding: 0 1.1vw 1vw !important; }
-  .a { margin-top: 0.6vw !important; font-size: 1.05vw !important; }
-  
-  .itemActions { margin-top: 0.5vw !important; }
-  .copyLink { border-radius: 0.5vw !important; font-size: 0.85vw !important; padding: 0.4vw 0.5vw !important; }
-  .copyLink:hover { transform: translateY(-0.1vw) !important; box-shadow: 0 0.5vw 1.1vw color-mix(in srgb, var(--accent-2) 18%, #000) !important; }
-  
-  .empty { padding: 1.6vw 0 !important; font-size: 1.1vw !important; }
-  
-  .ctaRow { gap: 0.75vw !important; margin: 2vw 0 0.25vw !important; }
-  .btn { padding: 0.75vw 1vw !important; gap: 0.6vw !important; font-size: 1.05vw !important; }
-  .btnPrimary { box-shadow: 0 0.6vw 1.5vw color-mix(in srgb, var(--accent-2), transparent 70%) !important; }
-  .btnGhost:hover { box-shadow: 0 0.5vw 1.4vw color-mix(in srgb, var(--accent-2), transparent 82%) !important; }
+  .h1 {
+    font: 800 4.2vw / 1.06 var(--font-primary, Inter, ui-sans-serif) !important;
+    text-shadow: 0 0.15vw 0.8vw rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .dek {
+    margin-top: 0.5vw !important;
+    font-size: 1.1vw !important;
+  }
+
+  .searchWrap {
+    margin-top: 0.4vw !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .search {
+    width: 35vw !important;
+    border-radius: 0.75vw !important;
+    padding: 0.75vw 0.9vw !important;
+    font-size: 1vw !important;
+  }
+
+  .search:focus {
+    box-shadow: 0 0 0 0.2vw var(--ring) !important;
+  }
+
+  .grid {
+    gap: 1.25vw !important;
+    max-width: 76vw !important;
+    margin-top: 2.6vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .item {
+    border-radius: 1vw !important;
+    box-shadow: 0 0.5vw 1.25vw rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .aContent {
+    transform: translateY(-0.6vw) !important;
+  }
+
+  .q {
+    gap: 0.6vw !important;
+    padding: 1vw 1.1vw !important;
+  }
+
+  .qText {
+    font-size: 1.2vw !important;
+  }
+
+  .chev {
+    width: 1.25vw !important;
+    height: 1.25vw !important;
+    min-width: 1.25vw !important;
+    min-height: 1.25vw !important;
+    border-width: 0.1vw !important;
+    flex-shrink: 0 !important;
+  }
+
+  .chev::before,
+  .chev::after {
+    width: 0.6vw !important;
+    height: 0.15vw !important;
+  }
+
+  .aWrap {
+    padding: 0 1.1vw 1vw !important;
+  }
+
+  .a {
+    margin-top: 0.6vw !important;
+    font-size: 1.05vw !important;
+  }
+
+  .itemActions {
+    margin-top: 0.5vw !important;
+  }
+
+  .copyLink {
+    border-radius: 0.5vw !important;
+    font-size: 0.85vw !important;
+    padding: 0.4vw 0.5vw !important;
+  }
+
+  .copyLink:hover {
+    transform: translateY(-0.1vw) !important;
+    box-shadow: 0 0.5vw 1.1vw color-mix(in srgb, var(--accent-2) 18%, #000) !important;
+  }
+
+  .empty {
+    padding: 1.6vw 0 !important;
+    font-size: 1.1vw !important;
+  }
+
+  .ctaRow {
+    gap: 0.75vw !important;
+    margin: 2vw 0 0.25vw !important;
+  }
+
+  .btn {
+    padding: 0.75vw 1vw !important;
+    gap: 0.6vw !important;
+    font-size: 1.05vw !important;
+  }
+
+  .btnPrimary {
+    box-shadow: 0 0.6vw 1.5vw color-mix(in srgb, var(--accent-2), transparent 70%) !important;
+  }
+
+  .btnGhost:hover {
+    box-shadow: 0 0.5vw 1.4vw color-mix(in srgb, var(--accent-2), transparent 82%) !important;
+  }
 }
