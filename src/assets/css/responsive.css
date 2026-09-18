@@ -1,0 +1,712 @@
+/* responsive */
+@media (max-width: 767px) {
+    :root {
+        --r-sm: 10px;
+        --r-md: 20px;
+        --r-lg: 28px;
+    }
+
+    .portfolio-container {
+        flex-direction: column;
+        gap: 0;
+        margin-top: 6rem !important;
+    }
+
+    #main-panel {
+        width: calc(100vw - 2.5rem) !important;
+        max-width: calc(100vw - 2.5rem) !important;
+        max-height: calc(100dvh - 85px) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        border-radius: 28px !important;
+        margin: 0 auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .hide-scrollbar {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 1.6rem 0rem !important;
+        box-sizing: border-box !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .theme-toggle {
+        left: 1rem;
+        top: 1.5rem;
+        font-size: 1.2rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .homeContainer {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.5rem 0 1rem 0;
+        width: 100%;
+    }
+
+    .contentWrapper {
+        gap: 1rem;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .mainHeading {
+        font-size: 1.8rem;
+        line-height: 1.25;
+        margin-bottom: 0.3rem;
+        letter-spacing: -0.01em;
+        word-break: break-word;
+    }
+
+    .subHeading {
+        font-size: 0.95rem;
+        max-width: 100%;
+        margin: 0 auto;
+        line-height: 1.55;
+    }
+
+    .ctaRow {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-top: 1.2rem;
+    }
+
+    .ctaWrap {
+        width: 100%;
+        display: block;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 0.85rem 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        height: 48px;
+        line-height: 1;
+    }
+
+    .btnGhost {
+        width: 100%;
+        height: 48px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    .marqueeWrap {
+        width: 100%;
+    }
+
+    .marqueeTrack {
+        gap: 12px;
+        padding-right: 12px;
+    }
+
+    .marqueeItem {
+        font-size: 0.82rem;
+        line-height: 1.2;
+        padding: 0.5rem 0.85rem;
+        white-space: nowrap;
+    }
+
+    .impactHighlight {
+        white-space: normal;
+    }
+
+    /* About Section Mobile Overrides */
+    .aboutSection {
+        padding: 0;
+    }
+
+    .aboutSection .sectionTitle {
+        font-size: 1.8rem;
+        line-height: 1.25;
+    }
+
+    .aboutSection .sectionDek {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-width: 100%;
+    }
+
+    .linksRow {
+        font-size: 0.88rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+        color: var(--text) !important;
+    }
+
+    .aboutGrid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .cardMainStory,
+    .toolkitCard,
+    .cardConnect,
+    .atAGlanceCard,
+    .hobbiesCard {
+        grid-column: span 1;
+    }
+
+    .atAGlanceCard { order: 1; }
+    .cardConnect { order: 2; }
+    .toolkitCard { order: 3; }
+    .cardMainStory { order: 4; }
+    .hobbiesCard { order: 5; }
+
+    .cardContent {
+        padding: 1.2rem;
+    }
+
+    .cardHeader {
+        gap: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .cardHeader h4 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .cardHeader p {
+        font-size: 0.9rem;
+        line-height: 1.45;
+        text-align: center;
+    }
+
+    .alignLeft {
+        text-align: center;
+    }
+
+    .journeyContainer {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .yAxisLabel {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 0.75rem;
+        padding: 0;
+        text-align: center;
+    }
+
+    .journeyGraph {
+        border-left: none;
+        border-bottom: 1px solid var(--card-border);
+        padding-left: 0;
+        padding-bottom: 0.5rem;
+        min-height: 150px;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .graphBar {
+        width: clamp(20px, 6vw, 32px);
+    }
+
+    .graphIcon {
+        font-size: 0.85rem;
+    }
+
+    .graphLabel {
+        font-size: 0.8rem;
+    }
+
+    .glanceGrid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .toolkitCategoryTitle {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.8rem;
+        line-height: 1.3;
+    }
+
+    .toolkitIconGrid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+        min-height: auto;
+    }
+
+    .iconWrapper {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 22px !important;
+        border-radius: 10px !important;
+    }
+
+    .hobbiesGrid {
+        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .hobbyPolaroid {
+        padding: 0.6rem 0.4rem;
+        border-radius: 10px;
+    }
+
+    .hobbyIconWrapper {
+        font-size: 1.5rem;
+    }
+
+    .hobbyLabel {
+        font-size: 0.75rem;
+    }
+
+    .availabilityStatus {
+        margin-bottom: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .connectBtn {
+        width: 100%;
+        height: 44px;
+        line-height: 1;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*  */
+
+    .formHeader h3 {
+        font-size: 1.6rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .localTime {
+        display: none;
+    }
+
+    .statusWrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .formContainer {
+        padding: 10px;
+    }
+
+    .formWrapper.visible .formHeader,
+    .formWrapper.visible .formGroup,
+    .formWrapper.visible .submitBtn,
+    .formWrapper.visible .socialsFooter {
+        animation: none;
+    }
+
+    input {
+        height: 44px;
+        line-height: 44px;
+        padding-block: 0;
+    }
+
+    .formGroup {
+        margin-bottom: 1.2rem;
+    }
+
+    .submitBtn {
+        height: 44px;
+        font-size: 14px;
+        min-height: unset;
+    }
+
+    /*  */
+
+
+    /* Services Section Mobile Overrides */
+    .container {
+        justify-content: flex-start;
+        padding-top: 0.5rem;
+    }
+
+    .serviceSelectorWrapper {
+        display: none;
+    }
+
+    .carouselWrapper {
+        perspective: none;
+        height: auto;
+        min-height: 420px;
+        margin-bottom: 1.5rem;
+    }
+
+    .carouselTrack {
+        display: flex;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .serviceCardWrapper {
+        position: relative;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    .serviceCard.isFlipped .cardFaceFront {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .serviceCard.isFlipped .cardFaceBack {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .cardFaceFront,
+    .cardFaceBack {
+        padding: 1.25rem;
+        transition: opacity 0.45s ease;
+    }
+
+    .cardFaceBack {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .cardTitle {
+        font-size: 1.4rem;
+    }
+
+    .cardDescription {
+        font-size: 0.92rem;
+        color: var(--svc-muted);
+        line-height: 1.5;
+    }
+
+    .cardIcon {
+        font-size: 2.2rem;
+    }
+
+    .servicecardCtas {
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .cardBtn {
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+        height: 44px;
+    }
+
+    .dotIndicators {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--svc-dot);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .activeDot {
+        background: var(--accent-color);
+        transform: scale(1.2);
+    }
+
+    .developerNavWrapper {
+        display: none;
+    }
+
+    .backHeader {
+        padding-bottom: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .backHeaderIcon {
+        font-size: 1.4rem;
+    }
+
+    .backHeaderTitle {
+        font-size: 1.2rem;
+    }
+
+    .closeBtn {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    .backContentScroll {
+        gap: 1.2rem;
+    }
+
+    .detailsTitle,
+    .outcomesTitle {
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .detailsList li,
+    .outcomesList li {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .checkIcon {
+        font-size: 0.9rem;
+    }
+
+    .backFooter {
+        padding-top: 0.8rem;
+    }
+
+
+    /*  */
+    .projectsWrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.75rem;
+        padding: 2rem 1rem;
+    }
+
+    .leftPanel,
+    .rightPanel {
+        width: 100%;
+    }
+
+    .mainHeading {
+        font-size: 2rem;
+    }
+
+    .projectDescription {
+        font-size: 1rem;
+        min-height: unset;
+    }
+
+    .carouselNav {
+        display: none;
+    }
+
+    .carouselTrack {
+        gap: 1rem;
+        padding-right: 0;
+    }
+
+    .projectCard {
+        flex: 0 0 100%;
+        height: 440px;
+        border-radius: 20px;
+    }
+
+    .cardTitle {
+        font-size: 1.1rem;
+    }
+
+    .techTag {
+        font-size: 0.85rem;
+    }
+
+    .dotIndicators {
+        display: flex;
+        justify-content: center;
+        gap: 0.7rem;
+        margin-top: 1.25rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .modalOverlay {
+        padding: 0;
+    }
+
+    .modalContent {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .modalHeader {
+        position: sticky;
+        top: 0;
+        height: auto;
+        padding: 1rem;
+        align-items: center;
+        border-bottom: 1px solid var(--proj-card-border);
+    }
+
+    .modalHeader::after {
+        display: none;
+    }
+
+    .modalHeader h2 {
+        font-size: 1.25rem;
+    }
+
+    .modalClose {
+        position: static;
+    }
+
+    .modalBody {
+        padding: 1.25rem;
+    }
+
+    .modalSection h3 {
+        font-size: 1.05rem;
+    }
+
+    .modalSection p {
+        font-size: 0.98rem;
+    }
+
+    .resultValue {
+        font-size: 1.5rem;
+    }
+
+    .resultLabel {
+        font-size: 0.85rem;
+    }
+
+    .modalLinks {
+        flex-direction: column;
+    }
+
+    .modalButton {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.98rem;
+    }
+
+    /* Typography fixes for vw */
+    .sectionTitle {
+        font-size: 2.2rem;
+    }
+
+    .sectionDek {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .stepNumber {
+        font-size: 2rem;
+    }
+
+    .stepContent h4 {
+        font-size: 1.1rem;
+    }
+
+
+
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
+    .projectCard {
+        height: 380px;
+    }
+
+    .cardTitle {
+        font-size: 1.2rem;
+    }
+
+    .resultValue {
+        font-size: 1.3rem;
+    }
+
+    /*  */
+    .detailWrapper {
+        padding: 0 0 1.8em;
+    }
+
+    .topBar {
+        margin-bottom: 1.4em;
+        padding-bottom: 0.9em;
+    }
+
+    .heroSection {
+        margin-bottom: 1.4em;
+    }
+
+    .metaBar {
+        gap: 1em;
+        padding: 1.2em;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .metaItem {
+        min-width: 100%;
+    }
+
+    .showcaseFrame {
+        margin-bottom: 1.8em;
+    }
+
+    .narrativeGrid {
+        grid-template-columns: 1fr;
+        gap: 1.2em;
+        margin-bottom: 1.8em;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .processGrid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .projectPager {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .pagerNext {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .contactCtaBanner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.4em;
+        gap: 1.2em;
+    }
+}

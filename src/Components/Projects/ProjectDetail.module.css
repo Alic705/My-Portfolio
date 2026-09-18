@@ -57,6 +57,7 @@
     opacity: 0;
     transform: translateY(0.8em);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -656,11 +657,9 @@
 }
 
 .testimonialCard {
-  background: linear-gradient(
-    135deg,
-    rgba(124, 58, 237, 0.08) 0%,
-    var(--detail-card-bg) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(124, 58, 237, 0.08) 0%,
+      var(--detail-card-bg) 100%);
   border: 1px solid rgba(124, 58, 237, 0.22);
   border-radius: 1.3em;
   padding: 2.2em;
@@ -817,11 +816,9 @@
 }
 
 .contactCtaBanner {
-  background: linear-gradient(
-    135deg,
-    rgba(124, 58, 237, 0.14) 0%,
-    rgba(154, 102, 255, 0.04) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(124, 58, 237, 0.14) 0%,
+      rgba(154, 102, 255, 0.04) 100%);
   border: 1px solid rgba(124, 58, 237, 0.28);
   border-radius: 1.3em;
   padding: 1.8em 2.2em;
@@ -876,81 +873,17 @@
   }
 }
 
-@media (max-width: 768px) {
-  .detailWrapper {
-    padding: 0 0 1.8em;
-  }
 
-  .topBar {
-    margin-bottom: 1.4em;
-    padding-bottom: 0.9em;
-  }
-
-  .heroSection {
-    margin-bottom: 1.4em;
-  }
-
-  .metaBar {
-    gap: 1em;
-    padding: 1.2em;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .metaItem {
-    min-width: 100%;
-  }
-
-  .showcaseFrame {
-    margin-bottom: 1.8em;
-  }
-
-  .narrativeGrid {
-    grid-template-columns: 1fr;
-    gap: 1.2em;
-    margin-bottom: 1.8em;
-  }
-
-  .statsGrid {
-    grid-template-columns: 1fr;
-    gap: 1em;
-  }
-
-  .processGrid {
-    grid-template-columns: 1fr;
-    gap: 1em;
-  }
-
-  .featuresGrid {
-    grid-template-columns: 1fr;
-    gap: 1em;
-  }
-
-  .projectPager {
-    grid-template-columns: 1fr;
-    gap: 1em;
-  }
-
-  .pagerNext {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .contactCtaBanner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1.4em;
-    gap: 1.2em;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .detailWrapper {
     animation: none !important;
   }
+
   .showcaseImage {
     transition: none !important;
   }
+
   .storyCard,
   .statCard,
   .processStepCard,

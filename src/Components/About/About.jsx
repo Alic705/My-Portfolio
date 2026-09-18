@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./About.module.css";
 
 import {
   SiHtml5,
@@ -31,16 +30,16 @@ import {
    =========================== */
 const categorizedToolkit = {
   frontend: [
-    { name: "React.js", Icon: SiReact, className: styles.reactIcon },
-    { name: "Angular", Icon: SiAngular, className: styles.angularIcon },
-    { name: "Redux.js", Icon: SiRedux, className: styles.reactIcon },
-    { name: "TypeScript", Icon: SiTypescript, className: styles.tsIcon },
-    { name: "JavaScript", Icon: SiJavascript, className: styles.jsIcon },
-    { name: "Tailwind CSS", Icon: SiTailwindcss, className: styles.cssIcon },
-    { name: "HTML5 & CSS3", Icon: SiHtml5, className: styles.htmlIcon },
-    { name: "Node.js Basics", Icon: SiNodedotjs, className: styles.jsIcon },
-    { name: "Shopify Frontend", Icon: SiShopify, className: styles.gitIcon },
-    { name: "Git & GitHub", Icon: SiGithub, className: styles.githubIcon },
+    { name: "React.js", Icon: SiReact, className: "reactIcon" },
+    { name: "Angular", Icon: SiAngular, className: "angularIcon" },
+    { name: "Redux.js", Icon: SiRedux, className: "reactIcon" },
+    { name: "TypeScript", Icon: SiTypescript, className: "tsIcon" },
+    { name: "JavaScript", Icon: SiJavascript, className: "jsIcon" },
+    { name: "Tailwind CSS", Icon: SiTailwindcss, className: "cssIcon" },
+    { name: "HTML5 & CSS3", Icon: SiHtml5, className: "htmlIcon" },
+    { name: "Node.js Basics", Icon: SiNodedotjs, className: "jsIcon" },
+    { name: "Shopify Frontend", Icon: SiShopify, className: "gitIcon" },
+    { name: "Git & GitHub", Icon: SiGithub, className: "githubIcon" },
   ],
 };
 
@@ -77,37 +76,37 @@ const journeyMilestones = [
 /* ========= Sub-Components ========= */
 
 const Toolkit = () => (
-  <div className={`${styles.aboutCard} ${styles.toolkitCard}`} data-tilt>
-    <div className={styles.cardContent}>
-      <div className={styles.cardHeader}>
-        <h4 className={styles.alignCenter}>My Toolkit</h4>
-        <p className={styles.alignCenter}>
+  <div className="aboutCard toolkitCard" data-tilt>
+    <div className="cardContent">
+      <div className="cardHeader">
+        <h4 className="alignCenter">My Toolkit</h4>
+        <p className="alignCenter">
           Modern stack for scalable, reliable React &amp; Angular apps.
         </p>
       </div>
 
-      <div className={styles.toolkitGrid}>
+      <div className="toolkitGrid">
         {Object.entries(categorizedToolkit).map(([category, techs]) => (
-          <div key={category} className={styles.toolkitCategory}>
-            <div className={styles.toolkitCategoryTitle}>
+          <div key={category} className="toolkitCategory">
+            <div className="toolkitCategoryTitle">
               {category === "frontend"
                 ? "Frameworks & Front-End Dev Tools"
                 : category}
             </div>
 
-            <div className={styles.toolkitIconGrid}>
+            <div className="toolkitIconGrid">
               {techs.map((tech) => (
                 <div
                   key={tech.name}
-                  className={styles.toolkitItem}
+                  className="toolkitItem"
                   role="img"
                   aria-label={tech.name}
                   tabIndex={0}
                 >
-                  <div className={`${styles.iconWrapper} ${tech.className}`}>
+                  <div className={`iconWrapper ${tech.className}`}>
                     <tech.Icon aria-hidden="true" />
                   </div>
-                  <span className={styles.toolkitTooltip}>{tech.name}</span>
+                  <span className="toolkitTooltip">{tech.name}</span>
                 </div>
               ))}
             </div>
@@ -119,55 +118,55 @@ const Toolkit = () => (
 );
 
 const HobbiesCard = () => (
-  <div className={`${styles.aboutCard} ${styles.hobbiesCard}`} data-tilt>
-    <div className={styles.cardContent}>
-      <div className={styles.cardHeader}>
+  <div className="aboutCard hobbiesCard" data-tilt>
+    <div className="cardContent">
+      <div className="cardHeader">
         <h4>Beyond the Code</h4>
-        <p className={styles.centerNote}>
+        <p className="centerNote">
           A few things I enjoy when I’m not coding: reading, traveling, music,
           coffee, and time with friends.
         </p>
       </div>
 
-      <div className={styles.hobbiesGrid} role="list">
-        <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
-          <div className={styles.hobbyPolaroid}>
-            <div className={styles.hobbyIconWrapper} aria-hidden="true">
+      <div className="hobbiesGrid" role="list">
+        <div className="hobbyItem" role="listitem" tabIndex={0}>
+          <div className="hobbyPolaroid">
+            <div className="hobbyIconWrapper" aria-hidden="true">
               <RiBox3Line />
             </div>
-            <div className={styles.hobbyLabel}>Coding</div>
+            <div className="hobbyLabel">Coding</div>
           </div>
         </div>
-        <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
-          <div className={styles.hobbyPolaroid}>
-            <div className={styles.hobbyIconWrapper} aria-hidden="true">
+        <div className="hobbyItem" role="listitem" tabIndex={0}>
+          <div className="hobbyPolaroid">
+            <div className="hobbyIconWrapper" aria-hidden="true">
               <RiCameraLensLine />
             </div>
-            <div className={styles.hobbyLabel}>Photography</div>
+            <div className="hobbyLabel">Photography</div>
           </div>
         </div>
-        <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
-          <div className={styles.hobbyPolaroid}>
-            <div className={styles.hobbyIconWrapper} aria-hidden="true">
+        <div className="hobbyItem" role="listitem" tabIndex={0}>
+          <div className="hobbyPolaroid">
+            <div className="hobbyIconWrapper" aria-hidden="true">
               <RiGamepadLine />
             </div>
-            <div className={styles.hobbyLabel}>Gaming</div>
+            <div className="hobbyLabel">Gaming</div>
           </div>
         </div>
-        <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
-          <div className={styles.hobbyPolaroid}>
-            <div className={styles.hobbyIconWrapper} aria-hidden="true">
+        <div className="hobbyItem" role="listitem" tabIndex={0}>
+          <div className="hobbyPolaroid">
+            <div className="hobbyIconWrapper" aria-hidden="true">
               <RiBookReadLine />
             </div>
-            <div className={styles.hobbyLabel}>Reading</div>
+            <div className="hobbyLabel">Reading</div>
           </div>
         </div>
-        <div className={styles.hobbyItem} role="listitem" tabIndex={0}>
-          <div className={styles.hobbyPolaroid}>
-            <div className={styles.hobbyIconWrapper} aria-hidden="true">
+        <div className="hobbyItem" role="listitem" tabIndex={0}>
+          <div className="hobbyPolaroid">
+            <div className="hobbyIconWrapper" aria-hidden="true">
               <RiFlightTakeoffLine />
             </div>
-            <div className={styles.hobbyLabel}>Traveling</div>
+            <div className="hobbyLabel">Traveling</div>
           </div>
         </div>
       </div>
@@ -182,7 +181,7 @@ const About = () => {
   const [experience, setExperience] = useState("");
 
   useEffect(() => {
-    // Years of experience (from 2021, to 1dp)
+    // Years of experience (from 2023, to 1dp)
     const startDate = new Date("2023-03-01");
     const years = ((Date.now() - startDate.getTime()) / 31557600000).toFixed(1);
     setExperience(`${years}+`);
@@ -195,7 +194,7 @@ const About = () => {
       "(prefers-reduced-motion: reduce)",
     ).matches;
     const cards = Array.from(
-      gridRef.current.querySelectorAll(`.${styles.aboutCard}`),
+      gridRef.current.querySelectorAll(".aboutCard"),
     );
 
     const io = new IntersectionObserver(
@@ -203,7 +202,7 @@ const About = () => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           cards.forEach((card, i) => {
-            setTimeout(() => card.classList.add(styles.isVisible), i * 120);
+            setTimeout(() => card.classList.add("isVisible"), i * 120);
           });
           io.disconnect();
         });
@@ -214,7 +213,7 @@ const About = () => {
 
     if (!prefersReduced) {
       const handleMove = (e) => {
-        const target = e.target?.closest?.(`[data-tilt].${styles.aboutCard}`);
+        const target = e.target?.closest?.("[data-tilt].aboutCard");
         if (!target) return;
         const rect = target.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -223,14 +222,14 @@ const About = () => {
         const ry = (x / rect.width - 0.5) * 6;
         target.style.setProperty("--rx", `${rx}deg`);
         target.style.setProperty("--ry", `${ry}deg`);
-        target.classList.add(styles.tiltActive);
+        target.classList.add("tiltActive");
       };
       const handleLeave = (e) => {
-        const target = e.target?.closest?.(`[data-tilt].${styles.aboutCard}`);
+        const target = e.target?.closest?.("[data-tilt].aboutCard");
         if (!target) return;
         target.style.setProperty("--rx", "0deg");
         target.style.setProperty("--ry", "0deg");
-        target.classList.remove(styles.tiltActive);
+        target.classList.remove("tiltActive");
       };
       const root = gridRef.current;
       root.addEventListener("mousemove", handleMove);
@@ -295,7 +294,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className={styles.aboutSection}
+      className="aboutSection"
       aria-labelledby="about-title"
     >
       {/* SEO head for About page */}
@@ -353,70 +352,69 @@ const About = () => {
 
       <div className="sectionHeader">
         <h1
-          className="gradientText
-        sectionTitle"
+          className="gradientText sectionTitle"
           id="about-title"
         >
           About Ali Ch
         </h1>
-        <p className="sectionDek ">
+        <p className="sectionDek">
           I am a <strong>Frontend Engineer</strong> specializing in <strong>React.js</strong>, <strong>Angular</strong>, <strong>Redux</strong>, and <strong>REST APIs</strong>, backed by a strong foundation in <strong>Computer Science</strong>. With 3.5+ years of production experience, I engineer high-performance, responsive web applications with clean, reusable component architectures, <strong>Core Web Vitals</strong> optimization, and measurable search visibility.
         </p>
 
         {/* Internal links to concentrate topical authority */}
-        <p className={styles.linksRow}>
+        <p className="linksRow">
           <a
             href="/services"
-            className={`${styles.inlineLink} ${styles.impactHighlight}`}
+            className="inlineLink impactHighlight"
           >
             See my React &amp; Angular services
           </a>{" "}
           ·{" "}
           <a
             href="/case-studies"
-            className={`${styles.inlineLink} ${styles.textUnderline}`}
+            className="inlineLink textUnderline"
           >
             Read performance &amp; SEO case studies
           </a>{" "}
           ·{" "}
           <a
             href="/contact"
-            className={`${styles.inlineLink} ${styles.impactHighlight}`}
+            className="inlineLink impactHighlight"
           >
             Hire me
           </a>
         </p>
       </div>
 
-      <div className={styles.aboutGrid} ref={gridRef}>
+      <div className="aboutGrid" ref={gridRef}>
         {/* Journey */}
         <div
-          className={`${styles.aboutCard} ${styles.cardMainStory}`}
+          className="aboutCard cardMainStory"
           data-tilt
         >
-          <div className={styles.cardContent}>
-            <div className={styles.cardHeader}>
-              <h4 className={styles.alignLeft}>My Journey in Tech</h4>
-              <p className={`${styles.journeySubtitle} ${styles.alignLeft}`}>
+          <div className="cardContent">
+            <div className="cardHeader">
+              <h4 className="alignLeft">My Journey in Tech</h4>
+              <p className="journeySubtitle alignLeft">
                 From front-end frameworks to scalable full-stack solutions
               </p>
             </div>
 
-            <div className={styles.journeyContainer}>
-              <div className={styles.yAxisLabel}>Complexity &amp; Scale</div>
+            <div className="journeyContainer">
+              <div className="yAxisLabel">Complexity &amp; Scale</div>
 
-              <div className={styles.journeyGraph} role="list">
+              <div className="journeyGraph" role="list">
                 {journeyMilestones.map((item, idx) => {
                   const tipId = `milestone-tip-${item.year}`;
                   const Icon = item.Icon;
                   return (
                     <div
                       key={item.year}
-                      className={styles.graphBarWrapper}
+                      className="graphBarWrapper"
                       role="listitem"
                     >
                       <button
-                        className={styles.graphBar}
+                        className="graphBar"
                         style={{
                           "--height": `${item.level}%`,
                           "--d": `${0.12 + idx * 0.08}s`,
@@ -424,89 +422,75 @@ const About = () => {
                         aria-describedby={tipId}
                         aria-label={`${item.year}: ${item.event}`}
                       >
-                        <span className={styles.graphIcon} aria-hidden="true">
+                        <span className="graphIcon" aria-hidden="true">
                           <Icon />
                         </span>
-                        <span className={styles.graphTooltip} id={tipId}>
+                        <span className="graphTooltip" id={tipId}>
                           {item.event}
                         </span>
                       </button>
-                      <div className={styles.graphLabel}>{item.year}</div>
+                      <div className="graphLabel">{item.year}</div>
                     </div>
                   );
                 })}
               </div>
-
-              {/* <p className={styles.journeyCaption}>
-                Highlights: LCP &lt; 1.5s, CLS &lt; 0.05, structured data for
-                richer search results, and measurable conversion lifts after
-                performance &amp; UX fixes.
-              </p> */}
             </div>
           </div>
         </div>
+        <Toolkit />
 
         {/* At a Glance */}
         <div
-          className={`${styles.aboutCard} ${styles.atAGlanceCard}`}
+          className="aboutCard atAGlanceCard"
           data-tilt
         >
-          <div className={styles.cardContent}>
-            <div className={styles.cardHeader}>
-              <h4 className={styles.alignLeft}>At a Glance</h4>
+          <div className="cardContent">
+            <div className="cardHeader">
+              <h4 className="alignLeft">At a Glance</h4>
             </div>
 
-            <div className={styles.glanceGrid} role="list">
-              <div className={styles.glanceItem} role="listitem">
-                <div className={styles.glanceIcon} aria-hidden="true">
+            <div className="glanceGrid" role="list">
+              <div className="glanceItem" role="listitem">
+                <div className="glanceIcon" aria-hidden="true">
                   <i className="ph-bold ph-briefcase" />
                 </div>
-                <div className={styles.experencenum}>{experience}</div>
-                <div className={styles.glanceLabel}>Years Experience</div>
+                <div className="experencenum">{experience}</div>
+                <div className="glanceLabel">Years Experience</div>
               </div>
 
-              <div className={styles.glanceItem} role="listitem">
-                <div className={styles.glanceIcon} aria-hidden="true">
+              <div className="glanceItem" role="listitem">
+                <div className="glanceIcon" aria-hidden="true">
                   <i className="ph-bold ph-map-pin" />
                 </div>
-                <div className={styles.glanceValue}>Lahore, Pakistan</div>
-                <div className={styles.glanceLabel}>(Remote globally)</div>
+                <div className="glanceValue">Lahore, Pakistan</div>
+                <div className="glanceLabel">(Remote globally)</div>
               </div>
             </div>
-
-            {/* <a
-              href="/resume.pdf"
-              className={`${styles.btn} ${styles.btnGhost} ${styles.resumeCta} `}
-              download
-              aria-label="Download Ali Ch – React & Angular résumé (PDF)"
-            >
-              <span>Download Ali Ch – React &amp; Angular Résumé (PDF)</span>
-            </a> */}
           </div>
         </div>
 
         {/* Availability */}
-        <div className={`${styles.aboutCard} ${styles.cardConnect}`} data-tilt>
-          <div className={styles.cardContent}>
-            <div className={styles.cardHeader}>
-              <h4 className={styles.alignCenter}>Open for Opportunities</h4>
-              <p className={styles.alignCenter}>
+        <div className="aboutCard cardConnect" data-tilt>
+          <div className="cardContent">
+            <div className="cardHeader">
+              <h4 className="alignCenter">Open for Opportunities</h4>
+              <p className="alignCenter">
                 I partner with product teams to ship high-performance,
                 accessible, and SEO-ready front-ends. Typical start: discovery
                 call → audit or sprint plan.
               </p>
             </div>
 
-            <div className={styles.availabilityStatus} aria-live="polite">
-              <div className={styles.statusDot} aria-hidden="true" />
-              <span className={styles.statusText}>
+            <div className="availabilityStatus" aria-live="polite">
+              <div className="statusDot" aria-hidden="true" />
+              <span className="statusText">
                 Available for new projects
               </span>
             </div>
 
             <a
               href="mailto:alich70566@example.com"
-              className={`${styles.btn} ${styles.connectBtn}`}
+              className="btn connectBtn"
               aria-label="Email Ali to start a project"
             >
               Say Hello
@@ -514,7 +498,6 @@ const About = () => {
           </div>
         </div>
 
-        <Toolkit />
         <HobbiesCard />
       </div>
     </section>

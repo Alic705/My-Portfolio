@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./Services.module.css";
 
 import {
   RiArrowLeftSLine,
@@ -180,39 +179,39 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
   });
 
   const cls = [
-    styles.serviceCard,
-    isActive ? styles.activeCard : "",
-    isActive && isFlipped ? styles.isFlipped : "",
+    "serviceCard",
+    isActive ? "activeCard" : "",
+    isActive && isFlipped ? "isFlipped" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <div className={styles.serviceCardWrapper} style={getCardStyle()}>
-      {isActive && <div className={styles.cardHalo} aria-hidden="true" />}
+    <div className="serviceCardWrapper" style={getCardStyle()}>
+      {isActive && <div className="cardHalo" aria-hidden="true" />}
       <div className={cls}>
         {/* Front */}
-        <div className={styles.cardFaceFront}>
-          <div className={styles.cardHeader}>
-            <div className={styles.cardIcon} aria-hidden="true">
+        <div className="cardFaceFront">
+          <div className="cardHeader">
+            <div className="cardIcon" aria-hidden="true">
               <service.Icon />
             </div>
-            <h3 className={styles.cardTitle}>{service.title}</h3>
+            <h3 className="cardTitle">{service.title}</h3>
           </div>
 
-          <p className={styles.cardDescription}>{service.description}</p>
+          <p className="cardDescription">{service.description}</p>
 
-          <div className={styles.servicecardCtas}>
+          <div className="servicecardCtas">
             <a
               href={service.learnMoreUrl}
-              className={`${styles.cardBtn} ${styles.linkBtn}`}
+              className="cardBtn linkBtn"
               aria-label={`See case studies related to ${service.title}`}
             >
               See Case Studies
             </a>
 
             <button
-              className={`${styles.cardBtn} ${styles.detailsBtn}`}
+              className="cardBtn detailsBtn"
               onClick={onFlip}
               type="button"
               disabled={!isActive}
@@ -225,36 +224,36 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
         </div>
 
         {/* Back */}
-        <div className={styles.cardFaceBack} aria-live="polite">
-          <div className={styles.backHeader}>
-            <div className={styles.backTitleGroup}>
-              <service.Icon className={styles.backHeaderIcon} />
-              <h3 className={styles.backHeaderTitle}>{service.title}</h3>
+        <div className="cardFaceBack" aria-live="polite">
+          <div className="backHeader">
+            <div className="backTitleGroup">
+              <service.Icon className="backHeaderIcon" />
+              <h3 className="backHeaderTitle">{service.title}</h3>
             </div>
-            <button className={styles.closeBtn} onClick={onFlip} aria-label="Close details">
+            <button className="closeBtn" onClick={onFlip} aria-label="Close details">
               <RiCloseLine />
             </button>
           </div>
 
-          <div className={styles.backContentScroll}>
-            <div className={styles.specSection}>
-              <h4 className={styles.detailsTitle}>Core Deliverables</h4>
-              <ul className={styles.detailsList}>
+          <div className="backContentScroll">
+            <div className="specSection">
+              <h4 className="detailsTitle">Core Deliverables</h4>
+              <ul className="detailsList">
                 {service.details.map((detail, i) => (
                   <li key={detail} style={{ "--i": i }}>
-                    <RiCheckboxCircleLine className={styles.checkIcon} aria-hidden="true" />
+                    <RiCheckboxCircleLine className="checkIcon" aria-hidden="true" />
                     <span>{detail}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className={styles.specSection}>
-              <h4 className={styles.outcomesTitle}><RiRocketLine className={styles.rocketIcon} /> Business Impact</h4>
-              <ul className={styles.outcomesList}>
+            <div className="specSection">
+              <h4 className="outcomesTitle"><RiRocketLine className="rocketIcon" /> Business Impact</h4>
+              <ul className="outcomesList">
                 {service.outcomes.map((o, i) => (
                   <li key={o} style={{ "--i": i + service.details.length }}>
-                    <div className={styles.impactBullet} style={{ backgroundColor: 'var(--accent-color)' }} />
+                    <div className="impactBullet" style={{ backgroundColor: 'var(--accent-color)' }} />
                     <span>{o}</span>
                   </li>
                 ))}
@@ -262,10 +261,10 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
             </div>
           </div>
 
-          <div className={styles.backFooter}>
+          <div className="backFooter">
             <a
               href={service.projectUrl}
-              className={`${styles.cardBtn} ${styles.linkBtn} ${styles.fullWidthBtn}`}
+              className="cardBtn linkBtn fullWidthBtn"
               aria-label={`View ${service.title} work`}
             >
               View Related Work
@@ -280,23 +279,23 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
 const ServiceSelector = ({ services, currentIndex, onSelect }) => {
   const navRef = useRef(null);
   const [indicatorStyle, setIndicatorStyle] = useState({});
+  const duplicatedServices = [...services, ...services];
 
   useEffect(() => {
     const updateIndicator = () => {
-      const el = navRef.current?.querySelectorAll("[role='tab']")[currentIndex];
+      const tabs = navRef.current?.querySelectorAll("[role='tab']");
+      const el = tabs?.[currentIndex];
       if (el) {
         setIndicatorStyle({
           left: `${el.offsetLeft}px`,
+          top: `${el.offsetTop}px`,
           width: `${el.offsetWidth}px`,
+          height: `${el.offsetHeight}px`,
         });
       }
     };
 
     updateIndicator();
-
-    // To handle initial focus when index changes
-    const el = navRef.current?.querySelectorAll("[role='tab']")[currentIndex];
-    if (el) el.focus({ preventScroll: true });
 
     // Ensure it updates on window resize
     window.addEventListener("resize", updateIndicator);
@@ -320,45 +319,50 @@ const ServiceSelector = ({ services, currentIndex, onSelect }) => {
   };
 
   return (
-    <div
-      className={styles.serviceSelector}
-      ref={navRef}
-      role="tablist"
-      aria-label="Services"
-      onKeyDown={onKeyDown}
-    >
-      {services.map((service, index) => (
-        <button
-          key={service.id}
-          role="tab"
-          aria-selected={index === currentIndex}
-          aria-controls={`panel-${service.id}`}
-          id={`tab-${service.id}`}
-          className={`${styles.serviceNavItem} ${index === currentIndex ? styles.active : ""
-            }`}
-          onClick={() => onSelect(index)}
-          tabIndex={index === currentIndex ? 0 : -1}
-          data-accent={service.accent}
-        >
-          {service.title}
-        </button>
-      ))}
-      <div className={styles.navIndicator} style={indicatorStyle} />
+    <div className="serviceSelectorWrapper">
+      <div
+        className="serviceSlider"
+        ref={navRef}
+        role="tablist"
+        aria-label="Services"
+        onKeyDown={onKeyDown}
+      >
+        {duplicatedServices.map((service, index) => {
+          const originalIndex = index % services.length;
+          const isActive = originalIndex === currentIndex;
+          return (
+            <button
+              key={`${service.id}-${index}`}
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`panel-${service.id}`}
+              id={`tab-${service.id}-${index}`}
+              className={`serviceNavItem ${isActive ? "active" : ""}`}
+              onClick={() => onSelect(originalIndex)}
+              tabIndex={isActive ? 0 : -1}
+              data-accent={service.accent}
+            >
+              {service.title}
+            </button>
+          );
+        })}
+        <div className="navIndicator" style={indicatorStyle} />
+      </div>
     </div>
   );
 };
 
 const DeveloperNav = ({ info, onPrev, onNext }) => (
-  <nav className={styles.developerNav} aria-label="Service navigation">
-    <button onClick={onPrev} className={styles.navButton} aria-label="Previous">
+  <nav className="developerNav" aria-label="Service navigation">
+    <button onClick={onPrev} className="navButton" aria-label="Previous">
       <RiArrowLeftSLine />
     </button>
-    <img src={info.imageUrl} alt={info.name} className={styles.devImage} />
-    <div className={styles.devTextContainer}>
-      <div className={styles.devName}>{info.name}</div>
-      <div className={styles.devTitle}>{info.title}</div>
+    <img src={info.imageUrl} alt={info.name} className="devImage" />
+    <div className="devTextContainer">
+      <div className="devName">{info.name}</div>
+      <div className="devTitle">{info.title}</div>
     </div>
-    <button onClick={onNext} className={styles.navButton} aria-label="Next">
+    <button onClick={onNext} className="navButton" aria-label="Next">
       <RiArrowRightSLine />
     </button>
   </nav>
@@ -503,22 +507,19 @@ function ServicesPage({ theme }) {
 
       <div className="custom-scale-wrapper">
         <div
-          className={styles.container}
+          className="container"
           style={{
             "--accent-color": activeService.accent,
             "--halo": activeService.halo,
           }}
         >
-          <div className={styles.pageHalo} aria-hidden="true" />
+          <div className="pageHalo" aria-hidden="true" />
           <div className="sectionHeader">
-            <h1
-              className="gradientText
-        sectionTitle"
-            >
+            <h1 className="gradientText sectionTitle">
               Our Services
             </h1>
 
-            <p className={styles.sectionDek}>
+            <p className="sectionDek">
               I help teams ship fast, accessible, SEO-ready products. Choose a
               focused service or combine them into a sprint plan. Every engagement
               includes measurable outcomes and clear deliverables.
@@ -532,7 +533,7 @@ function ServicesPage({ theme }) {
           />
 
           <main
-            className={styles.carouselWrapper}
+            className="carouselWrapper"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -540,7 +541,7 @@ function ServicesPage({ theme }) {
             role="tabpanel"
             aria-labelledby={`tab-${activeService.id}`}
           >
-            <div className={styles.carouselTrack} ref={trackRef}>
+            <div className="carouselTrack" ref={trackRef}>
               {services.map((service, index) => {
                 let offset = index - currentIndex;
                 if (offset > services.length / 2) offset -= services.length;
@@ -560,12 +561,11 @@ function ServicesPage({ theme }) {
             </div>
           </main>
 
-          <div className={styles.dotIndicators}>
+          <div className="dotIndicators">
             {services.map((s, i) => (
               <button
                 key={s.id}
-                className={`${styles.dot} ${i === currentIndex ? styles.activeDot : ""
-                  }`}
+                className={`dot ${i === currentIndex ? "activeDot" : ""}`}
                 onClick={() => handleSelect(i)}
                 aria-label={`Go to ${s.title}`}
                 title={s.title}
@@ -573,7 +573,7 @@ function ServicesPage({ theme }) {
             ))}
           </div>
 
-          <div className={styles.developerNavWrapper}>
+          <div className="developerNavWrapper">
             <DeveloperNav
               info={currentDevInfo}
               onPrev={handlePrev}

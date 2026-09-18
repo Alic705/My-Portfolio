@@ -629,51 +629,9 @@ form {
   }
 }
 
-@media (max-width: 768px) {
-  .formHeader h3 {
-    font-size: 1.6rem;
-    margin-bottom: 0.2rem;
-  }
 
-  .localTime {
-    display: none;
-  }
 
-  .statusWrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-  }
 
-  .formContainer {
-    padding: 10px;
-  }
-
-  .formWrapper.visible .formHeader,
-  .formWrapper.visible .formGroup,
-  .formWrapper.visible .submitBtn,
-  .formWrapper.visible .socialsFooter {
-    animation: none;
-  }
-}
-
-@media (max-width: 767px) {
-  input {
-    height: 44px;
-    line-height: 44px;
-    padding-block: 0;
-  }
-
-  .formGroup {
-    margin-bottom: 1.2rem;
-  }
-
-  .submitBtn {
-    height: 44px;
-    font-size: 14px;
-    min-height: unset;
-  }
-}
 
 /* ====== Reduced Motion ====== */
 @media (prefers-reduced-motion: reduce) {
