@@ -1,2 +1,58 @@
+# ==============================================================================
+# Robots.txt for Ali Ch Portfolio (https://alichdev.onrender.com)
+# 100% SEO-Optimized for Crawlers, Indexing, and Search Engine Bots
+# ==============================================================================
+
+# Global Rules for all web crawlers
 User-agent: *
 Allow: /
+
+# Explicitly ensure search engine bots can access and index critical frontend assets
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.gif$
+Allow: /*.ico$
+Allow: /*.pdf$
+Allow: /assets/
+
+# Disallow crawling of internal or non-indexed paths
+Disallow: /scratch/
+Disallow: /temp/
+
+# Major Search Engine Web Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /assets/
+Allow: /projects/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Canonical Host
+Host: https://alichdev.onrender.com
+
+# XML Sitemap Location
+Sitemap: https://alichdev.onrender.com/sitemap.xml

@@ -158,7 +158,7 @@ table {
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
-  --ui-scaling: clamp(10px, 0.95vw, 16px);
+  --ui-scaling: clamp(12px, 1vw, 18px);
 
   /* Spacing (8pt scale) */
   --space-1: 4px;
@@ -392,10 +392,8 @@ body {
 }
 
 @media (max-width: 1000px) {
-
-  .custom-scale-wrapper,
-  .desktop-nav {
-    font-size: 10px;
+  .custom-scale-wrapper {
+    font-size: clamp(12px, 1.1vw, 15px);
   }
 }
 

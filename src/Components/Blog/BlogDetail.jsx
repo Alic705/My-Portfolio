@@ -36,7 +36,7 @@ function buildToc(html) {
   return { headings, html: processed };
 }
 
-export default function BlogDetail({ slugFromRouter }) {
+export default function BlogDetail({ slugFromRouter, onNavigate }) {
   // If you're using a router, pass slug prop, or derive from URL:
   const slug =
     slugFromRouter ||
@@ -50,13 +50,23 @@ export default function BlogDetail({ slugFromRouter }) {
       <main className="blogDetailWrap">
         <h1>Article not found</h1>
         <p>
-          Go back to the <a href="/blog">blog</a>.
+          Go back to the{" "}
+          <a
+            href="/blog"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.("blog");
+            }}
+          >
+            blog
+          </a>
+          .
         </p>
       </main>
     );
   }
 
-  const baseUrl = "https://alich.dev";
+  const baseUrl = "https://alichdev.onrender.com";
   const canonical = `${baseUrl}/blog/${post.slug}`;
   const { minutes } = getReadingTime(post.html);
   const { headings, html } = buildToc(post.html);
@@ -148,22 +158,50 @@ export default function BlogDetail({ slugFromRouter }) {
         />
 
         <aside className="blogDetailPostCtas">
-          <a href="/services" className="btnPrimary">
+          <a
+            href="/services"
+            className="btnPrimary"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.("services");
+            }}
+          >
             Need a performance/SEO audit?
           </a>
-          <a href="/projects" className="btnGhost">
+          <a
+            href="/projects"
+            className="btnGhost"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.("projects");
+            }}
+          >
             View case studies
           </a>
         </aside>
 
         <nav className="blogDetailPager" aria-label="More articles">
           {prev && (
-            <a href={`/blog/${prev.slug}`} className="blogDetailPrev">
+            <a
+              href={`/blog/${prev.slug}`}
+              className="blogDetailPrev"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate?.("blog-detail", prev.slug);
+              }}
+            >
               ← {prev.title}
             </a>
           )}
           {next && (
-            <a href={`/blog/${next.slug}`} className="blogDetailNext">
+            <a
+              href={`/blog/${next.slug}`}
+              className="blogDetailNext"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate?.("blog-detail", next.slug);
+              }}
+            >
               {next.title} →
             </a>
           )}
@@ -178,6 +216,10 @@ export default function BlogDetail({ slugFromRouter }) {
                   key={p.slug}
                   href={`/blog/${p.slug}`}
                   className="blogDetailRelatedCard"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate?.("blog-detail", p.slug);
+                  }}
                 >
                   <img
                     src={p.cover}

@@ -12,6 +12,7 @@ import Blog from "./Components/Blog/Blog";
 import BlogDetail from "./Components/Blog/BlogDetail";
 import BackgroundFX from "./Components/FX/BackgroundFX";
 import Preloader from "./Components/Preloader/Preloader";
+import WhatsAppWidget from "./Components/WhatsAppWidget/WhatsAppWidget";
 // import OrbitingCursor from "./Components/OrbitingCursor/OrbitingCursor";
 import "./App.css";
 import darkLogo from "./assets/images/logo/dark-logo.png";
@@ -406,7 +407,7 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
         .desktop-nav{display:none;}
         @media (min-width: 768px){
           .desktop-nav {
-            font-size: var(--ui-scaling, clamp(10px, 0.95vw, 16px));
+            font-size: min(1.05vw, 2.3vh);
             background: color-mix(in hsl, var(--surface-panel) 70%, transparent);
             backdrop-filter: blur(12px);
             border-radius: var(--r-lg);
@@ -416,11 +417,6 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
             flex-direction: column;
             gap: 0.75em;
             z-index: 100;
-          }
-        }
-        @media (min-width: 768px) and (max-width: 1000px) {
-          .desktop-nav {
-            font-size: 10px;
           }
         }
         @media (min-width: 7680px) {
@@ -658,7 +654,7 @@ function parseLocation(pathname = window.location.pathname) {
     return { page: "blog" };
   }
 
-  if (parts[0] === "project" || parts[0] === "projects") {
+  if (parts[0] === "project" || parts[0] === "projects" || parts[0] === "case-studies" || parts[0] === "case-study") {
     if (parts.length > 1) return { page: "project-detail", slug: parts[1] };
     return { page: "projects" };
   }
@@ -764,6 +760,7 @@ function App() {
           "/about",
           "/services",
           "/projects",
+          "/case-studies",
           "/testimonials",
           "/uses",
           "/faq",
@@ -795,25 +792,25 @@ function App() {
       case "home":
         return <Home onNavigate={handleNavigate} />;
       case "about":
-        return <About />;
+        return <About onNavigate={handleNavigate} />;
       case "services":
-        return <Services theme={theme} />;
+        return <Services theme={theme} onNavigate={handleNavigate} />;
       case "projects":
         return <Project onNavigate={handleNavigate} />;
       case "project-detail":
         return <ProjectDetail projectId={projectSlug} onNavigate={handleNavigate} />;
       case "testimonials":
-        return <Testimonials />;
+        return <Testimonials onNavigate={handleNavigate} />;
       case "uses":
-        return <UsesPage />;
+        return <UsesPage onNavigate={handleNavigate} />;
       case "faq":
-        return <FAQ />;
+        return <FAQ onNavigate={handleNavigate} />;
       case "blog":
         return <Blog onNavigate={handleNavigate} />;
       case "blog-detail":
         return <BlogDetail slugFromRouter={blogSlug} onNavigate={handleNavigate} />;
       case "contact":
-        return <Contact />;
+        return <Contact onNavigate={handleNavigate} />;
       default:
         return <Home onNavigate={handleNavigate} />;
     }
@@ -825,6 +822,7 @@ function App() {
     <OfflineNotifier>
       <style>{THEME_CSS}</style>
       {/* <OrbitingCursor /> */}
+      <WhatsAppWidget />
       <div className="portfolio-container" data-theme={theme}>
         <Navbar
           activePage={activePage}

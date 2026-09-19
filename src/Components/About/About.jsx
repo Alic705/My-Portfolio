@@ -176,7 +176,7 @@ const HobbiesCard = () => (
 
 /* ========= Main About Component ========= */
 
-const About = () => {
+const About = ({ onNavigate }) => {
   const gridRef = useRef(null);
   const [experience, setExperience] = useState("");
 
@@ -242,7 +242,7 @@ const About = () => {
   }, []);
 
   // --------- JSON-LD (Person + AboutPage + Breadcrumbs) ---------
-  const canonicalUrl = "https://alich.dev/about";
+  const canonicalUrl = "https://alichdev.onrender.com/about";
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -251,6 +251,7 @@ const About = () => {
     url: canonicalUrl,
     sameAs: [
       "https://www.linkedin.com/in/alichdev",
+      "https://github.com/Alic705"
     ],
     homeLocation: { "@type": "Place", name: "Lahore, Punjab, Pakistan" },
     knowsAbout: [
@@ -285,7 +286,7 @@ const About = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://alich.dev/",
+        item: "https://alichdev.onrender.com/",
       },
       { "@type": "ListItem", position: 2, name: "About", item: canonicalUrl },
     ],
@@ -320,7 +321,7 @@ const About = () => {
       <meta property="og:url" content={canonicalUrl} />
       <meta
         property="og:image"
-        content="https://alich.dev/og-about.jpg"
+        content="https://alichdev.onrender.com/og-about.jpg"
       />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -334,7 +335,7 @@ const About = () => {
       />
       <meta
         name="twitter:image"
-        content="https://alich.dev/og-about.jpg"
+        content="https://alichdev.onrender.com/og-about.jpg"
       />
       {/* Structured data */}
       <script
@@ -366,13 +367,21 @@ const About = () => {
           <a
             href="/services"
             className="inlineLink impactHighlight"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate ? onNavigate("services") : (window.location.href = "/services");
+            }}
           >
             See my React &amp; Angular services
           </a>{" "}
           ·{" "}
           <a
-            href="/case-studies"
+            href="/projects"
             className="inlineLink textUnderline"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate ? onNavigate("projects") : (window.location.href = "/projects");
+            }}
           >
             Read performance &amp; SEO case studies
           </a>{" "}
@@ -380,6 +389,10 @@ const About = () => {
           <a
             href="/contact"
             className="inlineLink impactHighlight"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate ? onNavigate("contact") : (window.location.href = "/contact");
+            }}
           >
             Hire me
           </a>
@@ -489,9 +502,11 @@ const About = () => {
             </div>
 
             <a
-              href="mailto:alich70566@example.com"
+              href="https://wa.me/923157324013"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn connectBtn"
-              aria-label="Email Ali to start a project"
+              aria-label="Chat with Ali on WhatsApp"
             >
               Say Hello
             </a>

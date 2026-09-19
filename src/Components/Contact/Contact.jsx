@@ -112,7 +112,7 @@ const DynamicHeadline = ({ headlines }) => {
 };
 
 /* ===================== Page ===================== */
-const Contact = () => {
+const Contact = ({ onNavigate }) => {
   const [view, setView] = useState("portal"); // 'portal' | 'form' | 'success'
   const [status, setStatus] = useState("idle"); // 'idle' | 'submitting' | 'success' | 'error'
   const [localTime, setLocalTime] = useState("");
@@ -231,7 +231,7 @@ const Contact = () => {
   };
 
   /* ---------- SEO head & structured data ---------- */
-  const baseUrl = "https://alich.dev";
+  const baseUrl = "https://alichdev.onrender.com";
   const canonical = `${baseUrl}/contact`;
 
   const contactPageSchema = {
@@ -247,6 +247,7 @@ const Contact = () => {
       jobTitle: "Frontend Engineer",
       sameAs: [
         "https://www.linkedin.com/in/alichdev",
+        "https://github.com/Alic705"
       ],
       homeLocation: { "@type": "Place", name: "Lahore, Punjab, Pakistan" },
       contactPoint: {
@@ -514,7 +515,7 @@ const Contact = () => {
                   label="LinkedIn"
                 />
                 <SocialLink
-                  href="https://github.com/alichdev"
+                  href="https://github.com/Alic705"
                   iconClass="ph-bold ph-github-logo"
                   label="GitHub"
                 />
@@ -535,8 +536,22 @@ const Contact = () => {
             <h4>What’s Next?</h4>
             <p>
               I typically respond within <strong>24 hours</strong>. Meanwhile,
-              explore <a href="/case-studies">case studies</a> or projects on{" "}
-              <a href="" target="_blank" rel="noopener noreferrer">
+              explore{" "}
+              <a
+                href="/projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate ? onNavigate("projects") : (window.location.href = "/projects");
+                }}
+              >
+                case studies
+              </a>{" "}
+              or projects on{" "}
+              <a
+                href="https://github.com/Alic705"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub
               </a>
               .

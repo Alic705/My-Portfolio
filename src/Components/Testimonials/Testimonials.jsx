@@ -110,7 +110,7 @@ export default function Testimonials({
     })),
   };
 
-  const baseUrl = "https://your-domain.com";
+  const baseUrl = "https://alichdev.onrender.com";
   const canonical = `${baseUrl}/testimonials`;
 
   return (

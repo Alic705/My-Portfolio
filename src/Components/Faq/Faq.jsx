@@ -53,7 +53,7 @@ const slugify = (s) =>
     .trim()
     .replace(/\s+/g, "-");
 
-export default function FAQ() {
+export default function FAQ({ onNavigate }) {
   const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState(null);
   const listRef = useRef(null);
@@ -79,7 +79,7 @@ export default function FAQ() {
     );
   }, [query]);
 
-  const baseUrl = "https://alich.dev";
+  const baseUrl = "https://alichdev.onrender.com";
   const canonical = `${baseUrl}/faq`;
 
   /* ---- SEO schema ---- */
@@ -138,7 +138,14 @@ export default function FAQ() {
             Everything about <strong>React</strong>, <strong>Angular</strong>,
             performance, accessibility, and SEO—how I work and what results to
             expect. Need something else?{" "}
-            <a href="/contact" className="faqLink">
+            <a
+              href="/contact"
+              className="faqLink"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate ? onNavigate("contact") : (window.location.href = "/contact");
+              }}
+            >
               Contact me →
             </a>
           </p>
@@ -199,12 +206,25 @@ export default function FAQ() {
           );
         })}
       </section>
-      {/* CTA row */}
       <aside className="faqCtaRow">
-        <a href="/projects" className="btn btnPrimary">
+        <a
+          href="/projects"
+          className="btn btnPrimary"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate ? onNavigate("projects") : (window.location.href = "/projects");
+          }}
+        >
           View Case Studies
         </a>
-        <a href="/services" className="btn btnGhost">
+        <a
+          href="/services"
+          className="btn btnGhost"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate ? onNavigate("services") : (window.location.href = "/services");
+          }}
+        >
           See Services
         </a>
       </aside>

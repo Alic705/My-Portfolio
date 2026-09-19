@@ -452,6 +452,7 @@ function FilterRail({
   setQ,
   sort,
   setSort,
+  onNavigate,
 }) {
   return (
     <aside className={styles.rail}>
@@ -524,9 +525,27 @@ function FilterRail({
 
       <div className={styles.block}>
         <div className={styles.smallNote}>
-          Tip: See <a href="/services">Services</a> or{" "}
-          <a href="/case-studies">Case Studies</a> for how these tools show up
-          in real projects.
+          Tip: See{" "}
+          <a
+            href="/services"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.("services");
+            }}
+          >
+            Services
+          </a>{" "}
+          or{" "}
+          <a
+            href="/case-studies"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate?.("projects");
+            }}
+          >
+            Case Studies
+          </a>{" "}
+          for how these tools show up in real projects.
         </div>
       </div>
     </aside>
@@ -534,7 +553,7 @@ function FilterRail({
 }
 
 /* ============ Page ============ */
-export default function Uses() {
+export default function Uses({ onNavigate }) {
   const [activeCat, setActiveCat] = useState("Development");
   const [os, setOS] = useState("All");
   const [q, setQ] = useState("");
@@ -564,7 +583,7 @@ export default function Uses() {
   }, [activeCat, os, q, sort]);
 
   // --- SEO computed values ---
-  const baseUrl = "https://your-domain.com";
+  const baseUrl = "https://alichdev.onrender.com";
   const canonical = `${baseUrl}/uses`;
   const lastUpdated = useMemo(
     () =>
@@ -696,8 +715,27 @@ export default function Uses() {
           terminals, DB tools, and gear I use day-to-day.
           <span className={styles.inlineLinks}>
             {" "}
-            See <a href="/services">Services</a> or{" "}
-            <a href="/case-studies">Case Studies</a> to view these in action.
+            See{" "}
+            <a
+              href="/services"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate?.("services");
+              }}
+            >
+              Services
+            </a>{" "}
+            or{" "}
+            <a
+              href="/case-studies"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate?.("projects");
+              }}
+            >
+              Case Studies
+            </a>{" "}
+            to view these in action.
           </span>
         </p>
       </header>
@@ -712,6 +750,7 @@ export default function Uses() {
           setQ={setQ}
           sort={sort}
           setSort={setSort}
+          onNavigate={onNavigate}
         />
 
         <main className={styles.grid}>

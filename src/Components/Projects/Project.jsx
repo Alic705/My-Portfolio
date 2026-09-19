@@ -167,7 +167,7 @@ function ProjectPortfolio({ onNavigate }) {
   const activeProject = projectsData[currentIndex];
 
   /* ---------------- SEO: HEAD + JSON-LD ---------------- */
-  const baseUrl = "https://your-domain.com";
+  const baseUrl = "https://alichdev.onrender.com";
   const canonical = `${baseUrl}/projects`;
 
   const itemListSchema = useMemo(

@@ -105,10 +105,10 @@
 .btn {
     position: relative;
     z-index: 1;
-    padding: clamp(0.75rem, 0.85vw, 1rem) clamp(1.4rem, 1.75vw, 2.2rem);
+    padding: 0.8vw 1.8vw;
     border-radius: var(--r-pill);
-    font-weight: 300;
-    font-size: clamp(0.95rem, 1.05vw, 1.15rem);
+    font-weight: 500;
+    font-size: 1vw;
     border: 1px solid transparent;
     cursor: pointer;
     transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
@@ -152,10 +152,16 @@
     width: 100%;
 }
 
-.contentWrapper {
+@media (min-width: 768px) {
+    .homeContainer {
+        font-size: min(1.05vw, 2.3vh);
+    }
+}
+
+.homeContainer .contentWrapper {
     color: var(--text);
     display: grid;
-    gap: 1vw;
+    gap: 0.6em;
     position: relative;
     z-index: 3;
     place-items: center;
@@ -164,22 +170,17 @@
 
 .homeContainer .mainHeading {
     color: var(--text);
-    font-weight: 700;
-    font-size: 4.2rem;
+    font-weight: 800;
+    font-size: 2.85em;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    text-shadow: 0 2px 22px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 @media (min-width: 769px) {
     .homeContainer .mainHeading {
-        font-size: 4.2rem !important;
+        font-size: 3.8em !important;
         line-height: 1.15 !important;
-    }
-
-    .btn {
-        padding: 0.85rem 1.75rem !important;
-        font-size: 1.05rem !important;
     }
 }
 
@@ -207,23 +208,58 @@
     pointer-events: none;
 }
 
-.subHeading {
-    max-width: 75%;
+.homeContainer .subHeading {
+    max-width: 78%;
     display: block;
     margin: 0 auto;
     color: var(--text-secondary);
-    font-size: 1.1vw;
+    font-size: 1.05em;
     line-height: 1.6;
     font-weight: 400;
 }
 
-.ctaRow {
+.homeContainer .ctaRow {
     display: flex;
     justify-content: center;
-    gap: 1vw;
+    gap: 1.2em;
     flex-wrap: wrap;
-    margin-top: 1.7vw;
-    margin-bottom: 1vw;
+    margin-top: 1.4em;
+
+    margin-bottom: 1.4em;
+
+}
+
+.homeContainer .btn {
+    padding: 0.85em 2em !important;
+    border-radius: var(--r-pill) !important;
+    font-weight: 500 !important;
+    font-size: 1.05em !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.01em !important;
+}
+
+.homeContainer .btnPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.6em 1.6em var(--btn-primary-shadow);
+}
+
+.homeContainer .btnGhost:hover {
+    transform: translateY(-2px);
+}
+
+.homeContainer .marqueeTrack {
+    gap: 1.6em;
+    padding-right: 1.6em;
+}
+
+.homeContainer .marqueeItem {
+    font-size: 0.8em;
+    line-height: 1.1em;
+    padding: 0.55em 1em;
+    gap: 0.6em;
 }
 
 .ctaWrap {
@@ -362,7 +398,7 @@
 
 @media (max-width: 1024px) {
     .mainHeading {
-        font-size: 5vw;
+        font-size: 3.6vw;
     }
 
     .subHeading {
@@ -371,7 +407,8 @@
     }
 
     .btn {
-        font-size: 1.3vw;
+        font-size: 1.25vw;
+        padding: 0.9vw 2vw;
     }
 
 
@@ -771,11 +808,13 @@
     color: #fff;
     border: 1px solid transparent;
     box-shadow: 0 8px 24px color-mix(in srgb, var(--brand-2), transparent 72%);
+    text-decoration: none !important;
 }
 
 .connectBtn:hover {
     background: var(--brand-1);
     transform: translateY(-3px);
+    color: #fff;
 }
 
 .availabilityStatus {
@@ -788,6 +827,25 @@
     border-radius: 9999px;
     margin: 0 0 1.4vw 0;
     color: var(--text);
+}
+
+.cardConnect .availabilityStatus,
+.cardConnect .connectBtn {
+    width: 100%;
+    max-width: 232px;
+    min-height: 42px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 9999px;
+}
+
+.cardConnect .connectBtn {
+    font-size: clamp(13px, 1.05vw, 15px);
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 .hobbyPolaroid {

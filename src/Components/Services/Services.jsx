@@ -169,7 +169,7 @@ const developerInfo = {
    COMPONENTS
    =========================== */
 
-const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
+const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive, onNavigate }) => {
   const getCardStyle = () => ({
     "--offset": offset,
     "--dir": Math.sign(offset || 0),
@@ -206,6 +206,10 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
               href={service.learnMoreUrl}
               className="cardBtn linkBtn"
               aria-label={`See case studies related to ${service.title}`}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate ? onNavigate("projects") : (window.location.href = service.learnMoreUrl);
+              }}
             >
               See Case Studies
             </a>
@@ -276,6 +280,10 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
               href={service.projectUrl}
               className="cardBtn linkBtn fullWidthBtn"
               aria-label={`View ${service.title} work`}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate ? onNavigate("projects") : (window.location.href = service.projectUrl);
+              }}
             >
               View Related Work
             </a>
@@ -382,7 +390,7 @@ const DeveloperNav = ({ info, onPrev, onNext }) => (
    PAGE
    =========================== */
 
-function ServicesPage({ theme }) {
+function ServicesPage({ theme, onNavigate }) {
   const isDark =
     theme === "dark" ||
     (!theme &&
@@ -442,7 +450,7 @@ function ServicesPage({ theme }) {
   };
 
   const activeService = services[currentIndex];
-  const baseUrl = "https://your-domain.com";
+  const baseUrl = "https://alichdev.onrender.com";
 
   // --- SEO head & structured data (Breadcrumb + all Service objects) ---
   const breadcrumbSchema = {
@@ -569,6 +577,7 @@ function ServicesPage({ theme }) {
                     isFlipped={isActive && isFlipped}
                     onFlip={handleFlip}
                     isActive={isActive}
+                    onNavigate={onNavigate}
                   />
                 );
               })}

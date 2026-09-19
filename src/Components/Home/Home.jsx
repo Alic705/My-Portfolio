@@ -89,8 +89,8 @@ const Home = ({ onNavigate }) => {
             ref={refs.h1}
             className="mainHeading reveal"
           >
-            Frontend Engineer &amp; Web Developer{" "}
-            <span className="impactHighlight">React.js &amp; Angular</span>{" "}
+            Frontend Engineer &amp; Web <br /> Developer{" "}
+            <span className="impactHighlight">React.js &amp; Angular <br /></span>{" "}
             Specialist
           </h1>
 

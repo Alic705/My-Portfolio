@@ -16,7 +16,7 @@ function formatMonthShort(dateStr) {
   return d.toLocaleString(undefined, { month: "short" }).toUpperCase();
 }
 
-export default function Blog() {
+export default function Blog({ onNavigate }) {
   const [q, setQ] = useState("");
   const [tag, setTag] = useState("All");
 
@@ -43,7 +43,7 @@ export default function Blog() {
     );
   }, [q, tag]);
 
-  const canonical = "https://alich.dev/blog";
+  const canonical = "https://alichdev.onrender.com/blog";
 
   const blogSchema = {
     "@context": "https://schema.org",
@@ -55,13 +55,13 @@ export default function Blog() {
     author: {
       "@type": "Person",
       name: "Ali Ch",
-      url: "https://alich.dev/",
+      url: "https://alichdev.onrender.com/",
     },
     blogPost: POSTS.map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
       description: p.description,
-      url: `https://alich.dev/blog/${p.slug}`,
+      url: `https://alichdev.onrender.com/blog/${p.slug}`,
       datePublished: p.publishedAt,
       dateModified: p.updatedAt || p.publishedAt,
       image: p.cover,
@@ -145,7 +145,14 @@ export default function Blog() {
               return (
                 <SwiperSlide key={p.slug}>
                   <article className="blogCard">
-                    <a href={`/blog/${p.slug}`} className="blogCardLink">
+                    <a
+                      href={`/blog/${p.slug}`}
+                      className="blogCardLink"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigate?.("blog-detail", p.slug);
+                      }}
+                    >
                       <div className="blogCardImg">
                         <img src={p.cover} alt={p.title} loading="lazy" />
                       </div>

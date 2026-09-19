@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ==================== Main Pages ==================== -->
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://alichdev.onrender.com/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://alichdev.onrender.com/og-card.png</image:loc>
+      <image:title>Ali Ch - Frontend Engineer &amp; Web Developer</image:title>
+      <image:caption>Ali Ch specializing in React.js, Angular, Redux, and REST APIs</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/about</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://alichdev.onrender.com/og-about.jpg</image:loc>
+      <image:title>About Ali Ch - Frontend Engineer</image:title>
+      <image:caption>Frontend Engineer with 3.5+ years building production SPAs and design systems</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Services Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/services</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Projects / Case Studies Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/projects</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Blog Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/blog</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/contact</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Testimonials Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/testimonials</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Uses / Toolkit Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/uses</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://alichdev.onrender.com/faq</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- ==================== Production Project Case Studies ==================== -->
+
+  <!-- Rdeens (proj-04) -->
+  <url>
+    <loc>https://alichdev.onrender.com/project/proj-04</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Rdeens - AI-Powered Web Platform Case Study</image:title>
+      <image:caption>High-performance web platform built on Angular and React for rapid enterprise delivery</image:caption>
+    </image:image>
+  </url>
+
+  <!-- UrbanHaven (proj-01) -->
+  <url>
+    <loc>https://alichdev.onrender.com/project/proj-01</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>UrbanHaven - Luxury PropTech &amp; Real Estate Platform Case Study</image:title>
+      <image:caption>Enterprise-grade reactive Angular 18 SPA with AI rental valuation and automated Ejari</image:caption>
+    </image:image>
+  </url>
+
+  <!-- KYROZZA (proj-03) -->
+  <url>
+    <loc>https://alichdev.onrender.com/project/proj-03</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://kyrozza.com/wp-content/uploads/2025/12/GMT-Master-II-%E2%80%98Batgirl-600x600-1.webp</image:loc>
+      <image:title>KYROZZA - Luxury E-Commerce &amp; Timepieces Store Case Study</image:title>
+      <image:caption>Premium WooCommerce boutique engineered for sub-second speeds and high conversion</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Skyline International (proj-05) -->
+  <url>
+    <loc>https://alichdev.onrender.com/project/proj-05</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=150&amp;q=80</image:loc>
+      <image:title>Skyline International - Global AgriTech &amp; Forages Platform Case Study</image:title>
+      <image:caption>React &amp; Next.js global commercial export platform with nutritional spec catalog</image:caption>
+    </image:image>
+  </url>
+
+  <!-- VivaDecor (proj-06) -->
+  <url>
+    <loc>https://alichdev.onrender.com/project/proj-06</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=150&amp;q=80</image:loc>
+      <image:title>VivaDecor - Haute Living &amp; Luxury Architecture Studio Case Study</image:title>
+      <image:caption>Luxury interior architecture platform with interactive renovation comparison slider</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ==================== Technical Blog Articles ==================== -->
+
+  <!-- Sub-Second LCP Article -->
+  <url>
+    <loc>https://alichdev.onrender.com/blog/sub-second-lcp-react-angular-core-web-vitals-guide</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&amp;auto=format&amp;fit=crop&amp;q=80</image:loc>
+      <image:title>Sub-Second LCP in Production: Optimising React &amp; Angular Apps</image:title>
+      <image:caption>Technical engineering guide on achieving sub-second LCP and 98+ Core Web Vitals</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Redux Toolkit & REST API Architecture Article -->
+  <url>
+    <loc>https://alichdev.onrender.com/blog/enterprise-redux-toolkit-rest-api-architecture-guide</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&amp;auto=format&amp;fit=crop&amp;q=80</image:loc>
+      <image:title>Architecting Scalable Frontends: Redux Toolkit &amp; REST APIs</image:title>
+      <image:caption>Blueprint for building enterprise React state layers with RTK and Axios interceptors</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Shopify Liquid & E-Commerce Frontend Article -->
+  <url>
+    <loc>https://alichdev.onrender.com/blog/high-converting-shopify-frontend-liquid-customization-guide</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&amp;auto=format&amp;fit=crop&amp;q=80</image:loc>
+      <image:title>High-Converting E-Commerce Frontends: Custom Shopify Liquid</image:title>
+      <image:caption>How to engineer ultra-fast Shopify storefronts that pass Core Web Vitals</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Accessible Design Systems Article -->
+  <url>
+    <loc>https://alichdev.onrender.com/blog/accessible-design-systems-tailwind-typescript-wcag22</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&amp;auto=format&amp;fit=crop&amp;q=80</image:loc>
+      <image:title>Enterprise Design Systems: Building WCAG 2.2 AA Components</image:title>
+      <image:caption>Crafting reusable, type-safe, and fully accessible component libraries in React</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
