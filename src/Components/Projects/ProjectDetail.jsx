@@ -40,31 +40,30 @@ import {
   SiWoocommerce,
 } from "react-icons/si";
 import { projectsData, getProjectById, getAdjacentProjects } from "./ProjectData";
-import styles from "./ProjectDetail.module.css";
 
 const TechIcon = ({ name }) => {
   const iconMap = {
-    React: <SiReact className={styles.techIcon} />,
-    "Next.js": <SiNextdotjs className={styles.techIcon} />,
-    Angular: <SiAngular className={styles.techIcon} />,
-    "Node.js": <SiNodedotjs className={styles.techIcon} />,
-    TypeScript: <SiTypescript className={styles.techIcon} />,
-    Python: <SiPython className={styles.techIcon} />,
-    Docker: <SiDocker className={styles.techIcon} />,
-    Flutter: <SiFlutter className={styles.techIcon} />,
-    Redux: <SiRedux className={styles.techIcon} />,
-    "Redux Toolkit": <SiRedux className={styles.techIcon} />,
-    Stripe: <SiStripe className={styles.techIcon} />,
-    "Stripe API": <SiStripe className={styles.techIcon} />,
-    "AI APIs": <SiOpenai className={styles.techIcon} />,
-    "AI Integration": <SiOpenai className={styles.techIcon} />,
-    Figma: <SiFigma className={styles.techIcon} />,
-    SEO: <RiLineChartLine className={styles.techIcon} />,
-    TailwindCSS: <SiTailwindcss className={styles.techIcon} />,
-    WordPress: <SiWordpress className={styles.techIcon} />,
-    WooCommerce: <SiWoocommerce className={styles.techIcon} />,
+    React: <SiReact className="techIcon" />,
+    "Next.js": <SiNextdotjs className="techIcon" />,
+    Angular: <SiAngular className="techIcon" />,
+    "Node.js": <SiNodedotjs className="techIcon" />,
+    TypeScript: <SiTypescript className="techIcon" />,
+    Python: <SiPython className="techIcon" />,
+    Docker: <SiDocker className="techIcon" />,
+    Flutter: <SiFlutter className="techIcon" />,
+    Redux: <SiRedux className="techIcon" />,
+    "Redux Toolkit": <SiRedux className="techIcon" />,
+    Stripe: <SiStripe className="techIcon" />,
+    "Stripe API": <SiStripe className="techIcon" />,
+    "AI APIs": <SiOpenai className="techIcon" />,
+    "AI Integration": <SiOpenai className="techIcon" />,
+    Figma: <SiFigma className="techIcon" />,
+    SEO: <RiLineChartLine className="techIcon" />,
+    TailwindCSS: <SiTailwindcss className="techIcon" />,
+    WordPress: <SiWordpress className="techIcon" />,
+    WooCommerce: <SiWoocommerce className="techIcon" />,
   };
-  return iconMap[name] || <RiToolsLine className={styles.techIcon} />;
+  return iconMap[name] || <RiToolsLine className="techIcon" />;
 };
 
 function renderFeatureIcon(iconKey) {
@@ -116,11 +115,11 @@ export default function ProjectDetail({ projectId, onNavigate }) {
   if (!project) {
     return (
       <div className="custom-scale-wrapper">
-        <div className={styles.emptyState}>
+        <div className="emptyState">
           <h2>Project Not Found</h2>
           <p>The project you're looking for doesn't exist or has moved.</p>
           <button
-            className={styles.backButton}
+            className="backButton"
             onClick={() => onNavigate?.("projects")}
           >
             <RiArrowLeftLine /> Back to Projects
@@ -155,27 +154,27 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
   return (
     <div className="custom-scale-wrapper">
-      <article className={styles.detailWrapper} aria-labelledby="case-study-title">
+      <article className="detailWrapper" aria-labelledby="case-study-title">
       {/* TOP NAVIGATION / ACTION BAR */}
-      <nav className={styles.topBar} aria-label="Project Navigation">
+      <nav className="topBar" aria-label="Project Navigation">
         <button
-          className={styles.backButton}
+          className="backButton"
           onClick={() => onNavigate?.("projects")}
           aria-label="Back to all projects"
         >
-          <span className={styles.backArrow}>
+          <span className="backArrow">
             <RiArrowLeftLine />
           </span>
           <span>Back to Projects</span>
         </button>
 
-        <div className={styles.topActions}>
+        <div className="topActions">
           {liveUrl && (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.btnPrimary}
+              className="btnPrimary"
             >
               <span>Live Site</span>
               <RiExternalLinkLine />
@@ -186,7 +185,7 @@ export default function ProjectDetail({ projectId, onNavigate }) {
               href={codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.btnGhost}
+              className="btnGhost"
             >
               <span>Source Code</span>
               <RiGithubLine />
@@ -196,38 +195,38 @@ export default function ProjectDetail({ projectId, onNavigate }) {
       </nav>
 
       {/* HERO SECTION */}
-      <header className={styles.heroSection}>
-        {category && <span className={styles.categoryKicker}>{category}</span>}
-        <h1 id="case-study-title" className={styles.projectTitle}>
+      <header className="heroSection">
+        {category && <span className="categoryKicker">{category}</span>}
+        <h1 id="case-study-title" className="projectTitle">
           {title}
         </h1>
-        <p className={styles.tagline}>{heroTagline || shortDescription}</p>
+        <p className="tagline">{heroTagline || shortDescription}</p>
 
         {/* METADATA BAR */}
-        <div className={styles.metaBar}>
+        <div className="metaBar">
           {role && (
-            <div className={styles.metaItem}>
-              <span className={styles.metaLabel}>
-                <RiUserLine className={styles.metaIcon} /> Role
+            <div className="metaItem">
+              <span className="metaLabel">
+                <RiUserLine className="metaIcon" /> Role
               </span>
-              <span className={styles.metaVal}>{role}</span>
+              <span className="metaVal">{role}</span>
             </div>
           )}
           {timeline && (
-            <div className={styles.metaItem}>
-              <span className={styles.metaLabel}>
-                <RiCalendarEventLine className={styles.metaIcon} /> Timeline
+            <div className="metaItem">
+              <span className="metaLabel">
+                <RiCalendarEventLine className="metaIcon" /> Timeline
               </span>
-              <span className={styles.metaVal}>{timeline}</span>
+              <span className="metaVal">{timeline}</span>
             </div>
           )}
-          <div className={`${styles.metaItem} ${styles.metaTechItem}`}>
-            <span className={styles.metaLabel}>
-              <RiToolsLine className={styles.metaIcon} /> Core Technologies
+          <div className="metaItem metaTechItem">
+            <span className="metaLabel">
+              <RiToolsLine className="metaIcon" /> Core Technologies
             </span>
-            <div className={styles.techPills}>
+            <div className="techPills">
               {techStack.map((tech) => (
-                <span key={tech} className={styles.techPill}>
+                <span key={tech} className="techPill">
                   <TechIcon name={tech} />
                   <span>{tech}</span>
                 </span>
@@ -238,46 +237,46 @@ export default function ProjectDetail({ projectId, onNavigate }) {
       </header>
 
       {/* HERO SHOWCASE IMAGE */}
-      <div className={styles.showcaseFrame}>
+      <div className="showcaseFrame">
         <img
           src={coverImage}
           alt={`${title} project preview`}
-          className={styles.showcaseImage}
+          className="showcaseImage"
           loading="eager"
         />
       </div>
 
       {/* CORE NARRATIVE: CHALLENGE & SOLUTION */}
-      <section className={styles.narrativeGrid}>
-        <div className={styles.storyCard}>
-          <div className={styles.cardHeader}>
-            <span className={styles.sectionBadge}>01 / CONTEXT</span>
-            <h2 className={styles.sectionHeading}>The Challenge</h2>
+      <section className="narrativeGrid">
+        <div className="storyCard">
+          <div className="cardHeader">
+            <span className="sectionBadge">01 / CONTEXT</span>
+            <h2 className="sectionHeading">The Challenge</h2>
           </div>
-          <p className={styles.cardParagraph}>{challenge}</p>
+          <p className="cardParagraph">{challenge}</p>
         </div>
 
-        <div className={styles.storyCard}>
-          <div className={styles.cardHeader}>
-            <span className={styles.sectionBadge}>02 / EXECUTION</span>
-            <h2 className={styles.sectionHeading}>The Solution</h2>
+        <div className="storyCard">
+          <div className="cardHeader">
+            <span className="sectionBadge">02 / EXECUTION</span>
+            <h2 className="sectionHeading">The Solution</h2>
           </div>
-          <p className={styles.cardParagraph}>{solution}</p>
+          <p className="cardParagraph">{solution}</p>
         </div>
       </section>
 
       {/* MEASURABLE RESULTS / IMPACT COUNTERS */}
       {results.length > 0 && (
-        <section className={styles.impactSection}>
-          <div className={styles.sectionTitleBlock}>
-            <span className={styles.sectionBadge}>03 / OUTCOMES</span>
-            <h2 className={styles.sectionHeading}>Measurable Impact</h2>
+        <section className="impactSection">
+          <div className="sectionTitleBlock">
+            <span className="sectionBadge">03 / OUTCOMES</span>
+            <h2 className="sectionHeading">Measurable Impact</h2>
           </div>
-          <div className={styles.statsGrid}>
+          <div className="statsGrid">
             {results.map((r, i) => (
-              <div key={i} className={styles.statCard}>
-                <div className={styles.statNumber}>{r.value}</div>
-                <div className={styles.statLabel}>{r.label}</div>
+              <div key={i} className="statCard">
+                <div className="statNumber">{r.value}</div>
+                <div className="statLabel">{r.label}</div>
               </div>
             ))}
           </div>
@@ -286,17 +285,17 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
       {/* ENGINEERING APPROACH & PROCESS */}
       {processSteps.length > 0 && (
-        <section className={styles.processSection}>
-          <div className={styles.sectionTitleBlock}>
-            <span className={styles.sectionBadge}>04 / METHODOLOGY</span>
-            <h2 className={styles.sectionHeading}>Engineering Approach</h2>
+        <section className="processSection">
+          <div className="sectionTitleBlock">
+            <span className="sectionBadge">04 / METHODOLOGY</span>
+            <h2 className="sectionHeading">Engineering Approach</h2>
           </div>
-          <div className={styles.processGrid}>
+          <div className="processGrid">
             {processSteps.map((step, idx) => (
-              <div key={idx} className={styles.processStepCard}>
-                <div className={styles.stepIndex}>0{idx + 1}</div>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepDesc}>{step.description}</p>
+              <div key={idx} className="processStepCard">
+                <div className="stepIndex">0{idx + 1}</div>
+                <h3 className="stepTitle">{step.title}</h3>
+                <p className="stepDesc">{step.description}</p>
               </div>
             ))}
           </div>
@@ -305,19 +304,19 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
       {/* KEY FEATURES */}
       {features.length > 0 && (
-        <section className={styles.featuresSection}>
-          <div className={styles.sectionTitleBlock}>
-            <span className={styles.sectionBadge}>05 / ARCHITECTURE</span>
-            <h2 className={styles.sectionHeading}>Key Capabilities</h2>
+        <section className="featuresSection">
+          <div className="sectionTitleBlock">
+            <span className="sectionBadge">05 / ARCHITECTURE</span>
+            <h2 className="sectionHeading">Key Capabilities</h2>
           </div>
-          <div className={styles.featuresGrid}>
+          <div className="featuresGrid">
             {features.map((feat, idx) => (
-              <div key={idx} className={styles.featureCard}>
-                <div className={styles.featureIconBubble}>
+              <div key={idx} className="featureCard">
+                <div className="featureIconBubble">
                   {renderFeatureIcon(feat.icon)}
                 </div>
-                <h3 className={styles.featureTitle}>{feat.title}</h3>
-                <p className={styles.featureDesc}>{feat.description}</p>
+                <h3 className="featureTitle">{feat.title}</h3>
+                <p className="featureDesc">{feat.description}</p>
               </div>
             ))}
           </div>
@@ -326,27 +325,27 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
       {/* INTERFACE SHOWCASE GALLERY */}
       {media?.images?.length > 0 && (
-        <section className={styles.gallerySection}>
-          <div className={styles.sectionTitleBlock}>
-            <span className={styles.sectionBadge}>06 / INTERFACE SHOWCASE</span>
-            <h2 className={styles.sectionHeading}>Visual Previews</h2>
+        <section className="gallerySection">
+          <div className="sectionTitleBlock">
+            <span className="sectionBadge">06 / INTERFACE SHOWCASE</span>
+            <h2 className="sectionHeading">Visual Previews</h2>
           </div>
 
-          <div className={styles.galleryContainer}>
-            <div className={styles.galleryMain}>
+          <div className="galleryContainer">
+            <div className="galleryMain">
               <img
                 src={media.images[galleryIndex]}
                 alt={`${title} interface preview ${galleryIndex + 1}`}
-                className={styles.galleryImage}
+                className="galleryImage"
                 loading="lazy"
               />
             </div>
             {media.images.length > 1 && (
-              <div className={styles.galleryThumbnails}>
+              <div className="galleryThumbnails">
                 {media.images.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${i === galleryIndex ? styles.activeThumb : ""
+                    className={`thumbBtn ${i === galleryIndex ? "activeThumb" : ""
                       }`}
                     onClick={() => setGalleryIndex(i)}
                     aria-label={`Show preview image ${i + 1}`}
@@ -362,22 +361,22 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
       {/* CLIENT TESTIMONIAL (IF AVAILABLE) */}
       {testimonial?.quote && (
-        <section className={styles.testimonialSection}>
-          <div className={styles.testimonialCard}>
-            <div className={styles.quoteMark}>“</div>
-            <p className={styles.quoteText}>{testimonial.quote}</p>
-            <div className={styles.testimonialAuthor}>
+        <section className="testimonialSection">
+          <div className="testimonialCard">
+            <div className="quoteMark">“</div>
+            <p className="quoteText">{testimonial.quote}</p>
+            <div className="testimonialAuthor">
               {testimonial.avatar && (
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.author}
-                  className={styles.authorAvatar}
+                  className="authorAvatar"
                 />
               )}
               <div>
-                <div className={styles.authorName}>{testimonial.author}</div>
+                <div className="authorName">{testimonial.author}</div>
                 {testimonial.role && (
-                  <div className={styles.authorRole}>{testimonial.role}</div>
+                  <div className="authorRole">{testimonial.role}</div>
                 )}
               </div>
             </div>
@@ -387,12 +386,12 @@ export default function ProjectDetail({ projectId, onNavigate }) {
 
       {/* FUTURE ROADMAP */}
       {futureWork?.length > 0 && (
-        <section className={styles.futureSection}>
-          <h3 className={styles.futureTitle}>Roadmap & Future Extensions</h3>
-          <ul className={styles.futureList}>
+        <section className="futureSection">
+          <h3 className="futureTitle">Roadmap & Future Extensions</h3>
+          <ul className="futureList">
             {futureWork.map((item, idx) => (
-              <li key={idx} className={styles.futureItem}>
-                <RiCheckDoubleLine className={styles.checkIcon} />
+              <li key={idx} className="futureItem">
+                <RiCheckDoubleLine className="checkIcon" />
                 <span>{item}</span>
               </li>
             ))}
@@ -401,15 +400,15 @@ export default function ProjectDetail({ projectId, onNavigate }) {
       )}
 
       {/* BOTTOM PAGER & CTA */}
-      <footer className={styles.detailFooter}>
+      <footer className="detailFooter">
 
-        <div className={styles.contactCtaBanner}>
-          <div className={styles.ctaText}>
+        <div className="contactCtaBanner">
+          <div className="ctaText">
             <h3>Have an ambitious idea in mind?</h3>
             <p>Let's collaborate to build high-performance, human-centered digital products.</p>
           </div>
           <button
-            className={styles.btnPrimary}
+            className="btnPrimary"
             onClick={() => onNavigate?.("contact")}
           >
             Start a Conversation →

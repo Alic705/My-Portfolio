@@ -1,6 +1,5 @@
 // src/pages/blog/BlogDetail.jsx
 import React, { useMemo } from "react";
-import styles from "./BlogDetail.module.css";
 import { POSTS } from "./blogData";
 
 function getReadingTime(html) {
@@ -48,7 +47,7 @@ export default function BlogDetail({ slugFromRouter }) {
   const { post, index, prev, next } = usePost(slug);
   if (!post) {
     return (
-      <main className={styles.wrap}>
+      <main className="blogDetailWrap">
         <h1>Article not found</h1>
         <p>
           Go back to the <a href="/blog">blog</a>.
@@ -98,7 +97,7 @@ export default function BlogDetail({ slugFromRouter }) {
 
   return (
     <div className="custom-scale-wrapper">
-      <main className={styles.wrap} aria-labelledby="post-title">
+      <main className="blogDetailWrap" aria-labelledby="post-title">
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
         <link rel="canonical" href={canonical} />
@@ -118,81 +117,67 @@ export default function BlogDetail({ slugFromRouter }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
 
-        <header className={styles.header}>
-          <p className={styles.kicker}>
+        <header className="blogDetailHeader">
+          <p className="blogDetailKicker">
             Front-End · {post.tags.slice(0, 2).join(" · ")}
           </p>
-          <h1 id="post-title" className={styles.h1}>
+          <h1 id="post-title" className="blogDetailH1 gradientText">
             {post.title}
           </h1>
-          <p className={styles.meta}>
+          <p className="blogDetailMeta">
             <span>{post.author}</span>
-            <span className={styles.dot}>•</span>
+            <span className="blogDetailDot">•</span>
             <time dateTime={post.publishedAt}>
               {new Date(post.publishedAt).toLocaleDateString()}
             </time>
-            <span className={styles.dot}>•</span>
+            <span className="blogDetailDot">•</span>
             <span>{minutes} min read</span>
           </p>
           <img
             src={post.cover}
             alt={post.title}
-            className={styles.hero}
+            className="blogDetailHero"
             loading="lazy"
             decoding="async"
           />
         </header>
 
-        {/* Table of contents */}
-        {headings.length > 0 && (
-          <nav className={styles.toc} aria-label="Table of contents">
-            <strong>On this page</strong>
-            <ul>
-              {headings.map((h) => (
-                <li key={h.id}>
-                  <a href={`#${h.id}`}>{h.text}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
-
         <article
-          className={styles.article}
+          className="blogDetailArticle"
           dangerouslySetInnerHTML={{ __html: html }}
         />
 
-        <aside className={styles.postCtas}>
-          <a href="/services" className={styles.btnPrimary}>
+        <aside className="blogDetailPostCtas">
+          <a href="/services" className="btnPrimary">
             Need a performance/SEO audit?
           </a>
-          <a href="/projects" className={styles.btnGhost}>
+          <a href="/projects" className="btnGhost">
             View case studies
           </a>
         </aside>
 
-        <nav className={styles.pager} aria-label="More articles">
+        <nav className="blogDetailPager" aria-label="More articles">
           {prev && (
-            <a href={`/blog/${prev.slug}`} className={styles.prev}>
+            <a href={`/blog/${prev.slug}`} className="blogDetailPrev">
               ← {prev.title}
             </a>
           )}
           {next && (
-            <a href={`/blog/${next.slug}`} className={styles.next}>
+            <a href={`/blog/${next.slug}`} className="blogDetailNext">
               {next.title} →
             </a>
           )}
         </nav>
 
         {related.length > 0 && (
-          <section className={styles.related} aria-label="Related posts">
+          <section className="blogDetailRelated" aria-label="Related posts">
             <h2>Related</h2>
-            <div className={styles.relatedGrid}>
+            <div className="blogDetailRelatedGrid">
               {related.map((p) => (
                 <a
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className={styles.relatedCard}
+                  className="blogDetailRelatedCard"
                 >
                   <img
                     src={p.cover}
@@ -200,8 +185,8 @@ export default function BlogDetail({ slugFromRouter }) {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className={styles.relatedMeta}>
-                    <span className={styles.tag}>{p.tags[0]}</span>
+                  <div className="blogDetailRelatedMeta">
+                    <span className="blogDetailTag">{p.tags[0]}</span>
                     <h3>{p.title}</h3>
                   </div>
                 </a>

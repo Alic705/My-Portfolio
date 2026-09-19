@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Contact.module.css";
 
 /* ---------------- Icons ---------------- */
 const PaperPlaneIcon = (props) => (
@@ -21,13 +20,13 @@ const PaperPlaneIcon = (props) => (
 );
 
 const LoadingAnimation = () => (
-  <div className={styles.loadingAnimation}>
+  <div className="contactLoadingAnimation">
     <PaperPlaneIcon />
   </div>
 );
 
 const SuccessIcon = () => (
-  <div className={styles.successIcon}>
+  <div className="contactSuccessIcon">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
@@ -50,7 +49,7 @@ const SocialLink = ({ href, iconClass, label }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className={styles.socialLink}
+    className="contactSocialLink"
     aria-label={label}
   >
     <i className={iconClass}></i>
@@ -75,6 +74,19 @@ const ClockIcon = () => (
 );
 
 /* --------- Dynamic Headline --------- */
+const renderHeadlineWithBr = (text) => {
+  if (typeof text !== "string") return text;
+  const words = text.trim().split(" ");
+  if (words.length <= 1) return text;
+  const mainPart = words.slice(0, words.length - 1).join(" ");
+  const lastWord = words[words.length - 1];
+  return (
+    <>
+      {mainPart} <br /> {lastWord}
+    </>
+  );
+};
+
 const DynamicHeadline = ({ headlines }) => {
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -85,14 +97,14 @@ const DynamicHeadline = ({ headlines }) => {
     return () => clearInterval(t);
   }, [headlines.length]);
   return (
-    <div className={styles.headlineContainer} aria-live="polite">
+    <div className="contactHeadlineHeader" aria-live="polite">
       {headlines.map((text, i) => (
         <h2
           key={i}
-          className={`${styles.headline} ${i === index ? styles.headlineVisible : ""
+          className={`contactHeadline ${i === index ? "contactHeadlineVisible" : ""
             }`}
         >
-          {text}
+          {renderHeadlineWithBr(text)}
         </h2>
       ))}
     </div>
@@ -170,7 +182,6 @@ const Contact = () => {
 
     try {
       // WEB3FORMS (Method 1)
-      // Get your free access key from https://web3forms.com/ and replace YOUR_ACCESS_KEY_HERE
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -303,15 +314,14 @@ const Contact = () => {
 
       {/* PAGE */}
       <div
-        className={styles.ctaContainer}
+        className="contactCtaContainer"
         aria-labelledby={view === "portal" ? "contact-title" : undefined}
       >
         {/* Visible H1 for SEO/A11y (keeps UI minimal if styled small) */}
         {view === "portal" && (
           <h1
             id="contact-title"
-            className="gradientText
-        sectionTitle"
+            className="gradientText sectionTitle"
           >
             Contact
           </h1>
@@ -319,21 +329,21 @@ const Contact = () => {
 
         {/* --- STATE 1: Portal --- */}
         <div
-          className={`${styles.portalView} ${view !== "portal" ? styles.hidden : ""
+          className={`contactPortalView ${view !== "portal" ? "contactHidden" : ""
             }`}
         >
           <DynamicHeadline headlines={dynamicHeadlines} />
           <div
-            className={styles.portal}
+            className="contactPortal"
             onClick={handlePortalClick}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => (e.key === "Enter" ? handlePortalClick() : null)}
             aria-label="Open contact form"
           >
-            <PaperPlaneIcon className={styles.portalIcon} />
+            <PaperPlaneIcon className="contactPortalIcon" />
           </div>
-          <p className={styles.ctaSubtitle}>
+          <p className="contactCtaSubtitle">
             Click the icon to start the conversation. It’s currently{" "}
             <strong>{localTime}</strong> in Lahore, Pakistan.
           </p>
@@ -341,21 +351,21 @@ const Contact = () => {
 
         {/* --- STATE 2: Form --- */}
         <div
-          className={`${styles.formWrapper} ${view === "form" ? styles.visible : ""
+          className={`contactFormWrapper ${view === "form" ? "contactVisible" : ""
             }`}
         >
           <div
-            className={`${styles.formContainer} ${status === "error" ? styles.shake : ""
+            className={`contactFormContainer ${status === "error" ? "contactShake" : ""
               }`}
           >
-            <div className={styles.formHeader}>
+            <div className="contactFormHeader">
               <h2 className="gradientText sectionTitle">Start the Conversation</h2>
-              <div className={styles.statusWrapper}>
-                <div className={styles.availability}>
-                  <span className={styles.statusDot}></span>Available for new
+              <div className="contactStatusWrapper">
+                <div className="contactAvailability">
+                  <span className="contactStatusDot"></span>Available for new
                   projects
                 </div>
-                <div className={styles.responseTime}>
+                <div className="contactResponseTime">
                   <ClockIcon /> Usually replies within <span>24</span> hours
                 </div>
               </div>
@@ -383,11 +393,11 @@ const Contact = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className={styles.row}>
+              <div className="contactRow">
                 <div
-                  className={`${styles.formGroup} ${styles.halfWidth} ${errors.name ? styles.error : ""}`}
+                  className={`contactFormGroup contactHalfWidth ${errors.name ? "contactError" : ""}`}
                 >
-                  <label htmlFor="name" className={styles.label}>
+                  <label htmlFor="name" className="contactLabel">
                     Name
                   </label>
                   <input
@@ -401,14 +411,14 @@ const Contact = () => {
                     placeholder="What should I call you?"
                   />
                   {errors.name && (
-                    <span className={styles.errorMessage}>{errors.name}</span>
+                    <span className="contactErrorMessage">{errors.name}</span>
                   )}
                 </div>
 
                 <div
-                  className={`${styles.formGroup} ${styles.halfWidth} ${errors.email ? styles.error : ""}`}
+                  className={`contactFormGroup contactHalfWidth ${errors.email ? "contactError" : ""}`}
                 >
-                  <label htmlFor="email" className={styles.label}>
+                  <label htmlFor="email" className="contactLabel">
                     Email
                   </label>
                   <input
@@ -422,17 +432,17 @@ const Contact = () => {
                     placeholder="e.g., name@example.com"
                   />
                   {errors.email && (
-                    <span className={styles.errorMessage}>{errors.email}</span>
+                    <span className="contactErrorMessage">{errors.email}</span>
                   )}
                 </div>
               </div>
 
               <div className="">
                 <div
-                  className={`${styles.formGroup} ${errors.projectType ? styles.error : ""
+                  className={`contactFormGroup ${errors.projectType ? "contactError" : ""
                     }`}
                 >
-                  <label htmlFor="projectType" className={styles.label}>
+                  <label htmlFor="projectType" className="contactLabel">
                     Project Type
                   </label>
                   <select
@@ -459,14 +469,14 @@ const Contact = () => {
                     <option value="Hello">Just saying hello</option>
                   </select>
                   {errors.projectType && (
-                    <span className={styles.errorMessage}>
+                    <span className="contactErrorMessage">
                       {errors.projectType}
                     </span>
                   )}
                 </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="message" className={styles.label}>
+                <div className="contactFormGroup">
+                  <label htmlFor="message" className="contactLabel">
                     Message (optional)
                   </label>
                   <textarea
@@ -479,14 +489,14 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              <p id="privacy-note" className={styles.privacyNote}>
+              <p id="privacy-note" className="contactPrivacyNote">
                 I’ll use your info only to reply. No mailing lists. By
                 submitting, you agree to be contacted about your inquiry.
               </p>
 
               <button
                 type="submit"
-                className={`${styles.submitBtn} ${status === "error" ? styles.showError : ""
+                className={`contactSubmitBtn ${status === "error" ? "contactShowError" : ""
                   }`}
                 disabled={status === "submitting"}
                 data-analytics="contact-submit"
@@ -495,9 +505,9 @@ const Contact = () => {
               </button>
             </form>
 
-            <div className={styles.socialsFooter}>
+            <div className="contactSocialsFooter">
               <p>or connect with me on</p>
-              <div className={styles.socialLinksContainer}>
+              <div className="contactSocialLinksContainer">
                 <SocialLink
                   href="https://www.linkedin.com/in/alichdev"
                   iconClass="ph-bold ph-linkedin-logo"
@@ -515,13 +525,13 @@ const Contact = () => {
 
         {/* --- STATE 3: Success --- */}
         <div
-          className={`${styles.successView} ${view === "success" ? styles.visible : ""
+          className={`contactSuccessView ${view === "success" ? "contactVisible" : ""
             }`}
         >
           <SuccessIcon />
           <h3>Thank you, {formData.name.split(" ")[0] || "friend"}!</h3>
           <p>Your message has been sent. I’ll review it and reply promptly.</p>
-          <div className={styles.nextSteps}>
+          <div className="contactNextSteps">
             <h4>What’s Next?</h4>
             <p>
               I typically respond within <strong>24 hours</strong>. Meanwhile,
@@ -532,7 +542,7 @@ const Contact = () => {
               .
             </p>
           </div>
-          <button onClick={resetForm} className={styles.resetButton}>
+          <button onClick={resetForm} className="contactResetButton">
             Send Another Message
           </button>
         </div>

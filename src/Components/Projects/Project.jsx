@@ -24,34 +24,33 @@ import {
   SiWoocommerce,
 } from "react-icons/si";
 import { projectsData } from "./ProjectData";
-import styles from "./Project.module.css";
 
 /* ===================================================================
    Tech Icon Mapping
    =================================================================== */
 const TechIcon = ({ name }) => {
   const iconMap = {
-    React: <SiReact className={styles.techIcon} />,
-    "Next.js": <SiNextdotjs className={styles.techIcon} />,
-    Angular: <SiAngular className={styles.techIcon} />,
-    "Node.js": <SiNodedotjs className={styles.techIcon} />,
-    TypeScript: <SiTypescript className={styles.techIcon} />,
-    Python: <SiPython className={styles.techIcon} />,
-    Docker: <SiDocker className={styles.techIcon} />,
-    Flutter: <SiFlutter className={styles.techIcon} />,
-    Redux: <SiRedux className={styles.techIcon} />,
-    "Redux Toolkit": <SiRedux className={styles.techIcon} />,
-    Stripe: <SiStripe className={styles.techIcon} />,
-    "Stripe API": <SiStripe className={styles.techIcon} />,
-    "AI APIs": <SiOpenai className={styles.techIcon} />,
-    "AI Integration": <SiOpenai className={styles.techIcon} />,
-    Figma: <SiFigma className={styles.techIcon} />,
-    SEO: <RiLineChartLine className={styles.techIcon} />,
-    TailwindCSS: <SiTailwindcss className={styles.techIcon} />,
-    WordPress: <SiWordpress className={styles.techIcon} />,
-    WooCommerce: <SiWoocommerce className={styles.techIcon} />,
+    React: <SiReact className="techIcon" />,
+    "Next.js": <SiNextdotjs className="techIcon" />,
+    Angular: <SiAngular className="techIcon" />,
+    "Node.js": <SiNodedotjs className="techIcon" />,
+    TypeScript: <SiTypescript className="techIcon" />,
+    Python: <SiPython className="techIcon" />,
+    Docker: <SiDocker className="techIcon" />,
+    Flutter: <SiFlutter className="techIcon" />,
+    Redux: <SiRedux className="techIcon" />,
+    "Redux Toolkit": <SiRedux className="techIcon" />,
+    Stripe: <SiStripe className="techIcon" />,
+    "Stripe API": <SiStripe className="techIcon" />,
+    "AI APIs": <SiOpenai className="techIcon" />,
+    "AI Integration": <SiOpenai className="techIcon" />,
+    Figma: <SiFigma className="techIcon" />,
+    SEO: <RiLineChartLine className="techIcon" />,
+    TailwindCSS: <SiTailwindcss className="techIcon" />,
+    WordPress: <SiWordpress className="techIcon" />,
+    WooCommerce: <SiWoocommerce className="techIcon" />,
   };
-  return iconMap[name] || <RiToolsLine className={styles.techIcon} />;
+  return iconMap[name] || <RiToolsLine className="techIcon" />;
 };
 
 /* ===================================================================
@@ -66,7 +65,7 @@ const ProjectCard = ({ project, onNavigate, isActive }) => {
 
   return (
     <div
-      className={`${styles.projectCard} ${isActive ? styles.activeCard : ""}`}
+      className={`projectCard ${isActive ? "activeCard" : ""}`}
       onClick={handleNavigate}
       ref={cardRef}
       tabIndex={0}
@@ -74,40 +73,28 @@ const ProjectCard = ({ project, onNavigate, isActive }) => {
       aria-label={`View project details: ${project.title}`}
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleNavigate()}
     >
-      <div className={styles.imageContainer}>
+      <div className="imageContainer">
         <img
           src={project.coverImage}
           alt={`${project.title} cover`}
-          className={styles.projectImage}
+          className="projectImage"
           loading="lazy"
           decoding="async"
         />
 
         {/* Center Arrow Hover Button */}
-        <div className={styles.centerArrowWrapper}>
+        <div className="centerArrowWrapper">
           <button
             type="button"
-            className={styles.centerArrowBtn}
+            className="centerArrowBtn"
             aria-label={`Open ${project.title} project page`}
             onClick={(e) => {
               e.stopPropagation();
               handleNavigate();
             }}
           >
-            <RiArrowRightUpLine className={styles.centerArrowIcon} />
+            <RiArrowRightUpLine className="centerArrowIcon" />
           </button>
-        </div>
-      </div>
-
-      <div className={styles.cardInfo}>
-        <h3 className={styles.cardTitle}>{project.title}</h3>
-        <div className={styles.techTags}>
-          {project.techStack.slice(0, 3).map((tech) => (
-            <span key={tech} className={styles.techTag}>
-              <TechIcon name={tech} />
-              {tech}
-            </span>
-          ))}
         </div>
       </div>
     </div>
@@ -146,8 +133,8 @@ function ProjectPortfolio({ onNavigate }) {
     }
     const el = descriptionRef.current;
     if (el) {
-      el.classList.remove(styles.isVisible);
-      const t = setTimeout(() => el.classList.add(styles.isVisible), 120);
+      el.classList.remove("isVisible");
+      const t = setTimeout(() => el.classList.add("isVisible"), 120);
       return () => clearTimeout(t);
     }
   }, [currentIndex, isMobile]);
@@ -162,7 +149,7 @@ function ProjectPortfolio({ onNavigate }) {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  const maxIndex = Math.max(projectsData.length - (isMobile ? 1 : 2), 0);
+  const maxIndex = Math.max(projectsData.length - 1, 0);
   const handleNext = () => setCurrentIndex((p) => Math.min(p + 1, maxIndex));
   const handlePrev = () => setCurrentIndex((p) => Math.max(p - 1, 0));
   const handleDotClick = (i) => setCurrentIndex(i);
@@ -256,7 +243,7 @@ function ProjectPortfolio({ onNavigate }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(hasPartSchema) }}
       />
 
-      <main className={styles.projectsWrapper} aria-labelledby="projects-title">
+      <main className="projectsWrapper" aria-labelledby="projects-title">
         {/* H1 for SEO & Header */}
         <header className="sectionHeader">
           <h1 id="projects-title" className="sectionTitle gradientText">
@@ -265,36 +252,36 @@ function ProjectPortfolio({ onNavigate }) {
           </h1>
         </header>
 
-        <div className={`${styles.projectRow} mt-1vw`}>
-          <div className={styles.leftPanel}>
-            <h2 className={`${styles.mainHeading} ${styles.gradientText}`}>
+        <div className="projectRow mt-1vw">
+          <div className="leftPanel">
+            <h2 className="mainHeading gradientText">
               {activeProject ? activeProject.title : "Featured Projects"}
             </h2>
 
             <div
               ref={descriptionRef}
-              className={`${styles.projectDescription} ${styles.isVisible}`}
+              className="projectDescription isVisible"
             >
               {activeProject && (
                 <p key={activeProject.id}>{activeProject.shortDescription}</p>
               )}
-              <p className={styles.inlineCta}>
+              <p className="inlineCta">
                 Looking for something similar?{" "}
                 <button
                   type="button"
                   onClick={() => onNavigate?.("contact")}
-                  className={styles.inlineLinkBtn}
+                  className="inlineLinkBtn"
                 >
                   Start a project →
                 </button>
               </p>
             </div>
 
-            <div className={styles.carouselNav}>
+            <div className="carouselNav">
               <button
                 onClick={handlePrev}
-                className={`${styles.arrowBtn} ${
-                  currentIndex === 0 ? styles.disabled : ""
+                className={`arrowBtn ${
+                  currentIndex === 0 ? "disabled" : ""
                 }`}
                 aria-label="Previous Project"
                 disabled={currentIndex === 0}
@@ -303,8 +290,8 @@ function ProjectPortfolio({ onNavigate }) {
               </button>
               <button
                 onClick={handleNext}
-                className={`${styles.arrowBtn} ${
-                  currentIndex >= maxIndex ? styles.disabled : ""
+                className={`arrowBtn ${
+                  currentIndex >= maxIndex ? "disabled" : ""
                 }`}
                 aria-label="Next Project"
                 disabled={currentIndex >= maxIndex}
@@ -315,13 +302,13 @@ function ProjectPortfolio({ onNavigate }) {
           </div>
 
           <div
-            className={styles.rightPanel}
+            className="rightPanel"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <div className={styles.carouselContainer}>
-              <div className={styles.carouselTrack} ref={trackRef}>
+            <div className="carouselContainer">
+              <div className="carouselTrack" ref={trackRef}>
                 {projectsData.map((project, i) => (
                   <ProjectCard
                     key={project.id}
@@ -334,7 +321,7 @@ function ProjectPortfolio({ onNavigate }) {
             </div>
 
             <div
-              className={styles.dotIndicators}
+              className="dotIndicators"
               role="tablist"
               aria-label="Projects pagination"
             >
@@ -343,8 +330,8 @@ function ProjectPortfolio({ onNavigate }) {
                   key={i}
                   role="tab"
                   aria-selected={i === currentIndex}
-                  className={`${styles.dot} ${
-                    i === currentIndex ? styles.activeDot : ""
+                  className={`dot ${
+                    i === currentIndex ? "activeDot" : ""
                   }`}
                   onClick={() => handleDotClick(i)}
                   aria-label={`Go to project ${i + 1}`}

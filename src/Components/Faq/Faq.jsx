@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import styles from "./Faq.module.css";
+
 /* ---- Content (kept editable) ---- */
 const faqs = [
   {
@@ -111,7 +111,7 @@ export default function FAQ() {
   };
 
   return (
-    <main className={styles.wrap} aria-labelledby="faq-title">
+    <main className="faqWrap" aria-labelledby="faq-title">
       {/* SEO head */}
       <title>FAQ | Frontend Engineer &amp; Web Developer | Ali Ch</title>
       <meta
@@ -129,27 +129,23 @@ export default function FAQ() {
       />
 
       {/* Header */}
-      <header className={styles.header}>
+      <header className="faqHeader">
         <div className="sectionHeader">
-          <h1
-            id="faq-title"
-            className="gradientText
-        sectionTitle"
-          >
+          <h1 id="faq-title" className="gradientText sectionTitle">
             Frequently Asked Questions
           </h1>
           <p className="sectionDek">
             Everything about <strong>React</strong>, <strong>Angular</strong>,
             performance, accessibility, and SEO—how I work and what results to
             expect. Need something else?{" "}
-            <a href="/contact" className={styles.link}>
+            <a href="/contact" className="faqLink">
               Contact me →
             </a>
           </p>
 
-          <div className={styles.searchWrap}>
+          <div className="faqSearchWrap">
             <input
-              className={styles.search}
+              className="faqSearch"
               placeholder="Search questions…"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -160,7 +156,7 @@ export default function FAQ() {
       </header>
 
       {/* FAQ Grid */}
-      <section ref={listRef} className={styles.grid} role="list">
+      <section ref={listRef} className="faqGrid" role="list">
         {filtered.map((f, index) => {
           const id = `${slugify(f.q)}-${index}`;
           const isOpen = openId === id;
@@ -169,26 +165,26 @@ export default function FAQ() {
             <details
               key={id}
               open={isOpen} // Important for accessibility
-              className={`${styles.item} ${isOpen ? styles.isOpen : ""}`}
+              className={`faqItem ${isOpen ? "faqIsOpen" : ""}`}
             >
               <summary
-                className={styles.q}
+                className="faqQ"
                 onClick={(e) => {
                   e.preventDefault();
                   setOpenId(isOpen ? null : id);
                 }}
               >
-                <span className={styles.qText}>{f.q}</span>
-                <span className={styles.chev} />
+                <span className="faqQText">{f.q}</span>
+                <span className="faqChev" />
               </summary>
 
               {/* Transition ke liye ye wrapper zaroori hai */}
-              <div className={styles.aWrap}>
-                <div className={styles.aContent}>
-                  <p className={styles.a}>{f.a}</p>
-                  <div className={styles.itemActions}>
+              <div className="faqAWrap">
+                <div className="faqAContent">
+                  <p className="faqA">{f.a}</p>
+                  <div className="faqItemActions">
                     <button
-                      className={styles.copyLink}
+                      className="faqCopyLink"
                       onClick={(e) => {
                         e.stopPropagation();
                         copyLink(id);
@@ -204,11 +200,11 @@ export default function FAQ() {
         })}
       </section>
       {/* CTA row */}
-      <aside className={styles.ctaRow}>
-        <a href="/projects" className={`${styles.btn} ${styles.btnPrimary}`}>
+      <aside className="faqCtaRow">
+        <a href="/projects" className="btn btnPrimary">
           View Case Studies
         </a>
-        <a href="/services" className={`${styles.btn} ${styles.btnGhost}`}>
+        <a href="/services" className="btn btnGhost">
           See Services
         </a>
       </aside>

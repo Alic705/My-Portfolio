@@ -212,7 +212,10 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
 
             <button
               className="cardBtn detailsBtn"
-              onClick={onFlip}
+              onClick={(e) => {
+                e.stopPropagation();
+                onFlip();
+              }}
               type="button"
               disabled={!isActive}
               aria-expanded={isActive && isFlipped ? "true" : "false"}
@@ -230,7 +233,14 @@ const ServiceCard = ({ service, offset, isFlipped, onFlip, isActive }) => {
               <service.Icon className="backHeaderIcon" />
               <h3 className="backHeaderTitle">{service.title}</h3>
             </div>
-            <button className="closeBtn" onClick={onFlip} aria-label="Close details">
+            <button
+              className="closeBtn"
+              onClick={(e) => {
+                e.stopPropagation();
+                onFlip();
+              }}
+              aria-label="Close details"
+            >
               <RiCloseLine />
             </button>
           </div>
@@ -418,13 +428,17 @@ function ServicesPage({ theme }) {
     changeService(typeof index === "number" ? index : index);
   const handleFlip = () => setIsFlipped((p) => !p);
 
-  const handleTouchStart = (e) =>
-    (touchStartX.current = e.targetTouches[0].clientX);
-  const handleTouchMove = (e) =>
-    (touchEndX.current = e.targetTouches[0].clientX);
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 75) handleNext();
-    if (touchStartX.current - touchEndX.current < -75) handlePrev();
+    const deltaX = touchStartX.current - touchEndX.current;
+    if (deltaX > 75) handleNext();
+    else if (deltaX < -75) handlePrev();
   };
 
   const activeService = services[currentIndex];

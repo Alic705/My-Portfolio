@@ -1,12 +1,11 @@
 import React, { useMemo, useState } from "react";
-import styles from "./Blog.module.css";
 import { POSTS } from "./blogData";
 
 // Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 function formatDay(dateStr) {
   const d = new Date(dateStr);
@@ -75,7 +74,7 @@ export default function Blog() {
 
   return (
     <div className="custom-scale-wrapper">
-      <main className={styles.wrap} aria-labelledby="blog-title">
+      <main className="blogWrap" aria-labelledby="blog-title">
         <title>Engineering Blog | React, Angular &amp; Web Performance | Ali Ch</title>
         <meta
           name="description"
@@ -87,26 +86,26 @@ export default function Blog() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
         />
 
-        <header className={styles.header}>
-          <h1 id="blog-title" className={styles.h1}>
+        <header className="blogHeader">
+          <h1 id="blog-title" className="gradientText sectionTitle">
             Blog
           </h1>
-          <p className={styles.dek}>
+          <p className="sectionDek">
             Latest articles and case breakdowns on <strong>React</strong>,{" "}
             <strong>Angular</strong>, <strong>Core Web Vitals</strong>, and{" "}
             <strong>Technical SEO</strong>.
           </p>
 
-          <div className={styles.filters}>
+          <div className="blogFilters">
             <input
-              className={styles.search}
+              className="blogSearch"
               placeholder="Search articles…"
               value={q}
               onChange={(e) => setQ(e.target.value)}
               aria-label="Search articles"
             />
             <select
-              className={styles.select}
+              className="blogSelect"
               value={tag}
               onChange={(e) => setTag(e.target.value)}
               aria-label="Filter by tag"
@@ -121,14 +120,14 @@ export default function Blog() {
         </header>
 
         {list.length === 0 ? (
-          <div className={styles.empty}>
+          <div className="blogEmpty">
             <p>No articles found matching "{q}". Try a different keyword or category.</p>
           </div>
         ) : (
           /* Carousel */
           <Swiper
-            modules={[Navigation]}
-            navigation
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
             grabCursor={true}
             spaceBetween={24}
             slidesPerView={1}
@@ -138,27 +137,27 @@ export default function Blog() {
               1024: { slidesPerView: 2.5 },
               1200: { slidesPerView: 3 },
             }}
-            className={styles.blogSwiper}
+            className="blogSwiper"
           >
             {list.map((p) => {
               const day = formatDay(p.publishedAt);
               const mon = formatMonthShort(p.publishedAt);
               return (
                 <SwiperSlide key={p.slug}>
-                  <article className={styles.blogCard}>
-                    <a href={`/blog/${p.slug}`} className={styles.blogCardLink}>
-                      <div className={styles.blogCardImg}>
+                  <article className="blogCard">
+                    <a href={`/blog/${p.slug}`} className="blogCardLink">
+                      <div className="blogCardImg">
                         <img src={p.cover} alt={p.title} loading="lazy" />
                       </div>
 
-                      <div className={styles.dateBadge}>
+                      <div className="blogDateBadge">
                         {day} <span>{mon}</span>
                       </div>
 
-                      <div className={styles.cardBody}>
+                      <div className="blogCardBody">
                         <small>{p.author} • {p.tags.slice(0, 2).join(", ")}</small>
                         <h2>{p.title}</h2>
-                        <span className={styles.continueLink}>
+                        <span className="blogContinueLink">
                           Continue Reading →
                         </span>
                       </div>

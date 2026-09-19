@@ -9,7 +9,7 @@
     .portfolio-container {
         flex-direction: column;
         gap: 0;
-        margin-top: 6rem !important;
+        margin-top: 0rem !important;
     }
 
     #main-panel {
@@ -167,11 +167,25 @@
         grid-column: span 1;
     }
 
-    .atAGlanceCard { order: 1; }
-    .cardConnect { order: 2; }
-    .toolkitCard { order: 3; }
-    .cardMainStory { order: 4; }
-    .hobbiesCard { order: 5; }
+    .atAGlanceCard {
+        order: 1;
+    }
+
+    .cardConnect {
+        order: 2;
+    }
+
+    .toolkitCard {
+        order: 3;
+    }
+
+    .cardMainStory {
+        order: 4;
+    }
+
+    .hobbiesCard {
+        order: 5;
+    }
 
     .cardContent {
         padding: 1.2rem;
@@ -488,62 +502,7 @@
     }
 
 
-    /*  */
-    .projectsWrapper {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.75rem;
-        padding: 2rem 1rem;
-    }
-
-    .leftPanel,
-    .rightPanel {
-        width: 100%;
-    }
-
-    .mainHeading {
-        font-size: 2rem;
-    }
-
-    .projectDescription {
-        font-size: 1rem;
-        min-height: unset;
-    }
-
-    .carouselNav {
-        display: none;
-    }
-
-    .carouselTrack {
-        gap: 1rem;
-        padding-right: 0;
-    }
-
-    .projectCard {
-        flex: 0 0 100%;
-        height: 440px;
-        border-radius: 20px;
-    }
-
-    .cardTitle {
-        font-size: 1.1rem;
-    }
-
-    .techTag {
-        font-size: 0.85rem;
-    }
-
-    .dotIndicators {
-        display: flex;
-        justify-content: center;
-        gap: 0.7rem;
-        margin-top: 1.25rem;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-    }
+    /* Legacy projects block removed - updated in main section below */
 
     .modalOverlay {
         padding: 0;
@@ -708,5 +667,1048 @@
         align-items: flex-start;
         padding: 1.4em;
         gap: 1.2em;
+    }
+
+    /* ===== Services Section Mobile Overrides ===== */
+    .container {
+        padding: 0;
+        height: auto;
+        overflow: visible;
+    }
+
+    .sectionHeader {
+        margin-bottom: 0.8rem;
+        text-align: center;
+    }
+
+    .sectionHeader .sectionTitle {
+        font-size: 1.8rem;
+        line-height: 1.25;
+    }
+
+    .sectionHeader .sectionDek {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-width: 100%;
+    }
+
+    .serviceSelectorWrapper {
+        margin-top: 0.4rem;
+        margin-bottom: 1rem;
+        padding: 0.35rem;
+        border-radius: 9999px;
+    }
+
+    .serviceNavItem {
+        font-size: 0.82rem !important;
+        padding: 0.45rem 0.9rem !important;
+    }
+
+    .carouselWrapper {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 380px !important;
+        max-height: none !important;
+        position: relative !important;
+        margin-bottom: 0.8rem !important;
+        perspective: 1000px !important;
+        overflow: hidden !important;
+    }
+
+    .carouselTrack {
+        display: flex !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 380px !important;
+        transform-style: flat !important;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+
+    .serviceCardWrapper {
+        position: relative !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        height: 100% !important;
+        min-height: 380px !important;
+        inset: auto !important;
+        margin: 0 !important;
+        transform: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+        perspective: 1000px !important;
+    }
+
+    .serviceCard {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 380px !important;
+        border-radius: 20px !important;
+        position: relative !important;
+        transform-style: preserve-3d !important;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .serviceCard.isFlipped {
+        transform: rotateY(180deg) !important;
+    }
+
+    .cardFaceFront,
+    .cardFaceBack {
+        position: absolute !important;
+        inset: 0 !important;
+        padding: 1.4rem 1.2rem !important;
+        border-radius: 20px !important;
+        height: 100% !important;
+        min-height: 380px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease !important;
+    }
+
+    .cardFaceFront {
+        transform: rotateY(0deg) !important;
+        z-index: 2 !important;
+    }
+
+    .cardFaceBack {
+        transform: rotateY(180deg) !important;
+        z-index: 1 !important;
+    }
+
+    .serviceCard.isFlipped .cardFaceFront {
+        z-index: 1 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    .serviceCard.isFlipped .cardFaceBack {
+        z-index: 2 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    .cardFaceFront::after,
+    .cardFaceBack::after {
+        border-radius: 20px !important;
+    }
+
+    .cardHeader {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .cardIcon {
+        font-size: 2.2rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    .cardTitle {
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        margin: 0 !important;
+    }
+
+    .cardDescription {
+        font-size: 0.92rem !important;
+        line-height: 1.6 !important;
+        color: var(--svc-muted) !important;
+        margin: 0 0 1rem 0 !important;
+    }
+
+    .servicecardCtas {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.6rem !important;
+        width: 100% !important;
+        margin-top: auto !important;
+    }
+
+    .cardBtn {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        font-size: 0.88rem !important;
+        padding: 0.7rem 1rem !important;
+        border-radius: 9999px !important;
+        box-sizing: border-box !important;
+        font-weight: 600 !important;
+    }
+
+    .backHeader {
+        padding-bottom: 0.6rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+
+    .backHeaderTitle {
+        font-size: 1.05rem !important;
+    }
+
+    .backHeaderIcon {
+        font-size: 1.2rem !important;
+    }
+
+    .closeBtn {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .backContentScroll {
+        gap: 0.8rem !important;
+        padding-right: 0.3rem !important;
+    }
+
+    .detailsTitle,
+    .outcomesTitle {
+        font-size: 0.82rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .detailsList li,
+    .outcomesList li {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.35rem !important;
+        gap: 0.5rem !important;
+        line-height: 1.45 !important;
+    }
+
+    .checkIcon {
+        font-size: 0.85rem !important;
+        margin-top: 2px !important;
+    }
+
+    .impactBullet {
+        width: 5px !important;
+        height: 5px !important;
+        margin-top: 5px !important;
+    }
+
+    .dotIndicators {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 0.4rem !important;
+        margin-top: 0.6rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .dotIndicators .dot {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50% !important;
+        background: var(--svc-muted) !important;
+        opacity: 0.4 !important;
+        border: none !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
+    }
+
+    .dotIndicators .activeDot {
+        width: 22px !important;
+        border-radius: 9999px !important;
+        background: var(--accent-color) !important;
+        opacity: 1 !important;
+    }
+
+    .developerNavWrapper {
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
+        bottom: auto !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        pointer-events: auto !important;
+    }
+
+    .developerNav {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.8rem !important;
+        padding: 0.6rem 1rem !important;
+        border-radius: 9999px !important;
+        background: var(--svc-nav-bg) !important;
+        border: 1px solid var(--svc-nav-border) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+
+    .developerNav .navButton {
+        display: none !important;
+    }
+
+    .devImage {
+        width: 38px !important;
+        height: 38px !important;
+        flex-shrink: 0 !important;
+        border-radius: 50% !important;
+    }
+
+    .devTextContainer {
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: left !important;
+        justify-content: center !important;
+    }
+
+    .devName {
+        font-size: 0.9rem !important;
+        margin-bottom: 2px !important;
+        font-weight: 700 !important;
+        color: var(--svc-text) !important;
+        line-height: 1.2 !important;
+    }
+
+    .devTitle {
+        font-size: 0.75rem !important;
+        color: var(--svc-muted) !important;
+        line-height: 1.3 !important;
+    }
+
+    /* ===== Projects Portfolio & Project Detail Mobile Overrides ===== */
+    .projectsWrapper {
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+
+    .projectRow {
+        flex-direction: column !important;
+        width: 100% !important;
+        height: auto !important;
+        gap: 1rem !important;
+        align-items: stretch !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .leftPanel {
+        width: 100% !important;
+        height: auto !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .leftPanel .mainHeading {
+        font-size: 1.6rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.5rem !important;
+        text-align: center !important;
+    }
+
+    .leftPanel .projectDescription {
+        font-size: 0.92rem !important;
+        line-height: 1.55 !important;
+        min-height: auto !important;
+        text-align: center !important;
+        margin-bottom: 0.8rem !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .carouselNav {
+        justify-content: center !important;
+        gap: 0.8rem !important;
+    }
+
+    .carouselNav .arrowBtn {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
+    }
+
+    .rightPanel {
+        width: 100% !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 0 !important;
+    }
+
+    .carouselContainer {
+        width: 100% !important;
+        height: auto !important;
+        overflow: hidden !important;
+        border-radius: 18px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .carouselTrack {
+        gap: 1rem !important;
+        padding-right: 0 !important;
+    }
+
+    .projectCard {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        height: 240px !important;
+        border-radius: 18px !important;
+    }
+
+    .rightPanel .dotIndicators {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        margin-top: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .rightPanel .dotIndicators .dot {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50% !important;
+        background: var(--proj-muted) !important;
+        opacity: 0.4 !important;
+        border: none !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
+    }
+
+    .rightPanel .dotIndicators .activeDot {
+        width: 22px !important;
+        border-radius: 9999px !important;
+        background: var(--brand-2) !important;
+        opacity: 1 !important;
+    }
+
+    .centerArrowWrapper {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, transparent 70%) !important;
+    }
+
+    .centerArrowBtn {
+        width: 48px !important;
+        height: 48px !important;
+        transform: scale(1) rotate(0deg) !important;
+        background: linear-gradient(135deg, var(--brand-1), var(--brand-2)) !important;
+        border-color: rgba(255, 255, 255, 0.85) !important;
+        box-shadow: 0 8px 24px rgba(110, 45, 233, 0.5) !important;
+    }
+
+    .centerArrowIcon {
+        font-size: 1.4rem !important;
+    }
+
+    /* Project Detail Mobile Overrides */
+    .detailWrapper {
+        padding: 0 0 2rem !important;
+        width: 100% !important;
+    }
+
+    .topBar {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1.2rem !important;
+        padding-bottom: 0.8rem !important;
+    }
+
+    .backButton {
+        font-size: 0.85rem !important;
+        padding: 0.35rem 0.75rem !important;
+    }
+
+    .btnPrimary,
+    .btnGhost {
+        font-size: 0.82rem !important;
+        padding: 0.45rem 0.85rem !important;
+    }
+
+    .heroSection {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .projectTitle {
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .tagline {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1.2rem !important;
+    }
+
+    .metaBar {
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+        padding: 1rem !important;
+        border-radius: 16px !important;
+    }
+
+    .metaItem {
+        width: 100% !important;
+        min-width: auto !important;
+    }
+
+    .showcaseFrame {
+        border-radius: 16px !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .showcaseImage {
+        max-height: 220px !important;
+        border-radius: 16px !important;
+    }
+
+    .narrativeGrid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .storyCard {
+        padding: 1.2rem !important;
+        border-radius: 16px !important;
+    }
+
+    .sectionHeading {
+        font-size: 1.4rem !important;
+    }
+
+    .impactSection,
+    .processSection,
+    .featuresSection,
+    .gallerySection,
+    .testimonialSection,
+    .futureSection {
+        margin-bottom: 2rem !important;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+    }
+
+    .statCard {
+        padding: 1.4rem 1rem !important;
+        border-radius: 16px !important;
+    }
+
+    .statNumber {
+        font-size: 2.2rem !important;
+    }
+
+    .processGrid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+    }
+
+    .processStepCard {
+        padding: 1.2rem !important;
+        border-radius: 16px !important;
+    }
+
+    .featuresGrid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+    }
+
+    .featureCard {
+        padding: 1.2rem !important;
+        border-radius: 16px !important;
+    }
+
+    .galleryMain {
+        border-radius: 16px !important;
+    }
+
+    .galleryImage {
+        max-height: 200px !important;
+    }
+
+    .testimonialCard {
+        padding: 1.4rem !important;
+        border-radius: 16px !important;
+    }
+
+    .quoteText {
+        font-size: 0.98rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .contactCtaBanner {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 1.2rem !important;
+        gap: 1rem !important;
+        border-radius: 16px !important;
+    }
+
+    /* ===== FAQ Mobile Overrides ===== */
+    .faqWrap {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .faqHeader {
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .faqSearchWrap {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 0.8rem !important;
+    }
+
+    .faqSearch {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 0.92rem !important;
+        padding: 0.7rem 1rem !important;
+        border-radius: 12px !important;
+    }
+
+    .faqGrid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+        width: 100% !important;
+        margin-top: 1.2rem !important;
+    }
+
+    .faqItem {
+        border-radius: 14px !important;
+        width: 100% !important;
+    }
+
+    .faqQ {
+        padding: 0.9rem 1rem !important;
+        gap: 0.6rem !important;
+    }
+
+    .faqQText {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+        font-weight: 600 !important;
+    }
+
+    .faqChev {
+        width: 20px !important;
+        height: 20px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .faqAWrap {
+        padding: 0 1rem 0.9rem !important;
+    }
+
+    .faqA {
+        font-size: 0.88rem !important;
+        line-height: 1.55 !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .faqCtaRow {
+        flex-direction: column !important;
+        gap: 0.6rem !important;
+        width: 100% !important;
+        margin-top: 1.5rem !important;
+    }
+
+    .faqCtaRow .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        height: 44px !important;
+    }
+
+    /* ===== Blog Mobile Overrides ===== */
+    .blogWrap {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .blogHeader {
+        text-align: center !important;
+        margin-bottom: 1.2rem !important;
+    }
+
+    .blogFilters {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.6rem !important;
+        margin-top: 0.8rem !important;
+    }
+
+    .blogSearch {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 0.92rem !important;
+        padding: 0.7rem 1rem !important;
+        border-radius: 12px !important;
+    }
+
+    .blogSelect {
+        width: 100% !important;
+        font-size: 0.92rem !important;
+        padding: 0.7rem 1rem !important;
+        border-radius: 12px !important;
+    }
+
+    .blogSwiper {
+        width: 100% !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .blogCard {
+        border-radius: 16px !important;
+        width: 100% !important;
+    }
+
+    .blogCardImg img {
+        height: 200px !important;
+        border-radius: 16px 16px 0 0 !important;
+    }
+
+    .blogDateBadge {
+        padding: 0.4rem 0.6rem !important;
+        font-size: 1rem !important;
+        border-radius: 8px !important;
+        top: 0.6rem !important;
+        left: 0.6rem !important;
+    }
+
+    .blogCardBody {
+        margin: -2rem 0.75rem 0.75rem !important;
+        padding: 1rem 1.1rem !important;
+        border-radius: 14px !important;
+    }
+
+    .blogCardBody h2 {
+        font-size: 1.1rem !important;
+        line-height: 1.35 !important;
+        margin: 0.4rem 0 !important;
+    }
+
+    .blogContinueLink {
+        font-size: 0.88rem !important;
+    }
+
+    /* ===== BlogDetail Mobile Overrides ===== */
+    .blogDetailWrap {
+        width: 100% !important;
+        padding: 0 0 2rem !important;
+    }
+
+    .blogDetailHeader {
+        text-align: center !important;
+        margin-bottom: 1.2rem !important;
+    }
+
+    .blogDetailKicker {
+        font-size: 0.75rem !important;
+        letter-spacing: 0.1em !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .blogDetailH1 {
+        font-size: 1.6rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.6rem !important;
+    }
+
+    .blogDetailMeta {
+        font-size: 0.85rem !important;
+        gap: 0.4rem !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    .blogDetailHero {
+        border-radius: 14px !important;
+        max-height: 220px !important;
+        margin-top: 1rem !important;
+    }
+
+    .blogDetailToc {
+        position: static !important;
+        float: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 1.2rem 0 !important;
+        padding: 1rem !important;
+        border-radius: 14px !important;
+    }
+
+    .blogDetailArticle {
+        font-size: 0.95rem !important;
+        line-height: 1.65 !important;
+        margin-top: 1.2rem !important;
+    }
+
+    .blogDetailArticle h2 {
+        font-size: 1.35rem !important;
+        margin: 1.4rem 0 0.5rem !important;
+    }
+
+    .blogDetailArticle h3 {
+        font-size: 1.15rem !important;
+        margin: 1rem 0 0.4rem !important;
+    }
+
+    .blogDetailArticle blockquote {
+        padding: 0.8rem 1rem !important;
+        font-size: 0.92rem !important;
+        border-radius: 12px !important;
+    }
+
+    .blogDetailArticle pre {
+        padding: 0.9rem !important;
+        border-radius: 12px !important;
+        font-size: 0.82rem !important;
+    }
+
+    .blogDetailPostCtas {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.6rem !important;
+    }
+
+    .blogDetailPostCtas .btnPrimary,
+    .blogDetailPostCtas .btnGhost {
+        width: 100% !important;
+        justify-content: center !important;
+        font-size: 0.88rem !important;
+        height: 44px !important;
+    }
+
+    .blogDetailPager {
+        flex-direction: column !important;
+        gap: 0.6rem !important;
+        width: 100% !important;
+        margin-top: 1.2rem !important;
+    }
+
+    .blogDetailPrev,
+    .blogDetailNext {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 0.88rem !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 12px !important;
+    }
+
+    .blogDetailRelated {
+        margin-top: 2rem !important;
+    }
+
+    .blogDetailRelatedGrid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+    }
+
+    .blogDetailRelatedCard {
+        border-radius: 14px !important;
+    }
+
+    /* ===== Contact Mobile Overrides ===== */
+    .contactCtaContainer {
+        min-height: auto !important;
+        height: auto !important;
+        width: 100% !important;
+        padding: 0.8rem 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .contactPortalView {
+        padding-inline: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .contactHeadlineHeader {
+        height: 75px !important;
+        min-height: 75px !important;
+        margin-bottom: 1rem !important;
+        position: relative !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .contactHeadline {
+        font-size: clamp(1.25rem, 5.2vw, 1.75rem) !important;
+        position: absolute !important;
+        inset: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        line-height: 1.25 !important;
+    }
+
+    .contactPortal {
+        width: 110px !important;
+        height: 110px !important;
+        margin: 0 auto !important;
+    }
+
+    .contactPortalIcon {
+        font-size: 2.2rem !important;
+    }
+
+    .contactCtaSubtitle {
+        font-size: 0.88rem !important;
+        margin-top: 0.8rem !important;
+        line-height: 1.45 !important;
+        max-width: 92% !important;
+        margin-inline: auto !important;
+    }
+
+    .contactFormWrapper,
+    .contactSuccessView {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .contactFormContainer {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .contactFormHeader h2,
+    .contactFormHeader h3 {
+        font-size: 1.6rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.5rem !important;
+        text-align: center !important;
+    }
+
+    .contactStatusWrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        font-size: 0.85rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .contactRow {
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+    }
+
+    .contactHalfWidth {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    .contactFormGroup {
+        margin-bottom: 1rem !important;
+        gap: 0.4rem !important;
+        width: 100% !important;
+    }
+
+    .contactLabel {
+        font-size: 0.9rem !important;
+    }
+
+    .contactFormGroup input,
+    .contactFormGroup textarea,
+    .contactFormGroup select {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.92rem !important;
+        border-radius: 12px !important;
+        height: auto !important;
+    }
+
+    .contactFormGroup input {
+        height: 46px !important;
+    }
+
+    .contactSubmitBtn {
+        height: 48px !important;
+        min-height: 48px !important;
+        font-size: 0.95rem !important;
+        border-radius: 12px !important;
+    }
+
+    .contactPrivacyNote {
+        font-size: 0.75rem !important;
+        margin: 1rem 0 !important;
+        text-align: center !important;
+    }
+
+    .contactSocialsFooter {
+        margin-top: 1.5rem !important;
+        text-align: center !important;
+    }
+
+    .contactSuccessView {
+        padding: 1rem 0 !important;
+        text-align: center !important;
+    }
+
+    .contactSuccessIcon {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 auto !important;
+    }
+
+    .contactSuccessView h3 {
+        font-size: 1.4rem !important;
+        margin: 0.8rem 0 0.3rem !important;
+    }
+
+    .contactSuccessView > p {
+        font-size: 0.9rem !important;
+    }
+
+    .contactNextSteps {
+        padding: 1rem !important;
+        border-radius: 14px !important;
+        margin-top: 1rem !important;
+    }
+
+    .contactNextSteps h4 {
+        font-size: 1.1rem !important;
+    }
+
+    .contactNextSteps p {
+        font-size: 0.88rem !important;
+    }
+
+    .contactResetButton {
+        width: 100% !important;
+        height: 44px !important;
+        font-size: 0.92rem !important;
+        border-radius: 12px !important;
+        margin-top: 1rem !important;
     }
 }
