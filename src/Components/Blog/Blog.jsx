@@ -86,7 +86,7 @@ export default function Blog() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
         />
 
-        <header className="blogHeader">
+        <header className="blogHeader sectionHeader">
           <h1 id="blog-title" className="gradientText sectionTitle">
             Blog
           </h1>

@@ -147,7 +147,7 @@ const Home = ({ onNavigate }) => {
             aria-label="Capabilities"
           >
             <div className="marqueeTrack">
-              {[...marqueeItems, ...marqueeItems].map((item, idx) => (
+              {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, idx) => (
                 <span
                   key={`${item.label}-${idx}`}
                   className="marqueeItem"

@@ -352,64 +352,36 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
       page: "home",
       label: "Home",
       icon: "ph-bold ph-house",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&q=80",
     },
     {
       page: "about",
       label: "About",
       icon: "ph-bold ph-user",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=800&q=80",
     },
     {
       page: "services",
       label: "Services",
       icon: "ph-bold ph-gear",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
     },
     {
       page: "projects",
       label: "Projects",
       icon: "ph-bold ph-briefcase",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1572177812156-58036aae439c?w=800&q=80",
     },
-    // {
-    //   page: "testimonials",
-    //   label: "Reviews",
-    //   icon: "ph-bold ph-quotes",
-    //   backgroundImage:
-    //     "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80",
-    // },
-    // {
-    //   page: "uses",
-    //   label: "Uses",
-    //   icon: "ph-bold ph-wrench",
-    //   backgroundImage:
-    //     "https://images.unsplash.com/photo-1506784983877-45594efa4c85?w=800&q=80",
-    // },
     {
       page: "faq",
       label: "FAQ",
       icon: "ph-bold ph-question",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?w=800&q=80",
     },
     {
       page: "blog",
       label: "Blog",
       icon: "ph-bold ph-newspaper",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1519337265831-281ec6cc8514?w=800&q=80",
     },
     {
       page: "contact",
       label: "Contact",
       icon: "ph-bold ph-paper-plane-tilt",
-      backgroundImage:
-        "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&q=80",
     },
   ];
 
@@ -634,16 +606,6 @@ const Navbar = ({ activePage, onNavigate, theme, setTheme }) => {
       </header>
 
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? "open" : ""}`}>
-        <div className="menu-background-container">
-          {navItems.map((item) => (
-            <div
-              key={item.page}
-              className={`menu-background-image ${hoveredItem === item.page ? "visible" : ""
-                }`}
-              style={{ backgroundImage: `url(${item.backgroundImage})` }}
-            />
-          ))}
-        </div>
         <nav
           className={`mobile-menu-links ${hoveredItem ? "is-hovering" : ""}`}
           ref={navLinksRef}
