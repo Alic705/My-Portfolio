@@ -14,7 +14,7 @@
   justify-content: center;
   box-shadow: 0 0.3vw 0.8vw rgba(0, 0, 0, 0.28);
   z-index: 9999;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, bottom 0.3s ease, right 0.3s ease;
   text-decoration: none;
   font-size: 1.6vw;
 }
@@ -29,6 +29,12 @@
   display: block;
 }
 
+/* When bot is present: neatly stacked above the bot icon */
+.whatsapp-widget.has-bot {
+  bottom: 90px;
+  right: 24px;
+}
+
 @media (max-width: 767px) {
   .whatsapp-widget {
     bottom: 1.25rem;
@@ -39,5 +45,10 @@
     min-height: 44px;
     font-size: 24px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  }
+
+  .whatsapp-widget.has-bot {
+    bottom: 86px;
+    right: 20px;
   }
 }
